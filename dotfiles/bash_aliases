@@ -1,0 +1,12 @@
+################################################################################
+# General
+################################################################################
+alias ls='ls -hF --group-directories-first --color=auto --hide=Desktop'
+alias ll='ls -lhF --color=auto'
+alias l='ll'
+alias la='ls -AhF --color=auto'
+alias li='ls -lhF --color=yes | less -R'
+alias less='less -r'
+alias grep='grep --color'
+alias mkdir='mkdir -p'
+alias scpr='rsync --partial --progress --rsh=ssh'

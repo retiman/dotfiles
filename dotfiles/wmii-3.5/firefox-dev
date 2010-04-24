@@ -1,0 +1,2 @@
+#!/bin/sh
+firefox -P dev -no-remote &

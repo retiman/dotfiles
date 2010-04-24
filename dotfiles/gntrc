@@ -1,0 +1,27 @@
+[general]
+mouse = 1
+
+[buddylist::menu]
+c-t = send-im
+c-a = add-buddy
+c-g = add-group
+c-c = window-close
+
+[GntEntry::remap]
+c-c = window-close
+
+[GntWM::binding]
+c-a = action-list
+c-b = move-back
+c-c = window-close
+c-f = move-down
+c-n = window-next
+c-p = window-prev
+c-w = window-list
+c-q = wm-quit
+c-r = start-resize
+
+[GntTree::binding]
+c-f = move-down
+c-b = move-up
+c-c = window-close

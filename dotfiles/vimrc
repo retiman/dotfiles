@@ -1,0 +1,68 @@
+set autoindent
+set backspace=indent,eol,start
+set complete=.,w,b,t,i
+set expandtab
+set fileformat=unix
+set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:-
+set guioptions+=c
+set history=50
+set hlsearch
+set incsearch
+set ignorecase
+set indentexpr=
+set infercase
+set laststatus=2
+set lazyredraw
+set listchars=tab:··
+"set mouse=a
+set nobackup
+set nocompatible
+set noerrorbells
+set nofoldenable
+set novisualbell
+set pastetoggle=<F9>
+set ruler
+set selection=inclusive
+set selectmode=mouse
+set shiftwidth=2
+set showcmd
+set showmode
+set showmatch
+set smartindent
+set smarttab
+set softtabstop=2
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set tabstop=2
+set termencoding=utf-8
+set wildmenu
+set wildchar=<TAB>
+set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
+set wildmode=list:full
+
+syntax on
+colorscheme default
+filetype plugin indent on
+
+map gc gdb<C-W>f
+map <C-H> <C-W>h
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-_> <C-w>_
+
+nmap ,t :set expandtab! list!
+nmap ,e :set expandtab!
+nmap ,l :set list!
+nmap ,a :set autochdir!
+nmap ,h :set hlsearch!
+nmap ,n :set number!
+
+nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+augroup comments
+  autocmd FileType c,java,scala set comments=sr:/*,mb:*,el:*/,://
+  autocmd FileType c,java,scala set formatoptions+=croql
+augroup end
+
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)

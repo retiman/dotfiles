@@ -1,0 +1,149 @@
+################################################################################
+# Development
+################################################################################
+function git-cd {
+  pushd .
+  while [ ! -d .git ]; do
+    cd ..
+    if [ $(pwd) = '/' ]; then
+      echo 'Not in a git repo.' >&1
+      popd
+      return
+    fi
+  done
+  popd
+  cd -
+}
+
+function git-dance {
+  git checkout --track -b $1 origin/$1
+}
+
+function git-parse-dirty {
+  MESSAGE="nothing to commit (working directory clean)"
+  [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
+}
+function git-parse-branch {
+  git branch --no-color 2> /dev/null |
+  sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(git-parse-dirty)\)/"
+}
+
+################################################################################
+# Other
+################################################################################
+function termname {
+  echo -ne "\033]0;$@\007"
+}
+
+function gfind {
+  find . -name "*$1*"
+}
+
+function fuseremount {
+  fusermount -u /media/network
+  fusesmb /media/network
+}
+
+function buntar {
+  tar xvfj "$1" && rm "$1"
+}
+function guntar {
+  tar xvfz "$1" && rm "$1"
+}
+
+function bin2iso {
+  bchunk "$1.bin" "$1.cue" "$1.iso"
+}
+
+function promptcolors {
+  local BLUE="\[\033[0;34m\]"
+  local RED="\[\033[0;31m\]"
+  local GREEN="\[\033[0;32m\]"
+  local WHITE="\[\033[1;37m\]"
+  local CYAN="\[\033[0;36m\]"
+  local PURPLE="\[\033[0;35m\]"
+  local BROWN="\[\033[0;33m\]"
+  local YELLOW="\[\033[1;33m\]"
+  local LIGHT_BLUE="\[\033[1;32m\]"
+  local LIGHT_RED="\[\033[1;31m\]"
+  local LIGHT_GREEN="\[\033[1;32m\]"
+  local LIGHT_GRAY="\[\033[0;37m\]"
+  local LIGHT_CYAN="\[\033[1;36m\]"
+  local LIGHT_PURPLE="\[\033[1;35m\]"
+  PS1="$GREEN[\u@\h:\W$RED\$(git-parse-branch)$GREEN]\$\[\033[0m\] "
+  PS2='> '
+  PS4='+ '
+}
+
+################################################################################
+# Video conversion
+################################################################################
+function vidmute {
+  mencoder "$1" -ovc copy -nosound -o "muted-$1"
+}
+
+function vidcopy {
+  ffmpeg -i "$1" -vcodec copy -acodec copy "$1.avi"
+}
+
+function flv2avi {
+  vidcopy "$1" && \
+  vid2avi "$1.avi" && \
+  rm "$1.avi"
+}
+
+function vid2ipod {
+  ffmpeg -y -i "$1" -pass 1 -vcodec libx264 -vpre fastfirstpass -vpre ipod640 \
+         -b 512k -bt 512k -s 640x480 -threads 0 -f ipod -an /dev/null &&
+  ffmpeg -i $F -pass 2 -acodec libfaac -ab 128k -ac 2 -vcodec libx264 \
+         -vpre normal -vpre ipod640 -b 512k -bt 512k -s 640x480 -threads 0 \
+         -f ipod "$1.mp4"
+}
+
+function vob2avi {
+  ffmpeg -i "$1" -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame \
+         -ab 128k "$1.avi"
+}
+
+function asf2avi {
+  mencoder -oac mp3lame -ovc lavc -of mpeg -mpegopts format=dvd \
+           -vf scale=720:480,harddup -srate 48000 -af lavcresample=48000 \
+           -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=18:aspect=4/3:acodec=ac3:abitrate=192 \
+           -ofps 30000/1001 -o "$1.avi" "$1"
+}
+
+function vid2avi {
+  mencoder "$1" -ovc lavc -oac mp3lame -o "$1.avi"
+}
+
+function wmv2avi {
+  mencoder "$1" -ofps 23.976 -ovc lavc -oac copy -o "$1.avi"
+}
+
+################################################################################
+# Audio conversion
+################################################################################
+function flac2mp3 {
+  flac -cd "$1" | lame -h - "$2"
+}
+
+function vid2mp3 {
+  mplayer -vc null -vo null -ao pcm -benchmark "$1" && \
+  lame audiodump.wav "$1.mp3" && \
+  rm audiodump.wav
+}
+
+################################################################################
+# Image conversion
+################################################################################
+function vid2img {
+  ffmpeg -i "$1" -r 1 -s WxH -f image2 "$1-%03d.jpg"
+}
+
+function img2vid {
+  ffmpeg -i "$1" -r 12 -s WxH -f image2 "$1.avi"
+}
+
+function imgshrink {
+  convert -sample $1x$1 $2 shrunk-$2
+}

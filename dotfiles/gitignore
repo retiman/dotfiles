@@ -1,0 +1,15 @@
+.classpath
+.gitignore
+.project
+.settings
+build
+local.properties
+nbproject
+nbproject/*
+pkg
+target
+target/*
+test.properties
+nbbuild.xml
+*.swp
+*~

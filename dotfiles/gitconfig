@@ -1,0 +1,19 @@
+[user]
+  name = Min Huang
+  email = min.huang@alumni.usc.edu
+  signingkey = "5DB05144"
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+  editor = vi
+  excludesfile = /home/minhuang/.gitignore
+[alias]
+  ci = commit
+  co = checkout
+  br = branch
+  lg = log -p --stat
+  st = status
+  ar = !git-auto-rm
+  pull = pull --stat

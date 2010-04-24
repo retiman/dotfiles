@@ -1,0 +1,5 @@
+passwordDialog: true
+shareDesktop: true
+*multiClickTime: 400
+XTerm*visualBell: False
+XTerm*audibleBell: False

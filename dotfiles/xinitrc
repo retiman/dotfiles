@@ -1,0 +1,5 @@
+# Start wmii if running startx
+eval `ssh-agent`
+while true; do
+  wmii
+done

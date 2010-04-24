@@ -1,0 +1,67 @@
+###############################################################################
+# Personal
+###############################################################################
+PES_JAR=$HOME/proj/lousycoder/pes/target/pes-1.4.jar
+
+###############################################################################
+# Java
+###############################################################################
+export ANT_OPTS="-Xms1024M -Xmx1024M"
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+export JDK_HOME=/usr
+export JAVA_HOME=/usr
+export JAVA_COMPILER=jitc
+export M2_HOME=$HOME/opt/maven
+export M2_REPO=$HOME/.m2/repository
+export NB_HOME="$HOME/opt/netbeans"
+export CLASSPATH=.:$PES_JAR:$CLASSPATH
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:$JAVA_LIB:$CLASSPATH
+
+###############################################################################
+# Scala
+###############################################################################
+export SCALA_HOME=/usr
+export SBT_HOME=$HOME/opt/sbt
+
+###############################################################################
+# Ruby
+###############################################################################
+export RUBY_HOME=/usr
+export GEM_HOME=/var/lib/gems/1.8
+
+###############################################################################
+# Haskell
+###############################################################################
+export GHCRTS="-K512M"
+
+###############################################################################
+# Debian package maintenance
+###############################################################################
+export GPGKEY=5DB05144
+export DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
+export DEBFULLNAME="Min Huang"
+
+###############################################################################
+# Browser Extensions
+###############################################################################
+export DEPOT_TOOLS_HOME=$HOME/proj/google/depot-tools
+export GYP_GENERATORS=make
+export LD_LIBRARY_PATH=/usr/lib/xulrunner-1.9:$LD_LIBRARY_PATH
+
+###############################################################################
+# Other
+###############################################################################
+export GIT=lousycod@lousycoder.com:/home/lousycod/local/share/git
+export GIT_EDITOR=vi
+export SVN_EDITOR=vi
+export WINE_PREFIX="$HOME/.wine"
+
+###############################################################################
+# Bash
+###############################################################################
+export PATH=$HOME/bin:/sbin:$PATH
+export PATH=$M2_HOME/bin:$GEM_HOME/bin:$DEPOT_TOOLS_HOME:$PATH
+source ~/.bash_aliases
+source ~/.bash_functions
+eval $(dircolors -b $HOME/.dircolors)
+promptcolors

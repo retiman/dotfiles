@@ -1,0 +1,28 @@
+" bash
+autocmd BufNewFile,BufRead .bash_functions setf sh
+autocmd BufNewFile,BufRead .bash_aliases setf sh
+
+" html
+autocmd BufNewFile,BufRead *.sst setf html
+autocmd BufNewFile,BufRead *.ejs setf html
+
+" javascript
+autocmd BufNewFile,BufRead *.js.erb,*.js,*.jsm,*.json setf javascript
+
+" ruby
+autocmd BufNewFile,BufRead .irbrc setf ruby
+
+" scala
+autocmd BufNewFile,BufRead *.scala setf scala
+
+" sh
+autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
+
+" vimperator
+autocmd BufNewFile,BufRead .vimperatorrc,vimperatorrc,*.vimp setf vimperator
+
+" xml
+autocmd BufNewFile,BufRead resin.conf,resin.conf.orig setf xml
+autocmd BufNewFile,BufRead *.xul setf xml
+autocmd BufNewFile,BufRead *.rdf setf xml
+autocmd BufNewFile,BufRead *.rdf.erb setf xml
