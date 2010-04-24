@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+puts "Symlinking dot files"
+Dir["#{File.expand_path(File.dirname(__FILE__))}/dotfiles/*"].each do |f|
+  original = "#{home_dir}/.#{File.basename(f)}".strip
+  exists   = File.exists? original
+  if !exists
+    FileUtils.rm_rf original
+    FileUtils.ln_s f, original
+    puts "Symlinked: #{original}"
+  else
+    puts "Skipped: #{original}"
+  end
+end
+puts "Done"
