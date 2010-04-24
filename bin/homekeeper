@@ -2,8 +2,8 @@
 require 'fileutils'
 
 puts "Symlinking dot files"
-Dir["#{File.expand_path(File.dirname(__FILE__))}/dotfiles/*"].each do |f|
-  original = "#{home_dir}/.#{File.basename(f)}".strip
+Dir["#{File.expand_path(File.dirname(__FILE__))}/../dotfiles/*"].each do |f|
+  original = "#{ENV['HOME']}/.#{File.basename(f)}".strip
   exists   = File.exists? original
   if !exists
     FileUtils.rm_rf original
