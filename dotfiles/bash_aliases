@@ -1,7 +1,7 @@
 ################################################################################
 # General
 ################################################################################
-alias ls='ls -hF --group-directories-first --color=auto --hide=Desktop'
+alias ls='ls -hF --group-directories-first --color=auto'
 alias ll='ls -lhF --color=auto'
 alias l='ll'
 alias la='ls -AhF --color=auto'
