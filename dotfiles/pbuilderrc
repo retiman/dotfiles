@@ -1,13 +1,11 @@
-DATA=/home/data
+BASETGZ="/var/cache/pbuilder/base.tgz"
+BUILDRESULT="/var/cache/pbuilder/result"
+BUILDPLACE="/var/cache/pbuilder/build"
+APTCACHE="/var/cache/pbuilder/aptcache"
+BINDMOUNTS="/var/cache/pbuilder/result"
+HOOKDIR="/var/cache/pbuilder/hooks"
 
-BASETGZ="$DATA/var/cache/pbuilder/base.tgz"
-BUILDRESULT="$DATA/var/cache/pbuilder/result"
-BUILDPLACE="$DATA/var/cache/pbuilder/build"
-APTCACHE="$DATA/var/cache/pbuilder/aptcache"
-BINDMOUNTS="$DATA/var/cache/pbuilder/result"
-HOOKDIR="$DATA/var/cache/pbuilder/hooks"
-
-MIRRORSITE="ftp://mirrors.usc.edu/debian/"
+MIRRORSITE="ftp://ftp.debian.org/debian/"
 COMPONENTS="main contrib non-free"
 DISTRIBUTION=sid
 #EXTRAPACKAGES="default-jdk default-jre openjdk-6-jdk ant"
