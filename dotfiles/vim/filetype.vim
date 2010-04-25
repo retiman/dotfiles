@@ -1,13 +1,13 @@
 " bash
-autocmd BufNewFile,BufRead .bash_functions setf sh
-autocmd BufNewFile,BufRead .bash_aliases setf sh
+autocmd BufNewFile,BufRead .bash_functions,bash_functions setf sh
+autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf sh
 
 " html
 autocmd BufNewFile,BufRead *.sst setf html
-autocmd BufNewFile,BufRead *.ejs setf html
 
 " javascript
-autocmd BufNewFile,BufRead *.js.erb,*.js,*.jsm,*.json setf javascript
+autocmd BufNewFile,BufRead *.js.erb
+autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
 
 " ruby
 autocmd BufNewFile,BufRead .irbrc setf ruby
