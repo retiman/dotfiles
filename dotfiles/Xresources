@@ -1,3 +1,4 @@
+Xft.dpi: 96.0
 passwordDialog: true
 shareDesktop: true
 *multiClickTime: 400
