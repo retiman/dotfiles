@@ -10,3 +10,10 @@ alias less='less -r'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias scpr='rsync --partial --progress --rsh=ssh'
+
+################################################################################
+# Development
+################################################################################
+alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB05144'
+alias pbuilderlogin='sudo pbuilder login --save-after-login'
+alias mvnf='mvn -Dmaven.test.skip=true'
