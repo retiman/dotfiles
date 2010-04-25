@@ -1,7 +1,7 @@
 ###############################################################################
 # Personal
 ###############################################################################
-PES_JAR=$HOME/proj/lousycoder/pes/target/pes-1.4.jar
+PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
 
 ###############################################################################
 # Java
@@ -13,7 +13,7 @@ export JAVA_HOME=/usr
 export JAVA_COMPILER=jitc
 export M2_HOME=$HOME/opt/maven
 export M2_REPO=$HOME/.m2/repository
-export NB_HOME="$HOME/opt/netbeans"
+export NB_HOME=$HOME/opt/netbeans
 export CLASSPATH=.:$PES_JAR:$CLASSPATH
 export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:$JAVA_LIB:$CLASSPATH
 
@@ -54,7 +54,7 @@ export LD_LIBRARY_PATH=/usr/lib/xulrunner-1.9:$LD_LIBRARY_PATH
 export GIT=lousycod@lousycoder.com:/home/lousycod/local/share/git
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
-export WINE_PREFIX="$HOME/.wine"
+export WINE_PREFIX=$HOME/.wine
 
 ###############################################################################
 # Bash
