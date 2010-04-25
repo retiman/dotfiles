@@ -1,6 +1,0 @@
-#!/usr/bin/ruby
-print `cat /proc/acpi/ibm/thermal`.
-    sub(/temperatures:\s+/, '').
-    split(' ').
-    take(3).
-    join(' ')
