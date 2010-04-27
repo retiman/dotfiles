@@ -44,9 +44,10 @@ export DEBFULLNAME="Min Huang"
 ###############################################################################
 # Browser Extensions
 ###############################################################################
+export XULRUNNER_HOME=/usr/lib/xulrunner-1.9.1
 export DEPOT_TOOLS_HOME=$HOME/proj/google/depot-tools
 export GYP_GENERATORS=make
-export LD_LIBRARY_PATH=/usr/lib/xulrunner-1.9:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$XUL_RUNNER_HOME:$LD_LIBRARY_PATH
 
 ###############################################################################
 # Other
