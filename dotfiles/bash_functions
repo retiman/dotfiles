@@ -23,6 +23,7 @@ function git-parse-dirty {
   MESSAGE="nothing to commit (working directory clean)"
   [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
 }
+
 function git-parse-branch {
   git branch --no-color 2> /dev/null |
   sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(git-parse-dirty)\)/"
