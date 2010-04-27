@@ -29,6 +29,12 @@ function git-parse-branch {
   sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(git-parse-dirty)\)/"
 }
 
+function xpcshell {
+  pushd $XULRUNNER_HOME
+  ./run-mozilla.sh ./xpcshell
+  popd
+}
+
 ################################################################################
 # Other
 ################################################################################
