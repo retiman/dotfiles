@@ -1,4 +1,5 @@
 " bash
+autocmd BufNewFile,BufRead .bash_profile,bash_profile setf sh
 autocmd BufNewFile,BufRead .bash_functions,bash_functions setf sh
 autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf sh
 
