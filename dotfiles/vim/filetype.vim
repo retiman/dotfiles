@@ -6,7 +6,7 @@ autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf sh
 autocmd BufNewFile,BufRead *.sst setf html
 
 " javascript
-autocmd BufNewFile,BufRead *.js.erb
+autocmd BufNewFile,BufRead *.js.erb setf javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
 
 " ruby
