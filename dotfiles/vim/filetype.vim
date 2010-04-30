@@ -29,4 +29,5 @@ autocmd BufNewFile,BufRead *.xul setf xml
 autocmd BufNewFile,BufRead *.rdf setf xml
 autocmd BufNewFile,BufRead *.rdf.erb setf xml
 
+" text
 autocmd BufNewFile,BufRead *.md setf text
