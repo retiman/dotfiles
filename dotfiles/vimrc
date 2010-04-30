@@ -58,13 +58,26 @@ nmap ,a :set autochdir!
 nmap ,h :set hlsearch!
 nmap ,n :set number!
 
+" Map F4 to strip all trailing whitespace
 nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Map F5 to toggle highlighting of really long lines
+highlight OverColLimit ctermbg=darkblue
+nnoremap <silent> <F5>
+      \ :if exists('w:long_line_match') <Bar>
+      \   silent! call matchdelete(w:long_line_match) <Bar>
+      \   unlet w:long_line_match <Bar>
+      \ elseif &textwidth > 0 <Bar>
+      \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
+      \ else <Bar>
+      \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
+      \ endif<CR>
+
+" Highlight all trailing whitespace
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 augroup comments
   autocmd FileType c,java,scala set comments=sr:/*,mb:*,el:*/,://
   autocmd FileType c,java,scala set formatoptions+=croql
 augroup end
 
-highlight OverColLimit ctermbg=darkblue
-au BufWinEnter * let w:m2=matchadd('OverColLimit', '\%>80v.\+', -1)
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
