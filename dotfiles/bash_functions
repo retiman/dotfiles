@@ -50,6 +50,10 @@ function guntar {
   tar xvfz "$1" && rm "$1"
 }
 
+function find-broken-symlinks {
+  find . -type l | (while read FN ; do test -e "$FN" || ls -ld "$FN"; done)
+}
+
 function bin2iso {
   bchunk "$1.bin" "$1.cue" "$1.iso"
 }
