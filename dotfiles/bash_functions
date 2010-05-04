@@ -45,6 +45,7 @@ function termname {
 function buntar {
   tar xvfj "$1" && rm "$1"
 }
+
 function guntar {
   tar xvfz "$1" && rm "$1"
 }
