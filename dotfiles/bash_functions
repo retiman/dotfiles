@@ -42,11 +42,6 @@ function termname {
   echo -ne "\033]0;$@\007"
 }
 
-function fuseremount {
-  fusermount -u /media/network
-  fusesmb /media/network
-}
-
 function buntar {
   tar xvfj "$1" && rm "$1"
 }
