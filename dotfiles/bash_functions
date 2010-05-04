@@ -42,10 +42,6 @@ function termname {
   echo -ne "\033]0;$@\007"
 }
 
-function gfind {
-  find . -name "*$1*"
-}
-
 function fuseremount {
   fusermount -u /media/network
   fusesmb /media/network
