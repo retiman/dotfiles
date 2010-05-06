@@ -57,6 +57,7 @@ nmap ,l :set list!
 nmap ,a :set autochdir!
 nmap ,h :set hlsearch!
 nmap ,n :set number!
+nmap ,w :set wrap!
 
 " Map F4 to strip all trailing whitespace
 nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>

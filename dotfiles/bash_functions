@@ -40,20 +40,16 @@ function termname {
   echo -ne "\033]0;$@\007"
 }
 
-function gfind {
-  find . -name "*$1*"
-}
-
-function fuseremount {
-  fusermount -u /media/network
-  fusesmb /media/network
-}
-
 function buntar {
   tar xvfj "$1" && rm "$1"
 }
+
 function guntar {
   tar xvfz "$1" && rm "$1"
+}
+
+function find-broken-symlinks {
+  find . -type l | (while read FN ; do test -e "$FN" || ls -ld "$FN"; done)
 }
 
 function bin2iso {
