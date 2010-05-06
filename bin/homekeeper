@@ -11,7 +11,7 @@ Dir["#{File.expand_path(File.dirname(__FILE__))}/../dotfiles/*"].each do |f|
     FileUtils.cp_r original, 'tmp'
     FileUtils.rm_rf original
   end
-  FileUtils.ln_s f, original
+  FileUtils.ln_sf f, original
   puts "Symlinked: #{original}"
 end
 
