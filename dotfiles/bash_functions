@@ -119,7 +119,9 @@ function vid2avi {
 }
 
 function wmv2avi {
-  mencoder "$1" -ofps 23.976 -ovc lavc -oac copy -o "$1.avi"
+  for F in $@; do
+    mencoder "$F" -ofps 23.976 -ovc lavc -oac copy -o "$F.avi"
+  done
 }
 
 ################################################################################
