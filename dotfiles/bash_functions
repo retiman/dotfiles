@@ -153,7 +153,3 @@ function img2vid {
     ffmpeg -i "$F" -r 12 -s WxH -f image2 "$F.avi"
   done
 }
-
-function imgshrink {
-  convert -sample $1x$1 $2 shrunk-$2
-}
