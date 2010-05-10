@@ -126,24 +126,32 @@ function wmv2avi {
 # Audio conversion
 ################################################################################
 function flac2mp3 {
-  flac -cd "$1" | lame -h - "$2"
+  for F in $@; do
+    flac -cd "$F" | lame -h - "$F.mp3"
+  done
 }
 
 function vid2mp3 {
-  mplayer -vc null -vo null -ao pcm -benchmark "$1" && \
-  lame audiodump.wav "$1.mp3" && \
-  rm audiodump.wav
+  for F in $@; do
+    mplayer -vc null -vo null -ao pcm -benchmark "$F" && \
+    lame audiodump.wav "$F.mp3" && \
+    rm audiodump.wav
+  done
 }
 
 ################################################################################
 # Image conversion
 ################################################################################
 function vid2img {
-  ffmpeg -i "$1" -r 1 -s WxH -f image2 "$1-%03d.jpg"
+  for F in $@; do
+    ffmpeg -i "$F" -r 1 -s WxH -f image2 "$F-%03d.jpg"
+  done
 }
 
 function img2vid {
-  ffmpeg -i "$1" -r 12 -s WxH -f image2 "$1.avi"
+  for F in $@; do
+    ffmpeg -i "$F" -r 12 -s WxH -f image2 "$F.avi"
+  done
 }
 
 function imgshrink {
