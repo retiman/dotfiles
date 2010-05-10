@@ -81,41 +81,55 @@ function promptcolors {
 # Video conversion
 ################################################################################
 function vidmute {
-  mencoder "$1" -ovc copy -nosound -o "muted-$1"
+  for F in $@; do
+    mencoder "$F" -ovc copy -nosound -o "muted-$F"
+  done
 }
 
 function vidcopy {
-  ffmpeg -i "$1" -vcodec copy -acodec copy "$1.avi"
+  for F in $@; do
+    ffmpeg -i "$F" -vcodec copy -acodec copy "$F.avi"
+  done
 }
 
 function flv2avi {
-  vidcopy "$1" && \
-  vid2avi "$1.avi" && \
-  rm "$1.avi"
+  for F in $@; do
+    vidcopy "$F" && \
+    vid2avi "$F.avi" && \
+    rm "$F.avi"
+  done
 }
 
 function vid2ipod {
-  ffmpeg -y -i "$1" -pass 1 -vcodec libx264 -vpre fastfirstpass -vpre ipod640 \
-         -b 512k -bt 512k -s 640x480 -threads 0 -f ipod -an /dev/null &&
-  ffmpeg -i $F -pass 2 -acodec libfaac -ab 128k -ac 2 -vcodec libx264 \
-         -vpre normal -vpre ipod640 -b 512k -bt 512k -s 640x480 -threads 0 \
-         -f ipod "$1.mp4"
+  for F in $@; do
+    ffmpeg -y -i "$F" -pass 1 -vcodec libx264 -vpre fastfirstpass -vpre ipod640 \
+           -b 512k -bt 512k -s 640x480 -threads 0 -f ipod -an /dev/null &&
+    ffmpeg -i "$F" -pass 2 -acodec libfaac -ab 128k -ac 2 -vcodec libx264 \
+           -vpre normal -vpre ipod640 -b 512k -bt 512k -s 640x480 -threads 0 \
+           -f ipod "$F.mp4"
+  done
 }
 
 function vob2avi {
-  ffmpeg -i "$1" -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame \
-         -ab 128k "$1.avi"
+  for F in $@; do
+    ffmpeg -i "$F" -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame \
+           -ab 128k "$F.avi"
+  done
 }
 
 function asf2avi {
-  mencoder -oac mp3lame -ovc lavc -of mpeg -mpegopts format=dvd \
-           -vf scale=720:480,harddup -srate 48000 -af lavcresample=48000 \
-           -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=18:aspect=4/3:acodec=ac3:abitrate=192 \
-           -ofps 30000/1001 -o "$1.avi" "$1"
+  for F in $@; do
+    mencoder -oac mp3lame -ovc lavc -of mpeg -mpegopts format=dvd \
+             -vf scale=720:480,harddup -srate 48000 -af lavcresample=48000 \
+             -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=18:aspect=4/3:acodec=ac3:abitrate=192 \
+             -ofps 30000/1001 -o "$F.avi" "$F"
+  done
 }
 
 function vid2avi {
-  mencoder "$1" -ovc lavc -oac mp3lame -o "$1.avi"
+  for F in $@; do
+    mencoder "$F" -ovc lavc -oac mp3lame -o "$F.avi"
+  done
 }
 
 function wmv2avi {
