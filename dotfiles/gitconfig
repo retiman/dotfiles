@@ -16,4 +16,6 @@
   lg = log -p --stat
   st = status
   ar = !git-auto-rm
+  su = submodule update
+  psu = !git pull --stat && git submodule update
   pull = pull --stat
