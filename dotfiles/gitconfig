@@ -10,12 +10,13 @@
   editor = vi
   excludesfile = /home/minhuang/.gitignore
 [alias]
+  ar = !git-auto-rm
+  br = branch
   ci = commit
   co = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
-  br = branch
   lg = log -p --stat
-  st = status
-  ar = !git-auto-rm
-  su = !git submodule init && git submodule update
+  pick = cherry-pick -x
   psu = !git pull --stat && git submodule init && git submodule update
-  pull = pull --stat
+  pull = pull --stat  st = status
+  su = !git submodule init && git submodule update
+  st = status
