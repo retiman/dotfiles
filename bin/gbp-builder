@@ -1,0 +1,2 @@
+#!/bin/bash
+pdebuild --debbuildopts "-i\.git -I.git $*"

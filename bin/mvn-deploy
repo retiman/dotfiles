@@ -1,0 +1,142 @@
+#!/usr/bin/env ruby
+#
+# == Synopsis
+#   A small wrapper script around mvn deploy:deploy-file becasue I can remember
+#   the syntax, and also so I can learn REXML.
+#
+# == Usage
+#   mvnd FILE
+#     Asks you a bunch of questions for deploying the file.
+#
+# == Options
+#   -h, --help                Displays help message
+#
+# == Author
+#   Min Huang (min.huang@alumni.usc.edu)
+#
+require 'ostruct'
+require 'optparse'
+require 'rdoc/usage'
+require 'rexml/document'
+
+def repositories
+  settings_xml = "#{ENV['HOME']}/.m2/settings.xml"
+  if !File.exists? settings_xml
+    puts "Could not find #{settings_xml}"
+    exit 1
+  end
+
+  begin
+    repos = Hash.new
+    xml = File.read(settings_xml)
+    doc = REXML::Document.new(xml)
+    doc.elements.each("settings/mirrors/mirror") do |mirror|
+      id = mirror.elements["id"].text
+      url =  mirror.elements["url"].text
+      repos[id] = url
+    end
+  rescue
+    puts "Invalid settings.xml format"
+    exit 1
+  end
+
+  if repos.empty?
+    puts "No servers defined in #{settings_xml}"
+    exit 1
+  end
+
+  repos
+end
+
+settings = OpenStruct.new
+settings.home_dir     = ENV['HOME']
+settings.repositories = repositories()
+settings.repo         = settings.repositories.keys[0]
+settings.packaging    = 'jar'
+
+opts = OptionParser.new
+opts.on('-g', '--group-id GROUP_ID') { |g| settings.group_id = g }
+opts.on('-a', '--artifact-id ARTIFACT_ID') { |a| settings.artifact_id = a }
+opts.on('-p', '--packaging PACKAGING') { |p| settings.packaging = p }
+opts.on('-v', '--version VERSION') { |v| settings.version = v }
+opts.on('-h', '--help') { RDoc::usage() }
+opts.parse!
+
+if ARGV.size != 1
+  RDoc::usage('usage')
+  exit 0
+else
+  settings.file = ARGV[0]
+  settings.group_id = settings.file.sub(/-.*$/, '')
+  settings.artifact_id = settings.file.sub(/-.*$/, '')
+  settings.version = settings.file.sub(/^[^-]+-/, '').sub(/\.jar$/, '')
+end
+
+# Info
+puts "Prompting for information (press enter to accept default)."
+puts ""
+
+# Prompt for REPO
+puts "Current repo: #{settings.repo}"
+if !settings.repositories.empty?
+  puts "  Available repos:"
+  settings.repositories.each do |id, url|
+    puts "    #{id} => #{url}"
+  end
+end
+print "New value: "
+input = STDIN.gets.strip
+settings.repo = input if !input.empty?
+puts ""
+
+# Prompt for GROUP_ID
+puts "Current group_id: #{settings.group_id}"
+print "New value: "
+input = STDIN.gets.strip
+settings.group_id = input if !input.empty?
+puts ""
+
+# Prompt for ARTIFACT_ID
+puts "Current artifact_id: #{settings.artifact_id}"
+print "New value: "
+input = STDIN.gets.strip
+settings.artifact_id = input if !input.empty?
+puts ""
+
+# Prompt for VERSION
+puts "Current version: #{settings.version}"
+print "New value: "
+input = STDIN.gets.strip
+settings.version = input if !input.empty?
+puts ""
+
+# Prompt for PACKAGING
+puts "Current packaging: #{settings.packaging}"
+print "New value: "
+input = STDIN.gets.strip
+settings.packaging = input if !input.empty?
+puts ""
+
+# Generate command
+cmd = <<EOF
+mvn deploy:deploy-file \
+  -DrepositoryId=#{settings.repo} \
+  -Durl=#{settings.repositories[settings.repo]} \
+  -DgroupId=#{settings.group_id} \
+  -DartifactId=#{settings.artifact_id} \
+  -Dversion=#{settings.version} \
+  -Dpackaging=#{settings.packaging} \
+  -DgeneratePom=true \
+  -Dfile=#{settings.file}
+EOF
+puts "Generated command:"
+puts cmd
+print "Is this correct (y/n): "
+input = STDIN.gets.strip.downcase
+puts ""
+if input != 'y'
+  puts "Done"
+  exit 0
+end
+
+exec cmd

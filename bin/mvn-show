@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+#
+# == Synopsis
+#   Quickly check which versions of an artifact are available in a given
+#   repository.
+#
+# == Examples
+#   This will check for versions of commons-logging:commons-logging
+#     mvnv commons-logging
+#
+#   This will use a different repository from repo1.maven.org
+#     mvnv -r my.own.repo commons-logging:commons-logging
+#
+# == Usage
+#   mvn-versions [options] group [artifact]
+#
+# == Options
+#   -h, --help              Displays help message
+#   -v, --version           Displays the version
+#   -r, --repo              Sets the repository to use; don't include the http://
+#                           or a trailing backslash
+#   -a, --agent             Sets the user agent to report when checking the
+#                           repository
+#
+# == Author
+#   Min Huang (min.huang@alumni.usc.edu)
+#
+require 'net/http'
+require 'optparse'
+require 'ostruct'
+require 'rdoc/usage'
+
+@options = OpenStruct.new
+@options.repo = "repo1.maven.org"
+@options.user_agent = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.3) Gecko/2008092416 Firefox/3.0.3"
+
+opts = OptionParser.new
+opts.on('-v', '--version') do 
+  puts version_msg
+  exit 0 
+end
+
+opts.on('-h', '--help') do
+  puts "help!"
+  exit 0
+end
+
+opts.on('-r', '--repo REPO') do |repo|
+  @options.repo = repo.gsub(/^http:\/\//, "").gsub(/\/$/, "")
+end
+
+opts.on('-a', '--agent AGENT') do |user_agent|
+  @options.user_agent = user_agent
+end
+
+opts.parse!
+RDoc::usage('usage', 'options') if ARGV.empty?
+group, artifact = ARGV[0].split(':')
+artifact = group if !artifact
+
+puts "Checking repository for #{group}:#{artifact}"
+http = Net::HTTP.new(@options.repo)
+path = "/maven2/#{group.gsub(/\./, '/')}/#{artifact}/maven-metadata.xml"
+data = http.get(path).body.split
+versions = data.find_all { |line| line =~ /<version>.*<\/version>/ }
+release  = data.find_all { |line| line =~ /<release>.*<\/release>/ }
+puts ""
+
+if versions.empty? && release.empty?
+  puts "No versions found"
+  exit 0
+end
+
+if !release.empty?
+  puts "This is the release version:"
+  release.map! { |xml| xml.gsub!(/<\/?release>/, "") }.uniq.sort.reverse.each do |v| 
+    puts v
+  end
+  puts ""
+end
+
+if !versions.empty?
+  puts "These are the versions available:"
+  versions.map! { |xml| xml.gsub!(/<\/?version>/, "") }.uniq.sort.reverse.each do |v|
+    puts v
+  end
+end

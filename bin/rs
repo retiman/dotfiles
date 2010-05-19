@@ -1,0 +1,112 @@
+#!/usr/bin/env ruby
+#
+# == Synopsis
+#   A script to quickly switch between launching different webapps in Resin.  This
+#   may be useful if you like to start Resin from the command line instead of
+#   your IDE.
+#
+#   I found myself constantly editing the $RESIN_HOME/conf/resin.conf XML
+#   configuration because I was bouncing between projects, and I didn't want
+#   all the contexts to load when only working on one.  So I had to do a lot
+#   of commenting and uncommenting.  This script will let you launch a context
+#   (or contexts) by typing just by typing rs [CONTEXT ...]
+#
+#   You will need to copy your $RESIN_HOME/conf/resin.conf to $HOME/.rs/rs.conf
+#   and edit it by removing all references to any web-app contexts.  Instead,
+#   place the following line in their stead:
+#
+#   <include-rs-contexts/>
+#
+#   Then copy the web-app contexts into their own named XML files in $HOME/.rs.
+#   You will now be able to launch that context by typing rs CONTEXT.
+#   This script can copy your original resin.conf over and make the directories
+#   for you, but you'll have to edit the conf file yourself.
+#
+# == Examples
+#   This will launch two webapps.
+#     rs webapp1 webapp2
+#
+# == Usage
+#   rs webapp1 webapp2 ...
+#
+# == Options
+#   -h, --help              Displays help message
+#   -v, --version           Displays the version
+#
+# == Author
+#   Min Huang (min.huang@alumni.usc.edu)
+#
+require 'fileutils'
+require 'optparse'
+# Not working in Ruby 1.8.7
+#require 'rdoc/usage'
+
+home        = ENV['HOME']
+resin_dir   = ENV['RESIN_HOME']
+resin_conf  = "#{resin_dir}/conf/resin.conf"
+rs_dir      = "#{home}/.rs"
+rs_conf     = "#{rs_dir}/rs.conf"
+version_msg = "3.0 for Resin 3.x.x"
+copied_msg = <<EOF
+I copied your original resin.conf to #{rs_conf}.  You should edit this file and remove the contexts that are there, replacing them with <include-rs-contexts/> instead.
+
+As an example, here's how it might look:
+  <host id="localhost">
+    <include-rs-contexts/>
+  </host>
+EOF
+
+if !File.exists? resin_conf
+  puts "I could not find your original resin.conf."
+  puts "Please verify that RESIN_HOME is set correctly."
+  exit
+end
+
+if !File.exists? rs_dir
+  Dir.mkdir rs_dir
+  puts "I made a #{rs_dir} folder for you."
+end
+
+if !File.exists? rs_conf
+  FileUtils.cp resin_conf, rs_conf
+  puts copied_msg
+  exit
+end
+
+def read(file_name)
+  file = File.open file_name, "r"
+  data = file.read
+  file.close
+  data
+end
+
+opts = OptionParser.new
+opts.on('-v', '--version') do puts version_msg; exit 0 end
+#opts.on('-h', '--help')    do RDoc::usage() end
+opts.parse!
+#RDoc::usage('usage', 'options') if ARGV.empty?
+
+data = ""
+ARGV.each do |arg|
+  context = "#{rs_dir}/#{arg}.xml"
+  if !File.exists? context
+    puts "I could not find #{context}; maybe create it first?"
+    exit
+  end
+  data += read(context)
+  puts "I added data from: #{context}"
+end
+
+backup_dir = "#{rs_dir}/backup"
+FileUtils.mkdir backup_dir unless File.exists? backup_dir
+FileUtils.cp resin_conf, backup_dir
+puts "I copied your old resin.conf to #{backup_dir}"
+
+conf = read(rs_conf).gsub("<include-rs-contexts/>", data)
+file = File.open resin_conf, "w"
+file.write(conf)
+file.close
+puts "Wrote configuration to #{resin_conf}"
+
+puts "Launching Resin..."
+exec "#{resin_dir}/bin/httpd.sh"

@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z $SBT_HOME ]; then
+  SBT_HOME="`dirname $0`/../project/lib"
+  echo "No SBT_HOME environment variable set; using provided library."
+fi
+java -Xmx512M -jar $SBT_HOME/sbt-launcher.jar "$@"
