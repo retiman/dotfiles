@@ -2,13 +2,27 @@
 require 'fileutils'
 
 FileUtils.rm_r 'tmp' if File.exists? 'tmp'
-FileUtils.mkdir 'tmp'
+FileUtils.mkdir_p 'tmp/bin'
+FileUtils.mkdir_p 'tmp/dotfiles'
 
-puts "Symlinking dot files"
+puts 'Symlinking bin files'
+if File.exists? "#{ENV['HOME']}/bin"
+  Dir["#{File.expand_path(File.dirname(__FILE__))}/*"].each do |f|
+    original = "#{ENV['HOME']}/bin/#{File.basename(f)}".strip
+    if File.exists? original
+      FileUtils.cp_r original, 'tmp/bin'
+      FileUtils.rm_rf original
+    end
+    FileUtils.ln_sf f, original
+    puts "Symlinked: #{original}"
+  end
+end
+
+puts 'Symlinking dot files'
 Dir["#{File.expand_path(File.dirname(__FILE__))}/../dotfiles/*"].each do |f|
   original = "#{ENV['HOME']}/.#{File.basename(f)}".strip
   if File.exists? original
-    FileUtils.cp_r original, 'tmp'
+    FileUtils.cp_r original, 'tmp/dotfiles'
     FileUtils.rm_rf original
   end
   FileUtils.ln_sf f, original
