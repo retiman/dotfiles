@@ -25,6 +25,20 @@ function git-parse-branch {
   sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(git-parse-dirty)\)/"
 }
 
+function hg-parse-dirty {
+  [[ -n $(hg status 2> /dev/null | tail -n1) ]] && echo "*"
+}
+
+function hg-parse-branch {
+  local OUTPUT=$(hg branch 2> /dev/null)
+  [[ -n $OUTPUT ]] && echo -n "($OUTPUT$(hg-parse-dirty))"
+}
+
+function repo-parse {
+  git-parse-branch
+  hg-parse-branch
+}
+
 function xpcshell {
   $XULRUNNER_HOME/run-mozilla.sh $XULRUNNER_HOME/xpcshell $@
 }
@@ -68,7 +82,7 @@ function promptcolors {
   local LIGHT_CYAN="\[\033[1;36m\]"
   local LIGHT_PURPLE="\[\033[1;35m\]"
   local COLOR=$GREEN
-  PS1="$COLOR[\u@\h:\W$RED\$(git-parse-branch)$COLOR]\$\[\033[0m\] "
+  PS1="$COLOR[\u@\h:\W$RED\$(repo-parse)$COLOR]\$\[\033[0m\] "
   PS2='> '
   PS4='+ '
 }
