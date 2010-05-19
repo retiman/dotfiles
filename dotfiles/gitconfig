@@ -11,11 +11,11 @@
   excludesfile = /home/minhuang/.gitignore
 [alias]
   ci = commit
-  co = checkout
+  co = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
   br = branch
   lg = log -p --stat
   st = status
   ar = !git-auto-rm
-  su = submodule update
-  psu = !git pull --stat && git submodule update
+  su = !git submodule init && git submodule update
+  psu = !git pull --stat && git submodule init && git submodule update
   pull = pull --stat
