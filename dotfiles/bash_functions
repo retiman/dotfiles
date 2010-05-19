@@ -15,10 +15,6 @@ function git-cd {
   cd -
 }
 
-function git-dance {
-  git checkout --track -b $1 origin/$1
-}
-
 function git-parse-dirty {
   MESSAGE="nothing to commit (working directory clean)"
   [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
