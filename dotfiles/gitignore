@@ -11,5 +11,8 @@ target
 target/*
 test.properties
 nbbuild.xml
+*.iml
+*.ipr
+*.iws
 *.swp
 *~
