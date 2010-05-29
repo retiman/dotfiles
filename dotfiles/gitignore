@@ -7,6 +7,7 @@ local.properties
 nbproject
 nbproject/*
 pkg
+tags
 target
 target/*
 test.properties
