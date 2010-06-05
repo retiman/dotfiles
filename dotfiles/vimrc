@@ -14,6 +14,7 @@ set indentexpr=
 set infercase
 set laststatus=2
 set lazyredraw
+set list
 set listchars=tab:··
 "set mouse=a
 set nobackup
