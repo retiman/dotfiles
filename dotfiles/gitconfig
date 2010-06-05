@@ -13,8 +13,9 @@
   ar = add -u
   br = branch
   ci = commit
-  co = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
-  cb = !sh -c 'git checkout --track -b $1 origin/$1' -
+  co = checkout
+  cb = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
+  ct = !sh -c 'git checkout --track -b $1 origin/$1' -
   lg = log -p --stat
   pick = cherry-pick -x
   psu = !git pull --stat && git submodule init && git submodule update
