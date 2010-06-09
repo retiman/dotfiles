@@ -10,7 +10,7 @@ alias less='less -r'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias scpr='rsync --partial --progress --rsh=ssh'
-alias uc='update-alternatives --config'
+alias uc='sudo update-alternatives --config'
 
 ################################################################################
 # Development
