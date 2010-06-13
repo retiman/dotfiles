@@ -27,6 +27,7 @@ export SBT_HOME=$HOME/opt/sbt
 # Ruby
 ###############################################################################
 export RUBY_HOME=/usr
+export RUBYOPT=rubygems
 export GEM_HOME=/var/lib/gems/1.8
 
 ###############################################################################
