@@ -75,7 +75,7 @@ syntax keyword javaScriptNull           null
 
 "" Statement Keywords
 syntax keyword javaScriptConditional    if else
-syntax keyword javaScriptRepeat         do while for
+syntax keyword javaScriptRepeat         do while for each
 syntax keyword javaScriptBranch         break continue switch case default return
 syntax keyword javaScriptStatement      try catch throw with finally
 
