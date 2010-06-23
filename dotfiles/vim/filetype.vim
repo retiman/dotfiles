@@ -11,6 +11,10 @@ autocmd BufNewFile,BufRead *.sst setf html
 autocmd BufNewFile,BufRead *.js.erb setf javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
 
+" nginx
+autocmd BufNewFile,BufRead nginx setf nginx
+autocmd BufNewFile,BufRead /etc/nginx/sites-enabled/* setf nginx
+
 " ruby
 autocmd BufNewFile,BufRead .irbrc setf ruby
 
