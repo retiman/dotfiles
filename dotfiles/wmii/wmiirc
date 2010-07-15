@@ -210,11 +210,11 @@ Key $MODKEY-Return # Launch a terminal
 	eval wmiir setsid $WMII_TERM &
 Key $MODKEY-Esc # Mute
 	aumix -q mute
-Key $MODKEY-F1
+Key $MODKEY-F1 # Lower volume
 	aumix -v -10
-Key $MODKEY-F2
+Key $MODKEY-F2 # Raise volume
 	aumix -v +10
-Key $MODKEY-F12
+Key $MODKEY-F12 # Screensaver lock
 	xscreensaver-command --lock &
 
 KeyGroup Other
