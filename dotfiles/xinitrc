@@ -1,5 +1,30 @@
-# Start wmii if running startx
+# Set keyboard delay/rate
+xset r rate 275 30
+# Swap capslock and control
+setxkbmap -option ctrl:swapcaps
+# New Xorg auto-sets this: group(alt_shift_toggle), which freaks out wmii
+setxkbmap -symbols 'pc+us+inet(evdev)+level3(ralt_switch)+ctrl(swapcaps)+compose(lwin)'
+
+# Turn off the damned touchpad
+synclient TouchpadOff=1
+# Set mouse acceleration
+xset m 2
+# Enable vertical scrolling for trackpoint
+xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation' 8 1
+xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Button' 8 2
+xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Timeout' 8 200
+# Enable horizontal scrolling for trackpoint
+xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
+
+xscreensaver -nosplash &
 eval `ssh-agent`
+
 while true; do
   wmii
+  xmessage 'Do you want to restart wmii?' \
+           -buttons 'Yes:1,No:0' \
+           -center \
+           -default 'Yes' \
+           -timeout 30 \
+  && break
 done
