@@ -118,10 +118,12 @@ display:
   status:
     - hostname:
         refresh: 0
-        content: 'Host: ' + `hostname`
+        content: |
+          'Host: ' + `hostname`
     - uptime:
         refresh: 10
-        content: 'Uptime: ' + `uptime`
+        content: |
+          'Uptime: ' + `uptime`
     - ip_eth0:
         refresh: 10
         content: |
