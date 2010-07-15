@@ -10,7 +10,6 @@
 # See LICENSE file for details.
 #++
 
-
 ##
 # Program preferences.
 #
@@ -19,7 +18,6 @@ program:
   browser: google-chrome
   editor: gvim
   filer: thunar
-
 
 ##
 # Appearance settings.
@@ -90,7 +88,15 @@ display:
   # Processing stops after the first matching mapping is applied.
   #
   client:
-    - /MPlayer|VLC/ : ~
+    - /Chrome.*/ : 9
+    - /Gimp.*/ : gimp
+    - /Gitk.*/ : '~'
+    - /GQview.*/ : '~'
+    - /Icedove.*/ : mail
+    - /Iceweasel.*/ : 9
+    - /MPlayer.*/ : '~'
+    - /Pidgin.*/ : 0
+    - /XMMS.*/ : mp3
 
   ##
   # Self-refreshing buttons on the status bar.
@@ -112,31 +118,14 @@ display:
   status:
     - hostname:
         refresh: 0
-        content: `hostname`
-    - wireless_status:
+        content: 'Host: ' + `hostname`
+    - uptime:
         refresh: 10
-        content: |
-          'Wlan0: ' + `iwconfig wlan0 | sed 's/ /\\n/g' | grep Quality`
-    - ip_wlan0:
-        refresh: 10
-        content: |
-          'IP (wlan0): ' + `ifconfig wlan0 | grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//'`
+        content: 'Uptime: ' + `uptime`
     - ip_eth0:
         refresh: 10
         content: |
           'IP (eth0): ' + `ifconfig eth0 | grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//'`
-    - volume:
-        refresh: 3
-        content: |
-          'Vol: ' + `aumix -q | grep vol | sed 's/vol [0-9]*, //'`
-    - temperature:
-        refresh: 5
-        content: |
-          'Temp: ' + `cat /proc/acpi/thermal_zone/TZ00/temperature | sed 's/temperature:\s*//'`
-    - battery:
-        refresh: 5
-        content: |
-          'Bat: ' + `acpi -b | sed 's/\s*Battery 0:\s*[a-zA-Z]*, //' | sed 's/,.*$//'`
     - clock:
         refresh: 5
         content: `date +"%a %b %d %I:%M%p"`
@@ -226,16 +215,16 @@ control:
       next_view.focus
 
     # focus the view whose index or name equals the pressed number
-    ${mod}-1: focus_view tags[0] || 1
-    ${mod}-2: focus_view tags[1] || 2
-    ${mod}-3: focus_view tags[2] || 3
-    ${mod}-4: focus_view tags[3] || 4
-    ${mod}-5: focus_view tags[4] || 5
-    ${mod}-6: focus_view tags[5] || 6
-    ${mod}-7: focus_view tags[6] || 7
-    ${mod}-8: focus_view tags[7] || 8
-    ${mod}-9: focus_view tags[8] || 9
-    ${mod}-0: focus_view tags[9] || 10
+    ${mod}-1: focus_view 1
+    ${mod}-2: focus_view 2
+    ${mod}-3: focus_view 3
+    ${mod}-4: focus_view 4
+    ${mod}-5: focus_view 5
+    ${mod}-6: focus_view 6
+    ${mod}-7: focus_view 7
+    ${mod}-8: focus_view 8
+    ${mod}-9: focus_view 9
+    ${mod}-0: focus_view 10
 
     # focus the view whose name begins with the pressed alphabet
     ${view},a: t = tags.grep(/^a/i).first and focus_view(t)
