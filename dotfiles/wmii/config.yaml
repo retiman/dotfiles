@@ -10,6 +10,7 @@
 # See LICENSE file for details.
 #++
 
+
 ##
 # Program preferences.
 #
@@ -117,7 +118,7 @@ display:
   #
   status:
     - hostname:
-        refresh: 0
+        refresh: 10
         content: |
           'Host: ' + `hostname`
     - uptime:
@@ -162,7 +163,7 @@ control:
   ##
   # Sequence keys.
   #
-  prev: b
+  prev: u
   next: n
 
   ##
@@ -226,7 +227,7 @@ control:
     ${mod}-7: focus_view 7
     ${mod}-8: focus_view 8
     ${mod}-9: focus_view 9
-    ${mod}-0: focus_view 10
+    ${mod}-0: focus_view 0
 
     # focus the view whose name begins with the pressed alphabet
     ${view},a: t = tags.grep(/^a/i).first and focus_view(t)
