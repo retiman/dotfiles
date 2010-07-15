@@ -58,7 +58,7 @@ export WINE_PREFIX=$HOME/.wine
 ###############################################################################
 WMII_IS_RUNNING=`ps a | grep wmii | awk '/[^"grep"] wmii$/'`
 if [ -n "$WMII_IS_RUNNING" ]; then
-  PROMPT_COMMAND='dirs | wmiir write /client/sel/label'
+  PROMPT_COMMAND='dirs | wmiir write /client/sel/label > /dev/null 2>&1'
 fi
 
 ###############################################################################
