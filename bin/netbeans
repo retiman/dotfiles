@@ -1,0 +1,5 @@
+#!/bin/sh
+cd $HOME/opt/netbeans
+JDK_HOME=/usr
+JAVA_HOME=$JDK_HOME
+bin/netbeans
