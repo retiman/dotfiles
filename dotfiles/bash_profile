@@ -1,11 +1,7 @@
 ###############################################################################
-# Personal
-###############################################################################
-PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
-
-###############################################################################
 # Java
 ###############################################################################
+PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
 export ANT_OPTS="-Xms1024M -Xmx1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JDK_HOME=/usr
