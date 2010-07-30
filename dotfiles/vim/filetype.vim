@@ -8,7 +8,7 @@ autocmd BufNewFile,BufRead *.ejs setf html
 autocmd BufNewFile,BufRead *.sst setf html
 
 " java
-autocmd BufWritePost .js silent! !ctags -a -R --exclude=target * &
+autocmd BufWritePost .java silent! !ctags -a -R --exclude=target * &
 
 " javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
