@@ -42,6 +42,7 @@ set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
 set wildmode=list:full
+"set wrapmargin=80
 
 syntax on
 colorscheme default
