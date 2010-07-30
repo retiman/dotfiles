@@ -49,6 +49,7 @@ colorscheme default
 filetype plugin indent on
 
 map gc gdb<C-W>f
+" Map hjkl keys for navigating between splits
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
