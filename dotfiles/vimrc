@@ -54,6 +54,8 @@ map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
 map <C-_> <C-w>_
+" Map C-\ to open definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 nmap ,t :set expandtab! list!
 nmap ,e :set expandtab!
