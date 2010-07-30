@@ -11,7 +11,6 @@ autocmd BufNewFile,BufRead *.sst setf html
 autocmd BufWritePost .js silent! !ctags -a -R --exclude=target * &
 
 " javascript
-autocmd BufNewFile,BufRead *.js.erb setf javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
 autocmd BufWritePost .js silent! !ctags -a -R * &
 
@@ -31,13 +30,12 @@ autocmd BufWritePost .scala silent! !ctags -a -R --exclude=target * &
 autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
 
 " vimperator
-autocmd BufNewFile,BufRead .vimperatorrc,vimperatorrc,*.vimp setf vimperator
+autocmd BufNewFile,BufRead .vimperatorrc,vimperatorrc setf vimperator
 
 " xml
-autocmd BufNewFile,BufRead resin.conf,resin.conf.orig setf xml
+autocmd BufNewFile,BufRead resin.conf setf xml
 autocmd BufNewFile,BufRead *.xul setf xml
 autocmd BufNewFile,BufRead *.rdf setf xml
-autocmd BufNewFile,BufRead *.rdf.erb setf xml
 
 " text
 autocmd BufNewFile,BufRead *.md setf text
