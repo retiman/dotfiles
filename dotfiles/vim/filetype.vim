@@ -7,9 +7,13 @@ autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf sh
 autocmd BufNewFile,BufRead *.ejs setf html
 autocmd BufNewFile,BufRead *.sst setf html
 
+" java
+autocmd BufWritePost .js silent! !ctags -a -R --exclude=target * &
+
 " javascript
 autocmd BufNewFile,BufRead *.js.erb setf javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
+autocmd BufWritePost .js silent! !ctags -a -R * &
 
 " nginx
 autocmd BufNewFile,BufRead nginx setf nginx
@@ -17,9 +21,11 @@ autocmd BufNewFile,BufRead /etc/nginx/sites-enabled/* setf nginx
 
 " ruby
 autocmd BufNewFile,BufRead .irbrc setf ruby
+autocmd BufWritePost .rb silent! !ctags -a -R * &
 
 " scala
 autocmd BufNewFile,BufRead *.scala setf scala
+autocmd BufWritePost .scala silent! !ctags -a -R --exclude=target * &
 
 " sh
 autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
