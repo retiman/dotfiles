@@ -24,7 +24,7 @@ set nocompatible
 set noerrorbells
 set nofoldenable
 set novisualbell
-set pastetoggle=<F9>
+set pastetoggle=<F1>
 set ruler
 set selection=inclusive
 set selectmode=mouse
@@ -37,7 +37,6 @@ set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 set tabstop=2
-set termencoding=utf-8
 set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
@@ -48,30 +47,22 @@ syntax on
 colorscheme default
 filetype plugin indent on
 
-map gc gdb<C-W>f
-" Map hjkl keys for navigating between splits
+" Normal, visual, select, and operator mode mappings
+"   Map hjkl keys for navigating between splits
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
 map <C-_> <C-w>_
-" Map C-\ to open definition in a new tab
+"   Map C-\ to open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-nmap ,t :set expandtab! list!
-nmap ,e :set expandtab!
-nmap ,l :set list!
-nmap ,a :set autochdir!
-nmap ,h :set hlsearch!
-nmap ,n :set number!
-nmap ,w :set wrap!
-nmap ,c :!ctags --append=yes -R * &
-
-" Map F4 to strip all trailing whitespace
+" Normal mode mappings (same as nnoremap)
+nmap <F2> :set expandtab!<CR><CR>
+nmap <F3> :set list!<CR><CR>
+"   Map F4 to strip all trailing whitespace
 nmap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" Map F5 to toggle highlighting of really long lines
-highlight OverColLimit ctermbg=darkblue
+"   Map F5 to toggle highlighting of really long lines
 nmap <silent> <F5>
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
@@ -81,6 +72,15 @@ nmap <silent> <F5>
       \ else <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
       \ endif<CR>
+"   For working with 4 spacers; gosh that's a lot of spaces
+nmap <F6> :set ts=4 sw=4
+nmap <silent> ,c :!ctags --append=yes -R * &<CR><CR>
+nmap ,h :set hlsearch!<CR><CR>
+nmap ,n :set number!<CR><CR>
+nmap ,w :set wrap!<CR><CR>
+
+" Highlight really long lines
+highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
