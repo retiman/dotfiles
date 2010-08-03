@@ -68,11 +68,11 @@ nmap ,w :set wrap!
 nmap ,c :!ctags --append=yes -R * &
 
 " Map F4 to strip all trailing whitespace
-nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nmap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Map F5 to toggle highlighting of really long lines
 highlight OverColLimit ctermbg=darkblue
-nnoremap <silent> <F5>
+nmap <silent> <F5>
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
