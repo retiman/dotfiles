@@ -96,6 +96,6 @@ highlight OverColLimit ctermbg=darkblue
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Source project specific vim stuff if it exists
-if filereadable("~/.vimprojects")
+if filereadable(expand("$HOME/.vimprojects"))
   source ~/.vimprojects
 endif
