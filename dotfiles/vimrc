@@ -74,7 +74,6 @@ map <silent> <F7>
       \ else <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
       \ endif<CR>
-map <F8> :NERDTree<CR><CR>
 map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.git/*'"<CR>1G:set buftype=nofile<CR>
 
 " Normal mode mappings (same as nnoremap)
