@@ -87,6 +87,7 @@ nmap ,n :set number!<CR><CR>
 nmap ,w :set wrap!<CR><CR>
 nmap ,r :res<CR><CR>
 nmap ,f <C-W>f
+nmap ,x :wq
 
 " Highlight really long lines
 highlight OverColLimit ctermbg=darkblue
