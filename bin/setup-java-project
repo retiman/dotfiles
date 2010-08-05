@@ -14,13 +14,13 @@ end
 if File.exists? '.git/info/exclude'
   File.open('.git/info/exclude', File::WRONLY|File::APPEND) do |f|
     %w(
-      java
-      scala
-      resources
-      webapp
-      test-java
-      test-scala
-      test-resources
+      /java
+      /scala
+      /resources
+      /webapp
+      /test-java
+      /test-scala
+      /test-resources
     ).each { |w| f.puts w }
   end
 end
