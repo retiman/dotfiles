@@ -81,7 +81,8 @@ map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.git/*'"<CR>1G:set
 "   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
-nmap <silent> ,c :!ctags --append=yes -R * &<CR><CR>
+nmap ,c :bd<CR><CR>
+nmap <silent> ,t :!ctags --append=yes -R * &<CR><CR>
 nmap ,h :set hlsearch!<CR><CR>
 nmap ,n :set number!<CR><CR>
 nmap ,w :set wrap!<CR><CR>
@@ -93,3 +94,8 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
+
+" Source project specific vim stuff if it exists
+if filereadable("~/.vimprojects")
+  source ~/.vimprojects
+endif
