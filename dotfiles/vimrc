@@ -36,7 +36,7 @@ set smartindent
 set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-set tabstop=2
+set tabstop=4
 set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
@@ -75,6 +75,7 @@ map <silent> <F7>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
       \ endif<CR>
 map <F8> :NERDTree<CR><CR>
+map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.git/*'"<CR>1G:set buftype=nofile<CR>
 
 " Normal mode mappings (same as nnoremap)
 "   Convenience mappings for resizing vertical splits
@@ -85,6 +86,7 @@ nmap ,h :set hlsearch!<CR><CR>
 nmap ,n :set number!<CR><CR>
 nmap ,w :set wrap!<CR><CR>
 nmap ,r :res<CR><CR>
+nmap ,f <C-W>f
 
 " Highlight really long lines
 highlight OverColLimit ctermbg=darkblue
