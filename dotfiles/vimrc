@@ -93,8 +93,3 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
-
-augroup comments
-  autocmd FileType c,java,scala set comments=sr:/*,mb:*,el:*/,://
-  autocmd FileType c,java,scala set formatoptions+=croql
-augroup end

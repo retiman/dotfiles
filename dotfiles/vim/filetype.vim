@@ -39,3 +39,9 @@ autocmd BufNewFile,BufRead *.rdf setf xml
 
 " text
 autocmd BufNewFile,BufRead *.md setf text
+
+" comments
+augroup comments
+  autocmd FileType c,java,scala set comments=sr:/*,mb:*,el:*/,://
+  autocmd FileType c,java,scala set formatoptions+=croql
+augroup end
