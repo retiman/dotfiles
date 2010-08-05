@@ -4,6 +4,7 @@ set autoindent
 set background=dark
 set backspace=indent,eol,start
 set complete=.,w,b,t,i
+set completeopt=longest,menuone
 set expandtab
 set fileformat=unix
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:-
@@ -36,7 +37,7 @@ set smartindent
 set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-set tabstop=4
+set tabstop=2
 set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
@@ -49,19 +50,19 @@ filetype plugin indent on
 
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
-map <C-H> <C-W>h:res<CR><CR>
-map <C-J> <C-W>j:res<CR><CR>
-map <C-K> <C-W>k:res<CR><CR>
-map <C-L> <C-W>l:res<CR><CR>
-map <C-_> <C-W>_:res<CR><CR>
+map <C-H> <C-W>h:res<CR>
+map <C-J> <C-W>j:res<CR>
+map <C-K> <C-W>k:res<CR>
+map <C-L> <C-W>l:res<CR>
+map <C-_> <C-W>_:res<CR>
 "   Map C-\ to open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <F2> :set expandtab!<CR><CR>
-map <F3> :set list!<CR><CR>
+map <F2> :set expandtab!<CR>
+map <F3> :set list!<CR>
 "   For working with 4 spacers; gosh that's a lot of spaces
-map <F4> :set ts=4 sw=4<CR><CR>
+map <F4> :set ts=4 sw=4<CR>
 "   For working by myself
-map <F5> :set ts=2 sw=2<CR><CR>
+map <F5> :set ts=2 sw=2<CR>
 "   Remove all trailing whitespace
 map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "   Toggle highlighting of really long lines
@@ -80,14 +81,25 @@ map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.git/*'"<CR>1G:set
 "   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
-nmap ,c :bd<CR><CR>
-nmap <silent> ,t :!ctags --append=yes -R * &<CR><CR>
-nmap ,h :set hlsearch!<CR><CR>
-nmap ,n :set number!<CR><CR>
-nmap ,w :set wrap!<CR><CR>
-nmap ,r :res<CR><CR>
+nmap ,cd :cd %:p:h<CR>
+nmap ,d :bd<CR>
+nmap <silent> ,t :!ctags --append=yes -R * &<CR>
+nmap ,h :set hlsearch!<CR>
+nmap ,n :set number!<CR>
+nmap ,w :set wrap!<CR>
+nmap ,r :res<CR>
 nmap ,f <C-W>f
-nmap ,x :wq
+nmap ,x :wq<CR>
+
+" Insert mode mappings (same as inoremap)
+"   When an auto-complete menu is presented, the first item is selected by
+"   default
+imap <expr> <C-n> pumvisible() ? '<C-n>' :
+    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"   Simulates <C-X><C-O> to bring up omni-complete, and simulates <C-N><C-P>
+"   to remove the longest common text
+imap <expr> <M-,> pumvisible() ? '<C-n>' :
+    \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Highlight really long lines
 highlight OverColLimit ctermbg=darkblue
