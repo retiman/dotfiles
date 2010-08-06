@@ -71,14 +71,14 @@ map <silent> <F5>
       \ else <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
       \ endif<CR>
-map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buftype=nofile<CR>
+map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buftype=nofile<CR>:res<CR>
 
 " Normal mode mappings (same as nnoremap)
 "   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
 nmap ,cd :cd %:p:h<CR>
-nmap ,d :bd<CR>
+nmap ,d :bd<CR>:res<CR>
 nmap <silent> ,t :!ctags --append=yes -R * &<CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
