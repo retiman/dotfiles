@@ -3,17 +3,12 @@ BUILDRESULT="/var/cache/pbuilder/result"
 BUILDPLACE="/var/cache/pbuilder/build"
 APTCACHE="/var/cache/pbuilder/aptcache"
 BINDMOUNTS="/var/cache/pbuilder/result"
-HOOKDIR="/var/cache/pbuilder/hooks"
 
 MIRRORSITE="ftp://ftp.debian.org/debian/"
 COMPONENTS="main contrib non-free"
 DISTRIBUTION=sid
-#EXTRAPACKAGES="default-jdk default-jre openjdk-6-jdk ant"
 DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
-
-#PBUILDERSATISFYDEPENDS="/usr/lib/pbuilder/pbuilder-satisfydepends-aptitude"
-
-unset DEBOOTSTRAPOPTS
-unset JAVA_COMPILER
-unset CLASSPATH
-export JAVA_HOME="/usr"
+USE_PDEBUILD_INTERNAL=yes
+BUILDSOURCEROOTCMD="fakeroot"
+BUILDUSERNAME="pbuilder"
+EXTRAPACKAGES="lintian"
