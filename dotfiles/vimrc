@@ -84,7 +84,7 @@ nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
 nmap ,w :set wrap!<CR>
 nmap ,r :res<CR>
-nmap ,f <C-W>f
+nmap ,f <C-W>f:res<CR>
 nmap ,x :wq<CR>
 
 " Insert mode mappings (same as inoremap)
@@ -104,6 +104,4 @@ highlight OverColLimit ctermbg=darkblue
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Source project specific vim stuff if it exists
-if filereadable(expand("$HOME/.vimprojects"))
-  source ~/.vimprojects
-endif
+au BufNewFile,BufReadPost * source ./project.vim
