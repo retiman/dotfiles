@@ -1,16 +1,15 @@
 ###############################################################################
 # Java
 ###############################################################################
-PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export ANT_OPTS="-Xms1024M -Xmx1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export JDK_HOME=/usr
-export JAVA_HOME=/usr
+export IDEA_JDK=$JAVA_HOME
+export JDK_HOME=$JAVA_HOME
 export JAVA_COMPILER=jitc
 export M2_HOME=$HOME/opt/maven
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
-export CLASSPATH=.:$PES_JAR:$CLASSPATH
 
 ###############################################################################
 # Scala
