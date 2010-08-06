@@ -59,14 +59,10 @@ map <C-_> <C-W>_:res<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <F2> :set expandtab!<CR>
 map <F3> :set list!<CR>
-"   For working with 4 spacers; gosh that's a lot of spaces
-map <F4> :set ts=4 sw=4<CR>
-"   For working by myself
-map <F5> :set ts=2 sw=2<CR>
 "   Remove all trailing whitespace
-map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "   Toggle highlighting of really long lines
-map <silent> <F7>
+map <silent> <F5>
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
