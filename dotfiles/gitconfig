@@ -22,3 +22,5 @@
   pull = pull --stat  st = status
   su = !git submodule init && git submodule update
   st = status
+  ltag = tag -l -n1
+  mtag = tag -a -m
