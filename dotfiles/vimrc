@@ -105,4 +105,4 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Source project specific vim stuff if it exists
 set secure
-au BufNewFile,BufReadPost * silent! source ./project.vim
+au BufEnter,BufReadPost * silent! source ./project.vim
