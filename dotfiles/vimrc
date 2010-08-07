@@ -104,4 +104,5 @@ highlight OverColLimit ctermbg=darkblue
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Source project specific vim stuff if it exists
-au BufNewFile,BufReadPost * source ./project.vim
+set secure
+au BufNewFile,BufReadPost * silent! source ./project.vim
