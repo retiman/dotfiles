@@ -11,4 +11,4 @@ DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
 USE_PDEBUILD_INTERNAL=yes
 BUILDSOURCEROOTCMD="fakeroot"
 BUILDUSERNAME="pbuilder"
-EXTRAPACKAGES="lintian"
+EXTRAPACKAGES="lintian subversion ant ant-optional"
