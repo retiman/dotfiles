@@ -47,7 +47,6 @@ export LD_LIBRARY_PATH=$XUL_RUNNER_HOME:$LD_LIBRARY_PATH
 ###############################################################################
 # Other
 ###############################################################################
-export GIT=lousycod@lousycoder.com:/home/lousycod/local/share/git
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
 export WINE_PREFIX=$HOME/.wine
