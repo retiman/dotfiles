@@ -7,7 +7,7 @@ export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export IDEA_JDK=$JAVA_HOME
 export JDK_HOME=$JAVA_HOME
 export JAVA_COMPILER=jitc
-export M2_HOME=$HOME/usr/share/maven2
+export M2_HOME=/usr/share/maven2
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
 
