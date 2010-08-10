@@ -79,7 +79,7 @@ nmap ] <C-W>>
 nmap [ <C-W><
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
-nmap <silent> ,t :!ctags --append=yes -R * &<CR>
+nmap <silent> ,t :!ctags -R * &<CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
 nmap ,w :set wrap!<CR>
