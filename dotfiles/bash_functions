@@ -39,8 +39,8 @@ function repo-parse {
   hg-parse-branch
 }
 
-function xpcshell {
-  $XULRUNNER_HOME/run-mozilla.sh $XULRUNNER_HOME/xpcshell $@
+function mvnt {
+  mvn test -Dtest=$1
 }
 
 ################################################################################
