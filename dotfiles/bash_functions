@@ -43,6 +43,18 @@ function mvnt {
   mvn test -Dtest=$1
 }
 
+function java-find-sources {
+  find -type f -path './src/*'
+}
+
+function java-find-surefire {
+  find -type f -path './target/surefire-reports/*'
+}
+
+function java-find-failsafe {
+  find -type f -path './target/failsafe-reports/*'
+}
+
 ################################################################################
 # Other
 ################################################################################
