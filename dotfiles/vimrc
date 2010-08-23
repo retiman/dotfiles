@@ -79,7 +79,7 @@ nmap ] <C-W>>
 nmap [ <C-W><
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
-nmap <silent> ,t :!ctags -R * &<CR>
+nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
 nmap ,w :set wrap!<CR>
@@ -87,6 +87,7 @@ nmap ,r :res<CR>
 nmap ,f <C-W>f:res<CR>
 nmap ,x :wq<CR>:res<CR>
 nmap ,q :q!<CR>:res<CR>
+nmap ,g :FindFile<CR>
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
