@@ -9,4 +9,5 @@ target/*
 *.ipr
 *.iws
 *.swp
+*.swo
 *~
