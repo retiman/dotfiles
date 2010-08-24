@@ -23,7 +23,7 @@ syn match scalaOperator ":\{2,\}" "this is not a type
 " package and import statements
 syn keyword scalaPackage package nextgroup=scalaFqn skipwhite
 syn keyword scalaImport import nextgroup=scalaFqn skipwhite
-syn match scalaFqn "\<[._$a-zA-Z0-9,]*" contained nextgroup=scalaFqnSet
+syn match scalaFqn "\<[._$a-zA-Z0-9,]*|object" contained nextgroup=scalaFqnSet
 syn region scalaFqnSet start="{" end="}" contained
 
 " boolean literals
