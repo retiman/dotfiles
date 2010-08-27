@@ -1,0 +1,2 @@
+#!/bin/sh
+java -cp /usr/share/java/jline.jar:/usr/share/java/clojure.jar jline.ConsoleRunner clojure.main
