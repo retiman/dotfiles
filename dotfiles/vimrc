@@ -69,7 +69,7 @@ map <silent> <F5>
       \ elseif &textwidth > 0 <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
       \ else <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
+      \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
 map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buftype=nofile<CR>:res<CR>
 
