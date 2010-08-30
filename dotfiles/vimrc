@@ -105,6 +105,10 @@ highlight OverColLimit ctermbg=darkblue
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
+" VimClojure
+let vimclojure#NailgunClient = "$HOME/opt/vimclojure/ng"
+let clj_want_gorilla = 1
+
 " Source project specific vim stuff if it exists
 set secure
 au BufEnter,BufReadPost * silent! source ./project.vim
