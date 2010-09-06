@@ -69,7 +69,7 @@ map <silent> <F5>
       \ elseif &textwidth > 0 <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
       \ else <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>85v.\+', -1) <Bar>
+      \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
 map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buftype=nofile<CR>:res<CR>
 
@@ -79,13 +79,15 @@ nmap ] <C-W>>
 nmap [ <C-W><
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
-nmap <silent> ,t :!ctags --append=yes -R * &<CR>
+nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
 nmap ,w :set wrap!<CR>
 nmap ,r :res<CR>
 nmap ,f <C-W>f:res<CR>
-nmap ,x :wq<CR>
+nmap ,x :wq<CR>:res<CR>
+nmap ,q :q!<CR>:res<CR>
+nmap ,g :FindFile<CR>
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
@@ -102,6 +104,10 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
+
+" VimClojure
+let vimclojure#NailgunClient = "$HOME/opt/vimclojure/ng"
+let clj_want_gorilla = 1
 
 " Source project specific vim stuff if it exists
 set secure

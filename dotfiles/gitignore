@@ -1,6 +1,7 @@
 .classpath
 .project
 .settings
+project.vim
 pkg/*
 tags
 target/*
@@ -8,4 +9,5 @@ target/*
 *.ipr
 *.iws
 *.swp
+*.swo
 *~
