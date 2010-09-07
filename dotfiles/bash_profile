@@ -1,15 +1,16 @@
 ###############################################################################
 # Java
 ###############################################################################
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export ANT_OPTS="-Xms1024M -Xmx1024M"
+export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export IDEA_JDK=$JAVA_HOME
-export JDK_HOME=$JAVA_HOME
 export JAVA_COMPILER=jitc
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JDK_HOME=$JAVA_HOME
 export M2_HOME=/usr/share/maven2
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
+export CLASSPATH=/usr/share/java/clojure.jar:\
+/usr/share/clojure-contrib.jar
 
 ###############################################################################
 # Scala
