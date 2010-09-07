@@ -21,6 +21,6 @@ alias ssh-proxy='ssh -fND localhost:23231 lousycoder.com'
 # Development
 ################################################################################
 alias mvnf='mvn -Dmaven.test.skip=true'
-alias clojure='rlwrap clojure'
+alias clojure='rlwrap clojure -cp /usr/share/java/clojure-contrib.jar'
 alias scala='rlwrap scala'
 alias ng-server="java -cp /usr/share/java/clojure.jar:/usr/share/java/clojure-contrib.jar:$HOME/opt/vimclojure/build/vimclojure.jar com.martiansoftware.nailgun.NGServer 127.0.0.1"
