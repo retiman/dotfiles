@@ -77,6 +77,7 @@ map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buf
 "   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
+nmap ,/ :let @/=""<CR>
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
 nmap ,f <C-W>f:res<CR>
