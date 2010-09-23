@@ -9,8 +9,6 @@ export JDK_HOME=$JAVA_HOME
 export M2_HOME=/usr/share/maven2
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
-export CLASSPATH=/usr/share/java/clojure.jar:\
-/usr/share/java/clojure-contrib.jar
 
 ###############################################################################
 # Scala
