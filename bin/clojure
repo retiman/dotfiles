@@ -1,1 +1,1 @@
-exec java -cp $HOME/opt/clojure/clojure.jar:$HOME/opt/clojure-contrib/target/clojure-contrib-1.2.0.jar clojure.main "$@"
+exec rlwrap java -cp $HOME/opt/clojure/clojure.jar:$HOME/opt/clojure-contrib/target/clojure-contrib-1.2.0.jar clojure.main "$@"
