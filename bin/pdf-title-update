@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-title = ARGV[0]
-file = ARGV[1]
-File.open '/tmp/in.info', 'w' do |f|
-  f.puts "InfoKey: Title"
-  f.puts "InfoValue: #{title}"
-end
-`pdftk #{file} update_info /tmp/in.info output output.pdf`
-`mv output.pdf #{file}`
