@@ -1,3 +1,4 @@
+sessionname repl
 startup_message off
 vbell off
 vbell_msg ^G
