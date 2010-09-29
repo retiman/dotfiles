@@ -87,9 +87,11 @@ nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
 nmap ,q :q!<CR>:res<CR>
 nmap ,r :res<CR>
+"nmap ,s " Used by slime.vim
 nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
+"nmap ,v " Used by slime.vim
 nmap ,w :set wrap!<CR>
-nmap ,x :wq<CR>:res<CR>
+"nmap ,x " Used by slime.vim
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
@@ -110,6 +112,9 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 " VimClojure
 let vimclojure#NailgunClient = "$HOME/opt/vimclojure/ng"
 let clj_want_gorilla = 1
+
+" Source slime.vim to allow for SLIME like functionality
+source $HOME/.vim/slime.vim
 
 " Source project specific vim stuff if it exists
 set secure
