@@ -12,4 +12,4 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)
 
 setenv SSH_AUTH_SOCK $HOME/.ssh/screen_agent
 
-screen -t remote ssh-agent ssh-agent -a $SSH_AUTH_SOCK $SHELL
+screen -t remote 9 ssh-agent ssh-agent -a $SSH_AUTH_SOCK $SHELL
