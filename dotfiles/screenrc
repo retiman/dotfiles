@@ -13,7 +13,7 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)
 
 setenv SSH_AUTH_SOCK $HOME/.ssh/screen_agent
 
-screen -t ruby    6 irb
-screen -t scala   7 scala
-screen -t clojure 8 clojure
+screen -t ruby    6 sh -c "irb; bash -l"
+screen -t scala   7 sh -c "scala; bash -l"
+screen -t clojure 8 sh -c "clojure; bash -l"
 screen -t remote  9 ssh-agent ssh-agent -a $SSH_AUTH_SOCK $SHELL
