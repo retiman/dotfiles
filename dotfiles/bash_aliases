@@ -18,4 +18,3 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 # Development
 ################################################################################
 alias scala='rlwrap scala -deprecation -Xmigration'
-alias ng-server="java -cp /usr/share/java/clojure.jar:/usr/share/java/clojure-contrib.jar:$HOME/opt/vimclojure/build/vimclojure.jar com.martiansoftware.nailgun.NGServer 127.0.0.1"
