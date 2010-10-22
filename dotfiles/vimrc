@@ -45,8 +45,8 @@ set wildmode=list:full
 "set wrapmargin=80
 
 syntax on
-colorscheme default
 filetype plugin indent on
+colorscheme default
 
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
