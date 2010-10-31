@@ -111,6 +111,8 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " VimClojure
 let vimclojure#WantNailgun = 1
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
 
 " Source slime.vim to allow for SLIME like functionality
 source $HOME/.vim/slime.vim
