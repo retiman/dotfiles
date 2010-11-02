@@ -43,6 +43,13 @@ function mvnt {
   mvn test -Dtest=$1
 }
 
+################################################################################
+# Vim
+################################################################################
+function vim-project {
+  cp $HOME/.vim/project/$1/project.vim .
+}
+
 function java-find-sources {
   find -type f -path './src/*'
 }
