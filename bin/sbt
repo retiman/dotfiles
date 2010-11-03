@@ -1,8 +1,18 @@
 #!/bin/sh
-if [ -z $SBT_HOME ]
+SBT_DIR="$HOME/.m2/repository/sbt/launcher"
+
+if [ "$1" = "self-install" ]
 then
-  echo "Download SBT and set the SBT_HOME environment variable to wherever you downloaded it."
-  echo "http://code.google.com/p/simple-build-tool/"
+  if [ -z "$2" ]
+  then
+    VERSION="0.7.4"
+  else
+    VERSION="$2"
+  fi
+  SBT_URL="http://simple-build-tool.googlecode.com/files/sbt-launch-$VERSION.jar"
+  mkdir -p "$SBT_DIR/$VERSION"
+  wget -O "$SBT_DIR/$VERSION/launcher-$VERSION.jar" "$SBT_URL"
   exit
 fi
-java -Xmx512M -jar $SBT_HOME/sbt-launch-*.jar "$@"
+
+java -Xmx512M -jar $SBT_DIR/*/launcher-*.jar "$@"
