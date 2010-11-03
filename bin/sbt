@@ -1,18 +1,13 @@
 #!/bin/sh
-SBT_DIR="$HOME/.m2/repository/sbt/launcher"
+SBT_VERSION="0.7.4"
+SBT_DIR="$HOME/.m2/repository/sbt/launcher/$SBT_VERSION"
+SBT_URL="http://simple-build-tool.googlecode.com/files/sbt-launch-$SBT_VERSION.jar"
 
 if [ "$1" = "self-install" ]
 then
-  if [ -z "$2" ]
-  then
-    VERSION="0.7.4"
-  else
-    VERSION="$2"
-  fi
-  SBT_URL="http://simple-build-tool.googlecode.com/files/sbt-launch-$VERSION.jar"
-  mkdir -p "$SBT_DIR/$VERSION"
-  wget -O "$SBT_DIR/$VERSION/launcher-$VERSION.jar" "$SBT_URL"
+  mkdir -p "$SBT_DIR"
+  wget -O "$SBT_DIR/launcher-$SBT_VERSION.jar" "$SBT_URL"
   exit
 fi
 
-java -Xmx512M -jar $SBT_DIR/*/launcher-*.jar "$@"
+java -Xmx512M -jar "$SBT_DIR/launcher-$SBT_VERSION.jar" "$@"
