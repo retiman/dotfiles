@@ -20,4 +20,3 @@ alias sync-podcasts='rsync --archive --delete --verbose ~/data/podcasts/* /media
 # Development
 ################################################################################
 alias scala='rlwrap scala -deprecation -Xmigration'
-alias clojure='rlwrap clj'
