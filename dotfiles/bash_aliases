@@ -18,3 +18,4 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 # Development
 ################################################################################
 alias scala='rlwrap scala -deprecation -Xmigration'
+alias clojure='rlwrap clj'
