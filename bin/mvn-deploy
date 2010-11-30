@@ -59,6 +59,7 @@ opts.on('-g', '--group-id GROUP_ID') { |g| settings.group_id = g }
 opts.on('-a', '--artifact-id ARTIFACT_ID') { |a| settings.artifact_id = a }
 opts.on('-p', '--packaging PACKAGING') { |p| settings.packaging = p }
 opts.on('-v', '--version VERSION') { |v| settings.version = v }
+opts.on('--pom POM') { |p| settings.pom = p }
 opts.on('-h', '--help') { RDoc::usage() }
 opts.parse!
 
@@ -89,46 +90,58 @@ input = STDIN.gets.strip
 settings.repo = input if !input.empty?
 puts ""
 
-# Prompt for GROUP_ID
-puts "Current group_id: #{settings.group_id}"
+# Prompt for POM
+puts "Current pom: #{settings.pom}"
 print "New value: "
 input = STDIN.gets.strip
-settings.group_id = input if !input.empty?
+settings.pom = input if !input.empty?
 puts ""
 
-# Prompt for ARTIFACT_ID
-puts "Current artifact_id: #{settings.artifact_id}"
-print "New value: "
-input = STDIN.gets.strip
-settings.artifact_id = input if !input.empty?
-puts ""
+if !settings.pom
+  # Prompt for GROUP_ID
+  puts "Current group_id: #{settings.group_id}"
+  print "New value: "
+  input = STDIN.gets.strip
+  settings.group_id = input if !input.empty?
+  puts ""
 
-# Prompt for VERSION
-puts "Current version: #{settings.version}"
-print "New value: "
-input = STDIN.gets.strip
-settings.version = input if !input.empty?
-puts ""
+  # Prompt for ARTIFACT_ID
+  puts "Current artifact_id: #{settings.artifact_id}"
+  print "New value: "
+  input = STDIN.gets.strip
+  settings.artifact_id = input if !input.empty?
+  puts ""
 
-# Prompt for PACKAGING
-puts "Current packaging: #{settings.packaging}"
-print "New value: "
-input = STDIN.gets.strip
-settings.packaging = input if !input.empty?
-puts ""
+  # Prompt for VERSION
+  puts "Current version: #{settings.version}"
+  print "New value: "
+  input = STDIN.gets.strip
+  settings.version = input if !input.empty?
+  puts ""
+
+  # Prompt for PACKAGING
+  puts "Current packaging: #{settings.packaging}"
+  print "New value: "
+  input = STDIN.gets.strip
+  settings.packaging = input if !input.empty?
+  puts ""
+end
 
 # Generate command
-cmd = <<EOF
-mvn deploy:deploy-file \
-  -DrepositoryId=#{settings.repo} \
-  -Durl=#{settings.repositories[settings.repo]} \
-  -DgroupId=#{settings.group_id} \
-  -DartifactId=#{settings.artifact_id} \
-  -Dversion=#{settings.version} \
-  -Dpackaging=#{settings.packaging} \
-  -DgeneratePom=true \
-  -Dfile=#{settings.file}
-EOF
+cmd = "mvn deploy:deploy-file"
+cmd << " -DrepositoryId=#{settings.repo}"
+cmd << " -Durl=#{settings.repositories[settings.repo]}"
+cmd << " -Dfile=#{settings.file}"
+if settings.pom.nil? || settings.pom.empty?
+  cmd << " -DgroupId=#{settings.group_id}"
+  cmd << " -DartifactId=#{settings.artifact_id}"
+  cmd << " -Dversion=#{settings.version}"
+  cmd << " -Dpackaging=#{settings.packaging}"
+  cmd << " -DgeneratePom=true"
+else
+  cmd << " -DpomFile=#{settings.pom}"
+end
+
 puts "Generated command:"
 puts cmd
 print "Is this correct (y/n): "
