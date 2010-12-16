@@ -17,7 +17,8 @@ xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Timeout' 8 20
 xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
 
 xscreensaver -nosplash &
-eval `ssh-agent`
+tpb -d
+ssh-agent | sed -e '3d' > ~/.ssh/agent
 
 while true; do
   wmii

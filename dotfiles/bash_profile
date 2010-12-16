@@ -57,5 +57,8 @@ source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
   source $HOME/.bash_local
 fi
+if [ -e $HOME/.ssh/agent ]; then
+  source $HOME/.ssh/agent
+fi
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
