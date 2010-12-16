@@ -6,7 +6,7 @@ export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JAVA_COMPILER=jitc
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME=$JAVA_HOME
-export M2_HOME=/usr/share/maven2
+export M2_HOME=$HOME/opt/maven
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
 
@@ -51,7 +51,7 @@ export WINE_PREFIX=$HOME/.wine
 ###############################################################################
 # Bash
 ###############################################################################
-export PATH=$HOME/bin:$GEM_HOME/bin:$SCALA_HOME/bin:/sbin:$PATH
+export PATH=$HOME/bin:$M2_HOME/bin:$GEM_HOME/bin:$SCALA_HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
