@@ -15,5 +15,5 @@ setenv SSH_AUTH_SOCK $HOME/.ssh/screen_agent
 
 screen -t ruby    6 sh -c "irb; bash -l"
 screen -t scala   7 sh -c "scala; bash -l"
-screen -t clojure 8 sh -c "clojure; bash -l"
+screen -t clojure 8 sh -c "clj; bash -l"
 screen -t remote  9 ssh-agent ssh-agent -a $SSH_AUTH_SOCK $SHELL

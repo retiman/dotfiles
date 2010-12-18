@@ -77,4 +77,4 @@ JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
 MAIN=${CLOJURE_MAIN:-clojure.main}
 
-exec ${JAVA} ${OPTS} ${MAIN} "$@"
+exec rlwrap ${JAVA} ${OPTS} ${MAIN} "$@"
