@@ -14,7 +14,7 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollTtyKeypress: false
 urxvt*fading: 5
 urxvt*fadeColor: grey
-urxvt*scrollColor: #5c9aef
+urxvt*scrollColor: #303030
 urxvt*borderColor: #00204b
 urxvt*cursorColor: #d1edff
 urxvt*color4: #0072ff
