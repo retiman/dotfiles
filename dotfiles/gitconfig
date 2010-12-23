@@ -19,7 +19,7 @@
   lg = log -p --stat
   pick = cherry-pick -x
   psu = !git pull --stat && git submodule init && git submodule update
-  pull = pull --stat  st = status
+  pull = pull --stat
   su = !git submodule init && git submodule update
   st = status
   ltag = tag -l -n1
