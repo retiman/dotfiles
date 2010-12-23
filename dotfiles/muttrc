@@ -1,0 +1,4 @@
+set mbox_type=Maildir
+set folder=$HOME/.mail
+set header_cache=$HOME/.hcache
+mailboxes = +inbox
