@@ -33,5 +33,13 @@ Dir.chdir base_dir do
     puts "Symlinked: #{original}"
   end
 
+  puts 'Removing broken symlinks'
+  Dir["#{ENV['HOME']}/.*"].each do |f|
+    unless File.exists? f
+      puts "Removing #{f} which points to #{File.readlink f}"
+      FileUtils.rm f
+    end
+  end
+
   puts "Done"
 end
