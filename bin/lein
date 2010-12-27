@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export LEIN_VERSION="1.4.0"
+export LEIN_VERSION="1.4.1"
 
 case $LEIN_VERSION in
     *SNAPSHOT) SNAPSHOT="YES" ;;
@@ -65,7 +65,7 @@ if [ -r "$BIN_DIR/../src/leiningen/core.clj" ]; then
     # Running from source checkout
     LEIN_DIR="$(dirname "$BIN_DIR")"
     LEIN_LIBS="$(find -H $LEIN_DIR/lib -mindepth 2> /dev/null 1 -maxdepth 1 -print0 | tr \\0 \:)"
-    CLASSPATH="$LEIN_DIR/src:$LEIN_DIR/resources:$LEIN_LIBS:$CLASSPATH:$LEIN_JAR"
+    CLASSPATH="$LEIN_LIBS:$CLASSPATH:$LEIN_DIR/src:$LEIN_DIR/resources:$LEIN_JAR"
 
     if [ "$LEIN_LIBS" = "" -a "$1" != "self-install" -a ! -r "$LEIN_JAR" ]; then
         echo "Leiningen is missing its dependencies. Please see \"Building\" in the README."
@@ -165,7 +165,7 @@ else
     # TODO: add more to the boot classpath
     test $CYGWIN_JLINE && stty -icanon min 1 -echo
     exec $RLWRAP $JAVA_CMD -Xbootclasspath/a:"$CLOJURE_JAR" -client $JAVA_OPTS \
-        -Dleiningen.original.pwd=$ORIGINAL_PWD \
+        -Dleiningen.original.pwd="$ORIGINAL_PWD" \
         -cp "$CLASSPATH" $JLINE clojure.main -e "(use 'leiningen.core)(-main)" \
         $NULL_DEVICE $@
     test $CYGWIN_JLINE && stty icanon echo
