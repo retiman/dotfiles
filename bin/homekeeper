@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 require 'fileutils'
 
+f = File.readlink(__FILE__) rescue File.expand_path(__FILE__)
+base_dir = File.expand_path(File.join(File.dirname(f), '..'))
+Dir.chdir base_dir
+
 FileUtils.rm_r 'tmp' if File.exists? 'tmp'
 FileUtils.mkdir_p 'tmp/bin'
 FileUtils.mkdir_p 'tmp/dotfiles'
