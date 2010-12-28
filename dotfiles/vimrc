@@ -57,8 +57,6 @@ map <C-L> <C-W>l:res<CR>
 map <C-_> <C-W>_:res<CR>
 "   Map C-\ to open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <F2> :set expandtab!<CR>
-map <F3> :set list!<CR>
 "   Remove all trailing whitespace
 map <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "   Toggle highlighting of really long lines
@@ -80,9 +78,11 @@ nmap ; :
 nmap ,/ :let @/=""<CR>
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
+nmap ,e :set expandtab!<CR>
 nmap ,f <C-W>f:res<CR>
 nmap ,g :FindFile<CR>
 nmap ,h :set hlsearch!<CR>
+nmap ,l :set list!<CR>
 nmap ,n :set number!<CR>
 nmap ,q :q!<CR>:res<CR>
 nmap ,r :res<CR>
