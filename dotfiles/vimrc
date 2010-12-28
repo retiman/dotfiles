@@ -57,6 +57,10 @@ map <C-L> <C-W>l:res<CR>
 map <C-_> <C-W>_:res<CR>
 "   Map C-\ to open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"   Copy into clipboard
+vmap <F2> :w !xclip<CR><CR>
+"   Paste from clipboard
+map <F3> :r!xclip -o<CR>
 "   Remove all trailing whitespace
 map <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "   Toggle highlighting of really long lines
