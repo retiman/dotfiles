@@ -1,2 +1,2 @@
 #!/bin/sh
-exec rlwrap scala -deprecation -Xmigration "$@"
+exec rlwrap $HOME/opt/scala/bin/scala -deprecation -Xmigration "$@"
