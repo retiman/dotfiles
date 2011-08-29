@@ -61,6 +61,7 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 vmap <F2> :w !xclip<CR><CR>
 "   Paste from clipboard
 map <F3> :r!xclip -o<CR>
+imap <F3> <ESC>:r!xclip -o<CR>i
 "   Remove all trailing whitespace
 map <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "   Toggle highlighting of really long lines
