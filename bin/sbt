@@ -10,4 +10,4 @@ then
   exit
 fi
 
-java -Xmx512M -jar "$SBT_DIR/launcher-$SBT_VERSION.jar" "$@"
+java -Dfile.encoding=UTF8 -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -jar "$SBT_DIR/launcher-$SBT_VERSION.jar" "$@"
