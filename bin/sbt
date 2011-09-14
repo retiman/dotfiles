@@ -1,7 +1,7 @@
 #!/bin/sh
-SBT_VERSION="0.7.4"
+SBT_VERSION="0.10.1"
 SBT_DIR="$HOME/.m2/repository/sbt/launcher/$SBT_VERSION"
-SBT_URL="http://simple-build-tool.googlecode.com/files/sbt-launch-$SBT_VERSION.jar"
+SBT_URL="http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-tools.sbt/sbt-launch/$SBT_VERSION/sbt-launch.jar"
 
 if [ "$1" = "self-install" ]
 then
