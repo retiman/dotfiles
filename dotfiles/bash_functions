@@ -50,6 +50,14 @@ function vim-project {
   cp $HOME/.vim/project/$1/project.vim .
 }
 
+function find-broken-symlinks {
+  find -L $1 -type l -ls
+}
+
+function delete-broken-symlinks {
+  find -L $1 -type l -delete
+}
+
 function java-find-sources {
   find -type f -path './src/*'
 }
@@ -75,10 +83,6 @@ function buntar {
 
 function guntar {
   tar xvfz "$1" && rm "$1"
-}
-
-function find-broken-symlinks {
-  find . -type l | (while read FN ; do test -e "$FN" || ls -ld "$FN"; done)
 }
 
 function bin2iso {
