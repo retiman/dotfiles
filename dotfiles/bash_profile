@@ -19,7 +19,7 @@ export SBT_HOME=$HOME/opt/sbt
 ###############################################################################
 # Clojure
 ###############################################################################
-export CLOJURE_EXT=$HOME/opt/clojure:$HOME/opt/clojure-contrib/target:$M2_REPO/vimclojure/server/2.2.0
+export CLOJURE_EXT=$HOME/opt/clojure
 
 ###############################################################################
 # Ruby
