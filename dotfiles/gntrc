@@ -1,27 +1,30 @@
 [general]
 mouse = 1
+wm    = /usr/lib/gnt/irssi.so
 
 [buddylist::menu]
-c-t = send-im
-c-a = add-buddy
-c-g = add-group
-c-c = window-close
+c-x = window-close
 
-[GntEntry::remap]
+[GntTree::binding]
+c-n =
+c-p =
+c-x = window-close
+f7  = show-menu
+f8  = context-menu
+j   = move-down
+k   = move-up
+
+[GntWidget::binding]
 c-c = window-close
+f8  = context-menu
+
+[GntWindow::binding]
+c-x = window-close
+f7  = show-menu
 
 [GntWM::binding]
 c-a = action-list
-c-b = move-back
-c-c = window-close
-c-f = move-down
+c-x = window-close
 c-n = window-next
 c-p = window-prev
 c-w = window-list
-c-q = wm-quit
-c-r = start-resize
-
-[GntTree::binding]
-c-f = move-down
-c-b = move-up
-c-c = window-close
