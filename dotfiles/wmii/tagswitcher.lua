@@ -1,5 +1,9 @@
 #!/usr/bin/env lua
 
+-- This code is from http://homework.nwsnet.de/products/6349_switch-between-wmii-tags
+-- Copyright © 2001-2010 Jochen Kupperschmidt
+-- Shown code is released under the terms of the MIT license
+--
 -- Switch between wmii tags by using the `wmiir` tool directly.
 --
 --
