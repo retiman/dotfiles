@@ -5,8 +5,8 @@ vbell_msg ^G
 deflogin on
 termcapinfo xterm* ti@:te@
 escape ^Oo                        # Use ctrl+o to issue commands to screen
-bindkey -k k5 prev                # F5 for previous window
-bindkey -k k6 next                # F6 for next window
+bindkey -k F1 prev                # F11 for previous window (NOT F1)
+bindkey -k F2 next                # F12 for next window (NOT F2)
 bindkey -d ^@ stuff ^?
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
