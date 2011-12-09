@@ -50,11 +50,19 @@ colorscheme default
 
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
-map <C-H> <C-W>h:res<CR>
-map <C-J> <C-W>j:res<CR>
-map <C-K> <C-W>k:res<CR>
-map <C-L> <C-W>l:res<CR>
-map <C-_> <C-W>_:res<CR>
+if &diff
+  map <C-H> <C-W>h<CR>
+  map <C-J> <C-W>j<CR>
+  map <C-K> <C-W>k<CR>
+  map <C-L> <C-W>l<CR>
+  map <C-_> <C-W>_<CR>
+else
+  map <C-H> <C-W>h:res<CR>
+  map <C-J> <C-W>j:res<CR>
+  map <C-K> <C-W>k:res<CR>
+  map <C-L> <C-W>l:res<CR>
+  map <C-_> <C-W>_:res<CR>
+endif
 "   Map C-\ to open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 "   Copy into clipboard
