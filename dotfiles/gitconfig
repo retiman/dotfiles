@@ -28,6 +28,6 @@
 [mergetool "vimdiff-wrapper"]
   cmd = vimdiff -o \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [diff]
-  tool = vimdiff
+  tool = vimdiff-wrapper
 [merge]
   tool = vimdiff-wrapper
