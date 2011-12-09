@@ -46,7 +46,7 @@ set wildmode=list:full
 
 syntax on
 filetype plugin indent on
-colorscheme default
+colorscheme jellybeans
 
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
