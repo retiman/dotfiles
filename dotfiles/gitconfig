@@ -25,3 +25,9 @@
   ltag = tag -l -n1
   mtag = tag -a -m
   rb = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index && git clean -fdx'
+[mergetool "vimdiff-wrapper"]
+  cmd = vimdiff -o \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff-wrapper
