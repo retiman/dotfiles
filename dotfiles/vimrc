@@ -49,6 +49,8 @@ syntax on
 filetype plugin indent on
 colorscheme jellybeans
 
+call pathogen#infect()
+
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
 if &diff
