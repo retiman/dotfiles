@@ -96,8 +96,6 @@ nmap ,/ :let @/=""<CR>
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
 nmap ,e :set expandtab!<CR>
-nmap ,f <C-W>f:res<CR>
-nmap ,g :FindFile<CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,l :set list!<CR>
 nmap ,n :set number!<CR>
@@ -105,7 +103,7 @@ nmap ,q :q!<CR>:res<CR>
 nmap ,qx :qall!<CR>
 nmap ,r :res<CR>
 "nmap ,s " Used by slime.vim
-nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
+nmap <silent> ,t :!ctags -R * &<CR><CR>
 "nmap ,v " Used by slime.vim
 nmap ,w :set wrap!<CR>
 "nmap ,x " Used by slime.vim
