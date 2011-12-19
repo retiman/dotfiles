@@ -123,9 +123,6 @@ highlight OverColLimit ctermbg=darkblue
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
-" VimClojure
-let g:vimclojure#DynamicHighlighting = 1
-
 " Source slime.vim to allow for SLIME like functionality
 source $HOME/.vim/slime.vim
 
