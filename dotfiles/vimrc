@@ -34,6 +34,7 @@ set shiftwidth=2
 set showcmd
 set showmode
 set showmatch
+set smartcase
 set smartindent
 set smarttab
 set softtabstop=2
