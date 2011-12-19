@@ -1,4 +1,5 @@
 set nocompatible
+set clipboard=unnamed
 set fileencoding=utf-8
 set termencoding=utf-8
 set autoindent
