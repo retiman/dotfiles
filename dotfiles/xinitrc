@@ -20,12 +20,4 @@ xscreensaver -nosplash &
 tpb -d
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
-while true; do
-  wmii
-  xmessage 'Do you want to restart wmii?' \
-           -buttons 'Yes:1,No:0' \
-           -center \
-           -default 'Yes' \
-           -timeout 30 \
-  && break
-done
+exec /usr/bin/i3 -V > ~/.i3/log >&1
