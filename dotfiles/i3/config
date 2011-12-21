@@ -17,11 +17,14 @@ force_focus_wrapping no
 workspace_auto_back_and_forth no
 
 # workspace assignments; use xprop to find out WM_CLASS
-assign [class="Gitk"] ~
 assign [class="Google-chrome"] 9: www
 assign [class="jetbrains-idea"] 10: ide
-assign [class="MPlayer"] ~
 assign [class="VirtualBox"] 11: vm
+
+# per window commands
+for_window [class="Gitk"] floating enable
+for_window [class="Google-chrome"] border 1pixel floating enable
+for_window [class="MPlayer"] floating enable
 
 # color classes         border  back    text
 client.focused          #8c8c8c #686363 #a0ff00
@@ -31,6 +34,10 @@ client.urgent           #00ffff #242424 #f6f3e8
 
 # start a terminal
 bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return split v; exec urxvt
+
+# workspace back and forth
+#bindsym $mod+g workspace back_and_forth
 
 # screensaver
 bindsym $mod+F12 exec xscreensaver-command --lock &
@@ -44,16 +51,13 @@ bindsym $mod+f fullscreen
 # start dmenu (a program launcher)
 bindsym $mod+e exec dmenu_run
 
-# workspace back and forth
-bindsym $mod+o workspace back_and_forth
-
 # focus the parent/child container
-bindsym $mod+t focus parent
-bindsym $mod+b focus child
+bindsym $mod+a focus parent
+#bindsym $mod+b focus child
 
 # split in horizontal/vertical orientation
-bindsym $mod+u split h
-bindsym $mod+m split v
+bindsym $mod+o split horizontal
+bindsym $mod+v split vertical
 
 # next/prev workspace
 bindsym $mod+n workspace next
@@ -73,7 +77,7 @@ bindsym $mod+Shift+L move right
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
-bindsym $mod+a layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+d layout default
 
 # toggle tiling / floating
@@ -109,7 +113,7 @@ bindsym $mod+Shift+parenright move workspace 10: ide
 bindsym $mod+Shift+underscore move workspace 11: vm
 
 # reload the configuration file
-bindsym $mod+Shift+R reload
+#bindsym $mod+Shift+R reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+W restart
 # exit i3 (logs you out of your X session)
@@ -117,17 +121,10 @@ bindsym $mod+Shift+Q exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-  bindsym h        resize shrink left 10 px or 10 ppt
-  bindsym Shift+H  resize grow   left 10 px or 10 ppt
-
-  bindsym j        resize shrink down 10 px or 10 ppt
-  bindsym Shift+J  resize grow   down 10 px or 10 ppt
-
-  bindsym k        resize shrink up 10 px or 10 ppt
-  bindsym Shift+K  resize grow   up 10 px or 10 ppt
-
-  bindsym l        resize shrink right 10 px or 10 ppt
-  bindsym Shift+L  resize grow   right 10 px or 10 ppt
+  bindsym h resize shrink right 8 px or 8 ppt
+  bindsym j resize grow   down  8 px or 8 ppt
+  bindsym k resize shrink down  8 px or 8 ppt
+  bindsym l resize grow   right 8 px or 8 ppt
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -148,5 +145,7 @@ bar {
   colors {
     background #333333
     statusline #f6f3e8
+    focused_workspace #a0ff00 #686363
+    urgent_workspace  #f6f3e8  #242424
   }
 }
