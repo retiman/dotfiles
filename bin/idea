@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $HOME/opt/idea
+exec bin/idea.sh &
