@@ -1,0 +1,151 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Run xmodmap -pke to see keycodes and names
+
+set $mod Mod1
+set $font -misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1
+
+# font for window titles. ISO 10646 = Unicode
+font $font
+
+floating_modifier $mod
+new_window normal
+focus_follows_mouse yes
+popup_during_fullscreen leave_fullscreen
+force_focus_wrapping no
+workspace_auto_back_and_forth no
+
+# workspace assignments; use xprop to find out WM_CLASS
+assign [class="Google-chrome"] 9: www
+assign [class="jetbrains-idea"] 10: ide
+assign [class="VirtualBox"] 11: vm
+
+# per window commands
+for_window [class="Gitk"] floating enable
+for_window [class="Google-chrome"] border 1pixel floating enable
+for_window [class="MPlayer"] floating enable
+
+# color classes         border  back    text
+client.focused          #8c8c8c #686363 #a0ff00
+client.focused_inactive #303030 #242424 #f6f3e8
+client.unfocused        #303030 #242424 #f6f3e8
+client.urgent           #00ffff #242424 #f6f3e8
+
+# start a terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return split v; exec urxvt
+
+# workspace back and forth
+#bindsym $mod+g workspace back_and_forth
+
+# screensaver
+bindsym $mod+F12 exec xscreensaver-command --lock &
+
+# kill focused window
+bindsym $mod+Shift+C kill
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# start dmenu (a program launcher)
+bindsym $mod+e exec dmenu_run
+
+# focus the parent/child container
+bindsym $mod+a focus parent
+#bindsym $mod+b focus child
+
+# split in horizontal/vertical orientation
+bindsym $mod+o split horizontal
+bindsym $mod+v split vertical
+
+# next/prev workspace
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+d layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8: file
+bindsym $mod+9 workspace 9: www
+bindsym $mod+0 workspace 10: ide
+bindsym $mod+minus workspace 11: vm
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move workspace 1
+bindsym $mod+Shift+at move workspace 2
+bindsym $mod+Shift+numbersign move workspace 3
+bindsym $mod+Shift+dollar move workspace 4
+bindsym $mod+Shift+percent move workspace 5
+bindsym $mod+Shift+asciicircum move workspace 6
+bindsym $mod+Shift+ampersand move workspace 7
+bindsym $mod+Shift+asterisk move workspace 8: file
+bindsym $mod+Shift+parenleft move workspace 9: www
+bindsym $mod+Shift+parenright move workspace 10: ide
+bindsym $mod+Shift+underscore move workspace 11: vm
+
+# reload the configuration file
+#bindsym $mod+Shift+R reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+W restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Q exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym h resize shrink right 8 px or 8 ppt
+  bindsym j resize grow   down  8 px or 8 ppt
+  bindsym k resize shrink down  8 px or 8 ppt
+  bindsym l resize grow   right 8 px or 8 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command i3status
+  mode dock
+  position bottom
+  tray_output none
+
+  font $font
+
+  colors {
+    background #333333
+    statusline #f6f3e8
+    focused_workspace #a0ff00 #686363
+    urgent_workspace  #f6f3e8  #242424
+  }
+}
