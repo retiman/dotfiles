@@ -23,10 +23,10 @@ assign [class="VirtualBox"] 11: vm
 
 # per window commands
 for_window [class="Gitk"] floating enable
-for_window [class="Google-chrome"] border normal; split vertical; layout stacking
-for_window [class="jetbrains-idea"] split vertical; layout stacking
-for_window [class="MPlayer"] floating enable
-for_window [class="VirtualBox"] split vertical; layout stacking
+for_window [class="Google-chrome"] layout stacking
+for_window [class="jetbrains-idea"] layout stacking
+for_window [class="mplayer"] floating enable
+for_window [class="VirtualBox"] layout stacking
 
 # color classes         border  back    text
 client.focused          #8c8c8c #686363 #a0ff00
