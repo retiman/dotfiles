@@ -23,8 +23,9 @@ assign [class="VirtualBox"] 11: vm
 
 # per window commands
 for_window [class="Gitk"] floating enable
-for_window [class="Google-chrome"] border 1pixel floating enable
+for_window [class="Google-chrome"] split vertical
 for_window [class="MPlayer"] floating enable
+for_window [class="qiv"] floating enable
 
 # color classes         border  back    text
 client.focused          #8c8c8c #686363 #a0ff00
