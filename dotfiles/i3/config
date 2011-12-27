@@ -123,13 +123,10 @@ bindsym $mod+Shift+Q exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-  bindsym h resize shrink right 8 px or 8 ppt
-  bindsym j resize grow   down  8 px or 8 ppt
-  bindsym k resize shrink down  8 px or 8 ppt
-  bindsym l resize grow   right 8 px or 8 ppt
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
+  bindsym h resize shrink right 8 px or 8 ppt; mode "default"
+  bindsym j resize grow   down  8 px or 8 ppt; mode "default"
+  bindsym k resize shrink down  8 px or 8 ppt; mode "default"
+  bindsym l resize grow   right 8 px or 8 ppt; mode "default"
 }
 
 bindsym $mod+r mode "resize"
