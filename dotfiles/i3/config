@@ -29,7 +29,7 @@ for_window [class="mplayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
 
 # color classes         border  back    text
-client.focused          #8c8c8c #686363 #a0ff00
+client.focused          #005577 #005577 #a0ff00
 client.focused_inactive #303030 #242424 #f6f3e8
 client.unfocused        #303030 #242424 #f6f3e8
 client.urgent           #00ffff #242424 #f6f3e8
