@@ -30,6 +30,9 @@ autocmd BufWritePost .scala silent! !ctags -R --exclude=target * &
 " sh
 autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
 
+" sql
+autocmd BufNewFile,BufRead *.sql let g:ftplugin_sql_omni_key = '<C-O>'
+
 " vimperator
 autocmd BufNewFile,BufRead .vimperatorrc,vimperatorrc setf vimperator
 
