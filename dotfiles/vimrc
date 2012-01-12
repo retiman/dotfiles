@@ -101,7 +101,6 @@ nmap <leader>e :set expandtab! list!<CR>
 nmap <leader>h :set hlsearch!<CR>
 nmap <leader>r :res<CR>
 nmap <silent> <leader>t :!ctags -R * &<CR><CR>
-nmap <leader>w :set wrap!<CR>
 nmap <leader>v V`]
 
 " Visual mode mappings (same as vnoremap)
