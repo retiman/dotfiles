@@ -10,6 +10,7 @@ set completeopt=longest,menuone
 set expandtab
 set fileformat=unix
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:-
+set gdefault
 set guioptions+=c
 set history=50
 set hlsearch
@@ -19,13 +20,14 @@ set indentexpr=
 set infercase
 set laststatus=2
 set lazyredraw
-set list
 set listchars=tab:│\ ,trail:·
-"set mouse=a
+set modelines=0
 set nobackup
 set noerrorbells
 set nofoldenable
+set nolist
 set novisualbell
+set number
 set pastetoggle=<F1>
 set ruler
 set selection=inclusive
@@ -40,11 +42,14 @@ set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 set tabstop=2
+set textwidth=80
+set ttyfast
 set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
-set wildmode=list:full
-"set wrapmargin=80
+set wildmode=list:longest
+
+let mapleader=","
 
 call pathogen#infect()
 
@@ -67,17 +72,10 @@ else
   map <C-L> <C-W>l:res<CR>
   map <C-_> <C-W>_:res<CR>
 endif
-"   Map C-\ to open definition in a new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-"   Copy into clipboard
-vmap <F2> :w !xclip<CR><CR>
-"   Paste from clipboard
-map <F3> :r!xclip -o<CR>
-imap <F3> <ESC>:r!xclip -o<CR>i
-"   Remove all trailing whitespace
-map <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Mappings
 "   Toggle highlighting of really long lines
-map <silent> <F5>
+map <silent> <F1>
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
@@ -86,27 +84,29 @@ map <silent> <F5>
       \ else <Bar>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
-map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*' -not -name '*.swp'"<CR>1G:set buftype=nofile<CR>:res<CR>
+"   Remove all trailing whitespace
+map <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Normal mode mappings (same as nnoremap)
-nmap ,> <C-W>>
-nmap ,> <C-W><
+"   ,s (used by slime.vim)
+"   ,x (used by slime.vim)
+"   ,v (used by slime.vim)
 nmap ; :
-nmap ,/ :let @/=""<CR>
-nmap ,cd :cd %:p:h<CR>
-nmap ,d :bd<CR>:res<CR>
-nmap ,e :set expandtab!<CR>
-nmap ,h :set hlsearch!<CR>
-nmap ,l :set list!<CR>
-nmap ,n :set number!<CR>
-nmap ,q :q!<CR>:res<CR>
-nmap ,qx :qall!<CR>
-nmap ,r :res<CR>
-"nmap ,s " Used by slime.vim
-nmap <silent> ,t :!ctags -R * &<CR><CR>
-"nmap ,v " Used by slime.vim
-nmap ,w :set wrap!<CR>
-"nmap ,x " Used by slime.vim
+nmap / /\v
+nmap <tab> %
+nmap <leader><CR> <C-w>s
+nmap <leader>cd :cd %:p:h<CR>
+nmap <leader>d :bd<CR>
+nmap <leader>e :set expandtab! list!<CR>
+nmap <leader>h :set hlsearch!<CR>
+nmap <leader>r :res<CR>
+nmap <silent> <leader>t :!ctags -R * &<CR><CR>
+nmap <leader>w :set wrap!<CR>
+nmap <leader>v V`]
+
+" Visual mode mappings (same as vnoremap)
+vmap / /\v
+nmap <tab> %
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
@@ -126,7 +126,3 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Source slime.vim to allow for SLIME like functionality
 source $HOME/.vim/slime.vim
-
-" Source project specific vim stuff if it exists
-set secure
-au BufEnter,BufReadPost * silent! source ./project.vim
