@@ -123,7 +123,3 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
-
-" Source all other plugins
-source $HOME/.vim/bundle/slime.vim
-source $HOME/.vim/bundle/scratch.vim
