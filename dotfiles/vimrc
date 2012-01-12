@@ -94,7 +94,7 @@ map <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nmap ; :
 nmap / /\v
 nmap <tab> %
-nmap <leader><tab> :Sscratch
+nmap <leader><tab> :Sscratch<CR>
 nmap <leader><CR> <C-w>s
 nmap <leader>cd :cd %:p:h<CR>
 nmap <leader>d :bd<CR>
