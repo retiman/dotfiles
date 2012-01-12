@@ -88,12 +88,13 @@ map <silent> <F1>
 map <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Normal mode mappings (same as nnoremap)
-"   ,s (used by slime.vim)
+"   ,j (used by slime.vim)
 "   ,x (used by slime.vim)
 "   ,v (used by slime.vim)
 nmap ; :
 nmap / /\v
 nmap <tab> %
+nmap <leader><tab> :Sscratch
 nmap <leader><CR> <C-w>s
 nmap <leader>cd :cd %:p:h<CR>
 nmap <leader>d :bd<CR>
@@ -123,5 +124,6 @@ highlight OverColLimit ctermbg=darkblue
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
-" Source slime.vim to allow for SLIME like functionality
-source $HOME/.vim/slime.vim
+" Source all other plugins
+source $HOME/.vim/bundle/slime.vim
+source $HOME/.vim/bundle/scratch.vim
