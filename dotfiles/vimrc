@@ -50,28 +50,15 @@ set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/
 set wildmode=list:longest
 
 let mapleader=","
+let g:Tb_SplitBelow=0
+let g:Tb_MaxSize=0
+let g:Tb_MoreThanOne=0
 
 call pathogen#infect()
 
 syntax on
 filetype plugin indent on
 colorscheme jellybeans
-
-" Normal, visual, select, and operator mode mappings
-"   Map hjkl keys for navigating between splits
-if &diff
-  map <C-H> <C-W>h<CR>
-  map <C-J> <C-W>j<CR>
-  map <C-K> <C-W>k<CR>
-  map <C-L> <C-W>l<CR>
-  map <C-_> <C-W>_<CR>
-else
-  map <C-H> <C-W>h:res<CR>
-  map <C-J> <C-W>j:res<CR>
-  map <C-K> <C-W>k:res<CR>
-  map <C-L> <C-W>l:res<CR>
-  map <C-_> <C-W>_:res<CR>
-endif
 
 " Mappings
 "   Toggle highlighting of really long lines
@@ -88,25 +75,36 @@ map <silent> <F1>
 map <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Normal mode mappings (same as nnoremap)
-"   ,j (used by slime.vim)
+"   ,s (used by slime.vim)
 "   ,x (used by slime.vim)
 "   ,v (used by slime.vim)
 nmap ; :
 nmap / /\v
+nmap j gj
+nmap k gk
 nmap <tab> %
-nmap <leader><tab> :Sscratch<CR>
-nmap <leader><CR> <C-w>s
+nmap <C-H> :Tbbp<CR>
+nmap <C-L> :Tbbn<CR>
+nmap <leader><tab> :Scratch<CR>
 nmap <leader>cd :cd %:p:h<CR>
 nmap <leader>d :bd<CR>
 nmap <leader>e :set expandtab! list!<CR>
-nmap <leader>h :set hlsearch!<CR>
+nmap <leader>h <C-W>h<CR>
+nmap <leader>j <C-W>j<CR>
+nmap <leader>k <C-W>k<CR>
+nmap <leader>l <C-W>l<CR>
 nmap <leader>r :res<CR>
 nmap <silent> <leader>t :!ctags -R * &<CR><CR>
 nmap <leader>v V`]
+nmap <leader>q :q!<CR>
+nmap <leader>= <C-W>=<CR>
+nmap <leader><space> :set hlsearch!<CR>
 
 " Visual mode mappings (same as vnoremap)
 vmap / /\v
-nmap <tab> %
+vmap j gj
+vmap k gk
+vmap <tab> %
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by

@@ -21,6 +21,6 @@ function Screen_Vars()
   let g:screen_windowname = input("window name: ", g:screen_windowname)
 endfunction
 
-vmap ,j "ry :call Send_to_Screen(@r)<CR>
+vmap ,s "ry :call Send_to_Screen(@r)<CR>
 nmap ,x vip,j
 nmap ,v :call Screen_Vars()<CR>
