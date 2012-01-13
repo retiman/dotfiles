@@ -52,7 +52,7 @@ set wildmode=list:longest
 let mapleader=","
 let g:Tb_SplitBelow=1
 let g:Tb_MaxSize=0
-let g:Tb_MoreThanOne=0
+let g:Tb_MoreThanOne=2
 
 call pathogen#infect()
 
