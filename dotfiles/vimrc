@@ -75,9 +75,6 @@ map <silent> <F1>
 map <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Normal mode mappings (same as nnoremap)
-"   ,s (used by slime.vim)
-"   ,x (used by slime.vim)
-"   ,v (used by slime.vim)
 nmap ; :
 nmap / /\v
 nmap j gj
@@ -86,6 +83,7 @@ nmap <tab> %
 nmap <C-H> :Tbbp<CR>
 nmap <C-L> :Tbbn<CR>
 nmap <leader><tab> :Scratch<CR>
+" nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<CR>
 nmap <leader>d :bd<CR>
 nmap <leader>e :set expandtab! list!<CR>
@@ -94,9 +92,12 @@ nmap <leader>j <C-W>j<CR>
 nmap <leader>k <C-W>k<CR>
 nmap <leader>l <C-W>l<CR>
 nmap <leader>r :res<CR>
+" nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<CR><CR>
 nmap <leader>v V`]
+" nmap <leader>w (used by camelcasemotion)
 nmap <leader>q :q!<CR>
+" nmap <leader>x (used by slime.vim)
 nmap <leader>= <C-W>=<CR>
 nmap <leader><space> :set hlsearch!<CR>
 

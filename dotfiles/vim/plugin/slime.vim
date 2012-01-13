@@ -23,4 +23,4 @@ endfunction
 
 vmap ,s "ry :call Send_to_Screen(@r)<CR>
 nmap ,x vip,j
-nmap ,v :call Screen_Vars()<CR>
+" nmap ,v :call Screen_Vars()<CR>
