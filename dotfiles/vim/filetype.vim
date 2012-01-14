@@ -27,6 +27,10 @@ autocmd BufWritePost .rb silent! !ctags -R * &
 autocmd BufNewFile,BufRead *.scala setf scala
 autocmd BufWritePost .scala silent! !ctags -R --exclude=target * &
 
+" scheme
+autocmd BufNewFile,BufRead *.scm,*.rkt setf lisp
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.scm
+
 " sh
 autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
 
