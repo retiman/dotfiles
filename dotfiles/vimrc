@@ -48,11 +48,11 @@ set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
 set wildmode=list:longest
-
 let mapleader=","
 let g:Tb_SplitBelow=1
 let g:Tb_MaxSize=0
 let g:Tb_MoreThanOne=2
+let g:ctrlp_map='<C-O>'
 
 call pathogen#infect()
 
@@ -80,8 +80,8 @@ nmap / /\v
 nmap j gj
 nmap k gk
 nmap <tab> %
-nmap <C-H> :Tbbp<CR>
-nmap <C-L> :Tbbn<CR>
+nmap <C-n> :Tbbn<CR>
+nmap <C-p> :Tbbp<CR>
 nmap <leader><tab> :Scratch<CR>
 " nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<CR>
@@ -110,12 +110,14 @@ vmap <tab> %
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
 "   default
-imap <expr> <C-n> pumvisible() ? '<C-n>' :
+imap <expr> <C-N> pumvisible() ? '<C-N>' :
     \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "   Simulates <C-X><C-O> to bring up omni-complete, and simulates <C-N><C-P>
 "   to remove the longest common text
-imap <expr> <M-,> pumvisible() ? '<C-n>' :
+imap <expr> <M-,> pumvisible() ? '<C-N>' :
     \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"   Maps ctrl+space to autocomplete, just like in your favorite IDEs
+imap <nul> <c-n>
 
 " Highlight really long lines
 highlight OverColLimit ctermbg=darkblue
