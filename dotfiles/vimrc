@@ -45,14 +45,15 @@ set tabstop=2
 set textwidth=80
 set ttyfast
 set wildmenu
-set wildchar=<TAB>
+set wildchar=<tab>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
 set wildmode=list:longest
+
 let mapleader=","
 let g:Tb_SplitBelow=1
 let g:Tb_MaxSize=0
 let g:Tb_MoreThanOne=2
-let g:ctrlp_map='<C-O>'
+let g:ctrlp_map='<c-o>'
 
 call pathogen#infect()
 
@@ -80,26 +81,26 @@ nmap / /\v
 nmap j gj
 nmap k gk
 nmap <tab> %
-nmap <C-n> :Tbbn<CR>
-nmap <C-p> :Tbbp<CR>
-nmap <leader><tab> :Scratch<CR>
+nmap <c-n> :Tbbn<cr>
+nmap <c-p> :Tbbp<cr>
+nmap <leader><tab> :Scratch<cr>
 " nmap <leader>b (used by camecasemotion)
-nmap <leader>cd :cd %:p:h<CR>
-nmap <leader>d :bd<CR>
-nmap <leader>e :set expandtab! list!<CR>
-nmap <leader>h <C-W>h<CR>
-nmap <leader>j <C-W>j<CR>
-nmap <leader>k <C-W>k<CR>
-nmap <leader>l <C-W>l<CR>
-nmap <leader>r :res<CR>
+nmap <leader>cd :cd %:p:h<cr>
+nmap <leader>d :bd<cr>
+nmap <leader>e :set expandtab! list!<cr>
+nmap <leader>h <c-w>h<cr>
+nmap <leader>j <c-w>j<cr>
+nmap <leader>k <c-w>k<cr>
+nmap <leader>l <c-w>l<cr>
+nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
-nmap <silent> <leader>t :!ctags -R * &<CR><CR>
+nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 nmap <leader>v V`]
 " nmap <leader>w (used by camelcasemotion)
-nmap <leader>q :q!<CR>
+nmap <leader>q :q!<cr>
 " nmap <leader>x (used by slime.vim)
-nmap <leader>= <C-W>=<CR>
-nmap <leader><space> :set hlsearch!<CR>
+nmap <leader>= <c-w>=<cr>
+nmap <leader><space> :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
 vmap / /\v
@@ -110,11 +111,11 @@ vmap <tab> %
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
 "   default
-imap <expr> <C-N> pumvisible() ? '<C-N>' :
-    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"   Simulates <C-X><C-O> to bring up omni-complete, and simulates <C-N><C-P>
+imap <expr> <c-n> pumvisible() ? '<c-n>' :
+    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+"   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
 "   to remove the longest common text
-imap <expr> <M-,> pumvisible() ? '<C-N>' :
+imap <expr> <m-,> pumvisible() ? '<c-n>' :
     \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
 imap <nul> <c-n>
