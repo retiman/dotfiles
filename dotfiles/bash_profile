@@ -62,3 +62,11 @@ if [ -e $HOME/.ssh/agent ]; then
 fi
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
+
+case "$TERM" in
+  xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+  ;;
+    *)
+  ;;
+esac
