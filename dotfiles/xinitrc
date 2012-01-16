@@ -20,5 +20,4 @@ xscreensaver -nosplash &
 tpb -d
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
-exec autocutsel -f
 exec /usr/bin/i3
