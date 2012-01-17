@@ -118,7 +118,7 @@ imap <expr> <c-n> pumvisible() ? '<c-n>' :
 imap <expr> <m-,> pumvisible() ? '<c-n>' :
     \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-imap <nul> <c-n>
+imap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
 highlight OverColLimit ctermbg=darkblue

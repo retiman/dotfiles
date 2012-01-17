@@ -10,6 +10,7 @@ autocmd BufNewFile,BufRead *.sst setf html
 
 " java
 autocmd BufWritePost .java silent! !ctags -R --exclude=target * &
+autocmd FileType java setlocal completefunc=javacomplete#Complete
 
 " javascript
 autocmd BufNewFile,BufRead *.js,*.jsm,*.json setf javascript
