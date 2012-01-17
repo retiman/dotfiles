@@ -125,3 +125,7 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
+
+" Project specific settings
+set secure
+au BufEnter,BufReadPost * silent! source ./project.vim
