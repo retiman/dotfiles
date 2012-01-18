@@ -1,0 +1,3 @@
+#!/bin/sh
+mvn dependency:build-classpath -Dmdep.outputFile=.classpath
+exec rlwrap /usr/bin/bsh -classpath $(cat .classpath)
