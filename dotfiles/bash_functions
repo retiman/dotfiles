@@ -42,12 +42,25 @@ function repo-parse {
 ################################################################################
 # Other
 ################################################################################
-function buntar {
-  tar xvfj "$1" && rm "$1"
-}
-
-function guntar {
-  tar xvfz "$1" && rm "$1"
+function decompress {
+  if [[ "$1" = *.tar.bz2 ]]; then
+    tar xvfj "$1"
+  elif [[ "$1" = *.tar.gz ]]; then
+    tar xvfz "$1"
+  else
+    case "${1##*.}" in
+      zip)
+        unzip "$1" ;;
+      gz)
+        gunzip "$1" ;;
+      rar)
+        unrar x "$1" ;;
+      7z)
+        7z x "$1" ;;
+      *)
+        echo "Not a compressed file (that I know of)." ;;
+    esac
+  fi
 }
 
 function bin2iso {
