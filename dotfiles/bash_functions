@@ -39,46 +39,36 @@ function repo-parse {
   hg-parse-branch
 }
 
-function mvnt {
-  mvn test -Dtest=$1
-}
-
-################################################################################
-# Vim
-################################################################################
-function vim-project {
-  cp $HOME/.vim/project/$1/project.vim .
-}
-
-function find-broken-symlinks {
-  find -L $1 -type l -ls
-}
-
-function delete-broken-symlinks {
-  find -L $1 -type l -delete
-}
-
-function java-find-sources {
-  find -type f -path './src/*'
-}
-
-function java-find-surefire {
-  find -type f -path './target/surefire-reports/*'
-}
-
-function java-find-failsafe {
-  find -type f -path './target/failsafe-reports/*'
-}
-
 ################################################################################
 # Other
 ################################################################################
-function buntar {
-  tar xvfj "$1" && rm "$1"
+function decompress {
+  if [[ "$1" = *.tar.bz2 ]]; then
+    tar xvfj "$1"
+  elif [[ "$1" = *.tar.gz ]]; then
+    tar xvfz "$1"
+  else
+    case "${1##*.}" in
+      zip)
+        unzip "$1" ;;
+      gz)
+        gunzip "$1" ;;
+      rar)
+        unrar x "$1" ;;
+      7z)
+        7z x "$1" ;;
+      *)
+        echo "Not a compressed file (that I know of)." ;;
+    esac
+  fi
 }
 
-function guntar {
-  tar xvfz "$1" && rm "$1"
+function decrypt {
+  openssl enc -d -aes-256-cbc -salt -in "$1" -out "${1/.aes/}"
+}
+
+function encrypt {
+  openssl enc -e -aes-256-cbc -salt -in "$1" -out "$1.aes"
 }
 
 function bin2iso {
