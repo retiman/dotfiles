@@ -1,11 +1,16 @@
+# Eclipse
 .classpath
 .project
 .settings
-project.vim
-tags
+
+# IDEA
 *.iml
 *.ipr
 *.iws
+
+# Vim
+project.vim
+tags
 *.swp
 *.swo
 *~
