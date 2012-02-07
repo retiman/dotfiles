@@ -39,37 +39,6 @@ function repo-parse {
   hg-parse-branch
 }
 
-function mvnt {
-  mvn test -Dtest=$1
-}
-
-################################################################################
-# Vim
-################################################################################
-function vim-project {
-  cp $HOME/.vim/project/$1/project.vim .
-}
-
-function find-broken-symlinks {
-  find -L $1 -type l -ls
-}
-
-function delete-broken-symlinks {
-  find -L $1 -type l -delete
-}
-
-function java-find-sources {
-  find -type f -path './src/*'
-}
-
-function java-find-surefire {
-  find -type f -path './target/surefire-reports/*'
-}
-
-function java-find-failsafe {
-  find -type f -path './target/failsafe-reports/*'
-}
-
 ################################################################################
 # Other
 ################################################################################
