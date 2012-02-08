@@ -42,7 +42,6 @@ set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 set tabstop=2
-set textwidth=80
 set ttyfast
 set wildmenu
 set wildchar=<tab>
