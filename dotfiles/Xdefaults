@@ -21,3 +21,5 @@ urxvt*cursorColor: #d1edff
 urxvt*color4: #0072ff
 urxvt*color12: #1082ff
 urxvt*modifier: mod4
+urxvt*inputMethod: ibus
+urxvt*preeditType: OnTheSpot,None
