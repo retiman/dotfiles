@@ -1,56 +1,22 @@
-###############################################################################
 # Java
-###############################################################################
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JAVA_COMPILER=jitc
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME=$JAVA_HOME
-export M2_HOME=$HOME/opt/maven
-export M2_REPO=$HOME/.m2/repository
-export NB_HOME=$HOME/opt/netbeans
 
-###############################################################################
-# Scala
-###############################################################################
-export SCALA_HOME=$HOME/opt/scala
-export SBT_HOME=$HOME/opt/sbt
-
-###############################################################################
-# Clojure
-###############################################################################
-export CLOJURE_EXT=$HOME/opt/clojure:$HOME/opt/clojure-contrib/target
-
-###############################################################################
-# Ruby
-###############################################################################
-export RUBY_HOME=/usr
-export RUBYOPT=rubygems
-export GEM_HOME=/var/lib/gems/1.8
-
-###############################################################################
-# Haskell
-###############################################################################
-export GHCRTS="-K512M"
-
-###############################################################################
 # Debian package maintenance
-###############################################################################
 export GPGKEY=5DB05144
 export DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
 export DEBFULLNAME="Min Huang"
 
-###############################################################################
 # Other
-###############################################################################
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
 export WINE_PREFIX=$HOME/.wine
 
-###############################################################################
 # Bash
-###############################################################################
 export PATH=$HOME/bin:$M2_HOME/bin:$GEM_HOME/bin:$SCALA_HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
