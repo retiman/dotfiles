@@ -30,7 +30,7 @@ autocmd BufWritePost .scala silent! !ctags -R --exclude=target * &
 
 " scheme
 autocmd BufNewFile,BufRead *.scm,*.rkt setf scheme
-autocmd filetype lisp,scheme,racket,art setlocal equalprg=scmindent.scm
+autocmd filetype lisp,scheme,racket,art setlocal equalprg=indent-lisp
 
 " sh
 autocmd BufNewFile,BufRead .pbuilderrc,pbuilderrc setf sh
