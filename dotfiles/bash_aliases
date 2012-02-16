@@ -1,18 +1,24 @@
-################################################################################
-# General
-################################################################################
+# Customize directory listing/colors
 alias ls='ls -hF --group-directories-first --color=auto'
 alias ll='ls -lhF --color=auto'
 alias l='ll'
 alias la='ls -AhF --color=auto'
-alias li='ls -lhF --color=yes | less -R'
+alias li='ls -lhF --color=yes | less -r'
+
+# Have less repaint the screen to give me colors
 alias less='less -r'
+
+# Have grep give me colors
 alias grep='grep --color'
+
+# Alias for ack
+alias ack='/usr/bin/vendor_perl/ack'
+
+# Make directories without complaining
 alias mkdir='mkdir -p'
+
+# Use rsync for scp in case i want to resume later
 alias scpr='rsync --partial --progress --rsh=ssh'
-alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB05144'
-alias pbuilderlogin='sudo pbuilder login --save-after-login'
+
+# Show top 10 most memory intensive programs
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
-alias clip='xclip -o -selection clipboard'
-alias screencap='xwd | convert -'
-alias mc='mc --colors normal=green,default:selected=brightmagenta,gray:marked=yellow,default:markselect=yellow,gray:directory=blue,default:executable=brightgreen,default:link=cyan,default:device=brightmagenta,default:special=lightgray,default:errors=red,default:reverse=green,default:gauge=green,default:input=white,gray:dnormal=green,gray:dfocus=brightgreen,gray:dhotnormal=cyan,gray:dhotfocus=brightcyan,gray:menu=green,default:menuhot=cyan,default:menusel=green,gray:menuhotsel=cyan,default:helpnormal=cyan,default:editnormal=green,default:editbold=blue,default:editmarked=gray,blue:stalelink=red,default'

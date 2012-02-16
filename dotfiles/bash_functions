@@ -1,6 +1,6 @@
-################################################################################
-# Development
-################################################################################
+# Changes to the root directory of your git repository.  This must be a bash
+# function; it cannot be a script.  Making it a script will change your cwd
+# in the script, which will exit and accomplish nothing :)
 function git-cd {
   pushd .
   while [ ! -d .git ]; do
@@ -15,6 +15,58 @@ function git-cd {
   cd -
 }
 
+# Decompress a file, so I don't have to keep in mind the specific flags I have
+# to pass in for each program that does decompression.  This will blow away
+# the original compressed file if the decompression succeeds, so be warned.
+function decompress {
+  if [[ "$1" = *.tar.bz2 ]]; then
+    tar xvfj "$1" && rm "$1"
+  elif [[ "$1" = *.tar.gz ]]; then
+    tar xvfz "$1" && rm "$1"
+  else
+    case "${1##*.}" in
+      zip)
+        unzip "$1" && rm "$1";;
+      gz)
+        gunzip "$1" ;;
+      rar)
+        unrar x "$1" && rm "$1";;
+      7z)
+        7z x "$1" && rm "$1";;
+      *)
+        echo "Not a compressed file (that I know of)." ;;
+    esac
+  fi
+}
+
+# Colorize man pages.
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+# Function for decrypting a file using AES; in case you wanted to use the file
+# as a password store or something.
+function decrypt {
+  openssl enc -d -aes-256-cbc -salt -in "$1" -out "${1/.aes/}"
+}
+
+# Function for encrypting a file using AES; in case you wanted to use the file
+# as a password store or something.
+function encrypt {
+  openssl enc -e -aes-256-cbc -salt -in "$1" -out "$1.aes"
+}
+
+
+# Functions for colorizing Bash prompt when working with Git or Mercurial
+# repositories.
 function git-parse-dirty {
   MESSAGE="nothing to commit (working directory clean)"
   [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
@@ -39,42 +91,7 @@ function repo-parse {
   hg-parse-branch
 }
 
-################################################################################
-# Other
-################################################################################
-function decompress {
-  if [[ "$1" = *.tar.bz2 ]]; then
-    tar xvfj "$1"
-  elif [[ "$1" = *.tar.gz ]]; then
-    tar xvfz "$1"
-  else
-    case "${1##*.}" in
-      zip)
-        unzip "$1" ;;
-      gz)
-        gunzip "$1" ;;
-      rar)
-        unrar x "$1" ;;
-      7z)
-        7z x "$1" ;;
-      *)
-        echo "Not a compressed file (that I know of)." ;;
-    esac
-  fi
-}
-
-function decrypt {
-  openssl enc -d -aes-256-cbc -salt -in "$1" -out "${1/.aes/}"
-}
-
-function encrypt {
-  openssl enc -e -aes-256-cbc -salt -in "$1" -out "$1.aes"
-}
-
-function bin2iso {
-  bchunk "$1.bin" "$1.cue" "$1.iso"
-}
-
+# Colorize the Bash prompt the way I like it
 function promptcolors {
   local BLUE="\[\033[0;34m\]"
   local RED="\[\033[0;31m\]"
@@ -94,101 +111,4 @@ function promptcolors {
   PS1="$COLOR[\u@\h:\W$RED\$(repo-parse)$COLOR]\$\[\033[0m\] "
   PS2='> '
   PS4='+ '
-}
-
-################################################################################
-# Video conversion
-################################################################################
-function vidmute {
-  for F in "$@"; do
-    mencoder "$F" -ovc copy -nosound -o "muted-$F"
-  done
-}
-
-function vidcopy {
-  for F in "$@"; do
-    ffmpeg -i "$F" -vcodec copy -acodec copy "$F.avi"
-  done
-}
-
-function mts2mpg {
-  mencoder -oac copy -ovc lavc -of mpeg -mpegopts format=dvd -vf scale=720:576,harddup -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=15:aspect=16/9:threads=4 $1 -ofps 50 -fps 50 -o $1.mpg
-}
-
-function flv2avi {
-  for F in $@; do
-    vidcopy "$F" && \
-    vid2avi "$F.avi" && \
-    rm "$F.avi"
-  done
-}
-
-function vid2ipod {
-  for F in "$@"; do
-    ffmpeg -y -i "$F" -pass 1 -vcodec libx264 -vpre fastfirstpass -vpre ipod640 \
-           -b 512k -bt 512k -s 640x480 -threads 0 -f ipod -an /dev/null &&
-    ffmpeg -i "$F" -pass 2 -acodec libfaac -ab 128k -ac 2 -vcodec libx264 \
-           -vpre normal -vpre ipod640 -b 512k -bt 512k -s 640x480 -threads 0 \
-           -f ipod "$F.mp4"
-  done
-}
-
-function vob2avi {
-  for F in "$@"; do
-    ffmpeg -i "$F" -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame \
-           -ab 128k "$F.avi"
-  done
-}
-
-function asf2avi {
-  for F in "$@"; do
-    mencoder -oac mp3lame -ovc lavc -of mpeg -mpegopts format=dvd \
-             -vf scale=720:480,harddup -srate 48000 -af lavcresample=48000 \
-             -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=18:aspect=4/3:acodec=ac3:abitrate=192 \
-             -ofps 30000/1001 -o "$F.avi" "$F"
-  done
-}
-
-function vid2avi {
-  for F in "$@"; do
-    mencoder "$F" -ovc lavc -oac mp3lame -o "$F.avi"
-  done
-}
-
-function wmv2avi {
-  for F in $@; do
-    mencoder "$F" -ofps 23.976 -ovc lavc -oac copy -o "$F.avi"
-  done
-}
-
-################################################################################
-# Audio conversion
-################################################################################
-function flac2mp3 {
-  for F in "$@"; do
-    flac -cd "$F" | lame -h - "$F.mp3"
-  done
-}
-
-function vid2mp3 {
-  for F in "$@"; do
-    mplayer -vc null -vo null -ao pcm -benchmark "$F" && \
-    lame audiodump.wav "$F.mp3" && \
-    rm audiodump.wav
-  done
-}
-
-################################################################################
-# Image conversion
-################################################################################
-function vid2img {
-  for F in "$@"; do
-    ffmpeg -i "$F" -r 1 -s WxH -f image2 "$F-%03d.jpg"
-  done
-}
-
-function img2vid {
-  for F in "$@"; do
-    ffmpeg -i "$F" -r 12 -s WxH -f image2 "$F.avi"
-  done
 }
