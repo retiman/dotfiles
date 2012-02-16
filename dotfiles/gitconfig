@@ -22,6 +22,7 @@
   pull = pull --stat
   su = !git submodule init && git submodule update
   st = status
+  take = !sh -c 'git show $1:$2 > $2'
   ltag = tag -l -n1
   mtag = tag -a -m
   rb = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index && git clean -fdx'
