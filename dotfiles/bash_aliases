@@ -17,6 +17,9 @@ alias ack='/usr/bin/vendor_perl/ack'
 # Make directories without complaining
 alias mkdir='mkdir -p'
 
+# Make it easier to pushd
+alias pd='pushd'
+
 # Use rsync for scp in case i want to resume later
 alias scpr='rsync --partial --progress --rsh=ssh'
 
