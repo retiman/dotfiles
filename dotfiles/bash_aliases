@@ -25,3 +25,6 @@ alias scpr='rsync --partial --progress --rsh=ssh'
 
 # Show top 10 most memory intensive programs
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
+
+# Instruct Bash to check if the command following sudo is also an alias
+alias sudo='sudo '
