@@ -96,6 +96,7 @@ nmap <leader>p :Tbbp<cr>
 nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
+nmap <leader>u :set number!<cr>
 nmap <leader>v V`]
 " nmap <leader>w (used by camelcasemotion)
 nmap <leader>q :q!<cr>
