@@ -91,6 +91,8 @@ nmap <leader>h <c-w>h<cr>
 nmap <leader>j <c-w>j<cr>
 nmap <leader>k <c-w>k<cr>
 nmap <leader>l <c-w>l<cr>
+nmap <leader>n :Tbbn<cr>
+nmap <leader>p :Tbbp<cr>
 nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
