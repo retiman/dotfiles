@@ -1,5 +1,0 @@
-# Start wmii if running XDM or GDM
-eval `ssh-agent`
-while true; do
-  wmii
-done
