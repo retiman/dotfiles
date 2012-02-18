@@ -41,6 +41,7 @@ set smartindent
 set smarttab
 set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set t_Co=256
 set tabstop=2
 set ttyfast
 set wildmenu
@@ -58,7 +59,7 @@ call pathogen#infect()
 
 syntax on
 filetype plugin indent on
-colorscheme jellybeans
+colorscheme gardener
 
 " Mappings
 "   Toggle highlighting of really long lines
