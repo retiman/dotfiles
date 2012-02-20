@@ -10,9 +10,9 @@ export DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
 export DEBFULLNAME="Min Huang"
 
 # Other
-export GIT_EDITOR=vi
-export SVN_EDITOR=vi
-export EDITOR=vi
+export GIT_EDITOR=vim
+export SVN_EDITOR=vim
+export EDITOR=vim
 export WINE_PREFIX=$HOME/.wine
 
 # Bash
