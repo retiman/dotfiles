@@ -46,7 +46,7 @@ set tabstop=2
 set ttyfast
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
+set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*,*/target/*
 set wildmode=list:longest
 
 let mapleader=","
