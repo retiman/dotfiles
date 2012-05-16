@@ -3,7 +3,7 @@ startup_message off
 vbell off
 vbell_msg ^G
 deflogin on
-termcapinfo xterm* ti@:te@
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 escape ^Oo                        # Use ctrl+o to issue commands to screen
 bindkey -k F1 prev                # F11 for previous window (NOT F1)
 bindkey -k F2 next                # F12 for next window (NOT F2)
