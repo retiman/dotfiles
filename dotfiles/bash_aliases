@@ -28,3 +28,6 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 
 # Instruct Bash to check if the command following sudo is also an alias
 alias sudo='sudo '
+
+# Give me vim and not vi
+alias vi='vim'
