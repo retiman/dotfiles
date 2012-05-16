@@ -8,7 +8,7 @@
   branch = auto
 [core]
   editor = vi
-  excludesfile = /home/minhuang/.gitignore
+  excludesfile = /home/mhuang/.gitignore
 [alias]
   ar = add -u
   br = branch
