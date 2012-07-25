@@ -55,6 +55,7 @@ let mapleader=","
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 let g:ackprg='ack -H --nocolor --nogroup --column'
+let g:buftabs_only_basename=1
 
 call pathogen#infect()
 
