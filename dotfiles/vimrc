@@ -89,6 +89,7 @@ nmap <leader><tab> :Scratch<cr>
 nmap <leader>cd :cd %:p:h<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
+nmap <leader>g <c-]>
 nmap <leader>h <c-w>h<cr>
 nmap <leader>j <c-w>j<cr>
 nmap <leader>k <c-w>k<cr>
