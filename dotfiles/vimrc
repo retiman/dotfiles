@@ -54,6 +54,7 @@ let g:Tb_SplitBelow=1
 let g:Tb_MaxSize=0
 let g:Tb_MoreThanOne=2
 let g:ctrlp_map='<c-t>'
+let g:ctrlp_working_path_mode=2
 
 call pathogen#infect()
 
