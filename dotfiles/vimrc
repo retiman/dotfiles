@@ -74,7 +74,7 @@ map <silent> <F5>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
 "   Remove all trailing whitespace
-map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 "   Open/close the taglist
 map <silent> <F7> :TlistToggle<cr>
 
