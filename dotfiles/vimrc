@@ -46,13 +46,10 @@ set tabstop=2
 set ttyfast
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*,*/target/*
+set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*,*/target/*,*.swp,*.swo,*~
 set wildmode=list:longest
 
 let mapleader=","
-let g:Tb_SplitBelow=1
-let g:Tb_MaxSize=0
-let g:Tb_MoreThanOne=2
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 let g:ackprg='ack -H --nocolor --nogroup --column'
@@ -75,7 +72,9 @@ map <silent> <F5>
       \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
 "   Remove all trailing whitespace
-map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+"   Open/close the taglist
+map <silent> <F7> :TlistToggle<cr>
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
@@ -83,13 +82,14 @@ nmap / /\v
 nmap j gj
 nmap k gk
 nmap <tab> %
-nmap <c-n> :Tbbn<cr>
-nmap <c-p> :Tbbp<cr>
+nmap <c-n> :bnext<cr>
+nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
 " nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
+nmap <leader>g <c-]>
 nmap <leader>h <c-w>h<cr>
 nmap <leader>j <c-w>j<cr>
 nmap <leader>k <c-w>k<cr>
