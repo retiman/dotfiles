@@ -93,6 +93,7 @@ nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
 nmap <leader>g <c-]>
 nmap <leader>h <c-w>h<cr>
+nmap <leader>i :set list!<cr>
 nmap <leader>j <c-w>j<cr>
 nmap <leader>k <c-w>k<cr>
 nmap <leader>l <c-w>l<cr>
