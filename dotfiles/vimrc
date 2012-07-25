@@ -50,9 +50,6 @@ set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/
 set wildmode=list:longest
 
 let mapleader=","
-let g:Tb_SplitBelow=1
-let g:Tb_MaxSize=0
-let g:Tb_MoreThanOne=2
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 
@@ -84,8 +81,8 @@ nmap / /\v
 nmap j gj
 nmap k gk
 nmap <tab> %
-nmap <c-n> :Tbbn<cr>
-nmap <c-p> :Tbbp<cr>
+nmap <c-n> :bnext<cr>
+nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
 " nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<cr>
