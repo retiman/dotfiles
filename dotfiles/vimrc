@@ -75,6 +75,8 @@ map <silent> <F5>
       \ endif<CR>
 "   Remove all trailing whitespace
 map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"   Open/close the taglist
+map <silent> <F7> :TlistToggle<cr>
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
