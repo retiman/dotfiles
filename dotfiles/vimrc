@@ -84,8 +84,8 @@ nmap / /\v
 nmap j gj
 nmap k gk
 nmap <tab> %
-nmap <c-n> :bnext<cr>
-nmap <c-p> :bprev<cr>
+nmap <c-n> :MBEbn<cr>
+nmap <c-p> :MBEbp<cr>
 nmap <leader><tab> :Scratch<cr>
 " nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<cr>
@@ -97,8 +97,8 @@ nmap <leader>i :set list!<cr>
 nmap <leader>j <c-w>j<cr>
 nmap <leader>k <c-w>k<cr>
 nmap <leader>l <c-w>l<cr>
-nmap <leader>n :Tbbn<cr>
-nmap <leader>p :Tbbp<cr>
+nmap <leader>n :MBEbn<cr>
+nmap <leader>p :MBEbp<cr>
 nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
