@@ -13,6 +13,7 @@ alias grep='grep --color'
 
 # Alias for ack
 alias ack='/usr/bin/vendor_perl/ack'
+alias ack-grep='ack'
 
 # Make directories without complaining
 alias mkdir='mkdir -p'
