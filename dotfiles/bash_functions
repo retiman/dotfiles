@@ -64,7 +64,6 @@ function encrypt {
   openssl enc -e -aes-256-cbc -salt -in "$1" -out "$1.aes"
 }
 
-
 # Functions for colorizing Bash prompt when working with Git or Mercurial
 # repositories.
 function git-parse-dirty {
@@ -89,6 +88,10 @@ function hg-parse-branch {
 function repo-parse {
   git-parse-branch
   hg-parse-branch
+}
+
+function vim-project {
+    cp $HOME/.vim/project/${1}/project.vim .
 }
 
 # Colorize the Bash prompt the way I like it
