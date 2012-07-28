@@ -85,6 +85,8 @@ nmap ; :
 nmap / /\v
 nmap j gj
 nmap k gk
+nmap J <nop>
+nmap K <nop>
 nmap <tab> %
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
@@ -117,6 +119,8 @@ vmap / /\v
 vmap j gj
 vmap k gk
 vmap <tab> %
+vmap J <nop>
+vmap K <nop>
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
