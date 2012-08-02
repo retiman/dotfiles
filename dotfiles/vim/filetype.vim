@@ -5,7 +5,7 @@ autocmd BufNewFile,BufRead .bash_functions,bash_functions setf bash
 autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf bash
 
 " hive
-autocmd BufNewFile,BufRead *.q setf sql
+autocmd BufNewFile,BufRead *.q setf hive
 
 " html
 autocmd BufNewFile,BufRead *.ejs setf html
