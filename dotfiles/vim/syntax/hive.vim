@@ -40,6 +40,7 @@ syn match hiveNumber            "-\=\<[0-9]*\.[0-9]*e[+-]\=[0-9]*\>"
 syn match hiveNumber            "\<0x[abcdefABCDEF0-9]*\>"
 
 syn match hiveVariable          "@\a*[A-Za-z0-9]*\([._]*[A-Za-z0-9]\)*"
+syn region hiveVariable         start="`" end="`"
 
 syn region hiveComment          start="/\*"  end="\*/"
 syn match hiveComment           "#.*"
