@@ -4,42 +4,76 @@ require 'fileutils'
 homekeeper = File.readlink(__FILE__) rescue File.expand_path(__FILE__)
 base_dir = File.expand_path(File.join(File.dirname(homekeeper), '..'))
 
-Dir.chdir base_dir do
-  FileUtils.rm_r 'tmp' if File.exists? 'tmp'
-  FileUtils.mkdir_p 'tmp/bin'
-  FileUtils.mkdir_p 'tmp/dotfiles'
+def print_usage
+  puts 'Usage: homekeeper [command]'
+  puts 'Examples:'
+  puts '  homekeeper update'
+  puts '  homekeeper pick'
+  puts '  homekeeper link'
+end
 
-  puts 'Symlinking bin files'
-  if File.exists? "#{ENV['HOME']}/bin"
-    Dir["#{base_dir}/bin/*"].each do |f|
-      original = "#{ENV['HOME']}/bin/#{File.basename(f)}".strip
+def sh(cmd)
+  puts cmd
+  system(cmd)
+end
+
+print_usage if ARGV.empty?
+
+case ARGV[0]
+when 'update'
+  branch = %x[git branch].split(/ /)[1]
+  %x[git fetch]
+  %x[git checkout master]
+  %x[git merge origin/master]
+  %x[git checkout #{branch}]
+  %x[git merge master]
+when 'pick'
+  branch = %x[git branch].split(/ /)[1]
+  commit = %x[git show HEAD].split(/ /)[1]
+  %x[git checkout master]
+  %x[git cherry-pick #{commit}]
+  %x[git checkout #{branch}]
+  %x[git merge master]
+when 'link'
+  Dir.chdir base_dir do
+    FileUtils.rm_r 'tmp' if File.exists? 'tmp'
+    FileUtils.mkdir_p 'tmp/bin'
+    FileUtils.mkdir_p 'tmp/dotfiles'
+
+    puts 'Symlinking bin files'
+    if File.exists? "#{ENV['HOME']}/bin"
+      Dir["#{base_dir}/bin/*"].each do |f|
+        original = "#{ENV['HOME']}/bin/#{File.basename(f)}".strip
+        if File.exists? original
+          FileUtils.cp_r original, 'tmp/bin'
+          FileUtils.rm_rf original
+        end
+        FileUtils.ln_sf f, original
+        puts "Symlinked: #{original}"
+      end
+    end
+
+    puts 'Symlinking dot files'
+    Dir["#{base_dir}/dotfiles/*"].each do |f|
+      original = "#{ENV['HOME']}/.#{File.basename(f)}".strip
       if File.exists? original
-        FileUtils.cp_r original, 'tmp/bin'
+        FileUtils.cp_r original, 'tmp/dotfiles'
         FileUtils.rm_rf original
       end
       FileUtils.ln_sf f, original
       puts "Symlinked: #{original}"
     end
-  end
 
-  puts 'Symlinking dot files'
-  Dir["#{base_dir}/dotfiles/*"].each do |f|
-    original = "#{ENV['HOME']}/.#{File.basename(f)}".strip
-    if File.exists? original
-      FileUtils.cp_r original, 'tmp/dotfiles'
-      FileUtils.rm_rf original
+    puts 'Removing broken symlinks'
+    (Dir["#{ENV['HOME']}/.*"] + Dir["#{ENV['HOME']}/bin/*"]).each do |f|
+      unless File.exists? f
+        puts "Removing #{f} which points to #{File.readlink f}"
+        FileUtils.rm f
+      end
     end
-    FileUtils.ln_sf f, original
-    puts "Symlinked: #{original}"
-  end
 
-  puts 'Removing broken symlinks'
-  (Dir["#{ENV['HOME']}/.*"] + Dir["#{ENV['HOME']}/bin/*"]).each do |f|
-    unless File.exists? f
-      puts "Removing #{f} which points to #{File.readlink f}"
-      FileUtils.rm f
-    end
+    puts "Done"
   end
-
-  puts "Done"
+else
+  print_usage
 end
