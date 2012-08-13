@@ -28,8 +28,8 @@ when 'update'
   %x[git checkout #{branch}]
   %x[git merge master]
 when 'pick'
-  branch = %x[git branch].split(/ /)[1]
-  commit = %x[git show HEAD].split(/ /)[1]
+  branch = %x[git branch].split(/\n/)[0].split(/ /)[1]
+  commit = %x[git show HEAD].split(/\n/)[0].split(/ /)[1]
   %x[git checkout master]
   %x[git cherry-pick #{commit}]
   %x[git checkout #{branch}]
