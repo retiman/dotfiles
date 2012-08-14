@@ -7,8 +7,8 @@ base_dir = File.expand_path(File.join(File.dirname(homekeeper), '..'))
 def print_usage
   puts 'Usage: homekeeper [command]'
   puts 'Examples:'
-  puts '  homekeeper update'
-  puts '  homekeeper pick'
+  puts '  homekeeper sync'
+  puts '  homekeeper save'
   puts '  homekeeper link'
 end
 
