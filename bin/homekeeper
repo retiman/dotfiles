@@ -23,14 +23,14 @@ if ARGV.empty?
 end
 
 case ARGV[0]
-when 'update'
+when 'sync'
   branch = %x[git branch].split(/ /)[1]
   %x[git fetch]
   %x[git checkout master]
   %x[git merge origin/master]
   %x[git checkout #{branch}]
   %x[git merge master]
-when 'pick'
+when 'save'
   branch = %x[git branch].split(/\n/)[0].split(/ /)[1]
   commit = %x[git show HEAD].split(/\n/)[0].split(/ /)[1]
   %x[git checkout master]
