@@ -17,7 +17,10 @@ def sh(cmd)
   system(cmd)
 end
 
-print_usage if ARGV.empty?
+if ARGV.empty?
+  print_usage
+  exit 0
+end
 
 case ARGV[0]
 when 'update'
