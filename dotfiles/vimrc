@@ -66,7 +66,7 @@ call pathogen#infect()
 
 syntax on
 filetype plugin indent on
-colorscheme jellybeans
+colorscheme mango
 
 " Mappings
 "   Toggle highlighting of really long lines
