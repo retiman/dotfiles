@@ -52,7 +52,7 @@ set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
 set wildignore+=*.o,*.obj,*.bak,*.exe
 set wildmode=list:longest
 
-let mapleader=","
+let mapleader=','
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 let g:ackprg='ack -H --nocolor --nogroup --column'
