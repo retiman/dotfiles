@@ -94,7 +94,6 @@ nmap <tab> %
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
-" nmap <leader>b (used by camecasemotion)
 nmap <leader>cd :cd %:p:h<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
@@ -112,7 +111,6 @@ nmap <leader>s <Plug>SlimeLineSend
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 nmap <leader>u :set number!<cr>
 nmap <leader>v V`]
-" nmap <leader>w (used by camelcasemotion)
 nmap <leader>q :q!<cr>
 nmap <leader>x <Plug>SlimeParagraphSend
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
