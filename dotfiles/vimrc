@@ -91,6 +91,10 @@ nmap k gk
 nmap J <nop>
 nmap K <nop>
 nmap <tab> %
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
