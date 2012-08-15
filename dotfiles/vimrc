@@ -47,7 +47,7 @@ set tabstop=2
 set ttyfast
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.jpg,*.png,*.gif,*/.git/*,*/.hg/*,*/.svn/*,,*.swp,*.swo,*~
+set wildignore=*.jpg,*.png,*.gif,*/.git/*,*/.hg/*,*/.svn/*,*.swp,*.swo,*~
 set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
 set wildignore+=*.o,*.obj,*.bak,*.exe
 set wildmode=list:longest
