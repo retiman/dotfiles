@@ -9,7 +9,7 @@ set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set expandtab
 set fileformat=unix
-set fillchars=stl:\ ,stlnc:\
+set fillchars=stl:\ ,stlnc:\ 
 set gdefault
 set guioptions+=c
 set hidden
