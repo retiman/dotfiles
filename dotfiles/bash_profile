@@ -4,11 +4,6 @@ export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JAVA_HOME=
 export JDK_HOME=$JAVA_HOME
 
-# Debian package maintenance
-export GPGKEY=5DB05144
-export DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
-export DEBFULLNAME="Min Huang"
-
 # Other
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
