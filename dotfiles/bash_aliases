@@ -32,3 +32,6 @@ alias sudo='sudo '
 
 # Give me vim and not vi
 alias vi='vim'
+
+# Alter screen brightness
+alias redshift='/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500'
