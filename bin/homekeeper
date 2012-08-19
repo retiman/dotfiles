@@ -7,9 +7,10 @@ base_dir = File.expand_path(File.join(File.dirname(homekeeper), '..'))
 def print_usage
   puts 'Usage: homekeeper [command]'
   puts 'Examples:'
+  puts '  homekeeper link'
   puts '  homekeeper sync'
   puts '  homekeeper save'
-  puts '  homekeeper link'
+  puts '  homekeeper track'
   puts '  homekeeper update'
 end
 
@@ -48,6 +49,10 @@ when 'save'
   sh "git cherry-pick #{c}"
   sh "git checkout #{b}"
   sh 'git merge master'
+when 'track'
+  path = File.expand_path ARGV[1]
+  FileUtils.mv path, "#{base_dir}/dotfiles"
+  sh 'homekeeper link'
 when 'link'
   Dir.chdir base_dir do
     FileUtils.rm_r 'tmp' if File.exists? 'tmp'
