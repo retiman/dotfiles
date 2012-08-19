@@ -51,7 +51,9 @@ when 'save'
   sh 'git merge master'
 when 'track'
   path = File.expand_path ARGV[1]
-  FileUtils.mv path, "#{base_dir}/dotfiles"
+  name = File.basename(path).gsub(/^\./, '')
+  puts name
+  FileUtils.mv path, "#{base_dir}/dotfiles/#{name}"
   sh 'homekeeper link'
 when 'link'
   Dir.chdir base_dir do
