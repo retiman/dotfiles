@@ -10,6 +10,7 @@ def print_usage
   puts '  homekeeper sync'
   puts '  homekeeper save'
   puts '  homekeeper link'
+  puts '  homekeeper update'
 end
 
 def sh(cmd)
@@ -33,7 +34,7 @@ if ARGV.empty?
 end
 
 case ARGV[0]
-when 'sync'
+when 'sync', 'update'
   b = branch
   sh 'git fetch'
   sh 'git checkout master'
