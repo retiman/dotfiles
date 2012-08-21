@@ -57,10 +57,6 @@ let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 let g:ackprg='ack -H --nocolor --nogroup --column'
 let g:buftabs_only_basename=1
-let g:SuperTabDefaultCompletionType='context'
-let g:slime_target='screen'
-let g:slime_no_mappings=1
-let b:slime_config={"sessionname":system("screen -ls | awk /Attached/ '{print $1}'")}
 
 call pathogen#infect()
 
@@ -113,12 +109,12 @@ nmap <leader>pp :r!xsel -p<cr>
 nmap <leader>ps :r!xsel -s<cr>
 nmap <leader>pb :r!xsel -b<cr>
 nmap <leader>r :res<cr>
-nmap <leader>s <Plug>SlimeLineSend
+" nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 nmap <leader>u :set number!<cr>
 nmap <leader>v V`]
 nmap <leader>q :q!<cr>
-nmap <leader>x <Plug>SlimeParagraphSend
+" nmap <leader>x (used by slime.vim)
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader><space> :set hlsearch!<cr>
