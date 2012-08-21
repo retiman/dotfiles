@@ -24,7 +24,7 @@ syn keyword hiveKeyword         index indexes formatted describe dot using reduc
 syn keyword hiveKeyword         all where group cluster distribute sort limit having desc asc
 syn keyword hiveKeyword         escaped recordreader function functions lateral
 syn keyword hiveKeyword         between not and or is in like regexp rlike binary exists
-syn keyword hiveKeyword         join left right full outer cross semi on
+syn keyword hiveKeyword         union join left right full outer cross semi on
 syn keyword hiveKeyword         lateral explain import export to
 syn keyword hiveKeyword         role revoke grant privileges option
 
