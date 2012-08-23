@@ -129,7 +129,7 @@ nmap <c-l> <c-w>l
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>a :Ack
+nmap <leader>a :Ack<space>
 nmap <leader>b :buffer<space>
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
