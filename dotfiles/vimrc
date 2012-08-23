@@ -60,6 +60,7 @@ let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode=2
 let g:ackprg='ack -H --nocolor --nogroup --column'
 let g:buftabs_only_basename=1
+let g:quickfix_is_open = 0
 
 call pathogen#infect()
 
@@ -67,7 +68,33 @@ syntax on
 filetype plugin indent on
 colorscheme mango
 
+" Functions
+function! ToggleColorColumn()
+  if empty(&colorcolumn)
+    if empty(&textwidth)
+      setlocal colorcolumn=80
+    else
+      setlocal colorcolumn=+1
+    endif
+  else
+    echo "colorcolumn="
+    setlocal colorcolumn=
+  endif
+endfunction
+
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+    else
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+
 " Mappings
+"   Toggle quicklist
+map <silent> <F2> :call QuickfixToggle()<cr>
 "   Toggle highlighting of really long lines
 map <silent> <F5>
       \ :if exists('w:long_line_match') <Bar>
@@ -109,7 +136,7 @@ nmap <leader>gl :Glog<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>i :set list!<cr>
 nmap <leader>j <c-]>
-nmap <leader>l :cw<cr>
+nmap <leader>l :call QuickfixToggle()<cr>
 nmap <leader>pp :r!xsel -p<cr>
 nmap <leader>ps :r!xsel -s<cr>
 nmap <leader>pb :r!xsel -b<cr>
