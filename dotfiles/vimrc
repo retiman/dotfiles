@@ -103,6 +103,10 @@ nmap <leader>a :Ack
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gs :Gstatus<cr>
 nmap <leader>i :set list!<cr>
 nmap <leader>j <c-]>
 nmap <leader>l :cw<cr>
