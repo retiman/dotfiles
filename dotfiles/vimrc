@@ -85,10 +85,10 @@ endfunction
 function! QuickfixToggle()
     if g:quickfix_is_open
         cclose
-        let g:quickfix_is_open = 0
+        let g:quickfix_is_open=0
     else
         copen
-        let g:quickfix_is_open = 1
+        let g:quickfix_is_open=1
     endif
 endfunction
 
