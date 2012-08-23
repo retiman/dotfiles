@@ -110,6 +110,9 @@ map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 "   Open/close the taglist
 map <silent> <F7> :TlistToggle<cr>
 
+" Command mode mappings (same as cnoremap)
+cmap w!! w !sudo tee % >/dev/null
+
 " Normal mode mappings (same as nnoremap)
 nmap ; :
 nmap / /\v
