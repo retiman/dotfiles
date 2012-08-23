@@ -7,6 +7,7 @@ set background=dark
 set backspace=indent,eol,start
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
+set copyindent
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
@@ -26,7 +27,7 @@ set modelines=0
 set nobackup
 set noerrorbells
 set nofoldenable
-set nolist
+set noswapfile
 set novisualbell
 set number
 set pastetoggle=<F1>
@@ -34,6 +35,7 @@ set ruler
 set selection=inclusive
 set selectmode=mouse
 set shiftwidth=2
+set shiftround
 set showcmd
 set showmode
 set showmatch
@@ -44,6 +46,7 @@ set softtabstop=2
 set t_Co=256
 set t_vb=
 set tabstop=2
+set title
 set ttyfast
 set wildmenu
 set wildchar=<tab>
