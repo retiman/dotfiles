@@ -14,16 +14,10 @@
   br = branch
   ci = commit
   co = checkout
-  cb = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
-  ct = !sh -c 'git checkout --track -b $1 origin/$1' -
   lg = log -p --stat
   pick = cherry-pick -x
-  psu = !git pull --stat && git submodule init && git submodule update
   pull = pull --stat
-  su = !git submodule init && git submodule update
   st = status
-  ltag = tag -l -n1
-  mtag = tag -a -m
   rb = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index && git clean -fdx'
 [mergetool "vimdiff-wrapper"]
   cmd = vimdiff -o \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
