@@ -117,7 +117,7 @@ nmap <leader>q :q!<cr>
 " nmap <leader>x (used by slime.vim)
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
-nmap <leader><space> :set hlsearch!<cr>
+nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
 vmap / /\v
