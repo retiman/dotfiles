@@ -164,6 +164,10 @@ vmap k gk
 vmap <tab> %
 vmap J <nop>
 vmap K <nop>
+vmap <leader>pp :r!xsel -p<cr>
+vmap <leader>ps :r!xsel -s<cr>
+vmap <leader>pb :r!xsel -b<cr>
+vmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
