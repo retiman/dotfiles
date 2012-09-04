@@ -141,7 +141,7 @@ nmap <leader>gc :Gcommit<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>i :set list!<cr>
-nmap <leader>j :1tag<cr>
+nmap <leader>j <c-]><cr>
 nmap <leader>l :call QuickfixToggle()<cr>
 nmap <leader>pp :r!xsel -p<cr>
 nmap <leader>ps :r!xsel -s<cr>
