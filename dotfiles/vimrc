@@ -131,7 +131,7 @@ nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
 nmap <leader>a :Ack<space>
-nmap <leader>b :buffer<space>
+nmap <leader>b :1pop<cr>
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
 nmap <leader>e :set expandtab! list!<cr>
@@ -141,7 +141,7 @@ nmap <leader>gc :Gcommit<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>i :set list!<cr>
-nmap <leader>j <c-]>
+nmap <leader>j :1tag<cr>
 nmap <leader>l :call QuickfixToggle()<cr>
 nmap <leader>pp :r!xsel -p<cr>
 nmap <leader>ps :r!xsel -s<cr>
