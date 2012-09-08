@@ -38,6 +38,7 @@ case ARGV[0]
 when 'sync', 'update'
   b = branch
   sh 'git fetch'
+  sh "git merge origin/#{b}"
   sh 'git checkout master'
   sh 'git merge origin/master'
   sh "git checkout #{b}"
