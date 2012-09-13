@@ -44,7 +44,7 @@ syn region hiveVariable         start="`" end="`"
 
 syn region hiveComment          start="/\*"  end="\*/"
 syn match hiveComment           "#.*"
-syn match hiveComment           "--\_s.*"
+syn match hiveComment           "--.*"
 syn sync ccomment hiveComment
 
 syn keyword hiveType            tinyint smallint int bigint boolean float double string binary timestamp
