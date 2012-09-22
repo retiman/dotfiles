@@ -11,5 +11,5 @@ ARGV.each do |f|
   dest_name = src_name.capitalize_words
   src = File.expand_path "#{File.dirname f}/#{src_name}"
   dest = File.expand_path "#{File.dirname f}/#{dest_name}"
-  FileUtils.mv src, dest
+  FileUtils.mv src, dest unless src == dest
 end
