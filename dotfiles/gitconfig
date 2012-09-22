@@ -15,7 +15,6 @@
   ci = commit
   co = checkout
   cp = cherry-pick -x
-  lg = log -p --stat
   log = log --stat
   pull = pull --stat
   st = status
