@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+class String
+  def capitalize_words
+    self.split(' ').map {|w| w.capitalize }.join(' ')
+  end
+end
+
+ARGV.each do |f|
+  src_name = File.basename f
+  dest_name = src_name.capitalize_words
+  src = File.expand_path "#{File.dirname f}/#{src_name}"
+  dest = File.expand_path "#{File.dirname f}/#{dest_name}"
+  FileUtils.mv src, dest
+end
