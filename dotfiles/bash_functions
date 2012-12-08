@@ -90,6 +90,8 @@ function repo-parse {
   hg-parse-branch
 }
 
+# Copies vim project settings to a project using vim.  Project settings are
+# based on language.
 function vim-project {
     cp $HOME/.vim/project/${1}/project.vim .
 }
