@@ -115,3 +115,12 @@ function promptcolors {
   PS2='> '
   PS4='+ '
 }
+
+# Add a directory to PATH if it's not already there.  Adds it to the 
+# front of the PATH (uncomment to add to the end)
+function add-path {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    #PATH="${PATH:+"$PATH:"}$1"
+    PATH="$1:$PATH"
+  fi
+}
