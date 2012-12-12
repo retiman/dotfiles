@@ -1,7 +1,7 @@
 # Changes to the root directory of your git repository.  This must be a bash
 # function; it cannot be a script.  Making it a script will change your cwd
 # in the script, which will exit and accomplish nothing :)
-function git-cd {
+function gitcd {
   pushd .
   while [ ! -d .git ]; do
     cd ..
@@ -66,33 +66,33 @@ function encrypt {
 
 # Functions for colorizing Bash prompt when working with Git or Mercurial
 # repositories.
-function git-parse-dirty {
+function gitparsedirty {
   MESSAGE="nothing to commit, working directory clean"
   [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
 }
 
-function git-parse-branch {
+function gitparsebranch {
   git branch --no-color 2> /dev/null |
-  sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(git-parse-dirty)\)/"
+  sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(gitparsedirty)\)/"
 }
 
-function hg-parse-dirty {
+function hgparsedirty {
   [[ -n $(hg status 2> /dev/null | tail -n1) ]] && echo "*"
 }
 
-function hg-parse-branch {
+function hgparsebranch {
   local OUTPUT=$(hg branch 2> /dev/null)
-  [[ -n $OUTPUT ]] && echo -n "($OUTPUT$(hg-parse-dirty))"
+  [[ -n $OUTPUT ]] && echo -n "($OUTPUT$(hgparsedirty))"
 }
 
-function repo-parse {
-  git-parse-branch
-  hg-parse-branch
+function repoparse {
+  gitparsebranch
+  hgparsebranch
 }
 
 # Copies vim project settings to a project using vim.  Project settings are
 # based on language.
-function vim-project {
+function vimproject {
     cp $HOME/.vim/project/${1}/project.vim .
 }
 
@@ -113,14 +113,14 @@ function promptcolors {
   local LIGHT_CYAN="\[\033[1;36m\]"
   local LIGHT_PURPLE="\[\033[1;35m\]"
   local COLOR=$GREEN
-  PS1="$COLOR[\u@\h:\W$RED\$(repo-parse)$COLOR]\$\[\033[0m\] "
+  PS1="$COLOR[\u@\h:\W$RED\$(repoparse)$COLOR]\$\[\033[0m\] "
   PS2='> '
   PS4='+ '
 }
 
 # Add a directory to PATH if it's not already there.  Adds it to the 
 # front of the PATH (uncomment to add to the end)
-function add-path {
+function addpath {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     #PATH="${PATH:+"$PATH:"}$1"
     PATH="$1:$PATH"
