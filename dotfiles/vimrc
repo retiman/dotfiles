@@ -74,7 +74,7 @@ colorscheme mango
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     if empty(&textwidth)
-      setlocal colorcolumn=80
+      setlocal colorcolumn=81
     else
       setlocal colorcolumn=+1
     endif
