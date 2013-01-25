@@ -5,6 +5,7 @@ set termencoding=utf-8
 set autoindent
 set background=dark
 set backspace=indent,eol,start
+set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
@@ -22,8 +23,10 @@ set indentexpr=
 set infercase
 set laststatus=2
 set lazyredraw
+set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
+set mouse=
 set nobackup
 set noerrorbells
 set nofoldenable
@@ -33,7 +36,6 @@ set number
 set pastetoggle=<F1>
 set ruler
 set selection=inclusive
-set selectmode=mouse
 set shiftwidth=2
 set shiftround
 set showcmd
@@ -49,6 +51,8 @@ set tabstop=2
 set textwidth=80
 set title
 set ttyfast
+set undofile
+set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.jpg,*.png,*.gif,*/.git/*,*/.hg/*,*/.svn/*,*.swp,*.swo,*~
@@ -98,66 +102,73 @@ endfunction
 "   Toggle quicklist
 map <silent> <F2> :call QuickfixToggle()<cr>
 "   Toggle highlighting of really long lines
-map <silent> <F5>
-      \ :if exists('w:long_line_match') <Bar>
-      \   silent! call matchdelete(w:long_line_match) <Bar>
-      \   unlet w:long_line_match <Bar>
-      \ elseif &textwidth > 0 <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
-      \ else <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
-      \ endif<CR>
-"   Remove all trailing whitespace
-map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+map <silent> <F3> :call ToggleColorColumn()<cr>
 "   Open/close the taglist
-map <silent> <F7> :TlistToggle<cr>
+map <silent> <F4> :TlistToggle<cr>
+"   Remove all trailing whitespace
+map <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 
 " Command mode mappings (same as cnoremap)
+"     Write to a read only file
 cmap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
-nmap j gj
-nmap k gk
+nmap E :Explore<cr>
 nmap J <nop>
 nmap K <nop>
+nmap Y y$
+nmap j gj
+nmap k gk
+"    Moves to matching brace/paren/bracket
 nmap <tab> %
+"    Go to tag definition
 nmap <c-g> <c-]>
 nmap <c-h> <c-w>h
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
+"    Move to next/previous buffer
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
+"    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
+"    Delete the currently open buffer
 nmap <leader>d :bd<cr>:syn on<cr>
+"    Fugitive.vim git status
 nmap <leader>gs :Gstatus<cr>
-nmap <leader>i :set list!<cr>
-nmap <leader>j <c-]><cr>
-nmap <leader>l :call QuickfixToggle()<cr>
+nmap <leader>l :set list!<cr>
+nmap <leader>n :set number!<cr>
+"    Paste from primary selection
 nmap <leader>pp :r!xsel -p<cr>
+"    Paste from secondary selection
 nmap <leader>ps :r!xsel -s<cr>
+"    Paste from clipboard selection
 nmap <leader>pb :r!xsel -b<cr>
 nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-nmap <leader>u :set number!<cr>
 nmap <leader>q :q!<cr>
 " nmap <leader>x (used by slime.vim)
+"    Read standard input into clipboard
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
-vmap j gj
-vmap k gk
 vmap <tab> %
+nmap E :Explore<cr>
 vmap J <nop>
 vmap K <nop>
+vmap j gj
+vmap k gk
+"    Paste from primary selection
 vmap <leader>pp :r!xsel -p<cr>
+"    Paste from secondary selection
 vmap <leader>ps :r!xsel -s<cr>
+"    Paste from clipboard selection
 vmap <leader>pb :r!xsel -b<cr>
+"    Read standard input into clipboard
 vmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 
 " Insert mode mappings (same as inoremap)
@@ -173,7 +184,7 @@ imap <expr> <m-,> pumvisible() ? '<c-n>' :
 imap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
-highlight OverColLimit ctermbg=darkblue
+highlight ColorColumn ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
