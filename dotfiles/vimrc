@@ -117,7 +117,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
-nmap / /\v
 nmap j gj
 nmap k gk
 nmap J <nop>
@@ -131,15 +130,8 @@ nmap <c-l> <c-w>l
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>a :Ack<space>
-nmap <leader>b :1pop<cr>
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <leader>d :bd<cr>:syn on<cr>
-nmap <leader>e :set expandtab! list!<cr>
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gl :Glog<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>i :set list!<cr>
 nmap <leader>j <c-]><cr>
@@ -151,7 +143,6 @@ nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 nmap <leader>u :set number!<cr>
-nmap <leader>v V`]
 nmap <leader>q :q!<cr>
 " nmap <leader>x (used by slime.vim)
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
@@ -159,7 +150,6 @@ nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
-vmap / /\v
 vmap j gj
 vmap k gk
 vmap <tab> %
