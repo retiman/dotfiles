@@ -55,9 +55,11 @@ set undofile
 set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.jpg,*.png,*.gif,*/.git/*,*/.hg/*,*/.svn/*,*.swp,*.swo,*~
+set wildignore=*.jpg,*.png,*.gif,*.swp,*.swo,*~
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
 set wildignore+=*.o,*.obj,*.bak,*.exe
+set wildignore+=*/autodoc/*
 set wildmode=list:longest
 
 let mapleader=','
