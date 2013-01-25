@@ -135,7 +135,12 @@ nmap <c-p> :bprev<cr>
 nmap <leader><tab> :Scratch<cr>
 "    Delete the currently open buffer
 nmap <leader>d :bd<cr>:syn on<cr>
-"    Fugitive.vim git status
+"    Working with fugitive.vim:
+"      Bring up Gstatus and press - to add or remove changes,
+"      then bring up Gcommit to actually commit those changes.
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gd :Gdiff<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>l :set list!<cr>
 nmap <leader>n :set number!<cr>
