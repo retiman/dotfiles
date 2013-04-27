@@ -7,7 +7,7 @@ set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
-set completeopt=longest,menuone
+set completeopt=menuone
 set copyindent
 set expandtab
 set fileformat=unix
@@ -179,16 +179,17 @@ vmap <leader>pb :r!xsel -b<cr>
 vmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 
 " Insert mode mappings (same as inoremap)
-"   When an auto-complete menu is presented, the first item is selected by
-"   default
-imap <expr> <c-n> pumvisible() ? '<c-n>' :
-    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+"   Pressing Enter while menu is open inserts highlighted item
+inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+"   Ensures an item is always highlighted
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+  \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
 "   to remove the longest common text
-imap <expr> <m-,> pumvisible() ? '<c-n>' :
-    \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
+  \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-imap <nul> <c-x><c-u><c-p>
+inoremap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
 highlight ColorColumn ctermbg=darkblue
