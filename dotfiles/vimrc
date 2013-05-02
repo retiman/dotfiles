@@ -32,7 +32,6 @@ set noerrorbells
 set nofoldenable
 set noswapfile
 set novisualbell
-set nowrapmargin
 set number
 set pastetoggle=<F1>
 set ruler
