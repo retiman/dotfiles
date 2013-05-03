@@ -48,7 +48,7 @@ set softtabstop=2
 set t_Co=256
 set t_vb=
 set tabstop=2
-set textwidth=80
+set textwidth=0
 set title
 set ttyfast
 set undofile
@@ -61,6 +61,7 @@ set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
 set wildignore+=*.o,*.obj,*.bak,*.exe
 set wildignore+=*/autodoc/*
 set wildmode=list:longest
+set wrapmargin=0
 
 let mapleader=','
 let g:ctrlp_map='<c-t>'
