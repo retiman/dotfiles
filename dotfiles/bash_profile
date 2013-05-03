@@ -8,8 +8,13 @@ export JDK_HOME=$JAVA_HOME
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 export EDITOR=vim
+export MAILCHECK=NO
+export HISTCONTROL=ignoreboth
 
 # Bash
+unset HISTSIZE
+unset HISTFILESIZE
+shopt -s histappend
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
