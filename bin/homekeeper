@@ -86,6 +86,17 @@ when 'link'
       puts "Symlinked: #{original}"
     end
 
+    puts 'Symlinking local files'
+    Dir["#{base_dir}/../bash-local/*"].each do |f|
+       original = "#{ENV['HOME']}/.#{File.basename(f)}".strip
+      if File.exists? original
+        FileUtils.cp_r original, 'tmp/dotfiles'
+        FileUtils.rm_rf original
+      end
+      FileUtils.ln_sf f, original
+      puts "Symlinked: #{original}"
+    end
+
     puts 'Removing broken symlinks'
     (Dir["#{ENV['HOME']}/.*"] + Dir["#{ENV['HOME']}/bin/*"]).each do |f|
       unless File.exists? f
