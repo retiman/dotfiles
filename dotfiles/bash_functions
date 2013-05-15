@@ -1,7 +1,7 @@
 # Changes to the root directory of your git repository.  This must be a bash
 # function; it cannot be a script.  Making it a script will change your cwd
 # in the script, which will exit and accomplish nothing :)
-function gitcd {
+function reporoot {
   pushd .
   while [ ! -d .git ]; do
     cd ..
