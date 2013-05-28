@@ -15,8 +15,8 @@ export HISTCONTROL=ignoreboth
 unset HISTSIZE
 unset HISTFILESIZE
 shopt -s histappend
-source $HOME/.bash_aliases
 source $HOME/.bash_functions
+source $HOME/.bash_aliases
 if [ -e $HOME/.bash_local ]; then
   source $HOME/.bash_local
 fi
