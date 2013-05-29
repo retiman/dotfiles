@@ -13,7 +13,6 @@ alias grep='grep --color'
 
 # Alias for ack
 alias ack='/usr/bin/vendor_perl/ack'
-alias ack-grep='ack'
 
 # Make directories without complaining
 alias mkdir='mkdir -p'
@@ -40,7 +39,6 @@ alias redshift='/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500'
 alias trash='rm -rf ~/.local/share/Trash/*'
 
 # Clear the screen, for reals
-alias clear='printf "\033c"'
 alias cls='printf "\033c"'
 
 # Quick history
