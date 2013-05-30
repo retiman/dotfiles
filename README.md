@@ -56,13 +56,13 @@ Removing broken symlinks
 Multiple Computers
 ==================
 If you have multiple computers or VMs you are working with, consider making a
-branch for each one.  If you like a commit and want them to show up in all
-branches, do this:
+branch for each one.  I like to name each branch after a host I am working on.
+If you like a commit and want them to show up in all branches, do this:
 
 1.  `git commit -am "My super awesome change"`
 1.  `git checkout master`
-1.  `git cherry-pick commit-of-super-awesome-change`
-1.  `git checkout my-branch`
+1.  `git cherry-pick COMMITID`
+1.  `git checkout HOST`
 1.  `git merge master`
 
 Or you can run `homekeeper save` which will do the same thing with what HEAD
@@ -73,7 +73,7 @@ from master, do this:
 
 1.  `git checkout master`
 1.  `git pull origin master`
-1.  `git checkout my-branch`
+1.  `git checkout HOST`
 1.  `git merge master`
 
 Or you can run `homekeeper update` which will do the same thing.
