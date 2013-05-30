@@ -76,4 +76,4 @@ from master, do this:
 1.  `git checkout my-branch`
 1.  `git merge master`
 
-Or you can run `homekeeper sync` which will do the same thing.
+Or you can run `homekeeper update` which will do the same thing.
