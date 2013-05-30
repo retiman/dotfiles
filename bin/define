@@ -1,7 +1,0 @@
-#!/bin/bash
-# You have several options to quickly define a word.
-# 1. You can go to http://www.definr.com/word
-# 2. Make a Firefox bookmark with a keyword (eg http://definr.com/%s)
-# 3. You can make a little script like this!
-# Usage: define WORD
-lynx -dump "http://www.definr.com/$1" | grep -B 1000 References | head -n -2 | grep -A 1000 meep | tail -n +4
