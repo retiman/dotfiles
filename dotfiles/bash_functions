@@ -15,6 +15,12 @@ function reporoot {
   cd -
 }
 
+# Unzip a zip file that some Mac user sent me.
+function munzip {
+  zip -s 0 "${1%.*}.zip" --out "${1%.*}-full.zip"
+  unzip "${1%.*}-full.zip"
+}
+
 # Decompress a file, so I don't have to keep in mind the specific flags I have
 # to pass in for each program that does decompression.  This will blow away
 # the original compressed file if the decompression succeeds, so be warned.
@@ -25,6 +31,8 @@ function decompress {
     tar xvfz "$1" && rm "$1"
   else
     case "${1##*.}" in
+      z01)
+        macunzip "$1";;
       zip)
         unzip "$1" && rm "$1";;
       gz)
