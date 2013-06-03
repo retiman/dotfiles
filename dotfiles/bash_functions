@@ -105,7 +105,7 @@ function vimproject {
 }
 
 # Search your bash history for a command
-function {
+function h {
   history | grep "$@"
 }
 
