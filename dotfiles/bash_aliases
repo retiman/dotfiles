@@ -41,8 +41,5 @@ alias trash='rm -rf ~/.local/share/Trash/*'
 # Clear the screen, for reals
 alias cls='printf "\033c"'
 
-# Quick history
-alias h='history'
-
 # Quick repository root
 alias rr='reporoot'

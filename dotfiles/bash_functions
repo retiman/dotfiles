@@ -104,6 +104,11 @@ function vimproject {
     cp $HOME/.vim/project/${1}/project.vim .
 }
 
+# Search your bash history for a command
+function {
+  history | grep "$@"
+}
+
 # Colorize the Bash prompt the way I like it
 function promptcolors {
   local BLUE="\[\033[0;34m\]"
