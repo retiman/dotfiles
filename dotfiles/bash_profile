@@ -12,6 +12,7 @@ export MAILCHECK=NO
 
 # Bash
 export HISTCONTROL=erasedups:ignorespace
+export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 unset HISTSIZE
 unset HISTFILESIZE
 shopt -s histappend
