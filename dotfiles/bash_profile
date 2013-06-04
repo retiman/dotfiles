@@ -9,7 +9,7 @@ export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 export EDITOR=vim
 export MAILCHECK=NO
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=erasedups:ignorespace
 
 # Bash
 unset HISTSIZE
