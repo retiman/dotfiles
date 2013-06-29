@@ -1,3 +1,11 @@
+# Modified commands
+alias diff='colordiff'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p -v'
+alias df='df -h'
+alias du='du -c -h'
+alias ping='ping -c 5'
+
 # Customize directory listing/colors
 alias ls='ls -hF --group-directories-first --color=auto'
 alias ll='ls -lhF --color=auto'
@@ -11,13 +19,7 @@ alias less='less -r'
 # Have grep give me colors
 alias grep='grep --color'
 
-# Alias for ack
-alias ack='/usr/bin/vendor_perl/ack'
-
-# Make directories without complaining
-alias mkdir='mkdir -p'
-
-# Make it easier to pushd
+# Make it easier to use pushd.
 alias pd='pushd'
 
 # Use rsync for scp in case i want to resume later
@@ -28,9 +30,6 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 
 # Instruct Bash to check if the command following sudo is also an alias
 alias sudo='sudo '
-
-# Give me vim and not vi
-alias vi='vim'
 
 # Alter screen brightness
 alias redshift='/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500'
