@@ -16,6 +16,7 @@ export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 unset HISTSIZE
 unset HISTFILESIZE
 shopt -s histappend
+shopt -s extglob
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
 if [ -e $HOME/.bash_local ]; then
