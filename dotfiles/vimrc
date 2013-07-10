@@ -85,9 +85,12 @@ set wildmode=list:longest
 set wrapmargin=0
 
 let mapleader=','
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:ctrlp_map='<c-t>'
-let g:ctrlp_working_path_mode='r'
-let g:Powerline_symbols='compatible'
+let g:ctrlp_working_path_mode='rw'
+let g:ctrlp_by_filename=1
+let g:ctrlp_clear_cache_on_exit=0
 let g:ackprg='ack -H --nocolor --nogroup --column'
 let g:buftabs_only_basename=1
 let g:quickfix_is_open=0
