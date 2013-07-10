@@ -133,8 +133,6 @@ map <silent> <F2> :call QuickfixToggle()<cr>
 map <silent> <F3> :call ToggleColorColumn()<cr>
 "   Open/close the taglist
 map <silent> <F4> :TlistToggle<cr>
-"   Remove all trailing whitespace
-map <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 
 " Command mode mappings (same as cnoremap)
 "     Write to a read only file
@@ -145,6 +143,8 @@ nmap ; :
 nmap E :Explore<cr>
 nmap J <nop>
 nmap K <nop>
+"    Removes all trailing whitespace
+nmap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 nmap Y y$
 nmap j gj
 nmap k gk
