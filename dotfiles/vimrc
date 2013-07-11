@@ -92,6 +92,7 @@ let g:ctrlp_map='<c-t>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
+let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
 
 call pathogen#infect()
