@@ -6,8 +6,6 @@
 " ctrlp
 "   <c-t> opens file list
 "   <F5> refreshes an open file list
-" taglist
-"   <F4> opens the taglist browser
 " vim-fugitive
 "   <leader>gs opens up the git status window
 "   <leader>gc opens up the git commit window from the git status window
@@ -15,10 +13,6 @@
 "   :bd deletes the buffer
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
-" vim-surround
-"   cs"' to change surrounding " to '
-"   ysiw] to surround text with [ and ]
-"   ds] delete surrounding [ and ]
 set nocompatible
 set clipboard=unnamed
 set fileencoding=utf-8
@@ -134,8 +128,6 @@ endfunction
 map <silent> <F2> :call QuickfixToggle()<cr>
 "   Toggle highlighting of really long lines
 map <silent> <F3> :call ToggleColorColumn()<cr>
-"   Open/close the taglist
-map <silent> <F4> :TlistToggle<cr>
 
 " Command mode mappings (same as cnoremap)
 "     Write to a read only file
@@ -190,7 +182,8 @@ nmap <leader>re :res<cr>
 nmap <leader>rr :RepoRoot<cr>:cd google3<cr>:pwd<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-nmap <leader>q :q!<cr>
+"    Open quickfix list
+nmap <leader>q :call QuickfixToggle()<cr>
 " nmap <leader>x (used by slime.vim)
 "    Read standard input into clipboard
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
