@@ -1,33 +1,29 @@
-# Java
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export JAVA_HOME=
-export JDK_HOME=$JAVA_HOME
-
-# Other
-export GIT_EDITOR=vim
-export SVN_EDITOR=vim
 export EDITOR=vim
-export MAILCHECK=NO
-
-# Bash
+export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
+export JAVA_HOME=
+export JDK_HOME=$JAVA_HOME
+export MAILCHECK=NO
+export SVN_EDITOR=vim
+
 unset HISTSIZE
 unset HISTFILESIZE
+
 shopt -s histappend
 shopt -s extglob
+
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
-if [ -e $HOME/.bash_local ]; then
-  source $HOME/.bash_local
-fi
+if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
 
 # Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
-# Show directory in urxvt title bar
+# Show directory in terminal title bar
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
