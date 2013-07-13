@@ -158,6 +158,7 @@ nmap <c-p> :bprev<cr>
 nmap <leader><leader> :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
+nmap <leader>Q :qa!<cr>
 "    Change directory to currently open file
 nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 "    Delete the currently open buffer
