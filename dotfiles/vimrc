@@ -84,7 +84,7 @@ let g:airline_right_sep=''
 let g:bufferline_echo=0
 let g:bufferline_rotate=1
 let g:bufferline_show_bufnr=0
-let g:ctrlp_map='<c-t>'
+let g:ctrlp_map='<c-0>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
@@ -154,6 +154,7 @@ nmap <c-l> <c-w>l
 "    Move to next/previous buffer
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
+nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
 "    Super quick way to commit
 nmap <leader><leader> :Gcommit<cr>
 "    Open up a scratch buffer
@@ -179,7 +180,7 @@ nmap <leader>ps :r!xsel -s<cr>
 nmap <leader>pb :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
-nmap <leader>rr :RepoRoot<cr>:cd google3<cr>:pwd<cr>
+nmap <leader>rr :RepoRoot<cr>:pwd<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 "    Open quickfix list
