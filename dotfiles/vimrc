@@ -112,7 +112,7 @@ function! ToggleColorColumn()
       setlocal colorcolumn=+1
     endif
   else
-    echo "colorcolumn="
+    echo 'colorcolumn='
     setlocal colorcolumn=
   endif
 endfunction
