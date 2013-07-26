@@ -1,44 +1,21 @@
-# Modified commands
-alias diff='colordiff'
-alias grep='grep --color=auto'
-alias mkdir='mkdir -p -v'
+alias cls='printf "\033c"'
 alias df='df -h'
+alias diff='colordiff'
 alias du='du -c -h'
-alias ping='ping -c 5'
-
-# Customize directory listing/colors
-alias ls='ls -hF --group-directories-first --color=auto'
-alias ll='ls -lhF --color=auto'
+alias grep='grep --color=auto'
 alias l='ll'
 alias la='ls -AhF --color=auto'
-alias li='ls -lhF --color=yes | less -r'
-
-# Have less repaint the screen to give me colors
 alias less='less -r'
-
-# Have grep give me colors
-alias grep='grep --color'
-
-# Make it easier to use pushd.
+alias li='ls -lhF --color=yes | less -r'
+alias ll='ls -lhF --color=auto'
+alias ls='ls -hF --group-directories-first --color=auto'
+alias mkdir='mkdir -p -v'
+alias mtop='ps auxf | sort -nr -k 4 | head -10' # show top 10 memory intensive apps
 alias pd='pushd'
-
-# Use rsync for scp in case i want to resume later
-alias scpr='rsync --partial --progress --rsh=ssh'
-
-# Show top 10 most memory intensive programs
-alias mtop='ps auxf | sort -nr -k 4 | head -10'
-
-# Instruct Bash to check if the command following sudo is also an alias
-alias sudo='sudo '
-
-# Alter screen brightness
+alias ping='ping -c 5'
 alias redshift='/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500'
-
-# Clear trash while using thunar
-alias trash='rm -rf ~/.local/share/Trash/*'
-
-# Clear the screen, for reals
-alias cls='printf "\033c"'
-
-# Quick repository root
 alias rr='reporoot'
+alias scpr='rsync --partial --progress --rsh=ssh'
+alias sudo='sudo ' # tell bash to respect aliases
+alias trash='rm -rf ~/.local/share/Trash/*'
+alias vi='vim'
