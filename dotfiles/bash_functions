@@ -22,13 +22,13 @@ function decompress {
   for F in "$@"; do
     case "$F" in
       *.tar.bz2)
-        tar xvfj "$F" && rm "$F"
+        tar xvfj "$F"
         ;;
       *.tar.gz)
-        tar xvfz "$F" && rm "$F"
+        tar xvfz "$F"
         ;;
       *.7z)
-        7z x "$F" && rm "$F"
+        7z x "$F"
         ;;
       *.exe)
         cabextract "$F"
@@ -37,7 +37,7 @@ function decompress {
         gunzip "$F"
         ;;
       *.rar)
-        unrar x "$F" && rm "$F"
+        unrar x "$F"
         ;;
       *.xz)
         unxz "$F"
@@ -47,7 +47,7 @@ function decompress {
         unzip "${F%.*}-full.zip"
         ;;
       *.zip)
-        unzip "$F" && rm "$F"
+        unzip "$F"
         ;;
       *.Z)
         uncompress "$F"
