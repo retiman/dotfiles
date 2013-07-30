@@ -50,6 +50,7 @@ set novisualbell
 set number
 set pastetoggle=<F1>
 set ruler
+set scrolloff=10
 set selection=inclusive
 set shiftwidth=2
 set shiftround
@@ -88,6 +89,9 @@ let g:ctrlp_map='<c-0>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
+let g:html_indent_inctags='html,body,head,tbody'
+let g:html_indent_script1='inc'
+let g:html_indent_style1='inc'
 let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
 
@@ -108,7 +112,7 @@ function! ToggleColorColumn()
       setlocal colorcolumn=+1
     endif
   else
-    echo "colorcolumn="
+    echo 'colorcolumn='
     setlocal colorcolumn=
   endif
 endfunction
