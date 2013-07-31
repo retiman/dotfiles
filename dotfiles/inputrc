@@ -2,3 +2,8 @@ include /etc/inputrc
 
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+
+set editing-mode vi
+set keymap vi-command
+
+"\e\e": "\C-a\C-k"
