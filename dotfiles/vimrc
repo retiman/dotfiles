@@ -14,7 +14,7 @@
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
 set nocompatible
-set clipboard=unnamed
+set clipboard=unnamedplus
 set fileencoding=utf-8
 set termencoding=utf-8
 set autoindent
@@ -177,12 +177,9 @@ nmap <leader>gd :Gdiff<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>l :set list!<cr>
 nmap <leader>n :set number!<cr>
-"    Paste from primary selection
-nmap <leader>pp :r!xsel -p<cr>
-"    Paste from secondary selection
-nmap <leader>ps :r!xsel -s<cr>
-"    Paste from clipboard selection
-nmap <leader>pb :r!xsel -b<cr>
+"    Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
+"    and CLIPBOARD selections in sync to make copying easier.
+vmap <leader>pp :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
@@ -191,8 +188,6 @@ nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 "    Open quickfix list
 nmap <leader>q :call QuickfixToggle()<cr>
 " nmap <leader>x (used by slime.vim)
-"    Read standard input into clipboard
-nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
@@ -203,14 +198,10 @@ vmap J <nop>
 vmap K <nop>
 vmap j gj
 vmap k gk
-"    Paste from primary selection
-vmap <leader>pp :r!xsel -p<cr>
-"    Paste from secondary selection
-vmap <leader>ps :r!xsel -s<cr>
-"    Paste from clipboard selection
-vmap <leader>pb :r!xsel -b<cr>
-"    Read standard input into clipboard
-vmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
+"    This will make y also copy into the + register, which is also the X
+"    Windows CLIPBOARD selection.  However, you can get this behavior with
+"    Vim 7.3 using set clipboard=unnamedplus.
+" vmap <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
 
 " Insert mode mappings (same as inoremap)
 "   Pressing Enter while menu is open inserts highlighted item
