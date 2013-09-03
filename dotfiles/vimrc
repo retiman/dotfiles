@@ -15,15 +15,19 @@
 "   :RepoRoot goes to the repository's root
 set nocompatible
 set clipboard=unnamedplus
+set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
+
 set autoindent
+set autoread
 set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=menuone
 set copyindent
+set display+=lastline
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
