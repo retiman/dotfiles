@@ -183,7 +183,7 @@ nmap <leader>l :set list!<cr>
 nmap <leader>n :set number!<cr>
 "    Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
 "    and CLIPBOARD selections in sync to make copying easier.
-vmap <leader>p :r!xsel -b<cr>
+nmap <leader>p :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
@@ -197,7 +197,6 @@ nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
 vmap <tab> %
-nmap E :Explore<cr>
 vmap J <nop>
 vmap K <nop>
 vmap j gj
