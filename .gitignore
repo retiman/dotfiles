@@ -2,4 +2,5 @@ dotfiles/i3/log
 dotfiles/vim/.netrwhist
 dotfiles/vim/session
 dotfiles/vim/eclim
+tags
 tmp
