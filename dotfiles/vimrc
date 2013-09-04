@@ -111,6 +111,7 @@ let g:bufferline_fixed_index=1
 let g:bufferline_rotate=0
 let g:bufferline_modified='+'
 let g:bufferline_show_bufnr=1
+let g:csv_autocmd_arrange=1
 let g:ctrlp_map='<c-0>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
