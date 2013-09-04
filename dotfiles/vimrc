@@ -197,6 +197,7 @@ nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
 vmap <tab> %
+vmap ; :
 vmap J <nop>
 vmap K <nop>
 vmap j gj
