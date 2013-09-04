@@ -87,3 +87,5 @@ shareDesktop: true
 *multiClickTime: 400
 XTerm*visualBell: False
 XTerm*audibleBell: False
+URxvt*.transparent: true
+URxvt*.shading: 10
