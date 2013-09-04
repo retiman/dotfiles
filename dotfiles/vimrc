@@ -133,28 +133,31 @@ function! QuickfixToggle()
     endif
 endfunction
 
-" Mappings
-"   Toggle quicklist
+" Normal, visual, and operator-pending mode mappings
+"    Toggle quicklist
 map <silent> <F2> :call QuickfixToggle()<cr>
-"   Toggle highlighting of really long lines
+"    Toggle highlighting of really long lines
 map <silent> <F3> :call ToggleColorColumn()<cr>
+map ; :
+map E :Explore<cr>
+map J <nop>
+map K <nop>
+"    Removes all trailing whitespace
+map <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+map Y y$
+map j gj
+map k gk
+"    This will make y also copy into the + register, which is also the X
+"    Windows CLIPBOARD selection.  However, you can get this behavior with
+"    Vim 7.3 using set clipboard=unnamedplus.
+" map <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
+map <tab> %
 
-" Command mode mappings (same as cnoremap)
-"     Write to a read only file
+" Command mode mappings
+"    Write to a read only file
 cmap w!! w !sudo tee % >/dev/null
 
-" Normal mode mappings (same as nnoremap)
-nmap ; :
-nmap E :Explore<cr>
-nmap J <nop>
-nmap K <nop>
-"    Removes all trailing whitespace
-nmap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
-nmap Y y$
-nmap j gj
-nmap k gk
-"    Moves to matching brace/paren/bracket
-nmap <tab> %
+" Normal mode mappings
 "    Go to tag definition
 nmap <c-g> <c-]>
 nmap <c-h> <c-w>h
@@ -194,18 +197,6 @@ nmap <leader>q :qa!<cr>
 " nmap <leader>x (used by slime.vim)
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
-
-" Visual mode mappings (same as vnoremap)
-vmap <tab> %
-vmap ; :
-vmap J <nop>
-vmap K <nop>
-vmap j gj
-vmap k gk
-"    This will make y also copy into the + register, which is also the X
-"    Windows CLIPBOARD selection.  However, you can get this behavior with
-"    Vim 7.3 using set clipboard=unnamedplus.
-" vmap <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
