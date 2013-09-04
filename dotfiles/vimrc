@@ -68,7 +68,6 @@ set smartcase
 set smartindent
 set smarttab
 set softtabstop=2
-set statusline=%{bufferline#generate_string()}
 set t_Co=256
 set t_vb=
 set tabstop=2
@@ -88,11 +87,30 @@ set wildmode=list:longest
 set wrapmargin=0
 
 let mapleader=','
+let g:airline_exclude_preview=1
 let g:airline_left_sep=''
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
 let g:airline_right_sep=''
+let g:airline_section_x=''
+let g:bufferline_active_buffer_left='['
+let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_rotate=1
-let g:bufferline_show_bufnr=0
+let g:bufferline_fixed_index=1
+let g:bufferline_rotate=0
+let g:bufferline_modified='+'
+let g:bufferline_show_bufnr=1
 let g:ctrlp_map='<c-0>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
@@ -196,6 +214,10 @@ nmap <leader>/ :set hlsearch!<cr>
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
+
+au VimEnter *
+  \ let &statusline='%{bufferline#refresh_status()}'
+  \ .bufferline#get_status_string()
 
 " Project specific settings
 set secure
