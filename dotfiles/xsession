@@ -65,7 +65,7 @@ xrdb -merge ~/.Xresources
 #xscreensaver -nosplash &
 
 # Make looking at the screen at night easier on the eyes.
-/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500
+redshift -o -l 0:0 -b 0.8 -t 6500:6500
 
 # Prepending exec is recommended as it replaces the current process with the
 # process, so the script will stop running and X won't exit even if the process
