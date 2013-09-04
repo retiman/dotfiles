@@ -1,29 +1,40 @@
+# Environment Variables
+export _JAVA_OPTION=
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
+export JAVA_HOME=/opt/java
+export JDK_HOME=$JAVA_HOME
+export GHCRTS="-K512M"
 export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
-export JAVA_HOME=
-export JDK_HOME=$JAVA_HOME
 export MAILCHECK=NO
 export SVN_EDITOR=vim
-
 unset HISTSIZE
 unset HISTFILESIZE
 
+# Additional Shell Options
 shopt -s histappend
 shopt -s extglob
 
-source $HOME/.bash_functions
-source $HOME/.bash_aliases
-if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
+# Keychain
+eval $(keychain --eval --agents ssh -Q --quiet id_dsa)
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
-# Colorize prompt and directories
+# Additional Bash Configuration
+source $HOME/.bash_aliases
+source $HOME/.bash_functions
+source $HOME/.bash_local
+
+# Additional PATHs
+addpath $HOME/bin
+
+# Color Options
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
-# Show directory in terminal title bar
+# Add working directory to terminal title
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
