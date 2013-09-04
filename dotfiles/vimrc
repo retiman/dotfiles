@@ -167,7 +167,6 @@ nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
 nmap <leader><leader> :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>Q :qa!<cr>
 "    Change directory to currently open file
 nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 "    Delete the currently open buffer
@@ -189,8 +188,7 @@ nmap <leader>re :res<cr>
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-"    Open quickfix list
-nmap <leader>q :call QuickfixToggle()<cr>
+nmap <leader>q :qa!<cr>
 " nmap <leader>x (used by slime.vim)
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
