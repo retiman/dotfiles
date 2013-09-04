@@ -184,8 +184,9 @@ nmap <c-l> <c-w>l
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
-"    Super quick way to commit
-nmap <leader><leader> :Gcommit<cr>
+"    Super quick way to show status and commit
+nmap <leader><leader> :Gstatus<cr>
+nmap <leader>. :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
 "    Change directory to currently open file
