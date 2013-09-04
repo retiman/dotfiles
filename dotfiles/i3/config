@@ -88,7 +88,7 @@ mode "$mode_system" {
 # Key bindings
 bindcode 82 exec amixer -c 0 set Master 2dB- unmute
 bindcode 86 exec amixer -c 0 set Master 2dB+ unmute
-bindcode 104 exec amixer sset Master toggle
+bindcode 104 exec amixer set -c 0 Master toggle
 bindsym $mod+F12 "$HOME/bin/i3exit lock"
 bindsym $mod+Return exec urxvt
 bindsym $mod+1 workspace 1
@@ -101,10 +101,7 @@ bindsym $mod+7 workspace 7: ide
 bindsym $mod+8 workspace 8: file
 bindsym $mod+9 workspace 9: www
 bindsym $mod+0 workspace 10: vm
-bindsym $mod+dash exec amixer -c 0 set Master 2dB- unmute
 bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
-#bindsym $mod+b focus child
 bindsym $mod+d layout default
 bindsym $mod+e exec dmenu_run
 bindsym $mod+f fullscreen
@@ -112,18 +109,14 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+m exec amixer sset Master toggle
 bindsym $mod+n workspace next
 bindsym $mod+o split horizontal
 bindsym $mod+p workspace prev
 bindsym $mod+r mode "resize"
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+u exec amixer -c 0 set Master 2dB+ unmute
 bindsym $mod+v split vertical
 bindsym $mod+q exec "$HOME/bin/i3exit lock"
-bindsym $mod+Control+h move workspace to output left
-bindsym $mod+Control+l move workspace to output right
 bindsym $mod+Shift+exclam move workspace 1
 bindsym $mod+Shift+at move workspace 2
 bindsym $mod+Shift+numbersign move workspace 3
