@@ -207,19 +207,6 @@ vmap k gk
 "    Vim 7.3 using set clipboard=unnamedplus.
 " vmap <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
 
-" Insert mode mappings (same as inoremap)
-"   Pressing Enter while menu is open inserts highlighted item
-imap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-"   Ensures an item is always highlighted
-imap <expr> <c-n> pumvisible() ? '<c-n>' :
-  \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-"   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
-"   to remove the longest common text
-imap <expr> <m-,> pumvisible() ? '<c-n>' :
-  \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-"   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-imap <nul> <c-x><c-u><c-p>
-
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
