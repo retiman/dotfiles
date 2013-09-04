@@ -219,9 +219,6 @@ imap <expr> <m-,> pumvisible() ? '<c-n>' :
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
 imap <nul> <c-x><c-u><c-p>
 
-" Highlight really long lines
-highlight ColorColumn ctermbg=darkblue
-
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
