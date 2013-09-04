@@ -147,10 +147,6 @@ map <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 map Y y$
 map j gj
 map k gk
-"    This will make y also copy into the + register, which is also the X
-"    Windows CLIPBOARD selection.  However, you can get this behavior with
-"    Vim 7.3 using set clipboard=unnamedplus.
-" map <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
 map <tab> %
 
 " Command mode mappings
