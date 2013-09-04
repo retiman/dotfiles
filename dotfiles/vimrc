@@ -45,7 +45,7 @@ set lazyredraw
 set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
-set mouse=
+set mouse=a
 set nobackup
 set noerrorbells
 set nofoldenable
