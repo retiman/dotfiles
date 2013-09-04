@@ -13,12 +13,15 @@
 "   :bd deletes the buffer
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
+
+" These set directives must be set first.
 set nocompatible
 set clipboard=unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
+" These set directives can be listed in any order.
 set autoindent
 set autoread
 set background=dark
