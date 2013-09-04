@@ -5,6 +5,13 @@ autocmd BufNewFile,BufRead .bash_functions,bash_functions setf bash
 autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf bash
 autocmd BufNewFile,BufRead .bash_local,bash_local setf bash
 
+" csv
+augroup csv
+  autocmd!
+  autocmd BufRead,BufWritePost *.csv :%ArrangeColumn
+  autocmd BufWritePre *.csv :%UnArrangeColumn
+augroup end
+
 " hive
 autocmd BufNewFile,BufRead *.q setf hive
 
