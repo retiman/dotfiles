@@ -18,5 +18,4 @@ alias redshift='/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500'
 alias rr='reporoot'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sudo='sudo ' # tell bash to respect aliases
-alias trash='rm -rf ~/.local/share/Trash/*'
 alias vi='vim'
