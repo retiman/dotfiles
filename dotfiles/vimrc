@@ -134,6 +134,7 @@ function! QuickfixToggle()
 endfunction
 
 " Normal, visual, and operator-pending mode mappings
+map <tab> %
 "    Toggle quicklist
 map <silent> <F2> :call QuickfixToggle()<cr>
 "    Toggle highlighting of really long lines
@@ -147,7 +148,6 @@ map <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 map Y y$
 map j gj
 map k gk
-map <tab> %
 
 " Command mode mappings
 "    Write to a read only file
