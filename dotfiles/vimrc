@@ -208,16 +208,16 @@ vmap k gk
 
 " Insert mode mappings (same as inoremap)
 "   Pressing Enter while menu is open inserts highlighted item
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+imap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
 "   Ensures an item is always highlighted
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+imap <expr> <c-n> pumvisible() ? '<c-n>' :
   \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
 "   to remove the longest common text
-inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
+imap <expr> <m-,> pumvisible() ? '<c-n>' :
   \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-inoremap <nul> <c-x><c-u><c-p>
+imap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
 highlight ColorColumn ctermbg=darkblue
