@@ -208,12 +208,15 @@ nmap <leader>p :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
-" nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
+nmap <leader>v :call Screen_Vars()<cr>
 nmap <leader>q :qa!<cr>
-" nmap <leader>x (used by slime.vim)
+nmap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
+
+" Visual mode mappings
+" vmap <leader>s "ry :call Send_to_Screen(@r)<cr>
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)

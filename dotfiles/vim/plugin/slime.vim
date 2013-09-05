@@ -20,7 +20,3 @@ function Screen_Vars()
   let g:screen_sessionname = "repl"
   let g:screen_windowname = input("window name: ", g:screen_windowname)
 endfunction
-
-vmap ,s "ry :call Send_to_Screen(@r)<CR>
-nmap ,x vip,s
-" nmap ,v :call Screen_Vars()<CR>
