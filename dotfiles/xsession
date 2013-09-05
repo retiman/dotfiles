@@ -61,7 +61,9 @@ feh --bg-scale $HOME/data/wallpaper.jpg
 # See: https://wiki.archlinux.org/index.php/X_resources
 xrdb -merge ~/.Xresources
 
-# Enable the screensaver.
+# Display and screensaver settings.
+#xset -dpms
+#xset s off
 #xscreensaver -nosplash &
 
 # Make looking at the screen at night easier on the eyes.
