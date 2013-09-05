@@ -122,6 +122,7 @@ let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:quickfix_is_open=0
+let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_change_to_vcs_root=1
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
