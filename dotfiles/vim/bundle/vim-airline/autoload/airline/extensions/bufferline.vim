@@ -9,8 +9,8 @@ function! airline#extensions#bufferline#init(ext)
     highlight link bufferline_selected_inactive airline_c_inactive
     let g:bufferline_inactive_highlight = 'airline_c'
     let g:bufferline_active_highlight = 'bufferline_selected'
-    let g:bufferline_active_buffer_left = ''
-    let g:bufferline_active_buffer_right = ''
+    let g:bufferline_active_buffer_left = '['
+    let g:bufferline_active_buffer_right = ']'
     let g:bufferline_separator = ' '
   endif
 
