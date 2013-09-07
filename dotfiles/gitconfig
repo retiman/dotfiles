@@ -26,4 +26,4 @@
 [merge]
   tool = vimdiff-wrapper
 [push]
-	default = matching
+  default = matching
