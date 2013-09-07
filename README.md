@@ -1,20 +1,9 @@
 Homekeeper
 ==========
 This project contains my dotfiles, but it can also help you keep your dotfiles
-and scripts under version control in git.  To take advantage of this project
-for yourself, do this:
-
-1.  Fork this project.
-1.  Run `git merge initial` to completely blank out the master branch and
-    start fresh (unless you like my dotfiles).
-1.  Copy your dotfiles to `dotfiles` without the dot.  For example, copy your
-    `.vimrc` to `dotfiles/vimrc`.
-1.  Copy your scripts to `bin`.
-1.  Run `bin/homekeeper link`.
-
-This script will symlink your dotfiles and scripts into your home directory.
-It will overwrite stuff that's already there but stick the overwritten files
-in tmp for you to review.
+and scripts under version control in git.  This script will symlink your
+dotfiles and scripts into your home directory.  It will overwrite stuff that's
+already there but stick the overwritten files in tmp for you to review.
 
 Here is some example output for `homekeeper link`:
 
@@ -52,6 +41,18 @@ Symlinked: /home/minhuang/.gitconfig
 Symlinked: /home/minhuang/.muttrc
 Removing broken symlinks
 </pre>
+
+To take advantage of this project for yourself, do this:
+
+1.  Fork this project.
+1.  Run `rm bin/*`
+1.  Run `rm -r dotfiles/*`
+1.  Copy your scripts to `bin`.
+1.  Copy your dotfiles to `dotfiles` without the dot.  For example, copy your
+    `.vimrc` to `dotfiles/vimrc`.  This can also be done by running:
+    `homekeeper track ~/.vimrc`.
+1.  Run `bin/homekeeper link`.
+1.  Commit and push to your own repository.
 
 Multiple Computers
 ==================
