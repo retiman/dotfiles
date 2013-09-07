@@ -7,11 +7,15 @@ function! airline#extensions#bufferline#init(ext)
   if s:overwrite
     highlight bufferline_selected gui=bold cterm=bold term=bold
     highlight link bufferline_selected_inactive airline_c_inactive
-    let g:bufferline_inactive_highlight = 'airline_c'
     let g:bufferline_active_highlight = 'bufferline_selected'
     let g:bufferline_active_buffer_left = '['
     let g:bufferline_active_buffer_right = ']'
+    let g:bufferline_echo=0
+    let g:bufferline_fixed_index=1
+    let g:bufferline_inactive_highlight = 'airline_c'
+    let g:bufferline_rotate=1
     let g:bufferline_separator = ' '
+    let g:bufferline_show_bufnr=0
   endif
 
   call airline#parts#define_raw('file', '%{bufferline#refresh_status()}'.bufferline#get_status_string())
