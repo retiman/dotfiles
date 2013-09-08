@@ -24,6 +24,12 @@ autocmd BufWritePost .js silent! !ctags -R * &
 autocmd BufNewFile,BufRead nginx setf nginx
 autocmd BufNewFile,BufRead /etc/nginx/sites-enabled/* setf nginx
 
+" python
+autocmd FileType python set completefunc=pythoncomplete#Complete
+
+" racket
+au BufNewFile,BufRead *.rkt set filetype=scheme
+
 " ruby
 autocmd BufNewFile,BufRead .irbrc setf ruby
 autocmd BufWritePost .rb silent! !ctags -R * &
