@@ -15,8 +15,9 @@ unset HISTSIZE
 unset HISTFILESIZE
 
 # Additional Shell Options
-shopt -s histappend
+shopt -s checkwinsize
 shopt -s extglob
+shopt -s histappend
 
 # Keychain
 eval $(keychain --eval --agents ssh -Q --quiet id_dsa)
