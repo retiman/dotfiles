@@ -208,8 +208,6 @@ nmap <leader>/ :set hlsearch!<cr>
 " vmap <leader>s "ry :call Send_to_Screen(@r)<cr>
 
 " Insert mode mappings
-"   Make ENTER select the highlighed menu item.
-imap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
 "   Always keep a menu item highlighted.
 imap <expr> <c-n> pumvisible() ? '<c-n>' :
   \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
