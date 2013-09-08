@@ -28,7 +28,7 @@ set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
-set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
 set copyindent
 set display+=lastline
 set expandtab
@@ -109,6 +109,8 @@ let g:startify_change_to_vcs_root=1
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
 let g:startify_session_persistence=1
+let g:SuperTabDefaultCompletionType='context'
+
 call pathogen#infect()
 
 syntax on
