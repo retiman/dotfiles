@@ -28,7 +28,7 @@ set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
-set completeopt=menuone
+set completeopt=longest,menuone
 set copyindent
 set display+=lastline
 set expandtab
