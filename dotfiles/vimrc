@@ -203,7 +203,6 @@ nmap <leader>re :res<cr>
 "   Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
 nmap <leader>sd :SDelete<cr>
-nmap <leader>sl :SLoad<cr>
 nmap <leader>ss :SSave<cr>
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
 nmap <leader>v :call Screen_Vars()<cr>
