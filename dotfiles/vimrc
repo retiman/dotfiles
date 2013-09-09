@@ -89,7 +89,7 @@ set wrapmargin=0
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
-let airline#extensions#bufferline#overwrite_variables=0
+let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
 let g:airline_exclude_preview=1
