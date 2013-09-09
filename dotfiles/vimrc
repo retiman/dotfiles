@@ -213,7 +213,7 @@ nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings
-" vmap <leader>s "ry :call Send_to_Screen(@r)<cr>
+" vnoremap <leader>s "ry :call Send_to_Screen(@r)<cr>
 
 " Insert mode mappings
 "   Always keep a menu item highlighted.
