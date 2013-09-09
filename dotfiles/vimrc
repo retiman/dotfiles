@@ -214,6 +214,9 @@ nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings
 " vnoremap <leader>s "ry :call Send_to_Screen(@r)<cr>
+"   Automatically highlight visually selected text again after shifting.
+vnoremap < <gv
+vnoremap > >gv
 
 " Insert mode mappings
 "   Always keep a menu item highlighted.
