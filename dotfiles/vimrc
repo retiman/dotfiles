@@ -164,7 +164,7 @@ noremap E :Explore<cr>
 noremap J <nop>
 noremap K <nop>
 "   Removes all trailing whitespace
-noremap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
 noremap k gk
