@@ -154,69 +154,69 @@ function! QuickfixToggle()
 endfunction
 
 " Normal, visual, and operator-pending mode mappings
-map <tab> %
+noremap <tab> %
 "   Toggle quicklist
-map <silent> <F2> :call QuickfixToggle()<cr>
+noremap <silent> <F2> :call QuickfixToggle()<cr>
 "   Toggle highlighting of really long lines
-map <silent> <F3> :call ToggleColorColumn()<cr>
-map ; :
-map E :Explore<cr>
-map J <nop>
-map K <nop>
+noremap <silent> <F3> :call ToggleColorColumn()<cr>
+noremap ; :
+noremap E :Explore<cr>
+noremap J <nop>
+noremap K <nop>
 "   Removes all trailing whitespace
-map <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
-map Y y$
-map j gj
-map k gk
+noremap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+noremap Y y$
+noremap j gj
+noremap k gk
 
 " Command mode mappings
 "   Write to a read only file
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings
 "   Go to tag definition
-nmap <c-g> <c-]>
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
+nnoremap <c-g> <c-]>
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 "   Move to next/previous buffer
-nmap <c-n> :bnext<cr>
-nmap <c-p> :bprev<cr>
-nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
+nnoremap <c-n> :bnext<cr>
+nnoremap <c-p> :bprev<cr>
+nnoremap <c-t> :RepoRoot<cr>:CtrlP<cr>
 "   Working with fugitive.vim:
 "    -  Stage or unstage changes.
 "    cc Commit any changes
-nmap <leader><leader> :Gstatus<cr>
+nnoremap <leader><leader> :Gstatus<cr>
 "   Open up a scratch buffer
-nmap <leader><tab> :Scratch<cr>
+nnoremap <leader><tab> :Scratch<cr>
 "   Change directory to currently open file
-nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
+nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 "   Delete the currently open buffer
-nmap <leader>d :bd<cr>:syn on<cr>
-nmap <leader>l :set list!<cr>
-nmap <leader>n :set number!<cr>
+nnoremap <leader>d :bd<cr>:syn on<cr>
+nnoremap <leader>l :set list!<cr>
+nnoremap <leader>n :set number!<cr>
 "   Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
 "   and CLIPBOARD selections in sync to make copying easier.
-nmap <leader>p :r!xsel -b<cr>
-nmap <leader>re :res<cr>
+nnoremap <leader>p :r!xsel -b<cr>
+nnoremap <leader>re :res<cr>
 "   Change directory to repository root
-nmap <leader>rr :RepoRoot<cr>:pwd<cr>
-nmap <leader>sd :SDelete<cr>
-nmap <leader>ss :SSave<cr>
-nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-nmap <leader>v :call Screen_Vars()<cr>
-nmap <leader>q :qa!<cr>
-nmap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
-nmap <leader>= <c-w>=<cr>
-nmap <leader>/ :set hlsearch!<cr>
+nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
+nnoremap <leader>sd :SDelete<cr>
+nnoremap <leader>ss :SSave<cr>
+nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
+nnoremap <leader>v :call Screen_Vars()<cr>
+nnoremap <leader>q :qa!<cr>
+nnoremap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
+nnoremap <leader>= <c-w>=<cr>
+nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings
 " vmap <leader>s "ry :call Send_to_Screen(@r)<cr>
 
 " Insert mode mappings
 "   Always keep a menu item highlighted.
-imap <expr> <c-n> pumvisible() ? '<c-n>' :
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
   \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   When using smartindent, lines starting with # have their indentation
 "   removed.  This mapping fixes that problem; remove this mapping if not
