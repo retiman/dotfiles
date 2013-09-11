@@ -1,0 +1,31 @@
+#!/bin/bash
+pacman -S \
+  acpid \
+  autocutsel \
+  dbus \
+  dnsmasq \
+  feh \
+  i3-wm \
+  i3lock \
+  i3status \
+  mplayer2 \
+  ntfs-3g \
+  ntfsprogs \
+  pmount \
+  racket \
+  ranger \
+  readline \
+  rlwrap \
+  rsync \
+  screen \
+  sudo \
+  xorg-xserver \
+  xorg-xinit \
+  xorg-xinput \
+  wicd \
+  xdg-user-dirs \
+  xdg-utils \
+  xterm \
+  unzip \
+  urxvt-unicode \
+  zip
