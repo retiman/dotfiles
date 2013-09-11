@@ -139,7 +139,7 @@ function! ToggleColorColumn()
   endif
 endfunction
 
-function! QuickfixToggle()
+function! ToggleQuickFix()
   if g:quickfix_is_open
     cclose
     let g:quickfix_is_open=0
@@ -153,7 +153,7 @@ endfunction
 " Normal, visual, and operator-pending mode mappings
 noremap <tab> %
 "   Toggle quicklist
-noremap <silent> <F2> :call QuickfixToggle()<cr>
+noremap <silent> <F2> :call ToggleQuickFix()<cr>
 "   Toggle highlighting of really long lines
 noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap ; :
