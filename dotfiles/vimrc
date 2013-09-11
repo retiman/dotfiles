@@ -139,6 +139,16 @@ function! ToggleColorColumn()
   endif
 endfunction
 
+function! ToggleMouse()
+  if empty(&mouse)
+    echo 'mouse=a'
+    setlocal mouse=a
+  else
+    echo 'mouse='
+    setlocal mouse=
+  endif
+endfunction
+
 function! ToggleQuickFix()
   if g:quickfix_is_open
     cclose
@@ -149,13 +159,11 @@ function! ToggleQuickFix()
   endif
 endfunction
 
-
 " Normal, visual, and operator-pending mode mappings
 noremap <tab> %
-"   Toggle quicklist
-noremap <silent> <F2> :call ToggleQuickFix()<cr>
-"   Toggle highlighting of really long lines
+noremap <silent> <F2> :call ToggleMouse()<cr>
 noremap <silent> <F3> :call ToggleColorColumn()<cr>
+noremap <silent> <F5> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
 noremap J <nop>
