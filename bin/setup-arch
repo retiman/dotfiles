@@ -1,8 +1,11 @@
 #!/bin/bash
+# Install commonly used packages.
 pacman -S \
   acpid \
   autocutsel \
+  base-devel \
   dbus \
+  dmenu \
   dnsmasq \
   feh \
   i3-wm \
@@ -11,6 +14,7 @@ pacman -S \
   mplayer2 \
   ntfs-3g \
   ntfsprogs \
+  openssh \
   pmount \
   racket \
   ranger \
@@ -19,6 +23,7 @@ pacman -S \
   rsync \
   screen \
   sudo \
+  tar \
   xorg-xserver \
   xorg-xinit \
   xorg-xinput \
@@ -26,6 +31,17 @@ pacman -S \
   xdg-user-dirs \
   xdg-utils \
   xterm \
+  untar \
   unzip \
   urxvt-unicode \
+  vim \
   zip
+
+# Install packer from the AUR after this:
+# 1.  Download packer from AUR.
+# 2.  Compile with `makepkg -s`.
+# 3.  Install with `pacman -U *.tar.xz`.
+
+# Consider installing the following from AUR:
+#packer \
+#  google-chrome
