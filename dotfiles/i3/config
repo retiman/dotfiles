@@ -1,5 +1,12 @@
 # i3 config file
 #
+# If running a dual monitor setup, make sure both monitors are plugged in
+# when i3 starts, and run the following:
+#
+#   xrandr --output DVI-1 --primary --output DVI-0 --right-of DVI-1
+#
+# ...replacing the outputs as necessary.
+#
 # Run xmodmap -pke to see keycodes and names.
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod1
