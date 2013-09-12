@@ -84,6 +84,7 @@ set wrapmargin=0
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
+let g:acp_enabled=1
 let g:acp_behaviorKeywordIgnores=['get']
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
@@ -126,6 +127,18 @@ highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
+function! ToggleAutoCompl()
+  if g:acp_enabled
+    AcpDisable
+    let g:acp_enabled=0
+    echo 'autocomplpop disabled'
+  else
+    AcpEnable
+    let g:acp_enabled=1
+    echo 'autocomplpop enabled'
+  endif
+endfunction
+
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     if empty(&textwidth)
@@ -134,18 +147,18 @@ function! ToggleColorColumn()
       setlocal colorcolumn=+1
     endif
   else
-    echo 'colorcolumn='
     setlocal colorcolumn=
+    echo 'colorcolumn='
   endif
 endfunction
 
 function! ToggleMouse()
   if empty(&mouse)
-    echo 'mouse=a'
     setlocal mouse=a
+    echo 'mouse=a'
   else
-    echo 'mouse='
     setlocal mouse=
+    echo 'mouse='
   endif
 endfunction
 
@@ -162,7 +175,8 @@ endfunction
 " Normal, visual, and operator-pending mode mappings
 noremap <tab> %
 noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F3> :call ToggleColorColumn()<cr>
+noremap <silent> <F3> :call ToggleAutoCompl()<cr>
+noremap <silent> <F4> :call ToggleColorColumn()<cr>
 noremap <silent> <F5> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
