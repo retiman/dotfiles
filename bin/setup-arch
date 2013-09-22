@@ -21,6 +21,7 @@ pacman -S \
   readline \
   rlwrap \
   rsync \
+  rxvt-unicode \
   screen \
   sudo \
   tar \
@@ -31,9 +32,7 @@ pacman -S \
   xdg-user-dirs \
   xdg-utils \
   xterm \
-  untar \
   unzip \
-  urxvt-unicode \
   vim \
   zip
 
