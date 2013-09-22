@@ -23,7 +23,7 @@ set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
 set copyindent
 set display+=lastline
 set expandtab
@@ -141,11 +141,8 @@ endfunction
 
 function! ToggleColorColumn()
   if empty(&colorcolumn)
-    if empty(&textwidth)
-      setlocal colorcolumn=81
-    else
-      setlocal colorcolumn=+1
-    endif
+    setlocal colorcolumn=81
+    echo 'colorcolumn=81'
   else
     setlocal colorcolumn=
     echo 'colorcolumn='
@@ -207,8 +204,6 @@ nnoremap <c-t> :RepoRoot<cr>:CtrlP<cr>
 "    -  Stage or unstage changes.
 "    cc Commit any changes.
 nnoremap <leader>, :Gstatus<cr>
-"   Open up a scratch buffer
-nnoremap <leader><tab> :Scratch<cr>
 "   Change directory to currently open file
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 "   Delete the currently open buffer
