@@ -10,10 +10,18 @@ setxkbmap -option ctrl:swapcaps
 # Turn off the damned touchpad.
 synclient TouchpadOff=1
 
-# Set mouse acceleration.
+# Set mouse acceleration.  Acceleration defines how much faster than the default
+# speed the moue will move.  The threshold is the velocity required before
+# acceleration will become effective, usually measured in device units per 10ms.
+#
+# Setting threshold allows for slow, precise movement in a small range while
+# still allowing the pointer to move across the screen with a flick of the
+# wrist.
+#
+# The manpage suggests setting acceleration to 3/2 to 3 when threshold is 0.
 #
 # See: https://wiki.archlinux.org/index.php/Mouse_acceleration
-xset m 2
+xset m 1.0 0
 
 # Enable vertical scrolling for trackpoint.
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation' 8 1
