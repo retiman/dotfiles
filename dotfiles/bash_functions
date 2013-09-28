@@ -152,5 +152,5 @@ function include {
 
 # Set up vim with a project file
 function vp {
-  cp "$HOME/.vim/project/$1/project.vim ."
+  cp "$HOME/.vim/project/$1/project.vim" .
 }
