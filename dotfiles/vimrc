@@ -142,9 +142,11 @@ endfunction
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     setlocal colorcolumn=81
+    setlocal textwidth=0
     echo 'colorcolumn=81'
   else
     setlocal colorcolumn=
+    setlocal textwidth=0
     echo 'colorcolumn='
   endif
 endfunction
