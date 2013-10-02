@@ -29,6 +29,7 @@ set display+=lastline
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
+set formatoptions-=c
 set formatoptions-=t
 set gdefault
 set guioptions+=c
