@@ -13,5 +13,8 @@
 " done
 "
 " Yup, that was pretty dumb.
+"
+" See: http://peox.net/articles/vimconfig.html
+" See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 setlocal formatoptions-=c
 setlocal formatoptions-=t
