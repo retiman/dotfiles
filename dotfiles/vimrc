@@ -239,9 +239,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Insert mode mappings
-"   Always keep a menu item highlighted.
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
-  \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Make Vim behave more like an IDE.
 inoremap <expr> <esc> pumvisible() ? '<c-e>' : '<esc>'
 inoremap <expr> <cr> pumvisible() ? '<c-n><c-y>' : '<cr>'
