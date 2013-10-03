@@ -242,8 +242,11 @@ vnoremap > >gv
 "   Always keep a menu item highlighted.
 inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
   \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-"   Pressing enter will automatically insert the selected item.
-inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
+"   Make Vim behave more like an IDE.
+inoremap <expr> <esc> pumvisible() ? '<c-e>' : '<esc>'
+inoremap <expr> <cr> pumvisible() ? '<c-n><c-y>' : '<cr>'
+inoremap <expr> <down> pumvisible() ? '<c-n>' : '<down>'
+inoremap <expr> <up> pumvisible() ? '<c-p>' : '<up>'
 "   When using smartindent, lines starting with # have their indentation
 "   removed.  This mapping fixes that problem; remove this mapping if not
 "   using smartindent.
