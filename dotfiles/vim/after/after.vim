@@ -1,9 +1,7 @@
-" Well, it is quite rare that I get to say how retarded this solution is, but
-" here I am, saying it.
-"
 " This file contains my personal preferences that override anything that strange
-" ftplugins like to enable.  Mostly they are ok, but nobody wants automatic
-" line wrapping, and if they do, then they are wrong.  End of story.
+" ftplugins like to enable.  I'd like to mostly enable ftplugins, but then
+" override anything I don't like.  Since there is no global override, I have
+" to manually override options for every file.
 "
 " Here's how I generated the files in ~/.vim/after/ftplugin:
 "
@@ -12,8 +10,6 @@
 " do
 "   ln -s ../after.vim `basename $file`
 " done
-"
-" Yup, that was pretty dumb.
 "
 " See: http://peox.net/articles/vimconfig.html
 " See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
