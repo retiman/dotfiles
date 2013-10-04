@@ -19,3 +19,4 @@
 " See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 setlocal formatoptions-=c
 setlocal formatoptions-=t
+setlocal textwidth=0
