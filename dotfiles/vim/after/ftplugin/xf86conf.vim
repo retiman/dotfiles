@@ -1,1 +1,1 @@
-/home/minhuang/.vim/after.vim
+../after.vim

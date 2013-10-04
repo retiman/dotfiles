@@ -7,9 +7,10 @@
 "
 " Here's how I generated the files in ~/.vim/after/ftplugin:
 "
+" cd ~/.vim/after/ftplugin
 " for file in /usr/share/vim/vim74/ftplugin/*.vim
 " do
-"   ln -s ~/.vim/after.vim ~/.vim/after/ftplugin/`basename $file`
+"   ln -s ../after.vim `basename $file`
 " done
 "
 " Yup, that was pretty dumb.
