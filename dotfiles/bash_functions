@@ -152,5 +152,5 @@ function include {
 
 # Set up vim with a project file.
 function vp {
-  ln -s "$HOME/.vim/project/$1.vim" .
+  ln -s "$HOME/.vim/project/$1.vim" ./project.vim
 }
