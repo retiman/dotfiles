@@ -131,7 +131,7 @@ let g:SuperTabDefaultCompletionType='context'
 call pathogen#infect()
 
 syntax on
-filetype plugin
+filetype plugin on
 filetype indent on
 colorscheme mango
 highlight bufferline_selected gui=bold cterm=bold term=bold
