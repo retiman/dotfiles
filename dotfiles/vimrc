@@ -245,7 +245,10 @@ vnoremap > >gv
 " Insert mode mappings
 "   Make Vim behave more like an IDE.
 inoremap <expr> <esc> pumvisible() ? '<c-e>' : '<esc>'
-inoremap <expr> <cr> pumvisible() ? '<c-n><c-y>' : '<cr>'
+"   This keeps a menu item highlighted all the time.
+"   See: http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' : '<nop>'
+inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
 "   The following will not work depending on what you have set your term to.
 "
 "   inoremap <expr> <down> pumvisible() ? '<c-n>' : '<down>'
