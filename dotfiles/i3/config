@@ -28,20 +28,20 @@ workspace_auto_back_and_forth no
 # To find a window's class, run xprop then click on the window in question.
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
-assign [class="Avidemux2_gtk"] 8: file
-assign [class="Chromium"] 9: www
-assign [class="Eclipse"] 7: ide
-assign [class="Google-chrome"] 9: www
-assign [class="Thunar"] 8: file
-assign [class="Thunderbird"] 10: mail
-assign [class="VirtualBox"] 11: vm
-assign [class="Xpdf"] 6: doc
-assign [class="chromium"] 9: www
-assign [class="google-chrome"] 9: www
-assign [class="jetbrains-idea"] 7: ide
-assign [class="java-lang-Thread"] 7: ide
-assign [class="rdesktop"] 11: vm
-assign [class="sun-awt-X11-XFramePeer"] 7: ide
+assign [class="Avidemux2_gtk"] 8
+assign [class="Chromium"] 9
+assign [class="Eclipse"] 7
+assign [class="Google-chrome"] 9
+assign [class="Thunar"] 8
+assign [class="Thunderbird"] 10
+assign [class="VirtualBox"] 10
+assign [class="Xpdf"] 6
+assign [class="chromium"] 9
+assign [class="google-chrome"] 9
+assign [class="jetbrains-idea"] 7
+assign [class="java-lang-Thread"] 7
+assign [class="rdesktop"] 10
+assign [class="sun-awt-X11-XFramePeer"] 7
 
 # Per window commands
 #
@@ -103,11 +103,11 @@ bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6: doc
-bindsym $mod+7 workspace 7: ide
-bindsym $mod+8 workspace 8: file
-bindsym $mod+9 workspace 9: www
-bindsym $mod+0 workspace 10: vm
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 bindsym $mod+space focus mode_toggle
 bindsym $mod+d layout default
 bindsym $mod+e exec dmenu_run
@@ -129,11 +129,11 @@ bindsym $mod+Shift+at move workspace 2
 bindsym $mod+Shift+numbersign move workspace 3
 bindsym $mod+Shift+dollar move workspace 4
 bindsym $mod+Shift+percent move workspace 5
-bindsym $mod+Shift+asciicircum move workspace 6: doc
-bindsym $mod+Shift+ampersand move workspace 7: ide
-bindsym $mod+Shift+asterisk move workspace 8: file
-bindsym $mod+Shift+parenleft move workspace 9: www
-bindsym $mod+Shift+parenright move workspace 10: vm
+bindsym $mod+Shift+asciicircum move workspace 6
+bindsym $mod+Shift+ampersand move workspace 7
+bindsym $mod+Shift+asterisk move workspace 8
+bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+parenright move workspace 10
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+C kill
 bindsym $mod+Shift+H move left
