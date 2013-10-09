@@ -246,8 +246,13 @@ vnoremap > >gv
 "   Make Vim behave more like an IDE.
 inoremap <expr> <esc> pumvisible() ? '<c-e>' : '<esc>'
 inoremap <expr> <cr> pumvisible() ? '<c-n><c-y>' : '<cr>'
-inoremap <expr> <down> pumvisible() ? '<c-n>' : '<down>'
-inoremap <expr> <up> pumvisible() ? '<c-p>' : '<up>'
+"   The following will not work depending on what you have set your term to.
+"
+"   inoremap <expr> <down> pumvisible() ? '<c-n>' : '<down>'
+"
+"   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
+inoremap <expr> OB pumvisible() ? '<c-n>' : '<down>'
+inoremap <expr> OA pumvisible() ? '<c-p>' : '<up>'
 "   When using smartindent, lines starting with # have their indentation
 "   removed.  This mapping fixes that problem; remove this mapping if not
 "   using smartindent.
