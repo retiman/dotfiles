@@ -135,10 +135,10 @@ let g:startify_session_persistence=1
 let g:SuperTabDefaultCompletionType='context'
 
 call pathogen#infect()
-
 syntax on
 filetype plugin on
 filetype indent on
+
 colorscheme grb256
 highlight ColorColumn ctermbg=235
 highlight Pmenu ctermbg=238
