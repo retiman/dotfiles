@@ -91,8 +91,6 @@ set wrapmargin=0
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
-let g:acp_enabled=1
-let g:acp_behaviorKeywordIgnores=['get']
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
@@ -120,6 +118,7 @@ let g:gitgutter_signs=0
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
+let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_change_to_vcs_root=1
