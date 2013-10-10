@@ -25,6 +25,7 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 " These set directives can be listed in any order.
+set autochdir
 set autoindent
 set autoread
 set background=dark
