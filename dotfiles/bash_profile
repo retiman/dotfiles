@@ -32,7 +32,7 @@ include $HOME/.bash_local
 addpath $HOME/bin
 
 # Color Options
-eval $(dircolors -b $HOME/.dircolors)
+eval $(dircolors $HOME/.dircolors)
 promptcolors
 
 # Add working directory to terminal title
