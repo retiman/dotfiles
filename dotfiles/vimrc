@@ -140,9 +140,10 @@ syntax on
 filetype plugin on
 filetype indent on
 colorscheme grb256
+highlight ColorColumn ctermbg=235
+highlight Pmenu ctermbg=238
 highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
-highlight Pmenu ctermbg=238
 
 " Functions
 function! ToggleColorColumn()
