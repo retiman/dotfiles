@@ -123,6 +123,7 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_enable_auto_select=1
 let g:quickfix_is_open=0
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_change_to_vcs_root=1
@@ -226,7 +227,7 @@ inoremap <expr> <esc> pumvisible() ?
     \ '<c-e>' . neocomplcache#smart_close_popup()
     \ : '<esc>'
 inoremap <expr> <cr> pumvisible() ?
-    \ '<c-n><c-y>' . neocomplcache#smart_close_popup()
+    \ '<c-y>' . neocomplcache#smart_close_popup()
     \ : '<cr>'
 inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
