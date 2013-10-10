@@ -10,31 +10,41 @@
 "         "A colorful, dark color scheme for Vim."
 "
 " File:         jellybeans.vim
-" Maintainer:   NanoTech <http://nanotech.nanotechcorp.net/>
-" Version:      1.4
-" Last Change:  April 11th, 2011
-" Contributors: Daniel Herbert <http://pocket-ninja.com>,
-"               Henry So, Jr. <henryso@panix.com>,
+" URL:          github.com/nanotech/jellybeans.vim
+" Scripts URL:  vim.org/scripts/script.php?script_id=2555
+" Maintainer:   NanoTech (nanotech.nanotechcorp.net)
+" Version:      1.6~git
+" Last Change:  January 15th, 2012
+" License:      MIT
+" Contributors: Daniel Herbert (pocketninja)
+"               Henry So, Jr. <henryso@panix.com>
 "               David Liang <bmdavll at gmail dot com>
+"               Rich Healey (richo)
+"               Andrew Wong (w0ng)
 "
-" Copyright (c) 2009-2011 NanoTech
+" Copyright (c) 2009-2012 NanoTech
 "
-" Permission is hereby granted, free of charge, to any person obtaining a copy
-" of this software and associated documentation files (the "Software"), to deal
-" in the Software without restriction, including without limitation the rights
-" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-" copies of the Software, and to permit persons to whom the Software is
-" furnished to do so, subject to the following conditions:
+" Permission is hereby granted, free of charge, to any per‐
+" son obtaining a copy of this software and associated doc‐
+" umentation  files  (the “Software”), to deal in the Soft‐
+" ware without restriction,  including  without  limitation
+" the rights to use, copy, modify, merge, publish, distrib‐
+" ute, sublicense, and/or sell copies of the Software,  and
+" to permit persons to whom the Software is furnished to do
+" so, subject to the following conditions:
 "
-" The above copyright notice and this permission notice shall be included in
-" all copies or substantial portions of the Software.
+" The above copyright notice  and  this  permission  notice
+" shall  be  included in all copies or substantial portions
+" of the Software.
 "
-" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-" OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY
+" KIND,  EXPRESS  OR  IMPLIED, INCLUDING BUT NOT LIMITED TO
+" THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICU‐
+" LAR  PURPOSE  AND  NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE  LIABLE  FOR  ANY  CLAIM,
+" DAMAGES  OR OTHER LIABILITY, WHETHER IN AN ACTION OF CON‐
+" TRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON‐
+" NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 " THE SOFTWARE.
 
 set background=dark
@@ -278,47 +288,59 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
   if a:attr == ""
     exec "hi ".a:group." gui=none cterm=none"
   else
-    let noitalic = join(filter(split(a:attr, ","), "v:val !=? 'italic'"), ",")
-    if empty(noitalic)
-      let noitalic = "none"
+    let l:noitalic = join(filter(split(a:attr, ","), "v:val !=? 'italic'"), ",")
+    if empty(l:noitalic)
+      let l:noitalic = "none"
     endif
-    exec "hi ".a:group." gui=".a:attr." cterm=".noitalic
+    exec "hi ".a:group." gui=".a:attr." cterm=".l:noitalic
   endif
 endfun
 " }}}
 
-call s:X("Normal","e8e8d3","151515","","White","")
+if !exists("g:jellybeans_background_color")
+  let g:jellybeans_background_color = "151515"
+end
+
+call s:X("Normal","e8e8d3",g:jellybeans_background_color,"","White","")
 set background=dark
 
-if version >= 700
-  call s:X("CursorLine","","1c1c1c","","","Black")
-  call s:X("CursorColumn","","1c1c1c","","","Black")
-  call s:X("MatchParen","ffffff","80a090","bold","","DarkCyan")
-
-  call s:X("TabLine","000000","b0b8c0","italic","","Black")
-  call s:X("TabLineFill","9098a0","","","","Black")
-  call s:X("TabLineSel","000000","f0f0f0","italic,bold","Black","White")
-
-  " Auto-completion
-  call s:X("Pmenu","ffffff","606060","","White","Black")
-  call s:X("PmenuSel","101010","eeeeee","","Black","White")
+if !exists("g:jellybeans_use_lowcolor_black") || g:jellybeans_use_lowcolor_black
+    let s:termBlack = "Black"
+else
+    let s:termBlack = "Grey"
 endif
 
-call s:X("Visual","","404040","","","Black")
+if version >= 700
+  call s:X("CursorLine","","1c1c1c","","",s:termBlack)
+  call s:X("CursorColumn","","1c1c1c","","",s:termBlack)
+  call s:X("MatchParen","ffffff","80a090","bold","","DarkCyan")
+
+  call s:X("TabLine","000000","b0b8c0","italic","",s:termBlack)
+  call s:X("TabLineFill","9098a0","","","",s:termBlack)
+  call s:X("TabLineSel","000000","f0f0f0","italic,bold",s:termBlack,"White")
+
+  " Auto-completion
+  call s:X("Pmenu","ffffff","606060","","White",s:termBlack)
+  call s:X("PmenuSel","101010","eeeeee","",s:termBlack,"White")
+endif
+
+call s:X("Visual","","404040","","",s:termBlack)
 call s:X("Cursor","","b0d0f0","","","")
 
-call s:X("LineNr","605958","151515","none","Black","")
+call s:X("LineNr","605958",g:jellybeans_background_color,"none",s:termBlack,"")
+call s:X("CursorLineNr","ccc5c4","","none","White","")
 call s:X("Comment","888888","","italic","Grey","")
-call s:X("Todo","808080","","bold","White","Black")
+call s:X("Todo","c7c7c7","","bold","White",s:termBlack)
 
-call s:X("StatusLine","000000","dddddd","italic","Black","White")
+call s:X("StatusLine","000000","dddddd","italic","","White")
 call s:X("StatusLineNC","ffffff","403c41","italic","White","Black")
-call s:X("VertSplit","777777","403c41","italic","Black","Black")
+call s:X("VertSplit","777777","403c41","",s:termBlack,s:termBlack)
 call s:X("WildMenu","f0a0c0","302028","","Magenta","")
 
-call s:X("Folded","a0a8b0","384048","italic","Black","")
-call s:X("FoldColumn","a0a8b0","384048","","","Black")
-hi! link SignColumn FoldColumn
+call s:X("Folded","a0a8b0","384048","italic",s:termBlack,"")
+call s:X("FoldColumn","535D66","1f1f1f","","",s:termBlack)
+call s:X("SignColumn","777777","333333","","",s:termBlack)
+call s:X("ColorColumn","","000000","","",s:termBlack)
 
 call s:X("Title","70b950","","bold","Green","")
 
@@ -335,12 +357,12 @@ call s:X("Function","fad07a","","","Yellow","")
 call s:X("Statement","8197bf","","","DarkBlue","")
 call s:X("PreProc","8fbfdc","","","LightBlue","")
 
-hi! link Operator Normal
+hi! link Operator Structure
 
 call s:X("Type","ffb964","","","Yellow","")
-call s:X("NonText","606060","151515","","Black","")
+call s:X("NonText","606060",g:jellybeans_background_color,"",s:termBlack,"")
 
-call s:X("SpecialKey","444444","1c1c1c","","Black","")
+call s:X("SpecialKey","444444","1c1c1c","",s:termBlack,"")
 
 call s:X("Search","f0a0c0","302028","underline","Magenta","")
 
@@ -365,10 +387,10 @@ hi! link diffAdded String
 
 " VimDiff
 
-call s:X("DiffAdd","","032218","","Black","DarkGreen")
-call s:X("DiffChange","","100920","","Black","DarkMagenta")
-call s:X("DiffDelete","220000","220000","","DarkRed","DarkRed")
-call s:X("DiffText","","000940","","","DarkRed")
+call s:X("DiffAdd","D2EBBE","437019","","White","DarkGreen")
+call s:X("DiffDelete","40000A","700009","","DarkRed","DarkRed")
+call s:X("DiffChange","","2B5B77","","White","DarkBlue")
+call s:X("DiffText","8fbfdc","000000","reverse","Yellow","")
 
 " PHP
 
@@ -380,6 +402,13 @@ hi! link phpQuoteDouble StringDelimiter
 hi! link phpBoolean Constant
 hi! link phpNull Constant
 hi! link phpArrayPair Operator
+hi! link phpOperator Normal
+hi! link phpRelation Normal
+hi! link phpVarSelector Identifier
+
+" Python
+
+hi! link pythonOperator Statement
 
 " Ruby
 
@@ -405,7 +434,16 @@ call s:X("rubyRegexpSpecial","a40073","","","Magenta","")
 
 call s:X("rubyPredefinedIdentifier","de5577","","","Red","")
 
+" Erlang
+
+hi! link erlangAtom rubySymbol
+hi! link erlangBIF rubyPredefinedIdentifier
+hi! link erlangFunction rubyPredefinedIdentifier
+hi! link erlangDirective Statement
+hi! link erlangNode Identifier
+
 " JavaScript
+
 hi! link javaScriptValue Constant
 hi! link javaScriptRegexpString rubyRegexp
 
@@ -413,36 +451,91 @@ hi! link javaScriptRegexpString rubyRegexp
 
 hi! link coffeeRegExp javaScriptRegexpString
 
+" Lua
+
+hi! link luaOperator Conditional
+
 " C
 
+hi! link cFormat Identifier
 hi! link cOperator Constant
 
 " Objective-C/Cocoa
+
 hi! link objcClass Type
 hi! link cocoaClass objcClass
 hi! link objcSubclass objcClass
 hi! link objcSuperclass objcClass
 hi! link objcDirective rubyClass
+hi! link objcStatement Constant
 hi! link cocoaFunction Function
 hi! link objcMethodName Identifier
 hi! link objcMethodArg Normal
 hi! link objcMessageName Identifier
+
+" Vimscript
+
+hi! link vimOper Normal
+
+" Debugger.vim
+
+call s:X("DbgCurrent","DEEBFE","345FA8","","White","DarkBlue")
+call s:X("DbgBreakPt","","4F0037","","","DarkMagenta")
+
+" vim-indent-guides
+
+if !exists("g:indent_guides_auto_colors")
+  let g:indent_guides_auto_colors = 0
+endif
+call s:X("IndentGuidesOdd","","232323","","","")
+call s:X("IndentGuidesEven","","1b1b1b","","","")
 
 " Plugins, etc.
 
 hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","B9ED67","405026","","White","Green")
 
+if !exists("g:jellybeans_background_color_256")
+  let g:jellybeans_background_color_256=233
+end
 " Manual overrides for 256-color terminals. Dark colors auto-map badly.
 if !s:low_color
-  hi StatusLineNC ctermbg=234
+  hi StatusLineNC ctermbg=235
   hi Folded ctermbg=236
-  hi FoldColumn ctermbg=236
+  hi FoldColumn ctermbg=234
   hi SignColumn ctermbg=236
-  hi DiffAdd ctermbg=22
-  hi DiffDelete ctermbg=52
-  hi DiffChange ctermbg=17
-  hi DiffText ctermbg=19
+  hi CursorColumn ctermbg=234
+  hi CursorLine ctermbg=234
+  hi SpecialKey ctermbg=234
+  exec "hi NonText ctermbg=".g:jellybeans_background_color_256
+  exec "hi LineNr ctermbg=".g:jellybeans_background_color_256
+  hi DiffText ctermfg=81
+  exec "hi Normal ctermbg=".g:jellybeans_background_color_256
+  hi DbgBreakPt ctermbg=53
+  hi IndentGuidesOdd ctermbg=235
+  hi IndentGuidesEven ctermbg=234
+endif
+
+if exists("g:jellybeans_overrides")
+  fun! s:load_colors(defs)
+    for [l:group, l:v] in items(a:defs)
+      call s:X(l:group, get(l:v, 'guifg', ''), get(l:v, 'guibg', ''),
+      \                 get(l:v, 'attr', ''),
+      \                 get(l:v, 'ctermfg', ''), get(l:v, 'ctermbg', ''))
+      if !s:low_color
+        for l:prop in ['ctermfg', 'ctermbg']
+          let l:override_key = '256'.l:prop
+          if has_key(l:v, l:override_key)
+            exec "hi ".l:group." ".l:prop."=".l:v[l:override_key]
+          endif
+        endfor
+      endif
+      unlet l:group
+      unlet l:v
+    endfor
+  endfun
+  call s:load_colors(g:jellybeans_overrides)
+  delf s:load_colors
 endif
 
 " delete functions {{{
