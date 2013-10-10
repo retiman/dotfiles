@@ -183,35 +183,24 @@ noremap j gj
 noremap k gk
 
 " Command mode mappings.
-"   Write to a read only file.
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings.
-"   Go to tag definition.
 nnoremap <c-g> <c-]>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-"   Move to next/previous buffer.
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
 nnoremap <c-t> :RepoRoot<cr>:CtrlP<cr>
-"   Working with fugitive.vim:
-"    -  Stage or unstage changes.
-"    cc Commit any changes.
 nnoremap <leader>, :Gstatus<cr>
-"   Change directory to currently open file.
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
-"   Delete the currently open buffer
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>n :set number!<cr>
-"   Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
-"   and CLIPBOARD selections in sync to make copying easier.
 nnoremap <leader>p :r!xsel -b<cr>
 nnoremap <leader>re :res<cr>
-"   Change directory to repository root.
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
@@ -223,8 +212,6 @@ nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings.
-" vnoremap <leader>s "ry :call Send_to_Screen(@r)<cr>
-"   Automatically highlight visually selected text again after shifting.
 vnoremap < <gv
 vnoremap > >gv
 
