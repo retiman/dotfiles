@@ -238,9 +238,6 @@ inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
 inoremap # X#
 
-" Highlight all trailing whitespace.
-autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
-
 " Project specific settings.
 set secure
 autocmd BufEnter,BufReadPost * silent! source ./project.vim
