@@ -8,6 +8,10 @@
 "   <F5> refreshes an open file list
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
+" vim-fugitive
+"   ,, opens git status
+"   - stages or unstages a change
+"   cc commits
 "
 " A note about setting mouse=a: it turns out you can't copy and paste symbols
 " like ツ with mouse=a unless you hold shift while selecting with the mouse
