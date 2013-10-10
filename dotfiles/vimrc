@@ -230,6 +230,7 @@ vnoremap > >gv
 
 " Insert mode mappings
 "   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
+"   See: http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
 inoremap <expr> <esc> pumvisible() ?
     \ '<c-e>' . neocomplcache#smart_close_popup()
     \ : '<esc>'
@@ -240,9 +241,6 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
-"   When using smartindent, lines starting with # have their indentation
-"   removed.  This mapping fixes that problem; remove this mapping if not
-"   using smartindent.
 inoremap # X#
 
 " Highlight all trailing whitespace.
