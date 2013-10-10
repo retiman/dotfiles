@@ -137,7 +137,7 @@ call pathogen#infect()
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme mango
+colorscheme grb256
 highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
 
