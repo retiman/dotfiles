@@ -238,5 +238,8 @@ inoremap <expr> OA pumvisible() ?
 inoremap # X#
 
 " Project specific settings.
+"   Include a project.vim in your repository root and Vim will source this file
+"   to override any settings you want.
 set secure
-autocmd BufEnter,BufReadPost * silent! source ./project.vim
+autocmd VimEnter * RepoRoot
+autocmd VimEnter * silent! source ./project.vim
