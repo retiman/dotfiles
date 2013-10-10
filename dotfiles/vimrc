@@ -178,13 +178,12 @@ endfunction
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F4> :call ToggleColorColumn()<cr>
-noremap <silent> <F5> :call ToggleQuickFix()<cr>
+noremap <silent> <F3> :call ToggleColorColumn()<cr>
+noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
 noremap J <nop>
 noremap K <nop>
-"   Removes all trailing whitespace.
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
