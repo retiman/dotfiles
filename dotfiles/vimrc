@@ -137,18 +137,6 @@ highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
-function! ToggleAutoCompl()
-  if g:acp_enabled
-    AcpDisable
-    let g:acp_enabled=0
-    echo 'autocomplpop disabled'
-  else
-    AcpEnable
-    let g:acp_enabled=1
-    echo 'autocomplpop enabled'
-  endif
-endfunction
-
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     setlocal colorcolumn=81
@@ -182,7 +170,6 @@ endfunction
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F3> :call ToggleAutoCompl()<cr>
 noremap <silent> <F4> :call ToggleColorColumn()<cr>
 noremap <silent> <F5> :call ToggleQuickFix()<cr>
 noremap ; :
