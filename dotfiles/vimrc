@@ -142,7 +142,6 @@ filetype indent on
 colorscheme grb256
 highlight ColorColumn ctermbg=235
 highlight Pmenu ctermbg=238
-highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
