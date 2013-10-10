@@ -83,42 +83,42 @@
 
 !! Custom Configuration for Xresources.  Do not use Xdefaults; it is
 !! deprecated.
-urxvt*background: black
-urxvt*borderColor: #101010
-urxvt*boldFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
-urxvt*color4: #0072ff
-urxvt*color12: #1082ff
-urxvt*cursorColor: #d1edff
-urxvt*externalBorder: 0
-urxvt*fadeColor: grey
-urxvt*fading: 5
-urxvt*font: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
-urxvt*foreground: white
-urxvt*imLocale: en_US.UTF-8
-urxvt*inputMethod: ibus
-urxvt*internalBorder: 0
-urxvt*loginShell: true
-urxvt*matcher.button: 1
-urxvt*modifier: mod4
-urxvt*perl-ext-common: default,matcher
-urxvt*preeditType: OnTheSpot,None
-urxvt*saveLines: 1000
-urxvt*scrollBar_right: true
-urxvt*scrollColor: #303030
-urxvt*scrollTtyOutput: false
-urxvt*scrollTtyKeypress: false
-urxvt*scrollstyle: plain
-urxvt*shading: 10
-urxvt*termName: rxvt-unicode
-urxvt*transparent: true
-urxvt*underlineColor: yellow
-urxvt*urgentOnBell: true
-urxvt*urlLauncher: /usr/bin/google-chrome
-urxvt*visualBell: false
+URxvt.background: black
+! URxvt.borderColor: #101010
+URxvt.boldFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! URxvt.color4: #0072ff
+! URxvt.color12: #1082ff
+! URxvt.cursorColor: #d1edff
+URxvt.externalBorder: 0
+URxvt.fadeColor: grey
+URxvt.fading: 5
+URxvt.font: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+URxvt.foreground: white
+URxvt.imLocale: en_US.UTF-8
+URxvt.inputMethod: ibus
+URxvt.internalBorder: 0
+URxvt.loginShell: true
+URxvt.matcher.button: 1
+URxvt.modifier: mod4
+URxvt.perl-ext-common: default,matcher
+URxvt.preeditType: OnTheSpot,None
+URxvt.saveLines: 1000
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #303030
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: false
+URxvt.scrollstyle: plain
+URxvt.shading: 10
+URxvt.termName: rxvt-unicode
+URxvt.transparent: true
+URxvt.underlineColor: yellow
+URxvt.urgentOnBell: true
+URxvt.urlLauncher: /usr/bin/google-chrome
+URxvt.visualBell: false
 
-XTerm*visualBell: False
-XTerm*audibleBell: False
-XTerm*bellIsUrgent: True
+XTerm.visualBell: False
+XTerm.audibleBell: False
+XTerm.bellIsUrgent: True
 
 Xft.dpi: 96.0
 
