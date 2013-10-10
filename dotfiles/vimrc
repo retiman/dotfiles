@@ -228,7 +228,7 @@ inoremap <expr> <esc> pumvisible() ?
     \ '<c-e>' . neocomplcache#smart_close_popup()
     \ : '<esc>'
 inoremap <expr> <cr> pumvisible() ?
-    \ '<c-n><c-y>' . neocomplcache#close_popup()
+    \ '<c-n><c-y>'
     \ : '<cr>'
 inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
