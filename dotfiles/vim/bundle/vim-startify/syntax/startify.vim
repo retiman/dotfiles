@@ -1,3 +1,5 @@
+" vim: et sw=2 sts=2
+
 " Plugin:      https://github.com/mhinz/vim-startify
 " Description: Start screen displaying recently used stuff.
 " Maintainer:  Marco Hinz <http://github.com/mhinz>
@@ -8,6 +10,8 @@ if exists("b:current_syntax")
 endif
 
 let s:sep = startify#get_separator()
+
+syntax sync fromstart
 
 syntax match StartifySpecial /\V<empty buffer>\|<quit>/
 syntax match StartifyBracket /\[\|\]/
@@ -32,5 +36,3 @@ highlight default link StartifyBracket Delimiter
 highlight default link StartifyNumber  Number
 
 let b:current_syntax = 'startify'
-
-" vim: et sw=2 sts=2

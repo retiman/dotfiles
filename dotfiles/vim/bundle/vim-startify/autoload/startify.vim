@@ -1,3 +1,5 @@
+" vim: et sw=2 sts=2
+
 " Plugin:      https://github.com/mhinz/vim-startify
 " Description: Start screen displaying recently used stuff.
 " Maintainer:  Marco Hinz <http://github.com/mhinz>
@@ -20,7 +22,7 @@ let s:session_dir      = resolve(expand(get(g:, 'startify_session_dir',
 if get(g:, 'startify_session_persistence')
   autocmd startify VimLeave *
         \ if exists('v:this_session') && filewritable(v:this_session) |
-        \   execute 'mksession!' fnameescape(v:this_session) |
+        \   call s:session_write(fnameescape(v:this_session)) |
         \ endif
 endif
 
@@ -47,8 +49,8 @@ function! startify#insane_in_the_membrane() abort
   endif
 
   setlocal noswapfile nobuflisted buftype=nofile bufhidden=wipe
-  setlocal nonumber nolist statusline=\ startify
-  setfiletype startify
+  setlocal nonumber nocursorline nolist statusline=\ startify
+  set filetype=startify
 
   if v:version >= 703
     setlocal norelativenumber
@@ -76,7 +78,7 @@ function! startify#insane_in_the_membrane() abort
     let cnt = s:show_{list}(cnt)
   endfor
 
-  $delete
+  silent $delete
 
   if s:show_special
     call append('$', ['', '   [q]  <quit>'])
@@ -110,10 +112,9 @@ function! startify#insane_in_the_membrane() abort
     autocmd startify BufReadPost * call s:restore_position()
   endif
 
-  1
   call cursor((s:show_special ? 4 : 2) + s:headoff, 5)
 
-  "doautocmd <nomodeline> startify User
+  silent! doautocmd <nomodeline> startify User
 endfunction
 
 " Function: #session_load {{{1
@@ -166,13 +167,15 @@ function! startify#session_save(...) abort
 
   let spath = s:session_dir . s:sep . sname
   if !filereadable(spath)
-    execute 'mksession '. fnameescape(spath) | echo 'Session saved under: '. spath
+    call s:session_write(fnameescape(spath))
+    echo 'Session saved under: '. spath
     return
   endif
 
   echo 'Session already exists. Overwrite?  [y/n]' | redraw
   if nr2char(getchar()) == 'y'
-    execute 'mksession! '. fnameescape(spath) | echo 'Session saved under: '. spath
+    call s:session_write(fnameescape(spath))
+    echo 'Session saved under: '. spath
   else
     echo 'Did NOT save the session!'
   endif
@@ -367,30 +370,15 @@ function! s:set_cursor() abort
 
   " going down
   if s:newline > s:oldline
-    if empty(getline(s:newline))
-      let s:newline += 1
-    endif
-    if s:newline > s:lastline
-      call cursor(headoff, 5)
-      let s:newline = headoff
-    else
-      call cursor(s:newline, 5)
-    endif
+    if empty(getline(s:newline)) | let s:newline += 1         | endif
+    if s:newline > s:lastline    | let s:newline = s:lastline | endif
   " going up
   elseif s:newline < s:oldline
-    if empty(getline(s:newline))
-      let s:newline -= 1
-    endif
-    if s:newline < headoff
-      call cursor(s:lastline, 5)
-      let s:newline = s:lastline
-    else
-      call cursor(s:newline, 5)
-    endif
-  " hold cursor in column
-  else
-    call cursor(s:newline, 5)
+    if empty(getline(s:newline)) | let s:newline -= 1      | endif
+    if s:newline < headoff       | let s:newline = headoff | endif
   endif
+
+  call cursor(s:newline, 5)
 endfunction
 
 " Function: s:set_mark {{{1
@@ -530,4 +518,21 @@ function! s:restore_position() abort
   endif
 endfunction
 
-" vim: et sw=2 sts=2
+" Function: s:session_write {{{1
+function! s:session_write(spath)
+  execute 'mksession!' a:spath
+
+  if exists('g:startify_session_savevars') || exists('g:startify_session_savecmds')
+    execute 'split' a:spath
+
+    " put existing variables from savevars into session file
+    call append(line('$')-3, map(filter(get(g:, 'startify_session_savevars', []), 'exists(v:val)'), '"let ". v:val ." = ". strtrans(string(eval(v:val)))'))
+
+    " put commands from savecmds into session file
+    call append(line('$')-3, get(g:, 'startify_session_savecmds', []))
+
+    setlocal bufhidden=delete
+    silent update
+    silent hide
+  endif
+endfunction

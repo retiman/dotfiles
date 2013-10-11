@@ -1,6 +1,6 @@
 ![Example:startify in action](https://github.com/mhinz/vim-startify/raw/master/startify.png)
 
-This is it. A start screen for Vim.
+This is it. A start screen for Vim.  _( all features enabled - freely customizable )_
 
 What does it provide?
 ---------------------
@@ -48,6 +48,12 @@ __Bookmarks__ ( _empty by default_ ):
 
 Additionally, you can define bookmarks, thus entries for files that always
 should be available on the start screen.
+
+---
+
+__Custom footer__ ( _empty by default_ ):
+
+Same as the custom header.. but at the bottom.
 
 ---
 
@@ -103,11 +109,11 @@ automatically. This works for both ways of handling sessions.
 _Read `:help startify-options` to learn more about how to configure session
 handling to your liking._
 
-#### 3) Powerful entry handling
+#### 3) Powerful menu handling
 
-You can either navigate to a certain entry using `j`/`k` and hit `<cr>` or just
-key in whatever is written between the square brackets on that line. You can
-even double-click anywhere on the line.
+You can either navigate the menu by using the usual suspects (`j`, `G`, `}`
+etc.) and hit `<cr>` or just key in whatever is written between the square
+brackets on that line. You can even double-click anywhere on the line.
 
 Moreover, you can open several files at one go! Navigate to an entry and hit
 either `b` (open in same window), `s` (open in split), `v` (open in vertical
