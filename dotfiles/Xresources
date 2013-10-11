@@ -22,6 +22,7 @@ URxvt.borderColor: #101010
 URxvt.boldFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
+URxvt.depth: 32
 URxvt.externalBorder: 0
 URxvt.font: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
 URxvt.imLocale: en_US.UTF-8
