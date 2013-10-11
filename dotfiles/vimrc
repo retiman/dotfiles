@@ -82,6 +82,7 @@ set title
 set ttyfast
 set undofile
 set undodir=/tmp
+set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.swp,*.swo,*~
@@ -140,6 +141,13 @@ colorscheme solarized
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
+function! RestoreCursor()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     setlocal colorcolumn=81
@@ -232,10 +240,13 @@ inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
 inoremap # X#
 
+" Autocmds
+autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
+autocmd BufWinEnter * call RestoreCursor()
+
 " Project specific settings.
 "   Include a project.vim in your repository root and Vim will source this file
 "   to override any settings you want.
 set secure
 autocmd VimEnter * RepoRoot
 autocmd BufEnter * silent! lcd %:p:h
-autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
