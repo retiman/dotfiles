@@ -250,4 +250,4 @@ autocmd BufWinEnter * call RestoreCursor()
 "   to override any settings you want.
 set secure
 autocmd VimEnter * RepoRoot
-autocmd VimEnter silent! source ./project.vim
+source ./project.vim
