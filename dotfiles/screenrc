@@ -1,15 +1,20 @@
-sessionname repl
-startup_message off
-vbell off
-vbell_msg ^G
-deflogin on
-terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-escape ^Oo                        # Use ctrl+o to issue commands to screen
+altscreen on
+attrcolor b ".I"
 bindkey -k F1 prev                # F11 for previous window (NOT F1)
 bindkey -k F2 next                # F12 for next window (NOT F2)
 bindkey -d ^@ stuff ^?
+deflogin on
+defbce on
+encoding UTF-8
+escape ^Oo                        # Use ctrl+o to issue commands to screen
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+sessionname repl
+sorendition dY
+startup_message off
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+vbell off
+vbell_msg ^G
 
 screen -t ruby    0 sh -c "irb; bash -l"
 screen -t bash    1 bash -l
