@@ -82,7 +82,7 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: false
 URxvt.scrollstyle: plain
 URxvt.shading: 10
-URxvt.termName: rxvt-unicode-256color
+URxvt.termName: rxvt-unicode
 URxvt.transparent: true
 URxvt.underlineColor: yellow
 URxvt.urgentOnBell: true
