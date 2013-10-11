@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: neocomplcache.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 24 Apr 2013.
+" Last Modified: 27 Jul 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -28,11 +28,6 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! unite#sources#neocomplcache#define() "{{{
-  if !exists('*unite#version') || unite#version() < 150
-    echoerr 'Your unite.vim is too old.'
-    return []
-  endif
-
   return s:neocomplcache_source
 endfunction "}}}
 
@@ -52,7 +47,6 @@ function! s:neocomplcache_source.hooks.on_init(args, context) "{{{
   " Save options.
   let max_list_save = g:neocomplcache_max_list
   let max_keyword_width_save = g:neocomplcache_max_keyword_width
-  let completefunc_save = &l:completefunc
   let manual_start_length = g:neocomplcache_manual_completion_start_length
 
   try
@@ -83,8 +77,7 @@ function! s:neocomplcache_source.gather_candidates(args, context) "{{{
   for keyword in a:context.source__candidates
     let dict = {
         \   'word' : keyword.word,
-        \   'abbr' : printf('%-50s', (has_key(keyword, 'abbr') ?
-        \             keyword.abbr : keyword.word)),
+        \   'abbr' : printf('%-50s', get(keyword, 'abbr', keyword.word)),
         \   'kind': 'completion',
         \   'action__complete_word' : keyword.word,
         \   'action__complete_pos' : keyword_pos,
@@ -123,9 +116,6 @@ function! s:start_complete(is_quick_match) "{{{
   endif
   if !exists(':Unite')
     echoerr 'unite.vim is not installed.'
-    return ''
-  elseif unite#version() < 300
-    echoerr 'Your unite.vim is too old.'
     return ''
   endif
 
