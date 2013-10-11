@@ -84,11 +84,7 @@ set undofile
 set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.jpg,*.png,*.gif,*.swp,*.swo,*~
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
-set wildignore+=*.o,*.obj,*.bak,*.exe
-set wildignore+=*/autodoc/*
+set wildignore=*.swp,*.swo,*~
 set wildmode=list:longest
 set wrapmargin=0
 
