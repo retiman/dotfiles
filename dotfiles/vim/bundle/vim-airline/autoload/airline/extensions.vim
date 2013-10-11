@@ -50,22 +50,22 @@ endfunction
 function! airline#extensions#apply_left_override(section1, section2)
   let w:airline_section_a = a:section1
   let w:airline_section_b = a:section2
-  let w:airline_section_c = ''
+  let w:airline_section_c = airline#section#create(['readonly'])
   let w:airline_render_left = 1
   let w:airline_render_right = 0
 endfunction
 
 let s:active_winnr = -1
 function! airline#extensions#apply(...)
+  let s:active_winnr = winnr()
+
   if s:is_excluded_window()
     return -1
   endif
 
-  let s:active_winnr = winnr()
-
   if &buftype == 'quickfix'
     let w:airline_section_a = '%q'
-    let w:airline_section_b = ''
+    let w:airline_section_b = '%{get(w:, "quickfix_title", "")}'
     let w:airline_section_c = ''
     let w:airline_section_x = ''
   elseif &buftype == 'help'
@@ -168,7 +168,7 @@ function! airline#extensions#load()
   endif
 
   if (get(g:, 'airline#extensions#branch#enabled', 1) && get(g:, 'airline_enable_branch', 1))
-        \ && (get(g:, 'loaded_fugitive', 0) || get(g:, 'loaded_lawrencium', 0))
+        \ && (exists('*fugitive#head') || exists('*lawrencium#statusline'))
     call airline#extensions#branch#init(s:ext)
   endif
 
@@ -179,6 +179,10 @@ function! airline#extensions#load()
 
   if get(g:, 'virtualenv_loaded', 0) && get(g:, 'airline#extensions#virtualenv#enabled', 1)
     call airline#extensions#virtualenv#init(s:ext)
+  endif
+
+  if (get(g:, 'airline#extensions#eclim#enabled', 1) && exists(':ProjectCreate'))
+    call airline#extensions#eclim#init(s:ext)
   endif
 
   if (get(g:, 'airline#extensions#syntastic#enabled', 1) && get(g:, 'airline_enable_syntastic', 1))
@@ -204,7 +208,10 @@ function! airline#extensions#load()
       if !get(g:, 'airline#extensions#'.name.'#enabled', 1)
         continue
       endif
-      call airline#extensions#{name}#init(s:ext)
+      try
+        call airline#extensions#{name}#init(s:ext)
+      catch
+      endtry
     endif
   endfor
 endfunction
