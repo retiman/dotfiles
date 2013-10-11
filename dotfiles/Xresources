@@ -77,7 +77,7 @@ URxvt.perl-ext-common: default,matcher
 URxvt.preeditType: OnTheSpot,None
 URxvt.saveLines: 1000
 URxvt.scrollBar_right: true
-URxvt.scrollColor: #303030
+URxvt.scrollColor: #202020
 URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: false
 URxvt.scrollstyle: plain
