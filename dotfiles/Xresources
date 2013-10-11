@@ -47,11 +47,9 @@ URxvt.underlineColor: yellow
 URxvt.urgentOnBell: true
 URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.visualBell: false
-
-XTerm.visualBell: False
 XTerm.audibleBell: False
 XTerm.bellIsUrgent: True
-
+XTerm.visualBell: false
 Xft.dpi: 96.0
 
 passwordDialog: true
