@@ -95,6 +95,7 @@ set wrapmargin=0
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
+let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
@@ -132,7 +133,6 @@ let g:startify_change_to_vcs_root=1
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
 let g:startify_session_persistence=1
-let g:SuperTabDefaultCompletionType='context'
 
 call pathogen#infect()
 syntax on
