@@ -123,9 +123,6 @@ let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_camel_case_completion=1
-let g:neocomplcache_enable_prefetch=1
-let g:neocomplcache_enable_underbar_completion=1
 let g:quickfix_is_open=0
 let g:solarized_bold=0
 let g:solarized_termcolors=256
@@ -243,5 +240,5 @@ inoremap # X#
 "   to override any settings you want.
 set secure
 autocmd VimEnter * RepoRoot
-autocmd VimEnter * silent! source ./project.vim
+autocmd BufEnter * silent! lcd %:p:h
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
