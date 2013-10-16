@@ -61,7 +61,7 @@ set nofoldenable
 set noswapfile
 set novisualbell
 set number
-set pastetoggle=<F1>
+set pastetoggle=<f1>
 set ruler
 set scrolloff=15
 set selection=inclusive
