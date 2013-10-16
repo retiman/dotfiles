@@ -30,7 +30,6 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
-" set colorcolumn=81
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
