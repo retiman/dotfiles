@@ -45,6 +45,7 @@ URxvt.termName: rxvt-unicode
 URxvt.transparent: false
 URxvt.underlineColor: yellow
 URxvt.urgentOnBell: true
+URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.visualBell: false
 XTerm.audibleBell: False
