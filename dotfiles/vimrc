@@ -186,8 +186,10 @@ noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
+noremap H <nop>
 noremap J <nop>
 noremap K <nop>
+noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
