@@ -125,6 +125,7 @@ let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
 let g:slime_sessionname='repl'
+let g:slime_no_mappings=1
 let g:solarized_bold=0
 let g:solarized_italic=0
 let g:solarized_termcolors=256
@@ -200,6 +201,7 @@ noremap k gk
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings.
+nmap <leader>x <plug>SlimeParagraphSend
 nnoremap <c-g> <c-]>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -225,6 +227,9 @@ nnoremap <leader>/ :set hlsearch!<cr>
 " Visual mode mappings.
 vnoremap < <gv
 vnoremap > >gv
+
+" Visual mode only mappings.
+xmap <leader>x <plug>SlimeRegionSend
 
 " Insert mode mappings
 "   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
