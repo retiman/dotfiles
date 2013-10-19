@@ -36,7 +36,8 @@ function! s:ScreenConfig() abort
     let g:slime_paste_file = "$HOME/.slime_paste"
   end
 
-  let b:slime_config["sessionname"] = input("screen session name: ", b:slime_config["sessionname"], "custom,<SNR>" . s:SID() . "_ScreenSessionNames")
+  "let b:slime_config["sessionname"] = input("screen session name: ", b:slime_config["sessionname"], "custom,<SNR>" . s:SID() . "_ScreenSessionNames")
+  let b:slime_config["sessionname"] = g:slime_sessionname
   let b:slime_config["windowname"]  = input("screen window name: ",  b:slime_config["windowname"])
 endfunction
 

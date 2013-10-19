@@ -124,6 +124,7 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
+let g:slime_sessionname='repl'
 let g:solarized_bold=0
 let g:solarized_italic=0
 let g:solarized_termcolors=256
