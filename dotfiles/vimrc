@@ -218,9 +218,7 @@ nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
 nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
-nnoremap <leader>v :call Screen_Vars()<cr>
 nnoremap <leader>q :qa!<cr>
-nnoremap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
