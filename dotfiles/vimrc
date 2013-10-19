@@ -224,7 +224,7 @@ nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
-" Visual mode mappings.
+" Visual mode and selection mode mappings.
 vnoremap < <gv
 vnoremap > >gv
 
