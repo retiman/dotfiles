@@ -122,6 +122,7 @@ let g:ctrlp_working_path_mode='ra'
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
+let g:jellybeans_background_color_256='001111'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
 let g:slime_sessionname='repl'
