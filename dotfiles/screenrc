@@ -9,7 +9,6 @@ encoding UTF-8
 escape ^Oo                        # Use ctrl+o to issue commands to screen
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
-sessionname repl
 msgwait 0
 msgminwait 0
 sorendition dY
