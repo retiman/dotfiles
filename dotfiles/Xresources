@@ -34,7 +34,7 @@ URxvt.italicFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646
 URxvt.loginShell: true
 URxvt.matcher.button: 1
 URxvt.modifier: mod4
-URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.perl-ext-common: clipboard,default,matcher,selection
 URxvt.preeditType: OnTheSpot,None
 URxvt.saveLines: 1000
 URxvt.scrollBar_right: true
