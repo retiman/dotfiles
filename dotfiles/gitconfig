@@ -14,8 +14,8 @@
   br = branch
   ci = commit
   co = checkout
-  cp = cherry-pick -x
   log = log --stat
+  pick = cherry-pick -x
   pull = pull --stat
   st = status
   rb = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index && git clean -fdx'
