@@ -248,6 +248,7 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
+inoremap <middlemouse> :set paste<cr><middlemouse>:set nopaste<cr>
 inoremap # X#
 
 " Autocmds
