@@ -54,6 +54,7 @@ set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
 set mouse=a
+set mousemodel=popup
 set nobackup
 set noerrorbells
 set nofoldenable
