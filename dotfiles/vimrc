@@ -19,7 +19,7 @@
 
 " These set directives must be set first.
 set nocompatible
-set clipboard=unnamedplus
+set clipboard=autoselect,unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -65,7 +65,6 @@ set pastetoggle=<f1>
 set ruler
 set scrolloff=15
 set selection=inclusive
-set selectmode=mouse
 set shiftwidth=2
 set shiftround
 set showcmd
