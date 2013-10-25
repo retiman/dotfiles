@@ -226,6 +226,7 @@ nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
 nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
+nnoremap <middlemouse> :set paste<cr>i<middlemouse>:set nopaste<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
