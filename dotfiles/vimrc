@@ -16,6 +16,9 @@
 " A note about setting mouse=a: it turns out you can't copy and paste symbols
 " like ツ with mouse=a unless you hold shift while selecting with the mouse
 " or hold shift when pasting (alternatively you can disable mouse=a).
+"
+" A note about accessing the clipboard over SSH: make sure to have X11
+" forwarding turned on and use Y/P to yank and paste over a remote session.
 
 " These set directives must be set first.
 set nocompatible
@@ -196,8 +199,9 @@ noremap H <nop>
 noremap J <nop>
 noremap K <nop>
 noremap L <nop>
+noremap P :r!xclip -o -sel clip<cr>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-noremap Y y$
+noremap Y :!xclip -f -sel clip<cr>
 noremap j gj
 noremap k gk
 
