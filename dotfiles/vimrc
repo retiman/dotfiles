@@ -110,9 +110,9 @@ let g:bufferline_active_highlight='bufferline_selected'
 let g:bufferline_active_buffer_left='['
 let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_fixed_index=0
+let g:bufferline_fixed_index=-1
 let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=0
+let g:bufferline_rotate=1
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
@@ -217,6 +217,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
+nnoremap <leader><tab> :Scratch<cr>
 nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
