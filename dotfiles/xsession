@@ -69,6 +69,12 @@ feh --bg-scale $HOME/data/wallpaper.jpg
 # See: https://wiki.archlinux.org/index.php/X_resources
 xrdb ~/.Xresources
 
+# Source xkbindkeys if it exists.  Use this file to simulate fiddling with the
+# multimedia keys if they are not recognized by default.
+#
+# See: https://wiki.archlinux.org/index.php/Xbindkeys
+xbindkeys
+
 # Display and screensaver settings.
 #xset -dpms
 #xset s off
