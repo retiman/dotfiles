@@ -61,19 +61,25 @@ autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 
 # Set a wallpaper!
-feh --bg-scale $HOME/data/wallpaper.jpg
+if [ -e $HOME/data/wallpaper.jpg ]; then
+  feh --bg-scale $HOME/data/wallpaper.jpg
+fi
 
 # If using .xinitrc, this file will not be read by default, so read merge
 # it here.
 #
 # See: https://wiki.archlinux.org/index.php/X_resources
-xrdb ~/.Xresources
+if [ -e $HOME/.Xresources ]; then
+  xrdb $HOME/.Xresources
+fi
 
 # Source xkbindkeys if it exists.  Use this file to simulate fiddling with the
 # multimedia keys if they are not recognized by default.
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
-xbindkeys
+if [ -e $HOME/.xbindkeysrc ]; then
+  xbindkeys
+fi
 
 # Display and screensaver settings.
 #xset -dpms
