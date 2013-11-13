@@ -30,7 +30,7 @@ workspace_auto_back_and_forth no
 # title using the WM_NAME property.
 assign [class="Avidemux2_gtk"] 8
 assign [class="Chromium"] 9
-assign [class="Eclipse"] 7
+assign [class="Eclipse"] 10
 assign [class="Google-chrome"] 9
 assign [class="Thunar"] 8
 assign [class="Thunderbird"] 10
