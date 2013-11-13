@@ -233,7 +233,7 @@ nnoremap <leader>p :r!xclip -o -sel clip<cr>
 nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
-nnoremap <middlemouse> :set paste<cr>i<middlemouse>:set nopaste<cr>
+nnoremap <silent> <middlemouse> :set paste<cr>p:set nopaste<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
@@ -255,7 +255,7 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
-inoremap <middlemouse> :set paste<cr><middlemouse>:set nopaste<cr>
+inoremap <silent> <middlemouse> <esc>:set paste<cr>p:set nopaste<cr>a
 inoremap # X#
 
 " Autocmds
