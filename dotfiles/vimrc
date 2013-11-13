@@ -261,6 +261,7 @@ inoremap # X#
 " Autocmds
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 autocmd BufWinEnter * call RestoreCursor()
+autocmd BufWinEnter * pwd
 
 " Project specific settings.
 "   Include a project.vim in your repository root and Vim will source this file
