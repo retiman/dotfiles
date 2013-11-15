@@ -13,6 +13,9 @@
 "
 " See: http://peox.net/articles/vimconfig.html
 " See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+setlocal expandtab
 setlocal formatoptions-=c
 setlocal formatoptions-=t
+setlocal shiftwidth=2
+setlocal tabstop=2
 setlocal textwidth=0
