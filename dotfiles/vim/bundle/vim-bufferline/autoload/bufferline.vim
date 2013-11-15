@@ -28,7 +28,7 @@ function! s:generate_names()
 
       if !skip
         let name = ''
-        if g:bufferline_show_bufnr
+        if g:bufferline_show_bufnr != 0 && g:bufferline_status_info.count >= g:bufferline_show_bufnr
           let name =  i . ':'
         endif
         let name .= fname . modified
@@ -79,7 +79,7 @@ function! s:echo()
   let line = bufferline#get_echo_string()
 
   " 12 is magical and is the threshold for when it doesn't wrap text anymore
-  let width = winwidth(0) - 12
+  let width = &columns - 12
   if g:bufferline_rotate == 2
     let current_buffer_start = stridx(line, g:bufferline_active_buffer_left)
     let current_buffer_end = stridx(line, g:bufferline_active_buffer_right)
