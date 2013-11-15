@@ -19,6 +19,11 @@
 "
 " A note about accessing the clipboard over SSH: make sure to have X11
 " forwarding turned on and use Y/P to yank and paste over a remote session.
+"
+" A note about figuring out different plugin interactions: you can type map,
+" imap, xmap, cmap, etc. by themselves to have Vim show you the different
+" mappings that have been set.  Some roguish plugins may like to play around
+" with your mappings without asking you first, so be sure to check.
 
 " These set directives must be set first.
 set nocompatible
