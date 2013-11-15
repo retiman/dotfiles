@@ -60,8 +60,10 @@ set modelines=0
 set mouse=a
 set mousemodel=popup
 set nobackup
+set nocindent
 set noerrorbells
 set nofoldenable
+set nosmartindent
 set noswapfile
 set novisualbell
 set number
@@ -75,7 +77,6 @@ set showcmd
 set showmode
 set showmatch
 set smartcase
-set smartindent
 set smarttab
 set softtabstop=2
 set t_Co=256
