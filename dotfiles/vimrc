@@ -136,6 +136,7 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='001111'
 let g:neocomplcache_enable_at_startup=1
+let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
 let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
 let g:slime_sessionname='0'
@@ -145,6 +146,11 @@ let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
 let g:startify_session_persistence=0
+
+" Do not enable vim-eclim if Eclipse is not available.
+if !executable('eclipse') && !executable('eclipse38')
+  call add(g:pathogen_disabled, 'vim-eclim')
+endif
 
 call pathogen#infect()
 syntax on
