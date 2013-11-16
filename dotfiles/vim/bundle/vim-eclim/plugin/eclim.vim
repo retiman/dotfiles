@@ -173,4 +173,8 @@ endfunction " }}}
 
 call <SID>Init()
 
+" We have to disable this because Eclim is just too heavy weight to load all the
+" time.
+EclimDisable
+
 " vim:ft=vim:fdm=marker
