@@ -26,6 +26,8 @@ eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 # Additional Bash Configuration
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
+
+# Additional Includes (will conditionally be sourced).
 include $HOME/.bash_local
 
 # Additional PATHs
