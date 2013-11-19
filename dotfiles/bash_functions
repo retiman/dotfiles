@@ -90,23 +90,9 @@ function gitparsedirty {
   [[ $(git status 2> /dev/null | tail -n1) != $MESSAGE ]] && echo "*"
 }
 
-function gitparsebranch {
+function repoparse {
   git branch --no-color 2> /dev/null |
   sed -e '/^[^*]/d' -e "s/* \(.*\)/\(\1$(gitparsedirty)\)/"
-}
-
-function hgparsedirty {
-  [[ -n $(hg status 2> /dev/null | tail -n1) ]] && echo "*"
-}
-
-function hgparsebranch {
-  local OUTPUT=$(hg branch 2> /dev/null)
-  [[ -n $OUTPUT ]] && echo -n "($OUTPUT$(hgparsedirty))"
-}
-
-function repoparse {
-  gitparsebranch
-  hgparsebranch
 }
 
 # Search your bash history for a command
