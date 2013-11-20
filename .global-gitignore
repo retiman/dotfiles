@@ -1,3 +1,5 @@
+# This is my global gitignore file.
+
 # Eclipse
 .classpath
 .project
