@@ -1,6 +1,3 @@
-dotfiles/i3/log
-dotfiles/vim/.netrwhist
-dotfiles/vim/session
-dotfiles/vim/eclim
-tags
-tmp
+lib/i3/log
+lib/vim/.netrwhist
+lib/vim/session
