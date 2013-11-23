@@ -45,7 +45,7 @@ URxvt.imLocale: en_US.UTF-8
 URxvt.inputMethod: ibus
 URxvt.internalBorder: 0
 URxvt.intensityStyles: false
-URxvt.iso14755: False
+URxvt.iso14755: false
 URxvt.italicFont:
 URxvt.loginShell: true
 URxvt.matcher.button: 1
@@ -65,8 +65,8 @@ URxvt.urgentOnBell: true
 URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.visualBell: false
-XTerm.audibleBell: False
-XTerm.bellIsUrgent: True
+XTerm.audibleBell: false
+XTerm.bellIsUrgent: true
 XTerm.visualBell: false
 Xft.dpi: 96.0
 
