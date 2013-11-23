@@ -151,6 +151,15 @@ if !executable('eclipse') && !executable('eclipse38')
   call add(g:pathogen_disabled, 'vim-eclim')
 endif
 
+" Enable 256 colors if running inside tmux or screen, also disable background
+" color erase.
+"
+" See: http://superuser.com/questions/508198/which-is-the-correct-way-to-config-the-term-and-tmux
+if &term == 'screen'
+  set t_Co=256
+  set t_ut=
+endif
+
 call pathogen#infect()
 syntax on
 filetype plugin on
