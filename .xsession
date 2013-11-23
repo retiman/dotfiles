@@ -72,6 +72,9 @@ autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 #xset s off
 #xscreensaver -nosplash &
 
+# Launch urxvt in daemon mode.
+urxvtd -q -o -f
+
 # Make looking at the screen at night easier on the eyes.
 redshift -o -l 0:0 -b 0.9 -t 6500:6500
 
