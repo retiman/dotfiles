@@ -58,7 +58,7 @@ URxvt.scrollColor: #202020
 URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: false
 URxvt.scrollstyle: plain
-URxvt.termName: rxvt-unicode
+URxvt.termName: rxvt-unicode-256color
 URxvt.transparent: false
 URxvt.underlineColor: yellow
 URxvt.urgentOnBell: true
