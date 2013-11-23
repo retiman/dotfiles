@@ -30,14 +30,6 @@ xset m 1.0 0
 # Enable horizontal scrolling for trackpoint.
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
 
-# Enable IBus for Chinese input.
-#
-# See: https://wiki.archlinux.org/index.php/IBus
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=ibus
-#export QT_IM_MODULE=ibus
-#GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
-
 # The PRIMARY selection is used to track currently selected text; middle click
 # is typically used to paste the selected text somewhere.
 # The CLIPBOARD selection is used as temporary storage when an application
