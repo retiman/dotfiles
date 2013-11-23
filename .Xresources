@@ -2,7 +2,7 @@
 !
 ! Setting boltFont and italicFont to empty disables those features.  Also useful
 ! is setting itensityStyles to false so that high intensity colors (for bold,
-! etc) won't be used.
+! etc) will not be used.
 !
 ! Canonical color names:
 !   color0 = black
