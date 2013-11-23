@@ -38,11 +38,14 @@
 ! *color15: #ffffff
 ! *foreground: #0c0c0c
 
-URxvt.borderColor: #101010
-! Setting URxvt.boldFont to empty results in disabling this feature.  The value
-! of URxvt.font will be used instead.
+! URxvt configuration.
+!
+! Setting boltFont and italicFont to empty disables those features.  Also useful
+! is setting itensityStyles to false so that high intensity colors (for bold,
+! etc) won't be used.
 !
 ! See: http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod#RESOURCES
+URxvt.borderColor: #101010
 URxvt.boldFont:
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
@@ -54,10 +57,6 @@ URxvt.inputMethod: ibus
 URxvt.internalBorder: 0
 URxvt.intensityStyles: false
 URxvt.iso14755: False
-! Setting URxvt.italicFont to empty results in disabling this feature.  The value
-! of URxvt.font will be used instead.
-!
-! See: http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod#RESOURCES
 URxvt.italicFont:
 URxvt.loginShell: true
 URxvt.matcher.button: 1
