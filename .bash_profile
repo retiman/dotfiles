@@ -1,14 +1,14 @@
 # Environment Variables
 export _JAVA_OPTION=
-export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
+export ANT_OPTS='-Xms512M -Xmx1024M -XX:MaxPermSize=1024M'
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
 export JAVA_HOME=/opt/java
 export JDK_HOME=$JAVA_HOME
-export GHCRTS="-K512M"
+export GHCRTS='-K512M'
 export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
+export HISTIGNORE='ls:pwd:exit:mount:rm:screen:vi:cd'
 export MAILCHECK=NO
 export SVN_EDITOR=vim
 export TERMINFO=$HOME/.terminfo
