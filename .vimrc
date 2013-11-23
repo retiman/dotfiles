@@ -100,6 +100,11 @@ set wrapmargin=0
 
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
+"
+" Run `source ~/.vim/test/color_test.vim` to see what ctermbg colors to set
+" so background colors aren't crazy grayish or light gray.  Set the
+" g:jellybeans_background_color_256 value to 232 to get black (this will even
+" work in tmux).
 let mapleader=','
 let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
@@ -133,7 +138,7 @@ let g:ctrlp_working_path_mode='ra'
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
-let g:jellybeans_background_color_256='001111'
+let g:jellybeans_background_color_256='232'
 let g:neocomplcache_enable_at_startup=1
 let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
