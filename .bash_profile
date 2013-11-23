@@ -11,6 +11,7 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 export MAILCHECK=NO
 export SVN_EDITOR=vim
+export TERMINFO=$HOME/.terminfo
 unset HISTSIZE
 unset HISTFILESIZE
 
