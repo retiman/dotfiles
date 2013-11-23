@@ -84,7 +84,6 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=2
-set t_Co=256
 set t_vb=
 set tabstop=2
 set textwidth=0
