@@ -39,7 +39,11 @@
 ! *foreground: #0c0c0c
 
 URxvt.borderColor: #101010
-URxvt.boldFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! Setting URxvt.boldFont to empty results in disabling this feature.  The value
+! of URxvt.font will be used instead.
+!
+! See: http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod#RESOURCES
+URxvt.boldFont:
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
 URxvt.depth: 32
@@ -50,7 +54,11 @@ URxvt.inputMethod: ibus
 URxvt.internalBorder: 0
 URxvt.intensityStyles: false
 URxvt.iso14755: False
-URxvt.italicFont: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! Setting URxvt.italicFont to empty results in disabling this feature.  The value
+! of URxvt.font will be used instead.
+!
+! See: http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod#RESOURCES
+URxvt.italicFont:
 URxvt.loginShell: true
 URxvt.matcher.button: 1
 URxvt.modifier: mod4
