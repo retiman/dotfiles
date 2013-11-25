@@ -30,14 +30,6 @@ xset m 1.0 0
 # Enable horizontal scrolling for trackpoint.
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
 
-# Enable IBus for Chinese input.
-#
-# See: https://wiki.archlinux.org/index.php/IBus
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=ibus
-#export QT_IM_MODULE=ibus
-#GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
-
 # The PRIMARY selection is used to track currently selected text; middle click
 # is typically used to paste the selected text somewhere.
 # The CLIPBOARD selection is used as temporary storage when an application
@@ -61,30 +53,27 @@ autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 
 # Set a wallpaper!
-if [ -e $HOME/data/wallpaper.jpg ]; then
-  feh --bg-scale $HOME/data/wallpaper.jpg
-fi
+[ -e $HOME/data/wallpaper.jpg ] && feh --bg-scale $HOME/data/wallpaper.jpg
 
 # If using .xinitrc, this file will not be read by default, so read merge
 # it here.
 #
 # See: https://wiki.archlinux.org/index.php/X_resources
-if [ -e $HOME/.Xresources ]; then
-  xrdb $HOME/.Xresources
-fi
+[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
 # Source xkbindkeys if it exists.  Use this file to simulate fiddling with the
 # multimedia keys if they are not recognized by default.
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
-if [ -e $HOME/.xbindkeysrc ]; then
-  xbindkeys
-fi
+[ -e $HOME/.xbindkeysrc ] && xbindkeys
 
 # Display and screensaver settings.
 #xset -dpms
 #xset s off
 #xscreensaver -nosplash &
+
+# Launch urxvt in daemon mode.
+urxvtd -q -o -f
 
 # Make looking at the screen at night easier on the eyes.
 redshift -o -l 0:0 -b 0.9 -t 6500:6500
