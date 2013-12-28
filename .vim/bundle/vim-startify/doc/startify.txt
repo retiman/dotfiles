@@ -31,8 +31,10 @@ CONTENTS                                                     *startify-contents*
     USAGE .......................................... |startify-usage|
     OPTIONS ........................................ |startify-options|
     COMMANDS ....................................... |startify-commands|
+    MAPPINGS ....................................... |startify-mappings|
     COLORS ......................................... |startify-colors|
     FAQ ............................................ |startify-faq|
+    EXAMPLE ........................................ |startify-example|
 
 ==============================================================================
 INTRO                                                           *startify-intro*
@@ -115,34 +117,57 @@ The default for Windows systems is '$HOME\vimfiles\session'.
 ------------------------------------------------------------------------------
                                                          *g:startify_list_order*
 >
-    let g:startify_list_order = ['files', 'sessions', 'bookmarks']
+    let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions']
 <
-At the moment startify can show these kind of lists:
+At the moment startify supports these lists:~
 
-1) Most recently used files.
+1) "files"
 
    This lists the most recently used files using viminfo. The number of files
    is limited by g:startify_files_number.
 
-2) Most recently changed files in the current directory.
+2) "dir"
 
    This lists the files from the current directory sorted by modification
    time. The number of files is limited by g:startify_files_number.
 
-3) Bookmarks.
+3) "bookmarks"
 
-   This lists bookmarks, thus hardcoded files that will always be shown.
-   Have a look at g:startify_bookmarks.
+   This lists bookmarks, thus hardcoded files or directories that will always
+   be shown. Have a look at g:startify_bookmarks.
 
-4) Sessions.
+4) "sessions"
 
    This lists all the sessions saved in the directory
    g:startify_session_dir.
 
-Therefore, to show all of them in the above order:
+Section headers:~
+
+Additionally you can add lists of strings to that list. These will be shown
+above the following item in |g:startify_list_order|.
+
+NOTE: Section headers are context-senstive. This means that if the following
+item is a startify list ("dir", "bookmarks", ...) and empty (no files in the
+current directory, no bookmarks defined, ...), the section header won't be
+shown as well.
+
+NOTE: The section header use the StartifySection highlight group.
+
+Section headers example:~
 >
-    let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions']
+    let g:startify_list_order = [
+            \ ['   My last recently', '   opened files'],
+            \ 'files',
+            \ ['   My last recently modified files in the current directory:'],
+            \ 'dir',
+            \ ['   These are my sessions:'],
+            \ 'sessions',
+            \ ['   These are my bookmarks:'],
+            \ 'bookmarks',
+            \ ]
 <
+Feel free to add some cool ASCII action!
+
 ------------------------------------------------------------------------------
                                                           *g:startify_bookmarks*
 >
@@ -217,7 +242,7 @@ Example:
 >
     let g:startify_skiplist = [
            \ '.vimgolf',
-           \ '^/tmp'
+           \ '^/tmp',
            \ '/project/.*/documentation'
            \ ]
 <
@@ -391,6 +416,45 @@ argument with either <c-d> or <tab> afterwards.
 Open the startify buffer.
 
 ==============================================================================
+MAPPINGS                                                     *startify-mappings*
+
+Some things are remapped in the startify buffer..
+>
+    q
+<
+Close startify. Also quit Vim if it is the only buffer.
+>
+    e
+<
+Close startify and create a blank buffer.
+>
+    i
+    <insert>
+<
+Close startify, create a blank buffer and jump into insert mode right away.
+>
+    <2-LeftMouse>
+<
+Use a simple mouse click to open the targeted entry.
+>
+    [any number that is shown between square brackets]
+<
+Open the entry with the given number.
+>
+    b
+    s
+    v
+    t
+<
+Mark current entry to be opened in either the same window, in a split window,
+in a vertical split window or in a new tab.
+>
+    <cr>
+<
+Open all marked entries. If nothing was marked beforehand, just open the
+current entry.
+
+==============================================================================
 COLORS                                                         *startify-colors*
 
 You can overwrite the highlight groups used by startify. The plugin defines
@@ -402,6 +466,7 @@ these groups:
     StartifyHeader          the custom header
     StartifyNumber          the numbers between []
     StartifyPath            the path to a file
+    StartifySection         section headers
     StartifySlash           slashes in paths
     StartifySpecial         <empty buffer>,<quit>
 
@@ -419,15 +484,16 @@ FAQ                                                               *startify-faq*
 
 ------------------------------------------------------------------------------
 
-CtrlP opens a split in Startify!~
+CtrlP or NERDTree open a split in Startify!~
 
-Solution 1)
->
-    let g:ctrlp_reuse_window = 'startify'
-<
-Solution 2)
+Put this in your vimrc:
 >
     autocmd FileType startify setlocal buftype=
+<
+If you're using CtrlP without NERDTree, there is an even more elegant
+solution:
+>
+    let g:ctrlp_reuse_window = 'startify'
 <
 ------------------------------------------------------------------------------
 
@@ -467,9 +533,13 @@ Vim loads the list from viminfo only once, at startup.
 
 ------------------------------------------------------------------------------
 
-I use iTerm2 and have broken colors when using sessions!~
+I have broken colors when using sessions!~
 
 Nothing this plugin could do about. Try playing around with 'sessionoptions'.
+
+NOTE: Startify removes 'options' from the session options automatically,
+because it's the source of many problems.
+
 Some people swear it works for them with these settings:
 >
     set sessionoptions=blank,curdir,folds,help,tabpages,winpos
@@ -486,6 +556,52 @@ Use the skiplist. Personally I use:
            \ 'bundle/.*/doc',
            \ '\.DS_Store'
            \ ]
+<
+==============================================================================
+EXAMPLE                                                       *startify-example*
+
+This is my configuration..
+>
+    let g:startify_files_number        = 8
+    let g:startify_session_persistence = 1
+    let g:startify_session_autoload    = 1
+    let g:startify_enable_special      = 0
+
+    let g:startify_list_order = [
+          \ ['   LRU:'],
+          \ 'files',
+          \ ['   Sessions:'],
+          \ 'sessions',
+          \ ['   Bookmarks:'],
+          \ 'bookmarks',
+          \ ]
+
+    let g:startify_skiplist = [
+                \ 'COMMIT_EDITMSG',
+                \ $VIMRUNTIME .'/doc',
+                \ 'bundle/.*/doc',
+                \ '.vimgolf',
+                \ ]
+
+    let g:startify_bookmarks = [
+                \ '~/.vim/vimrc',
+                \ '/data/vim/golfing',
+                \ ]
+
+    let g:startify_custom_footer =
+          \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
+
+    let g:startify_custom_header =
+          \ map(split(system('tips | cowsay -f apt'), '\n'), '"   ". v:val') + ['']
+
+    hi StartifyBracket ctermfg=240
+    hi StartifyNumber  ctermfg=215
+    hi StartifyPath    ctermfg=245
+    hi StartifySlash   ctermfg=240
+    hi StartifySpecial ctermfg=240
+    hi StartifyHeader  ctermfg=114
+    hi StartifyFooter  ctermfg=240
+    "hi StartifyFile    ctermfg=111
 <
 ==============================================================================
 vim: tw=78
