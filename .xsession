@@ -40,7 +40,7 @@ xset m 1.0 0
 # The following syncs the CLIPBOARD with the PRIMARY selection (when you press
 # ctrl+c to copy something in Chrome, the PRIMARY selection is updated so you can
 # press middle click to paste).
-autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
+#autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 
 # The following syncs the PRIMARY with the CLIPBOARD (when you select something
 # with the mouse, you can press ctrl+v to paste).
@@ -50,22 +50,22 @@ autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 # will select the URL already in the Location bar right away, and your ctrl+v
 # will paste the URL that was already there.  To remedy this, a short 1 second
 # delay is added before the selection is owned.
-autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
+#autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 
 # Set a wallpaper!
-[ -e $HOME/data/wallpaper.jpg ] && feh --bg-scale $HOME/data/wallpaper.jpg
+#[ -e $HOME/data/wallpaper.jpg ] && feh --bg-scale $HOME/data/wallpaper.jpg
 
 # If using .xinitrc, this file will not be read by default, so read merge
 # it here.
 #
 # See: https://wiki.archlinux.org/index.php/X_resources
-[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
+#[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
 # Source xkbindkeys if it exists.  Use this file to simulate fiddling with the
 # multimedia keys if they are not recognized by default.
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
-[ -e $HOME/.xbindkeysrc ] && xbindkeys
+#[ -e $HOME/.xbindkeysrc ] && xbindkeys
 
 # Display and screensaver settings.
 #xset -dpms
@@ -73,7 +73,7 @@ autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 #xscreensaver -nosplash &
 
 # Launch urxvt in daemon mode.
-urxvtd -q -o -f
+#urxvtd -q -o -f
 
 # Make looking at the screen at night easier on the eyes.
 redshift -o -l 0:0 -b 0.9 -t 6500:6500
