@@ -4,8 +4,8 @@ xset r rate 275 30
 # Turn off the beep.
 xset -b
 
-# Swap capslock and control.
-setxkbmap -option ctrl:swapcaps
+# Swap caps lock, make windows key an additional control.
+setxkbmap -option ctrl:swapcaps,altwin:ctrl_win
 
 # Turn off the damned touchpad.
 synclient TouchpadOff=1
@@ -61,7 +61,7 @@ xset m 1.0 0
 # See: https://wiki.archlinux.org/index.php/X_resources
 #[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
-# Source xkbindkeys if it exists.  Use this file to simulate fiddling with the
+# Source .xkbindkeys if it exists.  Use this file to simulate fiddling with the
 # multimedia keys if they are not recognized by default.
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
