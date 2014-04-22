@@ -65,7 +65,7 @@ xset m 1.0 0
 # multimedia keys if they are not recognized by default.
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
-#[ -e $HOME/.xbindkeysrc ] && xbindkeys
+[ -e $HOME/.xbindkeysrc ] && xbindkeys -f $HOME/.xbindkeysrc
 
 # Display and screensaver settings.
 #xset -dpms
