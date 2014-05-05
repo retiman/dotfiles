@@ -78,9 +78,9 @@ mode "$mode_system" {
 }
 
 # Key bindings
-bindcode 82 exec amixer -c 0 set Master 2dB- unmute
-bindcode 86 exec amixer -c 0 set Master 2dB+ unmute
-bindcode 104 exec amixer set -c 0 Master toggle
+#bindcode 82 exec amixer -c 0 set Master 2dB- unmute
+#bindcode 86 exec amixer -c 0 set Master 2dB+ unmute
+#bindcode 104 exec amixer set -c 0 Master toggle
 bindsym $mod+F12 exec "$HOME/bin/i3exit lock"
 bindsym $mod+Return exec urxvt
 bindsym $mod+1 workspace 1
