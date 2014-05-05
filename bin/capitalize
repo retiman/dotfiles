@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Renames filename(s) from lowercase to title case.
 import os
 import shutil
 import sys
