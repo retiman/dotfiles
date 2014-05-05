@@ -4,7 +4,8 @@ xset r rate 275 30
 # Turn off the beep.
 xset -b
 
-# Swap caps lock, make windows key an additional control.
+# Swap caps lock, make windows key an additional control. For additional
+# options, see: https://gist.github.com/retiman/6b7da5f9868cf12435b3
 setxkbmap -option ctrl:swapcaps,altwin:ctrl_win
 
 # Turn off the damned touchpad.
