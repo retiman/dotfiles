@@ -60,7 +60,7 @@ xset m 1.0 0
 # it here.
 #
 # See: https://wiki.archlinux.org/index.php/X_resources
-#[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
+[ -e $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
 # Source .xkbindkeys if it exists.  Use this file to simulate fiddling with the
 # multimedia keys if they are not recognized by default.
