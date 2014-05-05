@@ -8,7 +8,7 @@
 # ...replacing the outputs as necessary.
 #
 # Run xmodmap -pke to see keycodes and names.
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# See: http://i3wm.org/docs/userguide.html
 set $mod Mod1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 set $font -misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1
