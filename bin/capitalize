@@ -1,15 +1,18 @@
-#!/usr/bin/env ruby
-require 'fileutils'
-class String
-  def capitalize_words
-    self.split(' ').map {|w| w.capitalize }.join(' ')
-  end
-end
+#!/usr/bin/env python
+import os
+import shutil
+import sys
 
-ARGV.each do |f|
-  src_name = File.basename f
-  dest_name = src_name.capitalize_words
-  src = File.expand_path "#{File.dirname f}/#{src_name}"
-  dest = File.expand_path "#{File.dirname f}/#{dest_name}"
-  FileUtils.mv src, dest unless src == dest
-end
+def capitalize(s):
+    words = s.split(' ')
+    capitalized = []
+    for word in words:
+        title = word[0].upper() + word[1:]
+        capitalized.append(title)
+    return ' '.join(capitalized)
+
+for arg in sys.argv[1:]:
+    src = os.path.abspath(arg)
+    dest = os.path.abspath(capitalize(arg))
+    if src != dest:
+        shutil.move(src, dest)
