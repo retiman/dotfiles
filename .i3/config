@@ -29,19 +29,10 @@ workspace_auto_back_and_forth no
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
 assign [class="Avidemux2_gtk"] 8
-assign [class="Chromium"] 9
-assign [class="Eclipse"] 10
-assign [class="Google-chrome"] 9
-assign [class="Thunar"] 8
-assign [class="Thunderbird"] 10
 assign [class="VirtualBox"] 10
-assign [class="Xpdf"] 6
-assign [class="chromium"] 9
 assign [class="google-chrome"] 9
 assign [class="jetbrains-idea"] 7
-assign [class="java-lang-Thread"] 7
-assign [class="rdesktop"] 10
-assign [class="sun-awt-X11-XFramePeer"] 7
+assign [class="thunar"] 8
 
 # Per window commands
 #
@@ -49,22 +40,16 @@ assign [class="sun-awt-X11-XFramePeer"] 7
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
 for_window [class="Avidemux2_gtk"] floating enable
-for_window [class="Chromium"] layout stacking
 for_window [class="Display"] floating enable
-for_window [title="File Operation Progress"] floating enable
-for_window [class="Google-chrome"] layout stacking
-for_window [class="Eclipse"] layout stacking
 for_window [title="Event Tester"] floating enable
+for_window [title="File Operation Progress"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
 for_window [class="chromium"] layout stacking
-for_window [class="display"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="google-chrome"] layout stacking
 for_window [class="jetbrains-idea"] layout stacking
 for_window [class="mplayer2"] floating enable
-for_window [title="qiv"] floating enable
-for_window [class="xmms"] floating enable
 
 # Color Classes
 #                       border  back    text
