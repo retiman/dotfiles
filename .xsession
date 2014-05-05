@@ -34,7 +34,7 @@ xset m 1.0 0
 # The PRIMARY selection is used to track currently selected text; middle click
 # is typically used to paste the selected text somewhere.
 # The CLIPBOARD selection is used as temporary storage when an application
-# explicitly copies something into thatt selection (via ctrl+c, for example).
+# explicitly copies something into that selection (via ctrl+c, for example).
 #
 # See: http://www.nongnu.org/autocutsel/
 #
