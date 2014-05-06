@@ -14,6 +14,8 @@ let g:autoloaded_startify = 1
 let s:numfiles         = get(g:, 'startify_files_number', 10)
 let s:show_special     = get(g:, 'startify_enable_special', 1)
 let s:restore_position = get(g:, 'startify_restore_position')
+let s:delete_buffers   = get(g:, 'startify_session_delete_buffers')
+let s:relative_path    = get(g:, 'startify_relative_path')
 let s:session_dir      = resolve(expand(get(g:, 'startify_session_dir',
       \ has('win32') ? '$HOME\vimfiles\session' : '~/.vim/session')))
 
@@ -66,7 +68,7 @@ function! startify#insane_in_the_membrane() abort
   endif
 
   setlocal noswapfile nobuflisted buftype=nofile bufhidden=wipe
-  setlocal nonumber nocursorline nolist statusline=\ startify
+  setlocal nonumber nocursorline nocursorcolumn nolist statusline=\ startify
   set filetype=startify
 
   if v:version >= 703
@@ -141,7 +143,7 @@ function! startify#insane_in_the_membrane() abort
 
   call cursor((s:show_special ? 2 : 0) + s:headoff + s:secoff, 5)
 
-  silent! doautocmd <nomodeline> startify User
+  silent! doautocmd <nomodeline> startify User Startified
 endfunction
 
 " Function: #session_load {{{1
@@ -153,6 +155,7 @@ function! startify#session_load(...) abort
     echo 'There are no sessions...'
     return
   endif
+  call startify#session_delete_buffers()
   let spath = s:session_dir . s:sep . (exists('a:1')
         \ ? a:1
         \ : input('Load this session: ', fnamemodify(v:this_session, ':t'), 'custom,startify#session_list_as_string'))
@@ -235,6 +238,20 @@ function! startify#session_delete(...) abort
   endif
 endfunction
 
+" Function: #session_delete_buffers {{{1
+function! startify#session_delete_buffers() abort
+  if !s:delete_buffers
+    return
+  endif
+  let n = 1
+  while n <= bufnr('$')
+    if buflisted(n)
+      silent execute 'bdelete' n
+    endif
+    let n += 1
+  endwhile
+endfunction
+
 " Function: #session_list {{{1
 function! startify#session_list(lead, ...) abort
   return map(split(globpath(s:session_dir, '*'.a:lead.'*'), '\n'), 'fnamemodify(v:val, ":t")')
@@ -247,64 +264,23 @@ endfunction
 
 " Function: s:show_dir {{{1
 function! s:show_dir(cnt) abort
-  let cnt   = a:cnt
-  let num   = s:numfiles
-  let files = []
+  if empty(v:oldfiles)
+    return a:cnt
+  endif
 
-  for fname in split(glob('.\=*'))
-    if isdirectory(fname)
-          \ || (exists('g:startify_skiplist') && s:is_in_skiplist(resolve(fnamemodify(fname, ':p'))))
-      continue
-    endif
-
-    call add(files, [getftime(fname), fname])
-  endfor
+  let cnt     = a:cnt
+  let num     = s:numfiles
+  let entries = {}
+  let cwd     = escape(getcwd(), '\')
+  let files   = filter(map(copy(v:oldfiles), 'resolve(fnamemodify(v:val, ":p"))'), 'match(v:val, cwd) == 0')
 
   if !empty(files)
     if exists('s:last_message')
       call s:print_section_header()
     endif
 
-    function! l:compare(x, y)
-      return a:y[0] - a:x[0]
-    endfunction
-
-    call sort(files, 'l:compare')
-
-    for items in files
-      let index = s:get_index_as_string(cnt)
-      let fname = items[1]
-
-      call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . fname)
-      execute 'nnoremap <buffer>' index ':edit' fnameescape(fname) '<cr>'
-
-      let cnt += 1
-      let num -= 1
-
-      if !num
-        break
-      endif
-    endfor
-
-    call append('$', '')
-  endif
-
-  return cnt
-endfunction
-
-" Function: s:show_files {{{1
-function! s:show_files(cnt) abort
-  let cnt     = a:cnt
-  let num     = s:numfiles
-  let entries = {}
-
-  if !empty(v:oldfiles)
-    if exists('s:last_message')
-      call s:print_section_header()
-    endif
-
-    for fname in v:oldfiles
-      let fullpath = resolve(fnamemodify(fname, ':p'))
+    for fname in files
+      let fullpath = resolve(fnamemodify(glob(fname), ':p'))
 
       " filter duplicates, bookmarks and entries from the skiplist
       if has_key(entries, fullpath)
@@ -316,8 +292,9 @@ function! s:show_files(cnt) abort
 
       let entries[fullpath] = 1
       let index = s:get_index_as_string(cnt)
+      let display_fname = s:relative_path ? fnamemodify(glob(fname), ':.') : fnamemodify(glob(fname), ':p:~')
 
-      call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . fname)
+      call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . display_fname)
       execute 'nnoremap <buffer>' index ':edit' fnameescape(fname) '<bar> call <sid>check_user_options()<cr>'
 
       let cnt += 1
@@ -334,10 +311,54 @@ function! s:show_files(cnt) abort
   endif
 endfunction
 
+" Function: s:show_files {{{1
+function! s:show_files(cnt) abort
+  if empty(v:oldfiles)
+    return a:cnt
+  endif
+
+  if exists('s:last_message')
+    call s:print_section_header()
+  endif
+
+  let cnt     = a:cnt
+  let num     = s:numfiles
+  let entries = {}
+
+  for fname in v:oldfiles
+    let fullpath = resolve(fnamemodify(glob(fname), ':p'))
+
+    " filter duplicates, bookmarks and entries from the skiplist
+    if has_key(entries, fullpath)
+          \ || !filereadable(fullpath)
+          \ || (exists('g:startify_skiplist')  && s:is_in_skiplist(fullpath))
+          \ || (exists('g:startify_bookmarks') && s:is_bookmark(fullpath))
+      continue
+    endif
+
+    let entries[fullpath] = 1
+    let index = s:get_index_as_string(cnt)
+    let display_fname = s:relative_path ? fnamemodify(glob(fname), ':.') : fnamemodify(glob(fname), ':p:~')
+
+    call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . display_fname)
+    execute 'nnoremap <buffer>' index ':edit' fnameescape(fname) '<bar> call <sid>check_user_options()<cr>'
+
+    let cnt += 1
+    let num -= 1
+
+    if !num
+      break
+    endif
+  endfor
+
+  call append('$', '')
+
+  return cnt
+endfunction
+
 " Function: s:show_sessions {{{1
 function! s:show_sessions(cnt) abort
   let sfiles = split(globpath(s:session_dir, '*'), '\n')
-  let slen   = len(sfiles)
 
   if empty(sfiles)
     if exists('s:last_message')
@@ -345,45 +366,50 @@ function! s:show_sessions(cnt) abort
     endif
     return a:cnt
   endif
-  let cnt = a:cnt
 
   if exists('s:last_message')
     call s:print_section_header()
   endif
 
+  let cnt  = a:cnt
+  let slen = len(sfiles)
+
   for i in range(slen)
-    let idx   = (i + cnt)
-    let index = s:get_index_as_string(idx)
+    let index = s:get_index_as_string(cnt)
 
     call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . fnamemodify(sfiles[i], ':t:r'))
     execute 'nnoremap <buffer>' index ':source' fnameescape(sfiles[i]) '<cr>'
+
+    let cnt += 1
   endfor
 
   call append('$', '')
 
-  return idx + 1
+  return cnt
 endfunction
 
 " Function: s:show_bookmarks {{{1
 function! s:show_bookmarks(cnt) abort
+  if !exists('g:startify_bookmarks')
+    return a:cnt
+  endif
+
+  if exists('s:last_message')
+    call s:print_section_header()
+  endif
+
   let cnt = a:cnt
 
-  if exists('g:startify_bookmarks')
-    if exists('s:last_message')
-      call s:print_section_header()
-    endif
+  for fname in g:startify_bookmarks
+    let index = s:get_index_as_string(cnt)
 
-    for fname in g:startify_bookmarks
-      let index = s:get_index_as_string(cnt)
+    call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . fname)
+    execute 'nnoremap <buffer>' index ':edit' fnameescape(fname) '<bar> call <sid>check_user_options()<cr>'
 
-      call append('$', '   ['. index .']'. repeat(' ', (3 - strlen(index))) . fname)
-      execute 'nnoremap <buffer>' index ':edit' fnameescape(fname) '<bar> call <sid>check_user_options()<cr>'
+    let cnt += 1
+  endfor
 
-      let cnt += 1
-    endfor
-
-    call append('$', '')
-  endif
+  call append('$', '')
 
   return cnt
 endfunction
@@ -472,6 +498,7 @@ function! s:open_buffers(cword) abort
 
     for val in values(s:marked)
       let [path, type] = val[1:2]
+      let path = fnameescape(path)
 
       if line2byte('$') == -1
         " open in current window
@@ -501,8 +528,9 @@ function! s:open_buffers(cword) abort
   else
     try
       execute 'normal' a:cword
-    catch /E832/
+    catch /E832/  " don't ask for undo encryption key twice
       edit
+    catch /E325/  " swap file found
     endtry
   endif
 endfunction
