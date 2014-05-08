@@ -62,7 +62,7 @@ set lazyredraw
 set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
-set mouse=a
+set mouse=
 set mousemodel=popup
 set nobackup
 set nocindent
