@@ -109,24 +109,24 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+v split vertical
 bindsym $mod+q exec "$HOME/bin/i3exit lock"
-bindsym $mod+Shift+exclam move workspace 1
-bindsym $mod+Shift+at move workspace 2
-bindsym $mod+Shift+numbersign move workspace 3
-bindsym $mod+Shift+dollar move workspace 4
-bindsym $mod+Shift+percent move workspace 5
-bindsym $mod+Shift+asciicircum move workspace 6
-bindsym $mod+Shift+ampersand move workspace 7
-bindsym $mod+Shift+asterisk move workspace 8
-bindsym $mod+Shift+parenleft move workspace 9
-bindsym $mod+Shift+parenright move workspace 10
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+Shift+C kill
-bindsym $mod+Shift+H move left
-bindsym $mod+Shift+J move down
-bindsym $mod+Shift+K move up
-bindsym $mod+Shift+L move right
-bindsym $mod+Shift+R restart
-bindsym $mod+Shift+Q exit
+bindsym $mod+shift+exclam move workspace 1
+bindsym $mod+shift+at move workspace 2
+bindsym $mod+shift+numbersign move workspace 3
+bindsym $mod+shift+dollar move workspace 4
+bindsym $mod+shift+percent move workspace 5
+bindsym $mod+shift+asciicircum move workspace 6
+bindsym $mod+shift+ampersand move workspace 7
+bindsym $mod+shift+asterisk move workspace 8
+bindsym $mod+shift+parenleft move workspace 9
+bindsym $mod+shift+parenright move workspace 10
+bindsym $mod+shift+space floating toggle
+bindsym $mod+shift+C kill
+bindsym $mod+shift+H move left
+bindsym $mod+shift+J move down
+bindsym $mod+shift+K move up
+bindsym $mod+shift+L move right
+bindsym $mod+shift+R restart
+bindsym $mod+shift+Q exit
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
