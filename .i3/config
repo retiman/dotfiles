@@ -60,10 +60,10 @@ client.urgent           #00ffff #242424 #f6f3e8
 
 # Mode Definitions
 mode "resize" {
-  bindsym h resize shrink right 8 px or 8 ppt; mode "default"
-  bindsym j resize grow   down  8 px or 8 ppt; mode "default"
-  bindsym k resize shrink down  8 px or 8 ppt; mode "default"
-  bindsym l resize grow   right 8 px or 8 ppt; mode "default"
+  bindsym h resize shrink right 5 px or 5 ppt; mode "default"
+  bindsym j resize grow   down  5 px or 5 ppt; mode "default"
+  bindsym k resize shrink down  5 px or 5 ppt; mode "default"
+  bindsym l resize grow   right 5 px or 5 ppt; mode "default"
 }
 
 mode "$mode_system" {
