@@ -29,7 +29,9 @@ workspace_auto_back_and_forth no
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
 assign [class="Avidemux2_gtk"] 8
+assign [title="Battle.net"] 10
 assign [class="VirtualBox"] 10
+assign [title="Wine System Tray"] 10
 assign [class="google-chrome"] 9
 assign [class="jetbrains-idea"] 7
 assign [class="thunar"] 8
@@ -40,11 +42,14 @@ assign [class="thunar"] 8
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
 for_window [class="Avidemux2_gtk"] floating enable
+for_window [title="Battle.net"] floating enable
 for_window [class="Display"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="File Operation Progress"] floating enable
+for_window [title="Hearthstone"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
+for_window [title="Wine System Tray"] floating enable
 for_window [class="chromium"] layout stacking
 for_window [class="feh"] floating enable
 for_window [class="google-chrome"] layout stacking
