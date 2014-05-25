@@ -6,9 +6,15 @@
 .settings
 
 # IDEA
+.idea
 *.iml
 *.ipr
 *.iws
+
+# Netbeans
+build.xml
+manifest.mf
+nbproject/
 
 # Vim
 project.vim
