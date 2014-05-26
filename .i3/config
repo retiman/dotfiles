@@ -30,6 +30,7 @@ workspace_auto_back_and_forth no
 # title using the WM_NAME property.
 assign [class="Avidemux2_gtk"] 8
 assign [title="Battle.net"] 10
+assign [title="PlayOnLinux"] 10
 assign [class="VirtualBox"] 10
 assign [title="Wine System Tray"] 10
 assign [class="google-chrome"] 9
@@ -48,6 +49,7 @@ for_window [title="Event Tester"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Hearthstone"] floating enable
 for_window [class="MPlayer"] floating enable
+for_window [title="PlayOnLinux"] floating enable
 for_window [class="VirtualBox"] layout stacking
 for_window [title="Wine System Tray"] floating enable
 for_window [class="chromium"] layout stacking
