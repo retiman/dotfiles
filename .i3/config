@@ -113,7 +113,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+v split vertical
-bindsym $mod+q exec "$HOME/bin/i3exit lock"
+bindsym $mod+q mode "$mode_system"
 bindsym $mod+shift+exclam move workspace 1
 bindsym $mod+shift+at move workspace 2
 bindsym $mod+shift+numbersign move workspace 3
