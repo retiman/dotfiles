@@ -64,7 +64,7 @@ client.unfocused        #303030 #242424 #f6f3e8
 client.urgent           #00ffff #242424 #f6f3e8
 
 # Mode Definitions
-mode "resize" {
+mode "$resize" {
   bindsym h resize shrink right 5 px or 5 ppt; mode "default"
   bindsym j resize grow   down  5 px or 5 ppt; mode "default"
   bindsym k resize shrink down  5 px or 5 ppt; mode "default"
@@ -109,7 +109,7 @@ bindsym $mod+l focus right
 bindsym $mod+n workspace next
 bindsym $mod+o split horizontal
 bindsym $mod+p workspace prev
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$resize"
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+v split vertical
