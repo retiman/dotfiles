@@ -6,7 +6,7 @@ xset -b
 
 # Swap caps lock, make windows key an additional control.
 # See: https://gist.github.com/retiman/6b7da5f9868cf12435b3
-setxkbmap -option ctrl:swapcaps,altwin:ctrl_win
+setxkbmap -option ctrl:swapcaps
 
 # Turn off the damned touchpad.
 synclient TouchpadOff=1
