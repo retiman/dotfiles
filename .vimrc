@@ -91,7 +91,7 @@ set title
 set ttyfast
 set undofile
 set undodir=/tmp
-set viminfo='10,\"100,:20,%,n~/.viminfo
+set viminfo='10,\"100,:20,n~/.viminfo
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.swp,*.swo,*~
