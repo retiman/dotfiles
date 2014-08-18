@@ -130,9 +130,3 @@ function addpath {
     PATH="$1:$PATH"
   fi
 }
-
-# Set up vim with a project file.
-function vp {
-  rr
-  ln -s "$HOME/.vim/project/$1.vim" ./project.vim
-}
