@@ -131,11 +131,6 @@ function addpath {
   fi
 }
 
-# Source a file only if it exists.
-function include {
-  [ -f "$1" ] && source "$1"
-}
-
 # Set up vim with a project file.
 function vp {
   rr
