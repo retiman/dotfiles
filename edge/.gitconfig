@@ -1,0 +1,30 @@
+[user]
+  name = Min Huang
+  email = min.huang@alumni.usc.edu
+  signingkey = "5DB05144"
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+  editor = vi
+  excludesfile = "~/.global-gitignore"
+[alias]
+  ar = add -u
+  br = branch
+  ci = commit
+  co = checkout
+  log = log --stat
+  ltag = tag -l -n1
+  pick = cherry-pick -x
+  pull = pull --stat
+  st = status
+  rb = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index && git clean -fdx'
+[mergetool "vimdiff-wrapper"]
+  cmd = vimdiff -o \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[diff]
+  tool = vimdiff-wrapper
+[merge]
+  tool = vimdiff-wrapper
+[push]
+  default = matching

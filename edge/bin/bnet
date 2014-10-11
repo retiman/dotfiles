@@ -1,0 +1,9 @@
+#!/bin/bash
+killall Agent.exe > /dev/null 2>&1
+wine "$HOME/.PlayOnLinux/wineprefix/battle.net/drive_c/users/Public/Application Data/Battle.net/Agent/Agent.exe --nohttpauth" > /tmp/logBnetAgent.txt 2>&1 &
+sleep 2
+/usr/share/playonlinux/playonlinux --run "Battle.net" %F > /tmp/logBnet.txt 2>&1 &
+sleep 5
+killall Battle.net.exe > /dev/null 2&1
+sleep 2
+/usr/share/playonlinux/playonlinux --run "Battle.net" %F > /tmp/logBnet.txt 2>&1 &

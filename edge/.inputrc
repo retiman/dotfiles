@@ -1,0 +1,8 @@
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set editing-mode emacs
+
+$if mode=emacs
+  'C-b': backward-word
+  'C-f': forward-word
+$endif

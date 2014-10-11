@@ -1,0 +1,43 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2830
+
+This plugin is used for handling column separated data with Vim. Usually those 
+files are called csv files and use the ',' as delimiter, though sometimes they 
+use e.g. the '|' or ';' as delimiter and there also exists fixedwidth columns. 
+The aim of this plugin is to ease handling these kinds of files.               
+                                                                               
+This is a filetype plugin for CSV files. It was heavily influenced by          
+the Vim Wiki Tip667 (http://vim.wikia.com/wiki/VimTip667), though it           
+works differently.
+
+For a screenshot, of  how the plugin can be used, see
+http://www.256bit.org/~chrisbra/csv.gif
+
+Please vote for the plugin, if you like it!
+
+This little filetype plugin allows among others:
+ -  Display on which column the cursor is as well as number of columns
+ -  Search for text within a column using :SearchInColumn command
+ -  Highlight the column on which the cursor is using :HiColumn command
+ -  Visually arrange all columns using :ArrangeColumn command
+ -  Delete a Column using :DeleteColumn command
+ -  Display a vertical or horizontal header line using :Header or :VHeader command
+ -  Sort a Column using :Sort command
+ -  Copy Column to register using :Column command
+ -  Move a column behind another column using :MoveCol command
+ -  Calculate the Sum of all values within a column using :SumCol command (you can also define your
+    own custom aggregate functions)
+ -  Move through the columns using the normal mode commands 
+    (W forwards, H backwards, K upwards, J downwards)
+ -  sets up a nice syntax highlighting, concealing the delimiter, if your Vim supports it
+ -  dynamic filtering (Press enter on a value and all other lines, that don't have this value in this column
+    will be folded away. Press enter on another value and this value will be ANDed to the filter list. Press
+    Backspace to delete the last item from the filter list. Press Space to fold all lines, that have the same value
+    in the current field, Press Enter to fold all lines, that have a different value in the current field.
+    Use :Filters to see what filters are actvie)
+ -  Analyze all values of a column (distribution) using :Analyze command
+ -  Insert new records, using :NewRecord command
+ -  Implement a wizard to setup fixed-width CSV files using :CSVFixed
+ -  Hide certain columns, using :VertFold
+
+Please read the help on how to use the plugin
+ :h ft-csv.txt
