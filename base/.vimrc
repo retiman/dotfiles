@@ -20,6 +20,9 @@
 " A note about accessing the clipboard over SSH: make sure to have X11
 " forwarding turned on and use Y/P to yank and paste over a remote session.
 "
+" A note about copying and pasting between terminals: make sure you have GVim
+" or vim-gtk package installed; regular vim won't work.
+"
 " A note about figuring out different plugin interactions: you can type map,
 " imap, xmap, cmap, etc. by themselves to have Vim show you the different
 " mappings that have been set.  Some roguish plugins may like to play around
@@ -150,11 +153,6 @@ let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_files_number=5
 let g:startify_list_order=['dir', 'files', 'sessions']
 let g:startify_session_persistence=1
-
-" Do not enable vim-eclim if Eclipse is not available.
-if !executable('eclipse') && !executable('eclipse38')
-  call add(g:pathogen_disabled, 'vim-eclim')
-endif
 
 " Enable 256 colors if running inside tmux or screen, also disable background
 " color erase.
