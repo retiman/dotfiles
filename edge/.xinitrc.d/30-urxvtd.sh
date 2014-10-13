@@ -1,3 +1,1 @@
-# Launch urxvt in daemon mode.
-urxvtd -q -o -f
-
+../../base/.xinitrc-available/30-urxvtd.sh

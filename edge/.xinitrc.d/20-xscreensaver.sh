@@ -1,5 +1,1 @@
-# Display and screensaver settings.
-xset -dpms
-xset s off
-xscreensaver -nosplash &
-
+../../base/.xinitrc-available/20-xscreensaver.sh
