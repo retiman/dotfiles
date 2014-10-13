@@ -24,8 +24,8 @@ function repo::branch {
 # Returns an asterisk if the branch you are on is dirty (has changes).
 function repo::dirty {
   M1="nothing to commit, working directory clean"
-  M1="nothing to commit (working directory clean)"
+  M2="nothing to commit (working directory clean)"
   STATUS=$(git status 2> /dev/null | tail -n1)
-  [[ $STATUS != $M1 && $STATUS != $M2 ]] && echo "*"
+  [[ $STATUS != $M1 && $STATUS != $M2 ]] && echo '*'
 }
 
