@@ -1,1 +1,1 @@
-../../base/.xinitrc-available/50-autocutsel.sh
+../../base/.xinitrc.d/50-autocutsel.sh

@@ -1,1 +1,1 @@
-../../base/.xinitrc-available/20-xscreensaver.sh
+../../base/.xinitrc.d/20-xscreensaver.sh

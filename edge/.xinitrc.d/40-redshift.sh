@@ -1,1 +1,1 @@
-../../base/.xinitrc-available/40-redshift.sh
+../../base/.xinitrc.d/40-redshift.sh

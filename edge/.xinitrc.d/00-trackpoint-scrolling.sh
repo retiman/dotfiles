@@ -1,1 +1,1 @@
-../../base/.xinitrc-available/00-trackpoint-scrolling.sh
+../../base/.xinitrc.d/00-trackpoint-scrolling.sh

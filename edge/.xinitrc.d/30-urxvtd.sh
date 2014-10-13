@@ -1,1 +1,1 @@
-../../base/.xinitrc-available/30-urxvtd.sh
+../../base/.xinitrc.d/30-urxvtd.sh
