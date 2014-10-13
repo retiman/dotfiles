@@ -16,7 +16,7 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10' # show top 10 memory intensive a
 alias pd='pushd'
 alias ping='ping -c 5'
 alias prename='perl-rename'
-alias rr='reporoot'
+alias rr='repo::root'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sudo='sudo ' # tell bash to respect aliases
 alias tmux='tmux -2'
