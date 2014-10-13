@@ -1,5 +1,24 @@
-# This is the gitignore file for this git repository.
-# My global gitignore is in .global-gitignore.
-.i3/log
-.vim/.netrwhist
-.vim/session
+# This is my global gitignore file.
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Netbeans
+build.xml
+manifest.mf
+nbproject/
+
+# Vim
+project.vim
+tags
+*.swp
+*.swo
+*~
