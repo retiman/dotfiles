@@ -43,8 +43,10 @@ for F in id_dsa id_rsa; do
 done
 
 # Additional Bash Configuration
-[ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
-[ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
+source $HOME/.bash_libs/common.sh
+source $HOME/.bash_libs/repo.sh
+source $HOME/.bash_libs/prompt.sh
+source $HOME/.bash_aliases
 [ -f $HOME/.bash_local ] && source $HOME/.bash_local
 
 # Additional PATHs
