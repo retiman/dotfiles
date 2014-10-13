@@ -10,6 +10,7 @@
 *.iml
 *.ipr
 *.iws
+out/
 
 # Netbeans
 build.xml
