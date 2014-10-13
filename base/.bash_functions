@@ -102,21 +102,7 @@ function h {
 
 # Colorize the Bash prompt the way I like it
 function promptcolors {
-  local BLUE="\[\033[0;34m\]"
-  local RED="\[\033[0;31m\]"
-  local GREEN="\[\033[0;32m\]"
-  local WHITE="\[\033[1;37m\]"
-  local CYAN="\[\033[0;36m\]"
-  local PURPLE="\[\033[0;35m\]"
-  local BROWN="\[\033[0;33m\]"
-  local YELLOW="\[\033[1;33m\]"
-  local LIGHT_BLUE="\[\033[1;30m\]"
-  local LIGHT_RED="\[\033[1;31m\]"
-  local LIGHT_GREEN="\[\033[1;32m\]"
-  local LIGHT_GRAY="\[\033[0;37m\]"
-  local LIGHT_CYAN="\[\033[1;36m\]"
-  local LIGHT_PURPLE="\[\033[1;35m\]"
-  local COLOR=$GREEN
+  local COLOR=$1
   PS1="$COLOR[\u@\h:\W$RED\$(repoparse)$COLOR]\$\[\033[0m\] "
   PS2='> '
   PS4='+ '
