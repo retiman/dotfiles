@@ -48,4 +48,9 @@ fi
 # forks into the background.
 #
 # See: https://wiki.archlinux.org/index.php/Xinitrc
+if [ -f $HOME/.i3local.conf ]; then
+  cat $HOME/.i3/i3base.conf $HOME/.i3local.conf > $HOME/.i3/config
+else
+  cat $HOME/.i3/i3base.conf > $HOME/.i3/config
+fi
 exec dbus-launch /usr/bin/i3
