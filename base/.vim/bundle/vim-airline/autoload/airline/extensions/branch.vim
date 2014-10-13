@@ -21,7 +21,12 @@ function! s:get_git_branch(path)
   else
     try
       let line = join(readfile(dir . '/HEAD'))
-      let name = strpart(line, 16)
+      if strpart(line, 0, 16) == 'ref: refs/heads/'
+        let name = strpart(line, 16)
+      else
+        " raw commit hash
+        let name = strpart(line, 0, 7)
+      endif
     catch
       let name = ''
     endtry
@@ -37,9 +42,11 @@ function! airline#extensions#branch#head()
   endif
 
   let b:airline_head = ''
+  let found_fugitive_head = 0
 
   if s:has_fugitive && !exists('b:mercurial_dir')
-    let b:airline_head = fugitive#head()
+    let b:airline_head = fugitive#head(7)
+    let found_fugitive_head = 1
 
     if empty(b:airline_head) && !exists('b:git_dir')
       let b:airline_head = s:get_git_branch(expand("%:p:h"))
@@ -61,8 +68,15 @@ function! airline#extensions#branch#head()
     endif
   endif
 
-  if empty(b:airline_head) || !s:check_in_path()
+  if empty(b:airline_head) || !found_fugitive_head && !s:check_in_path()
     let b:airline_head = ''
+  endif
+
+  if exists("g:airline#extensions#branch#displayed_head_limit")
+    let w:displayed_head_limit = g:airline#extensions#branch#displayed_head_limit
+    if len(b:airline_head) > w:displayed_head_limit - 1
+      let b:airline_head = b:airline_head[0:w:displayed_head_limit - 1].'…'
+    endif
   endif
 
   return b:airline_head

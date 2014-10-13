@@ -23,9 +23,11 @@ Super simple vim plugin to show the list of buffers in the command bar.
 *  [neobundle](https://github.com/Shougo/neobundle.vim)
   *  `NeoBundle 'bling/vim-bufferline'`
 *  [vundle](https://github.com/gmarik/vundle)
-  *  `Bundle 'bling/vim-bufferline'`
+  *  `Plugin 'bling/vim-bufferline'`
 *  [vam](https://github.com/MarcWeber/vim-addon-manager)
   *  `call vam#ActivateAddons([ 'vim-bufferline' ])`
+*  [vim-plug](https://github.com/junegunn/vim-plug)
+  *  `Plug 'bling/vim-bufferline'`
 
 # credits
 
