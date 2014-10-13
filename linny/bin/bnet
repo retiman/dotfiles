@@ -1,9 +1,0 @@
-#!/bin/bash
-killall Agent.exe
-wine $HOME/.PlayOnLinux/wineprefix/hearthstone/drive_c/users/Public/Application Data/Battle.net/Agent/Agent.exe --nohttpauth > logtext.txt 2>&1 &
-sleep 2
-/usr/share/playonlinux/playonlinux --run "Hearthstone" %F > logBattleNet.txt 2>&1 &
-sleep 5
-killall Battle.net.exe
-sleep 2
-/usr/share/playonlinux/playonlinux --run "Hearthstone" %F > logBattleNet.txt 2>&1 &
