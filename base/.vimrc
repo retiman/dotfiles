@@ -23,6 +23,9 @@
 " A note about copying and pasting between terminals: make sure you have GVim
 " or vim-gtk package installed; regular vim won't work.
 "
+" A note about colors: install rxvt-unicode-256color or another terminal with
+" 256 color support or jellybeans colorscheme will look really bad.
+"
 " A note about figuring out different plugin interactions: you can type map,
 " imap, xmap, cmap, etc. by themselves to have Vim show you the different
 " mappings that have been set.  Some roguish plugins may like to play around
