@@ -1,6 +1,6 @@
 # Add a directory to PATH if it's not already there.  Adds it to the
 # front of the PATH (uncomment to add to the end)
-function addpath {
+function addpath() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     #PATH="${PATH:+"$PATH:"}$1"
     PATH="$1:$PATH"
@@ -9,14 +9,14 @@ function addpath {
 
 # Function for decrypting a file using AES; in case you wanted to use the file
 # as a password store or something.
-function decrypt {
+function decrypt() {
   openssl enc -d -aes-256-cbc -salt -in "$1" -out "${1/.aes/}"
 }
 
 # Decompress a file, so I don't have to keep in mind the specific flags I have
 # to pass in for each program that does decompression.  This will blow away
 # the original compressed file if the decompression succeeds, so be warned.
-function common::decompress {
+function common::decompress() {
   for F in "$@"; do
     case "$F" in
       *.tar.bz2)
@@ -58,17 +58,17 @@ function common::decompress {
 
 # Function for encrypting a file using AES; in case you wanted to use the file
 # as a password store or something.
-function encrypt {
+function encrypt() {
   openssl enc -e -aes-256-cbc -salt -in "$1" -out "$1.aes"
 }
 
 # Search your bash history for a command
-function h {
+function h() {
   history | grep "$@"
 }
 
 # Colorize man pages.
-function man {
+function man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
