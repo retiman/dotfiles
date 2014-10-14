@@ -17,3 +17,5 @@
   pick = cherry-pick -x
   pull = pull --stat
   st = status
+[push]
+  default = matching
