@@ -131,7 +131,7 @@ let g:ctrlp_lazy_update=1
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_reuse_window='startify'
 let g:ctrlp_root_markers=['project.vim', '.git']
-let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_working_path_mode='r'
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
@@ -209,7 +209,7 @@ noremap <silent> <F2> :call ToggleMouse()<cr>
 noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
-noremap E e .<cr>
+noremap E :e .<cr>
 noremap H <nop>
 noremap J <nop>
 noremap K <nop>
@@ -280,5 +280,4 @@ autocmd BufWinEnter * silent! call RestoreCursor()
 "   Include a project.vim in your repository root and Vim will source this file
 "   to override any settings you want.
 set secure
-autocmd VimEnter * RepoRoot
 silent! source ./project.vim
