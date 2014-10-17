@@ -119,8 +119,8 @@ let g:airline#extensions#hunks#enabled=0
 let g:airline_exclude_preview=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_section_x='%{&ft} %{&fenc}'
-let g:airline_section_y='fo=%{&fo} tw=%{&tw} l=%{&list}'
+let g:airline_section_x='%{&fenc}'
+let g:airline_section_y=''
 let g:airline_section_z='%3p%% %3c'
 let g:airline_theme='jellybeans'
 let g:bufferline_active_highlight='bufferline_selected'
