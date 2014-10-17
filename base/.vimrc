@@ -209,7 +209,7 @@ noremap <silent> <F2> :call ToggleMouse()<cr>
 noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
-noremap E :enew<cr>:Explore<cr>
+noremap E e .<cr>
 noremap H <nop>
 noremap J <nop>
 noremap K <nop>
@@ -274,7 +274,7 @@ command Paste execute 'set paste | insert | set nopaste'
 
 " Autocmds
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
-autocmd BufWinEnter * call RestoreCursor()
+autocmd BufWinEnter * silent! call RestoreCursor()
 
 " Project specific settings.
 "   Include a project.vim in your repository root and Vim will source this file
