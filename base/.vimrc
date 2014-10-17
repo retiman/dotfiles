@@ -116,6 +116,7 @@ let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#tabline#enabled=1
 let g:airline_exclude_preview=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
