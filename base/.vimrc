@@ -209,7 +209,7 @@ noremap <silent> <F2> :call ToggleMouse()<cr>
 noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
-noremap E :Explore<cr>
+noremap E :enew<cr>:Explore<cr>
 noremap H <nop>
 noremap J <nop>
 noremap K <nop>
