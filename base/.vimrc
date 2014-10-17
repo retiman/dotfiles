@@ -124,16 +124,6 @@ let g:airline_section_x='%{&ft} %{&fenc}'
 let g:airline_section_y='fo=%{&fo} tw=%{&tw} l=%{&list}'
 let g:airline_section_z='%3p%% %3l:%3c'
 let g:airline_theme='jellybeans'
-let g:bufferline_active_highlight='bufferline_selected'
-let g:bufferline_active_buffer_left='['
-let g:bufferline_active_buffer_right=']'
-let g:bufferline_echo=0
-let g:bufferline_fixed_index=0
-let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=0
-let g:bufferline_solo_highlight=0
-let g:bufferline_separator=' '
-let g:bufferline_show_bufnr=0
 let g:csv_autocmd_arrange=1
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
