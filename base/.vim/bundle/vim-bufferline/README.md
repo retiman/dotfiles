@@ -2,32 +2,18 @@
 
 Super simple vim plugin to show the list of buffers in the command bar.
 
-# screenshots
+# demo
 
-#### in the statusline
+![img](bufferline.png)
 
-![img](img/bufferline-status.png)
+# integration with statusline
 
-#### or the command bar
+by default this plugin will print out the list of buffers into the command bar, however it can be configured to take space in the status line instead.  for example:
 
-![img](img/bufferline-command.png)
-
-# configuration
-
-`:help bufferline`
-
-# installation
-
-*  [pathogen](https://github.com/tpope/vim-pathogen)
-  *  `git clone https://github.com/bling/vim-bufferline ~/.vim/bundle/vim-bufferline`
-*  [neobundle](https://github.com/Shougo/neobundle.vim)
-  *  `NeoBundle 'bling/vim-bufferline'`
-*  [vundle](https://github.com/gmarik/vundle)
-  *  `Plugin 'bling/vim-bufferline'`
-*  [vam](https://github.com/MarcWeber/vim-addon-manager)
-  *  `call vam#ActivateAddons([ 'vim-bufferline' ])`
-*  [vim-plug](https://github.com/junegunn/vim-plug)
-  *  `Plug 'bling/vim-bufferline'`
+```
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}
+```
 
 # credits
 
@@ -35,4 +21,4 @@ This was inspired by the [buftabs](http://www.vim.org/scripts/script.php?script_
 
 # license
 
-MIT License. Copyright (c) 2013 Bailey Ling.
+`:help license`
