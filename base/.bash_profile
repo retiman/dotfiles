@@ -46,6 +46,8 @@ done
 source $HOME/.bash_libs/common.sh
 source $HOME/.bash_libs/repo.sh
 source $HOME/.bash_libs/prompt.sh
+source $HOME/.bash_libs/audio.sh
+source $HOME/.bash_libs/video.sh
 source $HOME/.bash_aliases
 [ -f $HOME/.bash_local ] && source $HOME/.bash_local
 
