@@ -16,7 +16,7 @@ function decrypt() {
 # Decompress a file, so I don't have to keep in mind the specific flags I have
 # to pass in for each program that does decompression.  This will blow away
 # the original compressed file if the decompression succeeds, so be warned.
-function common::decompress() {
+function decompress() {
   for F in "$@"; do
     case "$F" in
       *.tar.bz2)
