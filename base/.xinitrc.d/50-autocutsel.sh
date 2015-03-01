@@ -8,7 +8,7 @@
 # The following syncs the CLIPBOARD with the PRIMARY selection (when you press
 # ctrl+c to copy something in Chrome, the PRIMARY selection is updated so you can
 # press middle click to paste).
-autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
+autocutsel -fork -selection CLIPBOARD -buttonup -pause 2000 &
 
 # The following syncs the PRIMARY with the CLIPBOARD (when you select something
 # with the mouse, you can press ctrl+v to paste).
@@ -18,5 +18,5 @@ autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 # will select the URL already in the Location bar right away, and your ctrl+v
 # will paste the URL that was already there.  To remedy this, a short 1 second
 # delay is added before the selection is owned.
-autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
+autocutsel -fork -selection PRIMARY -buttonup -pause 2000 &
 
