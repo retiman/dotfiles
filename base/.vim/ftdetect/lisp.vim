@@ -1,2 +1,2 @@
-autocmd BufNewFile,BufRead *.scm,*.rkt setf scheme
-autocmd FileType lisp,scheme,racket,art setlocal equalprg=indent-lisp
+autocmd BufNewFile,BufRead *.scm setf scheme
+autocmd FileType lisp,scheme,art setlocal equalprg=indent-lisp
