@@ -13,7 +13,6 @@
 "
 " See: http://peox.net/articles/vimconfig.html
 " See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
-setlocal expandtab
 setlocal formatoptions-=c
 setlocal formatoptions-=t
 setlocal textwidth=0
