@@ -35,12 +35,14 @@ shopt -s extglob
 shopt -s histappend
 
 # Keychain
-for F in id_dsa id_rsa; do
-  if [ -f $HOME/.ssh/$F ]; then
-    eval $(keychain --eval --agents ssh -Q --quiet $F)
-  fi
-  unset F
-done
+if type keychain 2>/dev/null; then
+  for F in id_dsa id_rsa; do
+    if [ -f $HOME/.ssh/$F ]; then
+      eval $(keychain --eval --agents ssh -Q --quiet $F)
+    fi
+    unset F
+  done
+fi
 
 # Additional Bash Configuration
 source $HOME/.bash_libs/common.sh
@@ -55,7 +57,9 @@ source $HOME/.bash_aliases
 addpath $HOME/bin
 
 # Color Options
-eval $(dircolors $HOME/.dircolors)
+if type dircolors 2>/dev/null; then
+  eval $(dircolors $HOME/.dircolors)
+fi
 
 # Add working directory to terminal title
 case "$TERM" in
