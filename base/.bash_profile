@@ -35,7 +35,7 @@ shopt -s extglob
 shopt -s histappend
 
 # Keychain
-if type keychain 2>/dev/null; then
+if type keychain >/dev/null 2>&1; then
   for F in id_dsa id_rsa; do
     if [ -f $HOME/.ssh/$F ]; then
       eval $(keychain --eval --agents ssh -Q --quiet "$F")
@@ -57,7 +57,7 @@ source "$HOME/.bash_aliases"
 addpath "$HOME/bin"
 
 # Color Options
-if type dircolors 2>/dev/null; then
+if type dircolors >/dev/null 2>&1; then
   eval $(dircolors "$HOME/.dircolors")
 fi
 
