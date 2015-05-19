@@ -38,27 +38,27 @@ shopt -s histappend
 if type keychain 2>/dev/null; then
   for F in id_dsa id_rsa; do
     if [ -f $HOME/.ssh/$F ]; then
-      eval $(keychain --eval --agents ssh -Q --quiet $F)
+      eval $(keychain --eval --agents ssh -Q --quiet "$F")
     fi
     unset F
   done
 fi
 
 # Additional Bash Configuration
-source $HOME/.bash_libs/common.sh
-source $HOME/.bash_libs/repo.sh
-source $HOME/.bash_libs/prompt.sh
-source $HOME/.bash_libs/audio.sh
-source $HOME/.bash_libs/video.sh
-source $HOME/.bash_aliases
-[ -f $HOME/.bash_local ] && source $HOME/.bash_local
+source "$HOME/.bash_libs/common.sh"
+source "$HOME/.bash_libs/repo.sh"
+source "$HOME/.bash_libs/prompt.sh"
+source "$HOME/.bash_libs/audio.sh"
+source "$HOME/.bash_libs/video.sh"
+source "$HOME/.bash_aliases"
+[ -f "$HOME/.bash_local" ] && source "$HOME/.bash_local"
 
 # Additional PATHs
-addpath $HOME/bin
+addpath "$HOME/bin"
 
 # Color Options
 if type dircolors 2>/dev/null; then
-  eval $(dircolors $HOME/.dircolors)
+  eval $(dircolors "$HOME/.dircolors")
 fi
 
 # Add working directory to terminal title
