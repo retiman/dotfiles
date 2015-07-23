@@ -1,0 +1,1 @@
+../../base/.xinitrc.d/40-redshift.sh

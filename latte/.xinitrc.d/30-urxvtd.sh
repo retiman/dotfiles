@@ -1,0 +1,1 @@
+../../base/.xinitrc.d/30-urxvtd.sh
