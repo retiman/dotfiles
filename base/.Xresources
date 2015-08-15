@@ -68,7 +68,6 @@ URxvt.visualBell: false
 XTerm.audibleBell: false
 XTerm.bellIsUrgent: true
 XTerm.visualBell: false
-Xft.dpi: 96.0
 
 passwordDialog: true
 shareDesktop: true
