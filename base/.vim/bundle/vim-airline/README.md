@@ -7,7 +7,12 @@ Lean &amp; mean status/tabline for vim that's light as air.
 # Features
 
 *  Tiny core written with extensibility in mind ([open/closed principle][8]).
-*  Integrates with a variety of plugins, including: [vim-bufferline][6], [fugitive][4], [unite][9], [ctrlp][10], [minibufexpl][15], [gundo][16], [undotree][17], [nerdtree][18], [tagbar][19], [vim-gitgutter][29], [vim-signify][30], [syntastic][5], [eclim][34], [lawrencium][21], [virtualenv][31], [tmuxline][35], [taboo.vim][37], [ctrlspace][38] and more.
+*  Integrates with a variety of plugins, including: [vim-bufferline][6],
+   [fugitive][4], [unite][9], [ctrlp][10], [minibufexpl][15], [gundo][16],
+   [undotree][17], [nerdtree][18], [tagbar][19], [vim-gitgutter][29],
+   [vim-signify][30], [quickfixsigns][39], [syntastic][5], [eclim][34],
+   [lawrencium][21], [virtualenv][31], [tmuxline][35], [taboo.vim][37],
+   [ctrlspace][38] and more.
 *  Looks good with regular fonts and provides configuration points so you can use unicode or powerline symbols.
 *  Optimized for speed; it loads in under a millisecond.
 *  Extensive suite of themes for popular color schemes including [solarized][23] (dark and light), [tomorrow][24] (all variants), [base16][32] (all variants), [molokai][25], [jellybeans][26] and others; have a look at the [screenshots][14] in the wiki.
@@ -176,7 +181,11 @@ Contributions and pull requests are welcome.  Please take note of the following 
 *  Adhere to the existing style as much as possible; notably, 2 space indents and long-form keywords.
 *  Keep the history clean! squash your branches before you submit a pull request. `pull --rebase` is your friend.
 *  Any changes to the core should be tested against Vim 7.2.
+
+## Themes
+
 *  If you submit a theme, please create a screenshot so it can be added to the [Wiki][14].
+*  In the majority of cases, modifications to colors of existing themes will likely be rejected.  Themes are a subjective thing, so while you may prefer that a particular color be darker, another user will prefer it to be lighter, or something entirely different.  The more popular the theme, the more unlikely the change will be accepted.  However, it's pretty simple to create your own theme; copy the theme to `~/.vim/autoload/airline/themes` under a new name with your modifications, and it can be used.
 
 # License
 
@@ -223,3 +232,4 @@ MIT License. Copyright (c) 2013-2015 Bailey Ling.
 [36]: https://github.com/edkolev/promptline.vim
 [37]: https://github.com/gcmt/taboo.vim
 [38]: https://github.com/szw/vim-ctrlspace
+[39]: https://github.com/tomtom/quickfixsigns_vim

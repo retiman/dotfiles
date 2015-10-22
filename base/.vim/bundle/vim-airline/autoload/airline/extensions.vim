@@ -159,7 +159,7 @@ function! airline#extensions#load()
   endif
 
   if (get(g:, 'airline#extensions#hunks#enabled', 1) && get(g:, 'airline_enable_hunks', 1))
-        \ && (exists('g:loaded_signify') || exists('g:loaded_gitgutter') || exists('g:loaded_changes'))
+        \ && (exists('g:loaded_signify') || exists('g:loaded_gitgutter') || exists('g:loaded_changes') || exists('g:loaded_quickfixsigns'))
     call airline#extensions#hunks#init(s:ext)
   endif
 
@@ -204,6 +204,10 @@ function! airline#extensions#load()
 
   if (get(g:, 'airline#extensions#whitespace#enabled', 1) && get(g:, 'airline_detect_whitespace', 1))
     call airline#extensions#whitespace#init(s:ext)
+  endif
+
+  if get(g:, 'airline#extensions#wordcount#enabled', 1)
+    call airline#extensions#wordcount#init(s:ext)
   endif
 
   if get(g:, 'airline#extensions#tabline#enabled', 0)

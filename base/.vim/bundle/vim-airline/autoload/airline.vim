@@ -88,6 +88,9 @@ function! airline#switch_matching_theme()
 endfunction
 
 function! airline#update_statusline()
+  if airline#util#getwinvar(winnr(), 'airline_disabled', 0)
+    return
+  endif
   for nr in filter(range(1, winnr('$')), 'v:val != winnr()')
     if airline#util#getwinvar(nr, 'airline_disabled', 0)
       continue
@@ -142,6 +145,8 @@ function! airline#check_mode(winnr)
       let l:mode = ['replace']
     elseif l:m =~# '\v(v|V||s|S|)'
       let l:mode = ['visual']
+    elseif l:m ==# "t"
+      let l:mode = ['terminal']
     else
       let l:mode = ['normal']
     endif
@@ -157,6 +162,10 @@ function! airline#check_mode(winnr)
 
   if g:airline_detect_paste && &paste
     call add(l:mode, 'paste')
+  endif
+
+  if g:airline_detect_crypt && exists("+key") && !empty(&key)
+    call add(l:mode, 'crypt')
   endif
 
   if &readonly || ! &modifiable
