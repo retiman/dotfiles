@@ -62,7 +62,6 @@ let s:types = {
 	\ 'lisp'   : '%slisp%slisp%sf',
 	\ 'lua'    : '%slua%slua%sf',
 	\ 'make'   : '%smake%smake%sm',
-	\ 'ocaml'  : '%socaml%socaml%scmMvtfCre',
 	\ 'pascal' : '%spascal%spascal%sfp',
 	\ 'perl'   : '%sperl%sperl%sclps',
 	\ 'php'    : '%sphp%sphp%scdvf',
@@ -239,7 +238,7 @@ fu! ctrlp#buffertag#accept(mode, str)
 		\ '\v^[^\t]+\t+[^\t|]+\|(\d+)\:[^\t|]+\|(\d+)\|\s(.+)$')
 	let bufnr = str2nr(get(vals, 1))
 	if bufnr
-		cal ctrlp#acceptfile(a:mode, bufnr)
+		cal ctrlp#acceptfile(a:mode, bufname(bufnr))
 		exe 'norm!' str2nr(get(vals, 2, line('.'))).'G'
 		cal s:chknearby('\V\C'.get(vals, 3, ''))
 		sil! norm! zvzz
@@ -249,9 +248,7 @@ endf
 fu! ctrlp#buffertag#cmd(mode, ...)
 	let s:btmode = a:mode
 	if a:0 && !empty(a:1)
-		let s:btmode = 0
-		let bname = a:1 =~# '^%$\|^#\d*$' ? expand(a:1) : a:1
-		let s:bufname = fnamemodify(bname, ':p')
+		let s:bufname = fnamemodify(a:1, ':p')
 	en
 	retu s:id
 endf
