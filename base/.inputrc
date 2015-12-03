@@ -2,6 +2,9 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set editing-mode emacs
 
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
 $if mode=emacs
   'C-b': backward-word
   'C-f': forward-word
