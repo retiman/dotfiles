@@ -12,6 +12,15 @@ if !exists("g:slime_target")
   let g:slime_target = "screen"
 end
 
+if !exists("g:slime_preserve_curpos")
+  let g:slime_preserve_curpos = 1
+end
+
+" screen and tmux need a file, so set a default if not configured
+if !exists("g:slime_paste_file")
+  let g:slime_paste_file = "$HOME/.slime_paste"
+end
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Screen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -30,12 +39,6 @@ function! s:ScreenConfig() abort
   if !exists("b:slime_config")
     let b:slime_config = {"sessionname": "", "windowname": "0"}
   end
-
-  " screen needs a file, so set a default if not configured
-  if !exists("g:slime_paste_file")
-    let g:slime_paste_file = "$HOME/.slime_paste"
-  end
-
   let b:slime_config["sessionname"] = input("screen session name: ", b:slime_config["sessionname"], "custom,<SNR>" . s:SID() . "_ScreenSessionNames")
   let b:slime_config["windowname"]  = input("screen window name: ",  b:slime_config["windowname"])
 endfunction
@@ -45,15 +48,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! s:TmuxSend(config, text)
-  let l:prefix = "tmux -L " . shellescape(a:config["socket_name"])
-  " use STDIN unless configured to use a file
-  if !exists("g:slime_paste_file")
-    call system(l:prefix . " load-buffer -", a:text)
-  else
-    call s:WritePasteFile(a:text)
-    call system(l:prefix . " load-buffer " . g:slime_paste_file)
-  end
-  call system(l:prefix . " paste-buffer -d -t " . shellescape(a:config["target_pane"]))
+  call s:WritePasteFile(a:text)
+  call system("tmux -L " . shellescape(a:config["socket_name"]) . " load-buffer " . g:slime_paste_file)
+  call system("tmux -L " . shellescape(a:config["socket_name"]) . " paste-buffer -d -t " . shellescape(a:config["target_pane"]))
 endfunction
 
 function! s:TmuxPaneNames(A,L,P)
@@ -65,12 +62,36 @@ function! s:TmuxConfig() abort
   if !exists("b:slime_config")
     let b:slime_config = {"socket_name": "default", "target_pane": ":"}
   end
-
   let b:slime_config["socket_name"] = input("tmux socket name: ", b:slime_config["socket_name"])
   let b:slime_config["target_pane"] = input("tmux target pane: ", b:slime_config["target_pane"], "custom,<SNR>" . s:SID() . "_TmuxPaneNames")
   if b:slime_config["target_pane"] =~ '\s\+'
     let b:slime_config["target_pane"] = split(b:slime_config["target_pane"])[0]
   endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Conemu
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! s:ConemuSend(config, text)
+  let l:prefix = "conemuc -guimacro:" . a:config["HWND"]
+  " use the selection register to send text to ConEmu using the windows
+  " clipboard (see help gui-clipboard)
+  " save the current selection to restore it after send
+  let tmp = @*
+  let @* = a:text
+  call system(l:prefix . " print")
+  let @* = tmp
+endfunction
+
+function! s:ConemuConfig() abort
+  " set destination for send commands, as specified in
+  " http://conemu.github.io/en/GuiMacro.html#Command_line
+  if !exists("b:slime_config")
+    " defaults to the active tab/split of the first found ConEmu window
+    let b:slime_config = {"HWND": "0"}
+  end
+  let b:slime_config["HWND"] = input("Console server HWND: ", b:slime_config["HWND"])
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,7 +106,6 @@ function! s:WhimreplConfig() abort
   if !exists("b:slime_config")
     let b:slime_config = {"server_name": "whimrepl"}
   end
-
   let b:slime_config["server_name"] = input("whimrepl server name: ", b:slime_config["server_name"])
 endfunction
 
@@ -104,7 +124,7 @@ endfunction
 
 function! s:_EscapeText(text)
   if exists("&filetype")
-    let custom_escape = "_EscapeText_" . &filetype
+    let custom_escape = "_EscapeText_" . substitute(&filetype, "[.]", "_", "g")
     if exists("*" . custom_escape)
       let result = call(custom_escape, [a:text])
     end
@@ -124,13 +144,20 @@ function! s:_EscapeText(text)
 endfunction
 
 function! s:SlimeGetConfig()
-  if !exists("b:slime_config")
-    if exists("g:slime_default_config")
-      let b:slime_config = g:slime_default_config
-    else
-      call s:SlimeDispatch('Config')
-    end
+  " b:slime_config already configured...
+  if exists("b:slime_config")
+    return
   end
+  " assume defaults, if they exist
+  if exists("g:slime_default_config")
+    let b:slime_config = g:slime_default_config
+  end
+  " skip confirmation, if configured
+  if exists("g:slime_dont_ask_default") && g:slime_dont_ask_default
+    return
+  end
+  " prompt user
+  call s:SlimeDispatch('Config')
 endfunction
 
 function! s:SlimeSendOp(type, ...) abort
@@ -156,6 +183,8 @@ function! s:SlimeSendOp(type, ...) abort
 
   let &selection = sel_save
   call setreg('"', rv, rt)
+
+  call s:SlimeRestoreCurPos()
 endfunction
 
 function! s:SlimeSendRange() range abort
@@ -176,6 +205,25 @@ function! s:SlimeSendLines(count) abort
   exe "norm! " . a:count . "yy"
   call s:SlimeSend(@")
   call setreg('"', rv, rt)
+endfunction
+
+function! s:SlimeStoreCurPos()
+  if g:slime_preserve_curpos == 1
+    let has_getcurpos = exists("*getcurpos")
+    if has_getcurpos
+      " getcurpos() doesn't exist before 7.4.313.
+      let s:cur = getcurpos()
+    else
+      let s:cur = getpos('.')
+    endif
+  endif
+endfunction
+
+function! s:SlimeRestoreCurPos()
+  if g:slime_preserve_curpos == 1 && exists("s:cur")
+    call setpos('.', s:cur)
+    unlet s:cur
+  endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,8 +261,9 @@ endfunction
 command -bar -nargs=0 SlimeConfig call s:SlimeConfig()
 command -range -bar -nargs=0 SlimeSend <line1>,<line2>call s:SlimeSendRange()
 command -nargs=+ SlimeSend1 call s:SlimeSend(<q-args> . "\r")
+command -nargs=+ SlimeSend0 call s:SlimeSend(<args>)
 
-noremap <SID>Operator :<c-u>set opfunc=<SID>SlimeSendOp<cr>g@
+noremap <SID>Operator :<c-u>call <SID>SlimeStoreCurPos()<cr>:set opfunc=<SID>SlimeSendOp<cr>g@
 
 noremap <unique> <script> <silent> <Plug>SlimeRegionSend :<c-u>call <SID>SlimeSendOp(visualmode(), 1)<cr>
 noremap <unique> <script> <silent> <Plug>SlimeLineSend :<c-u>call <SID>SlimeSendLines(v:count1)<cr>
