@@ -141,6 +141,7 @@ let g:neocomplcache_enable_at_startup=1
 let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
 let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
+let g:slime_dont_ask_default=1
 let g:slime_sessionname='0'
 let g:slime_target='tmux'
 let g:slime_no_mappings=1
