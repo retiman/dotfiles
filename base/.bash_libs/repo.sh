@@ -25,7 +25,8 @@ function repo::branch() {
 function repo::dirty() {
   M1="nothing to commit, working tree clean"
   M2="nothing to commit (working directory clean)"
+  M3="nothing to commit, working tree clean"
   STATUS=$(git status 2> /dev/null | tail -n1)
-  [[ $STATUS != $M1 && $STATUS != $M2 ]] && echo '*'
+  [[ $STATUS != $M1 && $STATUS != $M2 && $STATUS != $M3 ]] && echo '*'
 }
 
