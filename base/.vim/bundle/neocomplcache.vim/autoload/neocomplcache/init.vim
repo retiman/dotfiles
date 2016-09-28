@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: init.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 02 May 2013.
+" Last Modified: 25 Oct 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -136,7 +136,11 @@ function! neocomplcache#init#_others() "{{{
   let s:completeopt_save = &completeopt
 
   " Set completefunc.
+  let completefunc_save = &l:completefunc
   let &completefunc = 'neocomplcache#complete#manual_complete'
+  if completefunc_save != ''
+    let &l:completefunc = completefunc_save
+  endif
 
   " For auto complete keymappings.
   call neocomplcache#mappings#define_default_mappings()
@@ -176,7 +180,7 @@ function! neocomplcache#init#_variables() "{{{
   call neocomplcache#util#set_default_dictionary(
         \'g:neocomplcache_keyword_patterns',
         \'ruby,int-irb',
-        \'^=\%(b\%[egin]\|e\%[nd]\)\|\%(@@\|[:$@]\)\h\w*\|\h\w*\%(::\w*\)*[!?]\?')
+        \'^=\%(b\%[egin]\|e\%[nd]\)\|\%(@@\|[$@]\)\h\w*\|\h\w*\%(::\w*\)*[!?]\?')
   call neocomplcache#util#set_default_dictionary(
         \'g:neocomplcache_keyword_patterns',
         \'php,int-php',
@@ -281,7 +285,7 @@ function! neocomplcache#init#_variables() "{{{
   call neocomplcache#util#set_default_dictionary(
         \'g:neocomplcache_keyword_patterns',
         \'erlang,int-erl',
-        \'^\s*-\h\w*\|\%(\h\w*:\)*\h\w\|\h[[:alnum:]_@]*')
+        \'^\s*-\h\w*\|\%(\h\w*:\)*\h\w*\|\h[[:alnum:]_@]*')
   call neocomplcache#util#set_default_dictionary(
         \'g:neocomplcache_keyword_patterns',
         \'html,xhtml,xml,markdown,eruby',
@@ -401,7 +405,7 @@ function! neocomplcache#init#_variables() "{{{
         \'[[:alnum:]:_]\+[*[{}]')
   call neocomplcache#util#set_default_dictionary(
         \'g:neocomplcache_next_keyword_patterns', 'html,xhtml,xml,mkd',
-        \'[[:alnum:]_:-]*>\|[^"]*"')
+        \'[^"]*"\|[[:alnum:]_:-]*>')
   "}}}
 
   " Initialize same file type lists. "{{{
@@ -449,6 +453,12 @@ function! neocomplcache#init#_variables() "{{{
   call neocomplcache#util#set_default_dictionary(
         \ 'g:neocomplcache_same_filetype_lists',
         \ 'lingr-say', 'lingr-messages,lingr-members')
+  call neocomplcache#util#set_default_dictionary(
+        \ 'g:neocomplcache_same_filetype_lists',
+        \ 'J6uil_say', 'J6uil')
+  call neocomplcache#util#set_default_dictionary(
+        \ 'g:neocomplcache_same_filetype_lists',
+        \ 'vimconsole', 'vim')
 
   " Interactive filetypes.
   call neocomplcache#util#set_default_dictionary(
@@ -590,7 +600,8 @@ function! neocomplcache#init#_variables() "{{{
         \ 'g:neocomplcache_text_mode_filetypes', {})
   call neocomplcache#util#set_default_dictionary(
         \ 'g:neocomplcache_text_mode_filetypes',
-        \ 'text,help,tex,gitcommit,vcs-commit', 1)
+        \ 'hybrid,text,help,tex,gitcommit,gitrebase,vcs-commit,markdown,'.
+        \   'textile,creole,org,rdoc,mediawiki,rst,asciidoc,pod', 1) 
   "}}}
 
   " Initialize tags filter patterns. "{{{
@@ -658,6 +669,8 @@ function! neocomplcache#init#_current_neocomplcache() "{{{
         \ 'complete_pos' : -1,
         \ 'candidates' : [],
         \ 'complete_results' : [],
+        \ 'complete_sources' : [],
+        \ 'manual_sources' : [],
         \ 'start_time' : reltime(),
         \}
 endfunction"}}}
@@ -767,7 +780,7 @@ function! neocomplcache#init#_source(source) "{{{
       call neocomplcache#print_error(v:throwpoint)
       call neocomplcache#print_error(v:exception)
       call neocomplcache#print_error(
-            \ 'Error occured in source''s initialize()!')
+            \ 'Error occurred in source''s initialize()!')
       call neocomplcache#print_error(
             \ 'Source name is ' . source.name)
     endtry

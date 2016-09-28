@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: syntax_complete.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 28 Apr 2013.
+" Last Modified: 26 Sep 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -45,6 +45,7 @@ function! s:source.initialize() "{{{
 
   " Create cache directory.
   if !isdirectory(neocomplcache#get_temporary_directory() . '/syntax_cache')
+     \ && !neocomplcache#util#is_sudo()
     call mkdir(neocomplcache#get_temporary_directory() . '/syntax_cache')
   endif
 
@@ -57,10 +58,6 @@ function! s:source.finalize() "{{{
 endfunction"}}}
 
 function! s:source.get_keyword_list(complete_str) "{{{
-  if neocomplcache#within_comment()
-    return []
-  endif
-
   let list = []
 
   let filetype = neocomplcache#get_context_filetype()
@@ -134,19 +131,19 @@ function! s:caching_from_syn(filetype) "{{{
 
   let dup_check = {}
 
-  let filetype_pattern = substitute(a:filetype, '\W', '\\A', 'g') . '\u'
+  let filetype_pattern = tolower(a:filetype)
 
   let keyword_lists = {}
   for line in split(syntax_list, '\n')
     if line =~ '^\h\w\+'
       " Change syntax group name.
       let group_name = matchstr(line, '^\S\+')
-      let line = substitute(line, '^\S\s*xxx', '', '')
+      let line = substitute(line, '^\S\+\s*xxx', '', '')
     endif
 
     if line =~ 'Syntax items' || line =~ '^\s*links to' ||
           \ line =~ '^\s*nextgroup=' ||
-          \ group_name !~# filetype_pattern
+          \ strridx(tolower(group_name), filetype_pattern) != 0
       " Next line.
       continue
     endif

@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: complete.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 01 May 2013.
+" Last Modified: 06 Jun 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -75,10 +75,7 @@ function! neocomplcache#complete#manual_complete(findstart, base) "{{{
 
       if (g:neocomplcache_enable_cursor_hold_i
             \      || v:version > 703 || v:version == 703 && has('patch561'))
-            \ && (len(a:base) < g:neocomplcache_auto_completion_start_length
-            \   || !empty(filter(copy(neocomplcache.candidates),
-            \          "get(v:val, 'neocomplcache__refresh', 0)"))
-            \   || len(neocomplcache.candidates) >= g:neocomplcache_max_list)
+            \ && len(a:base) < g:neocomplcache_auto_completion_start_length
         " Note: If Vim is less than 7.3.561, it have broken register "." problem.
         let dict.refresh = 'always'
       endif
@@ -98,14 +95,9 @@ function! neocomplcache#complete#sources_manual_complete(findstart, base) "{{{
       return -2
     endif
 
-    let all_sources = neocomplcache#available_sources()
-    let sources = get(a:000, 0, keys(all_sources))
-    let s:use_sources = neocomplcache#helper#get_sources_list(
-          \ type(sources) == type([]) ? sources : [sources])
-
     " Get complete_pos.
     let complete_results = neocomplcache#complete#_get_results(
-          \ neocomplcache#get_cur_text(1), s:use_sources)
+          \ neocomplcache#get_cur_text(1), neocomplcache.manual_sources)
     let neocomplcache.complete_pos =
           \ neocomplcache#complete#_get_complete_pos(complete_results)
 
@@ -298,7 +290,7 @@ function! neocomplcache#complete#_set_results_pos(cur_text, ...) "{{{
       call neocomplcache#print_error(v:throwpoint)
       call neocomplcache#print_error(v:exception)
       call neocomplcache#print_error(
-            \ 'Error occured in source''s get_complete_position()!')
+            \ 'Error occurred in source''s get_complete_position()!')
       call neocomplcache#print_error(
             \ 'Source name is ' . source.name)
       return complete_sources
@@ -364,7 +356,7 @@ function! neocomplcache#complete#_set_results_words(sources) "{{{
       call neocomplcache#print_error(
             \ 'Source name is ' . source.name)
       call neocomplcache#print_error(
-            \ 'Error occured in source''s gather_candidates()!')
+            \ 'Error occurred in source''s gather_candidates()!')
       return
     finally
       if winsaveview() != pos

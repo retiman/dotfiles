@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: helper.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 29 Apr 2013.
+" Last Modified: 20 Aug 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -185,7 +185,7 @@ function! neocomplcache#helper#get_source_filetypes(filetype) "{{{
 
   let filetype_dict = {}
 
-  let filetypes = [filetype, '_']
+  let filetypes = [filetype]
   if filetype =~ '\.'
     if exists('g:neocomplcache_ignore_composite_filetype_lists')
           \ && has_key(g:neocomplcache_ignore_composite_filetype_lists, filetype)
@@ -197,14 +197,9 @@ function! neocomplcache#helper#get_source_filetypes(filetype) "{{{
   endif
 
   if exists('g:neocomplcache_same_filetype_lists')
-    for ft in filetypes
-      for same_ft in split(get(g:neocomplcache_same_filetype_lists, ft,
+    for ft in copy(filetypes)
+      let filetypes += split(get(g:neocomplcache_same_filetype_lists, ft,
             \ get(g:neocomplcache_same_filetype_lists, '_', '')), ',')
-        if same_ft != '' && index(filetypes, same_ft) < 0
-          " Add same filetype.
-          call add(filetypes, same_ft)
-        endif
-      endfor
     endfor
   endif
 
@@ -283,7 +278,8 @@ function! neocomplcache#helper#unite_patterns(pattern_var, filetype) "{{{
     endif
 
     " Same filetype.
-    if has_key(g:neocomplcache_same_filetype_lists, ft)
+    if exists('g:neocomplcache_same_filetype_lists')
+          \ && has_key(g:neocomplcache_same_filetype_lists, ft)
       for ft in split(g:neocomplcache_same_filetype_lists[ft], ',')
         if has_key(a:pattern_var, ft) && !has_key(dup_check, ft)
           let dup_check[ft] = 1
@@ -378,11 +374,11 @@ function! neocomplcache#helper#call_hook(sources, hook_name, context) "{{{
               \ source.hooks)
       endif
     catch
-      call unite#print_error(v:throwpoint)
-      call unite#print_error(v:exception)
-      call unite#print_error(
-            \ '[unite.vim] Error occured in calling hook "' . a:hook_name . '"!')
-      call unite#print_error(
+      call neocomplcache#print_error(v:throwpoint)
+      call neocomplcache#print_error(v:exception)
+      call neocomplcache#print_error(
+            \ '[unite.vim] Error occurred in calling hook "' . a:hook_name . '"!')
+      call neocomplcache#print_error(
             \ '[unite.vim] Source name is ' . source.name)
     endtry
   endfor
@@ -396,12 +392,12 @@ function! neocomplcache#helper#call_filters(filters, source, context) "{{{
     try
       let context.candidates = call(filter.filter, [context], filter)
     catch
-      call unite#print_error(v:throwpoint)
-      call unite#print_error(v:exception)
-      call unite#print_error(
-            \ '[unite.vim] Error occured in calling filter '
+      call neocomplcache#print_error(v:throwpoint)
+      call neocomplcache#print_error(v:exception)
+      call neocomplcache#print_error(
+            \ '[unite.vim] Error occurred in calling filter '
             \   . filter.name . '!')
-      call unite#print_error(
+      call neocomplcache#print_error(
             \ '[unite.vim] Source name is ' . a:source.name)
     endtry
   endfor

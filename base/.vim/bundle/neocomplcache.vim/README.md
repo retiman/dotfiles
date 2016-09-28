@@ -1,6 +1,11 @@
 **neocomplcache**
 =================
 
+Note:  It is not maintained well.  You should use neocomplete instead.
+
+https://github.com/Shougo/neocomplete.vim
+
+
 Description
 -----------
 
@@ -8,6 +13,11 @@ neocomplcache is the abbreviation of "neo-completion with cache". It
 provides keyword completion system by maintaining a cache of keywords in the
 current buffer. neocomplcache could be customized easily and has a lot more
 features than the Vim's standard completion feature.
+
+If you use Vim 7.3.885 or above with if\_lua feature, you should use
+neocomplete.  It is faster than neocomplcache.
+
+https://github.com/Shougo/neocomplete.vim
 
 Installation
 ============
@@ -133,14 +143,14 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 ```

@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: include_complete.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 24 Apr 2013.
+" Last Modified: 26 Sep 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -49,6 +49,7 @@ function! s:source.initialize() "{{{
 
   " Create cache directory.
   if !isdirectory(neocomplcache#get_temporary_directory() . '/include_cache')
+     \ && !neocomplcache#util#is_sudo()
     call mkdir(neocomplcache#get_temporary_directory()
           \ . '/include_cache', 'p')
   endif
@@ -448,6 +449,9 @@ function! s:initialize_variables() "{{{
   call neocomplcache#util#set_default_dictionary(
         \ 'g:neocomplcache_include_patterns',
         \ 'ruby', '^\s*\<\%(load\|require\|require_relative\)\>')
+  call neocomplcache#util#set_default_dictionary(
+        \ 'g:neocomplcache_include_patterns',
+        \ 'c,cpp', '^\s*#\s*include')
   "}}}
   " Initialize expr pattern. "{{{
   call neocomplcache#util#set_default(
@@ -460,6 +464,9 @@ function! s:initialize_variables() "{{{
   " Initialize path pattern. "{{{
   call neocomplcache#util#set_default(
         \ 'g:neocomplcache_include_paths', {})
+  call neocomplcache#util#set_default_dictionary(
+        \ 'g:neocomplcache_include_paths', 'c,cpp',
+        \ &path)
   "}}}
   " Initialize include suffixes. "{{{
   call neocomplcache#util#set_default(
