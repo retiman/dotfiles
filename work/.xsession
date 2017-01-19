@@ -8,8 +8,12 @@ xset -b
 # See: https://gist.github.com/retiman/6b7da5f9868cf12435b3
 setxkbmap -option ctrl:swapcaps
 
-# Turn off the damned touchpad.
-synclient TouchpadOff=1
+# Make the MicroSoft Windows button on mouse behave as a back button in Chrome.
+# This unsets Super_R and maps it to some non-existent button (F13), which in
+# xbindkeys sends a fake back request.
+xmodmap -e 'remove mod4 = Super_R'
+xmodmap -e 'keycode 134 = F13'
+xset -r 134
 
 # Set mouse acceleration.  Acceleration defines how much faster than the default
 # speed the moue will move.  The threshold is the velocity required before
@@ -34,23 +38,3 @@ xset m 2.0 0
 #
 # See: https://wiki.archlinux.org/index.php/Xbindkeys
 [ -e $HOME/.xbindkeysrc ] && xbindkeys -f $HOME/.xbindkeysrc
-
-# Source additional configuration.
-if [ -d $HOME/.xinitrc.d/ ]; then
-  for F in $HOME/.xinitrc.d/?*.sh; do
-    [ -x "$F" ] && source "$F"
-  done
-  unset F
-fi
-
-# Prepending exec is recommended as it replaces the current process with the
-# process, so the script will stop running and X won't exit even if the process
-# forks into the background.
-#
-# See: https://wiki.archlinux.org/index.php/Xinitrc
-if [ -f $HOME/.i3local.conf ]; then
-  cat $HOME/.i3/i3base.conf $HOME/.i3local.conf > $HOME/.i3/config
-else
-  cat $HOME/.i3/i3base.conf > $HOME/.i3/config
-fi
-exec dbus-launch /usr/bin/i3
