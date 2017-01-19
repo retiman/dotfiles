@@ -18,27 +18,24 @@ floating_modifier $mod
 focus_follows_mouse yes
 font $font
 force_focus_wrapping no
-force_xinerama yes
 new_window normal
 popup_during_fullscreen leave_fullscreen
-workspace_auto_back_and_forth no
 
 # Workspace assignments
 #
 # To find a window's class, run xprop then click on the window in question.
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
-assign [class="Avidemux2_gtk"] 8
-assign [class="Google-chrome"] 9
-assign [class="VirtualBox"] 10
-assign [class="thunar"] 8
+assign [class=Avidemux2_gtk] 8
+assign [class=Google-chrome] 9
+assign [class=VirtualBox] 10
+assign [class=thunar] 8
 
 # Per window commands
 #
 # To find a window's class, run xprop then click on the window in question.
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
-for_window [window_role="pop-up"] floating enable
 for_window [class="Avidemux2_gtk"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="Google-chrome"] layout stacking
@@ -124,24 +121,3 @@ bindsym $mod+shift+J move down
 bindsym $mod+shift+K move up
 bindsym $mod+shift+L move right
 bindsym $mod+shift+R restart
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command i3status
-  mode dock
-  position bottom
-  tray_output none
-
-  font $font
-
-  colors {
-    background #333333
-    statusline #f6f3e8
-
-    focused_workspace  #ffffff #285577
-    active_workspace   #ffffff #333333
-    inactive_workspace #888888 #222222
-    urgent_workspace   #ffffff #900000
-  }
-}
