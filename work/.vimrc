@@ -165,7 +165,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-colorscheme jellybeans
+colorscheme slate
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
