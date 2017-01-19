@@ -1,0 +1,147 @@
+# i3 config file
+#
+# If running a dual monitor setup, make sure both monitors are plugged in
+# when i3 starts, and run the following:
+#
+#   xrandr --output DVI-1 --primary --output DVI-0 --right-of DVI-1
+#
+# ...replacing the outputs as necessary.
+#
+# Run xmodmap -pke to see keycodes and names.
+# See: http://i3wm.org/docs/userguide.html
+set $mod Mod1
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $font -misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1
+
+# Font for window titles. ISO 10646 = Unicode
+floating_modifier $mod
+focus_follows_mouse yes
+font $font
+force_focus_wrapping no
+force_xinerama yes
+new_window normal
+popup_during_fullscreen leave_fullscreen
+workspace_auto_back_and_forth no
+
+# Workspace assignments
+#
+# To find a window's class, run xprop then click on the window in question.
+# The WM_CLASS corresponds to the class in i3.  You can also assign by
+# title using the WM_NAME property.
+assign [class="Avidemux2_gtk"] 8
+assign [class="Google-chrome"] 9
+assign [class="VirtualBox"] 10
+assign [class="thunar"] 8
+
+# Per window commands
+#
+# To find a window's class, run xprop then click on the window in question.
+# The WM_CLASS corresponds to the class in i3.  You can also assign by
+# title using the WM_NAME property.
+for_window [window_role="pop-up"] floating enable
+for_window [class="Avidemux2_gtk"] floating enable
+for_window [class="Display"] floating enable
+for_window [class="Google-chrome"] layout stacking
+for_window [class="MPlayer"] floating enable
+for_window [class="VirtualBox"] layout stacking
+for_window [class="chromium"] layout stacking
+for_window [class="emulator64-x86"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="google-chrome"] layout stacking
+for_window [class="jetbrains-idea"] layout stacking
+for_window [class="mplayer2"] floating enable
+for_window [class="rdesktop"] floating enable
+for_window [title="File Operation Progress"] floating enable
+
+# Color Classes
+#                       border  back    text
+client.focused          #005577 #005577 #a0ff00
+client.focused_inactive #303030 #242424 #f6f3e8
+client.unfocused        #303030 #242424 #f6f3e8
+client.urgent           #00ffff #242424 #f6f3e8
+
+# Mode Definitions
+mode "$resize" {
+  bindsym h resize shrink right 5 px or 5 ppt; mode "default"
+  bindsym j resize grow   down  5 px or 5 ppt; mode "default"
+  bindsym k resize shrink down  5 px or 5 ppt; mode "default"
+  bindsym l resize grow   right 5 px or 5 ppt; mode "default"
+}
+
+mode "$mode_system" {
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym e exec --no-startup-id i3exit logout, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# Key bindings
+bindsym $mod+Return exec urxvt
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+space focus mode_toggle
+bindsym $mod+d layout default
+bindsym $mod+e exec dmenu_run
+bindsym $mod+f fullscreen
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+r mode "$resize"
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+v split vertical
+bindsym $mod+q mode "$mode_system"
+bindsym $mod+shift+exclam move workspace 1
+bindsym $mod+shift+at move workspace 2
+bindsym $mod+shift+numbersign move workspace 3
+bindsym $mod+shift+dollar move workspace 4
+bindsym $mod+shift+percent move workspace 5
+bindsym $mod+shift+asciicircum move workspace 6
+bindsym $mod+shift+ampersand move workspace 7
+bindsym $mod+shift+asterisk move workspace 8
+bindsym $mod+shift+parenleft move workspace 9
+bindsym $mod+shift+parenright move workspace 10
+bindsym $mod+shift+space floating toggle
+bindsym $mod+shift+C kill
+bindsym $mod+shift+E exit
+bindsym $mod+shift+H move left
+bindsym $mod+shift+J move down
+bindsym $mod+shift+K move up
+bindsym $mod+shift+L move right
+bindsym $mod+shift+R restart
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command i3status
+  mode dock
+  position bottom
+  tray_output none
+
+  font $font
+
+  colors {
+    background #333333
+    statusline #f6f3e8
+
+    focused_workspace  #ffffff #285577
+    active_workspace   #ffffff #333333
+    inactive_workspace #888888 #222222
+    urgent_workspace   #ffffff #900000
+  }
+}
