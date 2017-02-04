@@ -12,6 +12,7 @@ alias li='ls -lhF --color=yes | less -r'
 alias ll='ls -lhF --color=auto'
 alias loc='find -type f -print0 | wc -l --files0-from=- | tail -n1'
 alias ls='ls -hF --group-directories-first --color=auto'
+alias m='mplayer -fs'
 alias mkdir='mkdir -p -v'
 alias mtop='ps auxf | sort -nr -k 4 | head -10' # show top 10 memory intensive apps
 alias pd='pushd'
