@@ -1,0 +1,8 @@
+alias l='ll'
+alias la='ls -AhFG'
+alias li='ls -lhFG | less -r'
+alias ll='/bin/ls -lhFG'
+alias ls='/bin/ls -hFG'
+
+prompt::colorize $COLOR_CYAN
+
