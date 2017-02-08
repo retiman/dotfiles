@@ -154,7 +154,7 @@ let g:startify_session_persistence=1
 " color erase.
 "
 " See: http://superuser.com/questions/508198/which-is-the-correct-way-to-config-the-term-and-tmux
-if &term == 'screen'
+if &term == 'screen' || has('unix')
   set t_Co=256
   set t_ut=
 endif
