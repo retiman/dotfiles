@@ -78,7 +78,7 @@ set nosmartindent
 set noswapfile
 set novisualbell
 set number
-set pastetoggle=<f1>
+set pastetoggle=<leader>p
 set ruler
 set scrolloff=15
 set selection=inclusive
@@ -208,9 +208,6 @@ endfunction
 
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
-noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F3> :call ToggleColorColumn()<cr>
-noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :e .<cr>
 noremap H <nop>
@@ -239,14 +236,15 @@ nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
+nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
-nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
-nnoremap <leader>p :r!xclip -o -sel clip<cr>
-nnoremap <leader>q :qa!<cr>
+nnoremap <leader>t :!ctags -R * &<cr><cr>
+nnoremap <leader>o :call ToggleColorColumn()<cr>
+nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
