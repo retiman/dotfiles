@@ -71,7 +71,6 @@ set gdefault
 set guioptions+=c
 set hidden
 set history=50
-set hlsearch
 set incsearch
 set ignorecase
 set indentexpr=
@@ -87,6 +86,7 @@ set nobackup
 set nocindent
 set noerrorbells
 set nofoldenable
+set nohlsearch
 set nosmartindent
 set noswapfile
 set novisualbell
