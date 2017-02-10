@@ -32,6 +32,16 @@
 " with your mappings without asking you first, so be sure to check.
 
 " These set directives must be set first.
+"
+" OSX sometimes has trouble with clipboard set to anything except "unnamed";
+" consider something like:
+"
+"   if has("unix")
+"     let s:uname = system("uname -s")
+"     if s:uname == "Darwin"
+"       set clipboard=unnamed
+"     endif
+"   endif
 set nocompatible
 set clipboard=autoselect,unnamedplus
 set encoding=utf-8
@@ -45,6 +55,7 @@ set autoread
 set background=dark
 set backspace=indent,eol,start
 set cmdheight=2
+set colorcolumn=81
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
