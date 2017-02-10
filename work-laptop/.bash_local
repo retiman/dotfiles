@@ -1,7 +1,5 @@
 alias ll='/bin/ls -lhFG'
 alias ls='/bin/ls -hFG'
-alias pbcopy='/usr/bin/pbcopy'
-alias pbpaste='/usr/bin/pbpaste'
 
 prompt::colorize $COLOR_CYAN
 
