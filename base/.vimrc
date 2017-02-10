@@ -42,6 +42,8 @@
 "       set clipboard=unnamed
 "     endif
 "   endif
+"
+" See http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing
 set nocompatible
 set clipboard=autoselect,unnamedplus
 set encoding=utf-8
