@@ -224,7 +224,6 @@ noremap J <nop>
 noremap K <nop>
 noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-noremap <silent> <leader>y :<c-u>call system('xclip -f -sel clip')<cr>
 noremap j gj
 noremap k gk
 
@@ -247,6 +246,7 @@ nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
+nnoremap <leader>p :r !pbpaste<CR>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
@@ -260,6 +260,7 @@ nnoremap <leader>/ :set hlsearch!<cr>
 " Visual mode and selection mode mappings.
 vnoremap < <gv
 vnoremap > >gv
+vnoremap <leader>y :.w !pbcopy<cr><cr>
 
 " Visual mode only mappings.
 xmap <leader>x <plug>SlimeRegionSend
