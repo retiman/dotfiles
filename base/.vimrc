@@ -239,7 +239,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
-nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
@@ -248,8 +247,6 @@ nnoremap <leader>n :set number!<cr>
 nnoremap <leader>p :r !pbpaste<CR>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
-nnoremap <leader>sd :SDelete<cr>
-nnoremap <leader>ss :SSave<cr>
 nnoremap <leader>t :!ctags -R * &<cr><cr>
 nnoremap <leader>o :call ToggleColorColumn()<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
