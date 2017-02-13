@@ -1,14 +1,17 @@
 {
   "windows": [
     {
+      "window_name": "main",
+      "layout": "main-vertical",
+      "options": {
+        "main-pane-width": 81,
+      },
       "panes": [
         null,
         null,
         null,
         null
       ],
-      "layout": "main-vertical",
-      "window_name": "main"
     }
   ],
   "session_name": "default"
