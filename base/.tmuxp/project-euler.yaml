@@ -8,5 +8,5 @@ windows:
       - cd ~/proj/project-euler/racket
     panes:
       - focus: true
-      - null
       - make repl
+      - null
