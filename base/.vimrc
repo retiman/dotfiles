@@ -149,11 +149,12 @@ let g:jellybeans_background_color_256='232'
 let g:neocomplcache_enable_at_startup=1
 let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
-let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
+let g:slime_default_config={'socket_name': 'default', 'target_pane': ':0.1'}
 let g:slime_dont_ask_default=1
-let g:slime_sessionname='0'
-let g:slime_target='tmux'
 let g:slime_no_mappings=1
+let g:slime_paste_file=tempname()
+let g:slime_sessionname='main'
+let g:slime_target='tmux'
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_files_number=5
 let g:startify_list_order=['dir', 'files', 'sessions']
@@ -254,9 +255,9 @@ nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode and selection mode mappings.
+vnoremap <leader>y :.w !pbcopy<cr><cr>
 vnoremap < <gv
 vnoremap > >gv
-vnoremap <leader>y :.w !pbcopy<cr><cr>
 
 " Visual mode only mappings.
 xmap <leader>x <plug>SlimeRegionSend
