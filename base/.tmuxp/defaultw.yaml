@@ -5,6 +5,6 @@ windows:
     options:
       main-pane-width: 162
     panes:
-      - null
+      - focus: true
       - null
       - null
