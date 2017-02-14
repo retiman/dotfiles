@@ -7,6 +7,6 @@ windows:
     shell_command_before:
       - cd ~/proj/homekeeper
     panes:
+      - focus: true
       - null
       - PYTHONSTARTUP=~/proj/homekeeper/startup.py python
-      - null
