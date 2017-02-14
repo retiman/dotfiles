@@ -1,0 +1,12 @@
+session_name: homekeeper
+windows:
+  - window_name: main
+    layout: main-vertical
+    options:
+      main-pane-width: 85
+    shell_command_before:
+      - cd ~/proj/homekeeper
+    panes:
+      - null
+      - PYTHONSTARTUP=~/proj/homekeeper/startup.py python
+      - null
