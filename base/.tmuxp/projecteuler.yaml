@@ -1,0 +1,12 @@
+session_name: projecteuler
+windows:
+  - window_name: main
+    layout: main-vertical
+    options:
+      main-pane-width: 85
+    shell_command_before:
+      - cd ~/proj/project-euler/racket
+    panes:
+      - focus: true
+      - null
+      - make repl
