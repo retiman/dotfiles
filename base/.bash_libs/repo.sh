@@ -17,23 +17,23 @@ function repo::root() {
 
 # Returns the branch you are on, with an asterisk if the branch has changes.
 function repo::branch() {
-  local URL=$(svn info 2> /dev/null | awk '/URL:/ {print $2}')
+  local URL=$(svn info 2> /dev/null | awk '/URL:/ {print $2}' | head -1)
   case "$URL" in
     */trunk)
-      # Fall through
-      ;&
+      echo "(trunk$(repo::svndirty))"
+      ;;
     */trunk/*)
       echo "(trunk$(repo::svndirty))"
       ;;
     */branches)
-      # Fall through
-      ;&
+      echo "(branches$(repo::svndirty))"
+      ;;
     */branches/*)
       echo "(branches$(repo::svndirty))"
       ;;
     */tags)
-      # Fall through
-      ;&
+      echo "(tags$(repo::svndirty))"
+      ;;
     */tags/*)
       echo "(tags$(repo::svndirty))"
       ;;
@@ -55,6 +55,6 @@ function repo::gitdirty() {
 
 # Returns an asterisk if the branch you are on is dirty (has changes).
 function repo::svndirty() {
-  local STATUS=$(svn status | awk '/^(A|M|?)/')
+  local STATUS=$(svn status | awk '/^(A|M|\?)/')
   [[ ! -z $STATUS ]] && echo '*'
 }
