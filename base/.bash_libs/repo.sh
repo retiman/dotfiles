@@ -19,13 +19,22 @@ function repo::root() {
 function repo::branch() {
   local URL=$(svn info 2> /dev/null | awk '/URL:/ {print $2}')
   case "$URL" in
-    */trunk/?*)
+    */trunk)
+      # Fall through
+      ;&
+    */trunk/*)
       echo "(trunk$(repo::svndirty))"
       ;;
-    */branches/?*)
+    */branches)
+      # Fall through
+      ;&
+    */branches/*)
       echo "(branches$(repo::svndirty))"
       ;;
-    */tags/?*)
+    */tags)
+      # Fall through
+      ;&
+    */tags/*)
       echo "(tags$(repo::svndirty))"
       ;;
     *)
