@@ -3,7 +3,7 @@
 # in the script, which will exit and accomplish nothing :)
 function repo::root() {
   pushd .
-  while [ ! -d .git ]; do
+  while [ ! -d .git ] && [ ! -d .svn ]; do
     cd ..
     if [ $(pwd) = '/' ]; then
       echo 'Not in a git repo.' >&1
@@ -19,13 +19,13 @@ function repo::root() {
 function repo::branch() {
   local URL=$(svn info 2> /dev/null | awk '/URL:/ {print $2}')
   case "$URL" in
-    */trunk)
+    */trunk/?*)
       echo "(trunk$(repo::svndirty))"
       ;;
-    */branches)
+    */branches/?*)
       echo "(branches$(repo::svndirty))"
       ;;
-    */tags)
+    */tags/?*)
       echo "(tags$(repo::svndirty))"
       ;;
     *)
