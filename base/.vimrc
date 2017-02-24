@@ -14,7 +14,7 @@
 " or hold shift when pasting (alternatively you can disable mouse=a).
 "
 " A note about accessing the clipboard over SSH: make sure to have X11
-" forwarding turned on and use Y/P to yank and paste over a remote session.
+" forwarding turned on and use ,y/,p to yank and paste over a remote session.
 "
 " A note about copying and pasting between terminals: make sure you have GVim
 " or vim-gtk package installed; regular vim won't work.
