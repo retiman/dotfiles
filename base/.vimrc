@@ -16,9 +16,6 @@
 " A note about accessing the clipboard over SSH: make sure to have X11
 " forwarding turned on and use ,y/,p to yank and paste over a remote session.
 "
-" A note about copying and pasting between terminals: make sure you have GVim
-" or vim-gtk package installed; regular vim won't work.
-"
 " A note about colors: install rxvt-unicode-256color or another terminal with
 " 256 color support or jellybeans colorscheme will look really bad.
 "
@@ -28,20 +25,8 @@
 " with your mappings without asking you first, so be sure to check.
 
 " These set directives must be set first.
-"
-" OSX sometimes has trouble with clipboard set to anything except "unnamed";
-" consider something like:
-"
-"   if has("unix")
-"     let s:uname = system("uname -s")
-"     if s:uname == "Darwin"
-"       set clipboard=unnamed
-"     endif
-"   endif
-"
-" See http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing
 set nocompatible
-set clipboard=autoselect,unnamedplus
+set clipboard=unnamed,unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -119,8 +104,13 @@ set wrapmargin=0
 " Run `source ~/.vim/test/color_test.vim` to see what ctermbg colors to set
 " so background colors aren't crazy grayish or light gray.  Set the
 " g:jellybeans_background_color_256 value to 232 to get black (this will even
-" work in tmux).
 let mapleader=','
+let g:EasyClipEnableBlackHoleRedirect=0
+let g:EasyClipShareYanks=1
+let g:EasyClipUseCutDefaults=0
+let g:EasyClipUseYankDefaults=1
+let g:EasyClipUsePasteDefaults=0
+let g:EasyClipUsePasteToggleDefaults=0
 let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
@@ -245,17 +235,18 @@ nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
-nnoremap <leader>p :r !pbpaste<CR>
+nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>t :!ctags -R * &<cr><cr>
 nnoremap <leader>o :call ToggleColorColumn()<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
+nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode and selection mode mappings.
-vnoremap <leader>y :.w !pbcopy<cr><cr>
+vnoremap <silent> <leader>y :.w !pbcopy<cr><cr>
 vnoremap < <gv
 vnoremap > >gv
 
