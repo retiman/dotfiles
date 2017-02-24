@@ -2,8 +2,6 @@ session_name: default
 windows:
   - window_name: main
     layout: main-vertical
-    options:
-      main-pane-width: 85
     panes:
       - focus: true
       - null

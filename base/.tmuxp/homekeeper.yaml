@@ -1,9 +1,7 @@
 session_name: homekeeper
 windows:
-  - window_name: main
+  - window_name: homekeeper
     layout: main-vertical
-    options:
-      main-pane-width: 85
     shell_command_before:
       - cd ~/proj/homekeeper
     panes:

@@ -1,9 +1,7 @@
 session_name: project-euler
 windows:
-  - window_name: main
+  - window_name: project-euler
     layout: main-vertical
-    options:
-      main-pane-width: 85
     shell_command_before:
       - cd ~/proj/project-euler/racket
     panes:
