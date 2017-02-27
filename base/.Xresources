@@ -49,7 +49,8 @@ URxvt.iso14755: false
 URxvt.italicFont:
 URxvt.loginShell: true
 URxvt.matcher.button: 1
-URxvt.modifier: mod4
+URxvt.metaSendsEscape: true
+URxvt.modifier: alt
 URxvt.perl-ext-common: clipboard,default,matcher,selection
 URxvt.preeditType: OnTheSpot,None
 URxvt.saveLines: 1000
