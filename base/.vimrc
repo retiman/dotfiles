@@ -72,7 +72,7 @@ set nosmartindent
 set noswapfile
 set novisualbell
 set number
-set pastetoggle=<leader>p
+set pastetoggle=<f1>
 set ruler
 set scrolloff=15
 set selection=inclusive
@@ -217,6 +217,7 @@ noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap j gj
 noremap k gk
+noremap <silent> <leader>y :w !pbcopy<cr><cr>
 
 " Command mode mappings.
 cnoremap w!! w !sudo tee % >/dev/null
@@ -235,18 +236,17 @@ nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
-nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>t :!ctags -R * &<cr><cr>
 nnoremap <leader>o :call ToggleColorColumn()<cr>
+nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode and selection mode mappings.
-vnoremap <silent> <leader>y :.w !pbcopy<cr><cr>
 vnoremap < <gv
 vnoremap > >gv
 
