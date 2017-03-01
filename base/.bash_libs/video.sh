@@ -11,6 +11,12 @@ function video::any2mkv() {
   done
 }
 
+function video::copy2mkv() {
+  for F in "$@"; do
+    ffmpeg -i "$F" -vcodec copy -acodec copy "$F.mkv"
+  done
+}
+
 function video::any2mp3() {
   for F in "$@"; do
     ffmpeg -i "$F" -ab 131072 -ar 44100 "$F.mp3"
