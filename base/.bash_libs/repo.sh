@@ -3,9 +3,9 @@
 # in the script, which will exit and accomplish nothing :)
 function repo::root() {
   pushd .
-  while [ ! -d .git ] && [ ! -d .svn ]; do
+  while [[ ! -d .git ]] && [[ ! -d .svn ]]; do
     cd ..
-    if [ $(pwd) = '/' ]; then
+    if [[ $(pwd) = '/' ]]; then
       echo 'Not in a git repo.' >&1
       popd
       return
