@@ -13,7 +13,7 @@
 KEY="$HOME/.ssh/id_dsa.pub"
 PORT="22"
 
-if [[ ! -f ${KEY} ]] ; then
+if [[ ! -f "${KEY}" ]] ; then
     echo "No public key found, you must use -f";
 fi
 
@@ -82,14 +82,14 @@ fi
 if [[ -n "${CONVERT}" ]] ; then
     MYHOST=`hostname`
     RF="/tmp/${USER}"`date +"%N"`
-    ssh-keygen -f $KEY -e > $RF
+    ssh-keygen -f "$KEY" -e > $RF
     if [[ $? -ne 0 ]] ; then
         echo "Something went wrong converting your key. Aborting"
         rm $RF
         exit 1
     fi
     KEY=$RF
-    ssh -p ${PORT} ${USER}@${HOST} "cat >> ~/.ssh2/${MYHOST}.pub ; echo \"Key ${MYHOST}.pub\" >> ~/.ssh2/authorization " < $KEY
+    ssh -p ${PORT} ${USER}@${HOST} "cat >> \"~/.ssh2/${MYHOST}.pub\" ; echo \"Key ${MYHOST}.pub\" >> \"~/.ssh2/authorization\" " < "$KEY"
     if [[ $? -ne 0 ]] ; then
         echo "Something went wrong transferring your key. Aborting"
         rm $RF
@@ -99,4 +99,4 @@ if [[ -n "${CONVERT}" ]] ; then
     exit 0
 fi
 
-ssh -p ${PORT} ${USER}@${HOST} 'cat >> ~/.ssh/authorized_keys' < $KEY
+ssh -p ${PORT} ${USER}@${HOST} 'cat >> ~/.ssh/authorized_keys' < "$KEY"
