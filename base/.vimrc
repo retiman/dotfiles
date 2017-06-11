@@ -136,7 +136,6 @@ let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='232'
-let g:neocomplcache_enable_at_startup=1
 let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
 let g:slime_default_config={'socket_name': 'default', 'target_pane': ':0.1'}
