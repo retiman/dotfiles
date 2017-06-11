@@ -17,15 +17,12 @@ export COLOR_LIGHT_GRAY="\[\033[0;37m\]"
 export COLOR_LIGHT_CYAN="\[\033[1;36m\]"
 export COLOR_LIGHT_PURPLE="\[\033[1;35m\]"
 export EDITOR=vim
-export JAVA_HOME=/opt/java
-export JDK_HOME=$JAVA_HOME
 export GHCRTS='-K512M'
 export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 export HISTIGNORE='ls:exit:rm'
 export MAILCHECK=NO
 export SVN_EDITOR=vim
-export TERMINFO=$HOME/.terminfo
 unset HISTSIZE
 unset HISTFILESIZE
 
@@ -48,14 +45,11 @@ fi
 source "$HOME/.bash_libs/common.sh"
 source "$HOME/.bash_libs/repo.sh"
 source "$HOME/.bash_libs/prompt.sh"
-source "$HOME/.bash_libs/audio.sh"
-source "$HOME/.bash_libs/video.sh"
 source "$HOME/.bash_aliases"
 [ -f "$HOME/.bash_local" ] && source "$HOME/.bash_local"
 
 # Additional PATHs
 addpath "$HOME/bin"
-addpath "$HOME/opt/android-studio/bin"
 
 # Color Options
 if type dircolors >/dev/null 2>&1; then
