@@ -103,7 +103,7 @@ set wrapmargin=0
 "
 " Run `source ~/.vim/test/color_test.vim` to see what ctermbg colors to set
 " so background colors aren't crazy grayish or light gray.  Set the
-" g:jellybeans_background_color_256 value to 232 to get black (this will even
+" g:jellybeans_background_color_256 value to 232 to get black.
 let mapleader=','
 let g:EasyClipEnableBlackHoleRedirect=0
 let g:EasyClipShareYanks=1
