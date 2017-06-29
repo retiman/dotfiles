@@ -1,3 +1,3 @@
-prompt::colorize $COLOR_GREEN
+prompt::colorize $COLOR_YELLOW
 
-alias racket='rlwrap ~/bin/racket'
+alias racket='rlwrap racket'
