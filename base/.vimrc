@@ -237,7 +237,9 @@ nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
-nnoremap <leader>t :!ctags -R * &<cr><cr>
+nnoremap <silent> <leader>tf :TestFile<cr>
+nnoremap <silent> <leader>ts :TestSuite<cr>
+nnoremap <silent> <leader>tt :TestNearest<cr>
 nnoremap <leader>o :call ToggleColorColumn()<cr>
 nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
