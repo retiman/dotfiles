@@ -131,6 +131,7 @@ let g:ctrlp_lazy_update=1
 let g:ctrlp_map='<c-t>'
 let g:ctrlp_reuse_window='startify'
 let g:ctrlp_root_markers=['project.vim', '.git']
+let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode='r'
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
