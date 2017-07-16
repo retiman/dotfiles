@@ -1,0 +1,6 @@
+{
+    "base_directory": "/home/minhuang/proj/dotfiles/base",
+    "dotfiles_directory": "/home/minhuang/proj/dotfiles/edge",
+    "includes": [".mplayer/config"],
+    "excludes": [".git"]
+}
