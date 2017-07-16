@@ -1,0 +1,11 @@
+{
+    "base": "/home/minhuang/proj/dotfiles/base",
+    "cherrypicks": [],
+    "directory": "/home/minhuang/proj/dotfiles/beast",
+    "excludes": [
+        ".git",
+        "LICENSE",
+        "README.md"
+    ],
+    "override": true
+}
