@@ -233,7 +233,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
-nnoremap <leader>cdf :lcd %:p:h<cr>:pwd<cr>| " Change to directory of file
+nnoremap <leader>cdf :lcd %:p:h<cr>:pwd<cr>|      " Change to directory of file
 nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
@@ -251,8 +251,9 @@ nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
-nnoremap gd <c-]>| " Jump to ctags definition
-nnoremap gb <c-T>| " Jump back from ctags definition
+nnoremap gb <c-T>|                                " Jump back from ctags def
+nnoremap gd <c-]>|                                " Jump to ctags def
+nnoremap gt <c-w><c-]><c-w>T|                     " Jump to ctags def in new tab
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
