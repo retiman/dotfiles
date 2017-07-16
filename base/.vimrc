@@ -203,7 +203,6 @@ noremap H <nop>
 noremap J <nop>
 noremap K <nop>
 noremap L <nop>
-noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap j gj
 noremap k gk
 noremap <silent> <leader>y :w !pbcopy<cr><cr>
@@ -234,6 +233,7 @@ nnoremap <silent> <leader>ts :TestSuite<cr>
 nnoremap <silent> <leader>tt :TestNearest<cr>
 nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
+nnoremap <silent> <leader>ws :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
