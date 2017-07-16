@@ -151,6 +151,7 @@ let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_files_number=5
 let g:startify_list_order=['dir', 'files', 'sessions']
 let g:startify_session_persistence=1
+let g:vcm_default_maps=0| "Disable default tab mappings for VCM
 
 " Enable 256 colors if running inside tmux or screen, also disable background
 " color erase.
