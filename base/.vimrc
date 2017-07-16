@@ -220,6 +220,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
+nnoremap <leader>cc :call ToggleColorColumn()<cr>
 nnoremap <leader>cdf :lcd %:p:h<cr>:pwd<cr>|      " Change to directory of file
 nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
@@ -231,7 +232,6 @@ nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <silent> <leader>tf :TestFile<cr>
 nnoremap <silent> <leader>ts :TestSuite<cr>
 nnoremap <silent> <leader>tt :TestNearest<cr>
-nnoremap <leader>o :call ToggleColorColumn()<cr>
 nnoremap <leader>p :r !pbpaste<cr>
 nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
