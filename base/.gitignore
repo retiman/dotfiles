@@ -2,24 +2,24 @@
 
 # Eclipse
 .classpath
-.project
 .settings
+.project
 
 # IDEA
-.idea
+out/
+.idea/
 *.iml
 *.ipr
 *.iws
-out/
 
 # Netbeans
+nbproject/
 build.xml
 manifest.mf
-nbproject/
 
 # Vim
 project.vim
-tags
+.tags
 *.swp
 *.swo
 *~
