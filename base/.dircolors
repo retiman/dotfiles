@@ -150,11 +150,11 @@ NORMAL 00
 # normal file
 FILE 00
 # directory
-DIR 34
+DIR 31;1
 # 777 directory
-OTHER_WRITABLE 34;40
+OTHER_WRITABLE 31;1;40
 # symbolic link
-LINK 35
+LINK 36
 
 # pipe, socket, block device, character device (blue bg)
 FIFO 30;44
@@ -434,10 +434,10 @@ EXEC 01;31  # Unix
 
 # The brightmagenta (Solarized: purple) color is free for you to use for your
 # custom file type
-.gpg 34
-.gpg 34
-.pgp 34
-.asc 34
-.3des 34
-.aes 34
-.enc 34
+.gpg 01;33
+.gpg 01;33
+.pgp 01;33
+.asc 01;33
+.3des 01;33
+.aes 01;33
+.enc 01;33
