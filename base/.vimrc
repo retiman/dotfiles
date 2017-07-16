@@ -106,13 +106,6 @@ set wrapmargin=0
 " so background colors aren't crazy grayish or light gray.  Set the
 " g:jellybeans_background_color_256 value to 232 to get black.
 let mapleader=','
-let g:EasyClipEnableBlackHoleRedirect=0
-let g:EasyClipShareYanks=1
-let g:EasyClipUseCutDefaults=0
-let g:EasyClipUseYankDefaults=1
-let g:EasyClipUsePasteDefaults=0
-let g:EasyClipUsePasteToggleDefaults=0
-let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
@@ -173,6 +166,7 @@ highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
 function! RestoreCursor()
+  " Restores cursor to where it used to be when the file was last opened.
   if line("'\"") <= line("$")
     normal! g`"
     return 1
@@ -180,22 +174,13 @@ function! RestoreCursor()
 endfunction
 
 function! ToggleColorColumn()
+  " Shows a colorcolumn at max colorcolumn length.
   if empty(&colorcolumn)
     setlocal colorcolumn=81
     echo 'colorcolumn=81'
   else
     setlocal colorcolumn=
     echo 'colorcolumn='
-  endif
-endfunction
-
-function! ToggleMouse()
-  if empty(&mouse)
-    setlocal mouse=a
-    echo 'mouse=a'
-  else
-    setlocal mouse=
-    echo 'mouse='
   endif
 endfunction
 
