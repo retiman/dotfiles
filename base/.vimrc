@@ -86,6 +86,7 @@ set smarttab
 set softtabstop=2
 set t_vb=
 set tabstop=2
+set tags=.tags;
 set textwidth=0
 set title
 set ttyfast
