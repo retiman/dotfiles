@@ -1,1 +1,0 @@
-../../base/.xinitrc.d/10-wallpaper.sh

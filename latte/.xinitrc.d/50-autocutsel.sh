@@ -1,1 +1,0 @@
-../../base/.xinitrc.d/50-autocutsel.sh
