@@ -145,6 +145,7 @@ let g:startify_files_number=5
 let g:startify_list_order=['dir', 'files', 'sessions']
 let g:startify_session_persistence=1
 let g:vcm_default_maps=0| "Disable default tab mappings for VCM
+let s:color_column=0
 
 " Enable 256 colors if running inside tmux or screen, also disable background
 " color erase.
@@ -175,13 +176,13 @@ endfunction
 
 function! ToggleColorColumn()
   " Shows a colorcolumn at max colorcolumn length.
-  if empty(&colorcolumn)
-    setlocal colorcolumn=81
-    echo 'colorcolumn=81'
-  else
-    setlocal colorcolumn=
-    echo 'colorcolumn='
-  endif
+    if s:color_column == 0
+        let s:color_column=&colorcolumn
+        set colorcolumn=0
+    else
+        let &colorcolumn=s:color_column
+        let s:color_column_old=0
+    endif
 endfunction
 
 function! ToggleQuickFix()
@@ -224,7 +225,6 @@ nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
-nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>n :set number!<cr>
 nnoremap <leader>re :res<cr>
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
