@@ -221,7 +221,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
 nnoremap <leader>cc :call ToggleColorColumn()<cr>
-nnoremap <leader>cdf :lcd %:p:h<cr>:pwd<cr>|      " Change to directory of file
+nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>|       " Change to directory of file
 nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
