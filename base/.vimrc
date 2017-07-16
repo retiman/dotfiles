@@ -234,6 +234,7 @@ nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>cpr :CtrlPClearCache<cr>
+nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
