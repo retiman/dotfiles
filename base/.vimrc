@@ -124,6 +124,7 @@ let g:airline_section_x='%{&ft} %{&fenc}'
 let g:airline_section_y='fo=%{&fo} tw=%{&tw} l=%{&list}'
 let g:airline_section_z='%3p%% %3l:%3c'
 let g:airline_theme='jellybeans'
+let g:autotagsTagsFile='.tags'
 let g:csv_autocmd_arrange=1
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
