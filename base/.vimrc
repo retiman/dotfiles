@@ -254,6 +254,7 @@ nnoremap <leader>/ :set hlsearch!<cr>
 nnoremap gb <c-T>|                                " Jump back from ctags def
 nnoremap gd <c-]>|                                " Jump to ctags def
 nnoremap gt <c-w><c-]><c-w>T|                     " Jump to ctags def in new tab
+nnoremap gl g]|                                   " Open tag list from def
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
