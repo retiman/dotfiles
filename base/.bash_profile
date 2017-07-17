@@ -55,7 +55,6 @@ source "$HOME/.bash_aliases"
 
 # Additional PATHs
 addpath "$HOME/bin"
-addpath "$HOME/opt/android-studio/bin"
 
 # Color Options
 if type dircolors >/dev/null 2>&1; then
@@ -70,4 +69,3 @@ case "$TERM" in
     *)
   ;;
 esac
-
