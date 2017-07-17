@@ -40,7 +40,6 @@ if type keychain >/dev/null 2>&1; then
     if [ -f "$HOME/.ssh/$F" ]; then
       keychain "$HOME/.ssh/$F"
     fi
-    unset F
   done
 eval $(keychain --eval --agents ssh -Q --quiet)
 
