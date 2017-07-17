@@ -44,6 +44,17 @@ function repo::branch() {
   esac
 }
 
+# Returns the branch of the nearest commit that resides on a branch other than
+# the current branch.
+function repo::origin() {
+  git show-branch -a \
+    | grep '\*' \
+    | grep -v `git rev-parse --abbrev-ref HEAD` \
+    | head -n1 \
+    | sed 's/.*\[\(.*\)\].*/\1/' \
+    | sed 's/[\^~].*//'
+}
+
 # Returns an asterisk if the branch you are on is dirty (has changes).
 function repo::gitdirty() {
   local M1="nothing to commit, working tree clean"
