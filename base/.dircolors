@@ -174,13 +174,13 @@ ORPHAN  05;37;41
 MISSING 05;37;41
 
 # files with execute permission
-EXEC 01;31  # Unix
-.cmd 01;31  # Win
-.exe 01;31  # Win
-.com 01;31  # Win
-.bat 01;31  # Win
-.reg 01;31  # Win
-.app 01;31  # OSX
+EXEC 01;32  # Unix
+.cmd 01;32  # Win
+.exe 01;32  # Win
+.com 01;32  # Win
+.bat 01;32  # Win
+.reg 01;32  # Win
+.app 01;32  # OSX
 
 #############################################################################
 ### By extension
