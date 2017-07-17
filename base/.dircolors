@@ -150,9 +150,9 @@ NORMAL 00
 # normal file
 FILE 00
 # directory
-DIR 31;1
+DIR 34
 # 777 directory
-OTHER_WRITABLE 31;1;40
+OTHER_WRITABLE 34;40
 # symbolic link
 LINK 36
 
