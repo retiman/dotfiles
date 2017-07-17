@@ -41,7 +41,7 @@ if type keychain >/dev/null 2>&1; then
       keychain "$HOME/.ssh/$F"
     fi
   done
-eval $(keychain --eval --agents ssh -Q --quiet)
+eval $(keychain --eval -Q --quiet)
 
 # Additional Bash Configuration
 source "$HOME/.bash_libs/common.sh"
