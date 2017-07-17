@@ -38,11 +38,11 @@ shopt -s histappend
 if type keychain >/dev/null 2>&1; then
   for F in id_dsa id_rsa; do
     if [ -f "$HOME/.ssh/$F" ]; then
-      eval $(keychain --eval --agents ssh -Q --quiet "$F")
+      keychain "$HOME/.ssh/$F"
     fi
     unset F
   done
-fi
+eval $(keychain --eval --agents ssh -Q --quiet)
 
 # Additional Bash Configuration
 source "$HOME/.bash_libs/common.sh"
