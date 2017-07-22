@@ -41,6 +41,7 @@ if type keychain >/dev/null 2>&1; then
       keychain "$HOME/.ssh/$F"
     fi
   done
+fi
 eval $(keychain --eval -Q --quiet)
 
 # Additional Bash Configuration
