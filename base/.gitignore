@@ -1,21 +1,11 @@
 # This is my global gitignore file.
 
-# Eclipse
-.classpath
-.settings
-.project
-
 # IDEA
 out/
 .idea/
 *.iml
 *.ipr
 *.iws
-
-# Netbeans
-nbproject/
-build.xml
-manifest.mf
 
 # Vim
 project.vim
