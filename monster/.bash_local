@@ -1,3 +1,6 @@
 prompt::colorize $COLOR_YELLOW
 
+alias gradle='gradle.cmd'
 alias racket='rlwrap racket'
+
+addpath /cygdrive/c/Users/retim/scoop/shims

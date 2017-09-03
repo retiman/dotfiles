@@ -64,4 +64,3 @@ case "$TERM" in
     *)
   ;;
 esac
-
