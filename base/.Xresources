@@ -39,7 +39,7 @@ URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
 URxvt.depth: 32
 URxvt.externalBorder: 0
-URxvt.font: xft:mono:size=11:antialias=true
+URxvt.font: xft:mono:size=10:antialias=true
 URxvt.foreground: #dedede
 URxvt.imLocale: en_US.UTF-8
 URxvt.inputMethod: ibus
@@ -69,7 +69,7 @@ URxvt.urlLauncher: /usr/bin/google-chrome
 URxvt.visualBell: false
 XTerm.audibleBell: false
 XTerm.bellIsUrgent: true
-XTerm.font: xft:mono:size=11:antialias=true
+XTerm.font: xft:mono:size=10:antialias=true
 XTerm.visualBell: false
 
 passwordDialog: true
