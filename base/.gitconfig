@@ -9,8 +9,8 @@
 [core]
   editor = vi
   excludesfile = "~/.gitignore"
- [alias]
-   br = branch
+[alias]
+  br = branch
   ci = commit
   co = checkout
   log = log --stat
