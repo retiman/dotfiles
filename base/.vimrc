@@ -208,6 +208,7 @@ noremap K <nop>
 noremap L <nop>
 noremap j gj
 noremap k gk
+noremap q <nop>
 noremap <silent> <leader>y :w !pbcopy<cr><cr>
 
 " Command mode mappings.
