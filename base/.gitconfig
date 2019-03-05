@@ -1,21 +1,23 @@
 [user]
-  name = Min Huang
-  email = min.huang@alumni.usc.edu
-  signingkey = "5DB05144"
+	name = Min Huang
+	email = min.huang@alumni.usc.edu
+	signingkey = "5DB05144"
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+	diff = auto
+	status = auto
+	branch = auto
 [core]
-  editor = vi
-  excludesfile = "~/.gitignore"
+	editor = vi
+	excludesfile = "~/.gitignore"
 [alias]
-  br = branch
-  ci = commit
-  co = checkout
-  log = log --stat
-  pick = cherry-pick -x
-  pull = pull --stat
-  st = status
+	br = branch
+	ci = commit
+	co = checkout
+	log = log --stat
+	pick = cherry-pick -x
+	pull = pull --stat
+	st = status
 [push]
-  default = matching
+	default = matching
+[rerere]
+	enabled = true
