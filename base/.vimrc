@@ -133,6 +133,9 @@ let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='232'
+let g:netrw_banner=1
+let g:netrw_browse_split=3
+let g:netrw_liststyle=3
 let g:pathogen_disabled=[]
 let g:slime_default_config={'socket_name': 'default', 'target_pane': ':0.1'}
 let g:slime_dont_ask_default=1
@@ -173,7 +176,7 @@ endfunction
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap ; :
-noremap E :e .<cr>
+noremap E :Explore<cr>
 noremap H <nop>
 noremap J <nop>
 noremap K <nop>
@@ -193,8 +196,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <c-n> :bnext<cr>
-nnoremap <c-p> :bprev<cr>
+nnoremap <c-n> gt<cr>
+nnoremap <c-p> gT<cr>
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>|       " Change to directory of file
 nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
