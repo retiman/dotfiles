@@ -208,6 +208,7 @@ nnoremap <silent> <leader>tf :TestFile<cr>
 nnoremap <silent> <leader>ts :TestSuite<cr>
 nnoremap <silent> <leader>tt :TestNearest<cr>
 nnoremap <leader>p :r !pbpaste<cr>
+nnoremap <leader>q :qa!<cr>
 nnoremap <silent> <leader>ws :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
