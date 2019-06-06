@@ -171,27 +171,6 @@ function! RestoreCursor()
   endif
 endfunction
 
-function! ToggleColorColumn()
-  " Shows a colorcolumn at max colorcolumn length.
-    if s:color_column == 0
-        let s:color_column=&colorcolumn
-        set colorcolumn=0
-    else
-        let &colorcolumn=s:color_column
-        let s:color_column_old=0
-    endif
-endfunction
-
-function! ToggleQuickFix()
-  if g:quickfix_is_open
-    cclose
-    let g:quickfix_is_open=0
-  else
-    copen
-    let g:quickfix_is_open=1
-  endif
-endfunction
-
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap ; :
@@ -217,7 +196,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
-nnoremap <leader>cc :call ToggleColorColumn()<cr>
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>|       " Change to directory of file
 nnoremap <leader>cpr :CtrlPClearCache<cr>
 nnoremap <leader>ctc :RepoRoot<cr>:!ctags -f .tags -R .<cr>
@@ -230,7 +208,6 @@ nnoremap <silent> <leader>tf :TestFile<cr>
 nnoremap <silent> <leader>ts :TestSuite<cr>
 nnoremap <silent> <leader>tt :TestNearest<cr>
 nnoremap <leader>p :r !pbpaste<cr>
-nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <silent> <leader>ws :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <silent> <leader> y :.w !pbcopy<cr><cr>
 nnoremap <leader>= <c-w>=<cr>
