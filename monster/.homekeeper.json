@@ -1,5 +1,5 @@
 {
-    "base_directory": "/home/retim/proj/dotfiles/base",
-    "dotfiles_directory": "/home/retim/proj/dotfiles/monster",
+    "base_directory": "/home/minhuang/proj/dotfiles/base",
+    "dotfiles_directory": "/home/minhuang/proj/dotfiles/monster",
     "excludes": [".git"]
 }
