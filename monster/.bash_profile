@@ -46,6 +46,7 @@ source "$HOME/.bash_libs/common.sh"
 source "$HOME/.bash_libs/repo.sh"
 source "$HOME/.bash_libs/prompt.sh"
 source "$HOME/.bash_aliases"
+source "$HOME/.bazel/bin/bazel-complete.bash"
 [ -f "$HOME/.bash_local" ] && source "$HOME/.bash_local"
 
 # Additional PATHs
