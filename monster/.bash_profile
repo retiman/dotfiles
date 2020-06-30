@@ -50,6 +50,8 @@ source "$HOME/.bash_aliases"
 
 # Additional PATHs
 addpath "$HOME/bin"
+addpath "$HOME/opt/apache-maven/bin"
+addpath "$HOME/opt/gradle/bin"
 
 # Color Options
 if type dircolors >/dev/null 2>&1; then
