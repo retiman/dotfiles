@@ -16,5 +16,4 @@ alias racket='rlwrap racket'
 alias rr='repo::root'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sudo='sudo ' # tell bash to respect aliases
-alias tmux='tmux -2'
 alias vi='vim'
