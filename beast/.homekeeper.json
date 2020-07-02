@@ -1,9 +1,0 @@
-{
-    "base_directory": "/home/minhuang/proj/dotfiles/base",
-    "dotfiles_directory": "/home/minhuang/proj/dotfiles/beast",
-    "excludes": [
-        ".git",
-        "LICENSE",
-        "README.md"
-    ]
-}

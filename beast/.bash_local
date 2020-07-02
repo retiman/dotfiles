@@ -1,3 +1,0 @@
-prompt::colorize $COLOR_YELLOW
-
-alias racket='rlwrap racket'
