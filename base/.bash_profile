@@ -17,8 +17,6 @@ export COLOR_LIGHT_GRAY="\[\033[0;37m\]"
 export COLOR_LIGHT_CYAN="\[\033[1;36m\]"
 export COLOR_LIGHT_PURPLE="\[\033[1;35m\]"
 export EDITOR=vim
-export JAVA_HOME=/opt/java
-export JDK_HOME=$JAVA_HOME
 export GHCRTS='-K512M'
 export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignoredups:ignorespace
@@ -44,12 +42,11 @@ if type keychain >/dev/null 2>&1; then
 fi
 eval $(keychain --eval -Q --quiet)
 
-# Additional Bash Configuration
+# Additional Bash configuration
 source "$HOME/.bash_libs/common.sh"
 source "$HOME/.bash_libs/repo.sh"
 source "$HOME/.bash_libs/prompt.sh"
 source "$HOME/.bash_aliases"
-[ -f "$HOME/.bash_local" ] && source "$HOME/.bash_local"
 
 # Additional PATHs
 addpath "$HOME/bin"
@@ -67,3 +64,6 @@ case "$TERM" in
     *)
   ;;
 esac
+
+# Source additional configuration.
+[ -f "$HOME/.bash_local" ] && source "$HOME/.bash_local"
