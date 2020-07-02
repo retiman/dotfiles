@@ -1,1 +1,7 @@
+addpath $HOME/opt/apache-maven/bin
+addpath $HOME/opt/gradle/bin
+addpath $HOME/.bazel/bin
+
+source $HOME/.bazel/bin/bazel-complete.bash
+
 prompt::colorize $COLOR_CYAN
