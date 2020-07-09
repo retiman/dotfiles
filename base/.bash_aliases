@@ -1,3 +1,4 @@
+alias blaze='bazel'
 alias cls='printf "\033c"'
 alias df='df -h'
 alias diff='colordiff'
