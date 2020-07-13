@@ -1,5 +1,7 @@
 {
-    "base_directory": "/home/retiman/proj/dotfiles/base",
-    "dotfiles_directory": "/home/retiman/proj/dotfiles/facebook",
-    "excludes": [".git"]
+  "directories": [
+    "/home/retiman/proj/dotfiles/base",
+    "/home/retiman/proj/dotfiles/facebook"
+  ],
+  "excludes": [".git"]
 }
