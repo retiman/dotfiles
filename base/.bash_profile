@@ -51,6 +51,7 @@ source "$HOME/.bash_libs/prompt.sh"
 source "$HOME/.bash_aliases"
 
 # Additional PATHs
+addpath "$HOME/.local/bin"
 addpath "$HOME/bin"
 
 # Color Options
