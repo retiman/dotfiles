@@ -1,3 +1,4 @@
+addpath "$HOME/opt/apache-ant/bin"
 addpath "$HOME/opt/apache-maven/bin"
 addpath "$HOME/opt/gradle/bin"
 addpath "$HOME/.bazel/bin"
