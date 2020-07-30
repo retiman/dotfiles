@@ -1,8 +1,0 @@
-"amixer -c 0 set Master 2dB- unmute"
-  Mod2 + KP_Subtract
-"amixer -c 0 set Master 2dB+ unmute"
-  Mod2 + KP_Add
-"amixer set -c 0 Master toggle"
-  Mod2 + KP_Enter
-"xte 'mouseclick 8'"
-  Mod2 + Control + BackSpace

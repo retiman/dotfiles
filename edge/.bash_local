@@ -1,3 +1,0 @@
-export TERMINAL=urxvtc
-
-prompt::colorize $COLOR_GREEN
