@@ -1,7 +1,0 @@
-{
-  "directories": [
-    "/home/minhuang/proj/dotfiles/base",
-    "/home/minhuang/proj/dotfiles/linny"
-  ],
-  "excludes": [".git"]
-}
