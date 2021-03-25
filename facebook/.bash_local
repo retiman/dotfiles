@@ -1,6 +1,5 @@
 addpath $HOME/opt/apache-maven/bin
 addpath $HOME/opt/gradle/bin
-addpath $HOME/opt/go/bin
 addpath "/mnt/c/Program Files/Go/bin"
 addpath "/mnt/c/Program Files/Docker/Docker/resources"
 
