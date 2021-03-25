@@ -6,4 +6,4 @@ addpath "/mnt/c/Program Files/Docker/Docker/resources"
 alias docker='docker.exe'
 alias go='go.exe'
 
-prompt::colorize $COLOR_CYAN
+prompt::colorizewithgit $COLOR_CYAN
