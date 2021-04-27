@@ -1,11 +1,5 @@
 " How to use retiman's flavor of vim with plugins 'o plenty
 " =========================================================
-" ctrlp
-"   <c-t> opens file list
-"   <F5> refreshes an open file list
-" vim-reporoot
-"   :RepoRoot goes to the repository's root
-"
 " A note about setting mouse=a: it turns out you can't copy and paste symbols
 " like ツ with mouse=a unless you hold shift while selecting with the mouse
 " or hold shift when pasting (alternatively you can disable mouse=a).
@@ -43,7 +37,7 @@ set cursorline
 set display+=lastline
 set expandtab
 set fileformat=unix
-set fillchars=stl:\ ,stlnc:\ 
+set fillchars=stl:\ ,stlnc:\
 set formatoptions-=c
 set formatoptions-=t
 set gdefault
@@ -91,6 +85,7 @@ set ttyfast
 set undofile
 set undodir=/tmp
 set viminfo='10,\"100,:20,n~/.viminfo
+set visualbell
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.swp,*.swo,*~
