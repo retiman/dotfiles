@@ -5,4 +5,4 @@ addpath "$HOME/opt/apache-maven/bin"
 addpath "$HOME/opt/gradle/bin"
 addpath "$HOME/.gem/local/bin"
 
-prompt::colorizewithgit $COLOR_YELLOW
+prompt::setup $COLOR_YELLOW
