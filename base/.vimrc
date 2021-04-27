@@ -1,8 +1,5 @@
 " How to use retiman's flavor of vim with plugins 'o plenty
 " =========================================================
-" CamelCaseMotion
-"   <leader>w moves forward one word
-"   <leader>b moves backwards one word
 " ctrlp
 "   <c-t> opens file list
 "   <F5> refreshes an open file list
