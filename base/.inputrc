@@ -1,6 +1,7 @@
+set bell-style visible
+set editing-mode emacs
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
-set editing-mode emacs
 
 "\e[A":history-search-backward
 "\e[B":history-search-forward
