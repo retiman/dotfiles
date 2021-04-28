@@ -1,4 +1,7 @@
 {
-  "directory": "/home/minhuang/proj/dotfiles/root",
+  "directories": [
+    "/home/minhuang/proj/dotfiles/base",
+    "/home/minhuang/proj/dotfiles/facebook"
+  ],
   "excludes": [".git"]
 }

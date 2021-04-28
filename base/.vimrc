@@ -22,7 +22,6 @@ set colorcolumn=81
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
-set cursorline
 set display+=lastline
 set expandtab
 set fileformat=unix
