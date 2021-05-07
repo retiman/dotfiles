@@ -1,1 +1,7 @@
+export GOPATH=$HOME/.go
+export GOROOT=/usr/local/go
+
+addpath $GOROOT/bin
+addpath $GOPATH/bin
+
 prompt::setup $COLOR_CYAN
