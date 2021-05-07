@@ -16,6 +16,7 @@ export COLOR_LIGHT_PURPLE="\[\e[35m\]"
 export COLOR_NORMAL="\[\e[0m\]"
 export EDITOR=vim
 export GIT_EDITOR=vim
+export GIT_PAGER=cat git diff
 export LESS="$LESS -Q -R"
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 export HISTIGNORE='ls:exit:rm'
