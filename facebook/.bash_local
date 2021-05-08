@@ -3,5 +3,6 @@ export GOROOT=/usr/local/go
 
 addpath $GOROOT/bin
 addpath $GOPATH/bin
+addpath /usr/local/node/bin
 
 prompt::setup $COLOR_CYAN
