@@ -50,7 +50,6 @@ set noerrorbells
 set nofoldenable
 set nosmartindent
 set noswapfile
-set novisualbell
 set number
 set pastetoggle=<f1>
 set ruler
@@ -73,6 +72,7 @@ set ttyfast
 set undofile
 set undodir=/tmp
 set viminfo='10,\"100,:20,n~/.viminfo
+set visualbell
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.swp,*.swo,*~
