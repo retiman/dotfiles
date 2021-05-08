@@ -22,7 +22,6 @@ set colorcolumn=81
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
-set cursorline
 set display+=lastline
 set expandtab
 set fileformat=unix
@@ -33,6 +32,7 @@ set gdefault
 set guioptions+=c
 set hidden
 set history=50
+set hlsearch
 set incsearch
 set ignorecase
 set indentexpr=
@@ -48,7 +48,6 @@ set nobackup
 set nocindent
 set noerrorbells
 set nofoldenable
-set nohlsearch
 set nosmartindent
 set noswapfile
 set novisualbell
@@ -74,7 +73,6 @@ set ttyfast
 set undofile
 set undodir=/tmp
 set viminfo='10,\"100,:20,n~/.viminfo
-set visualbell
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.swp,*.swo,*~
