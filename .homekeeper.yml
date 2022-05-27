@@ -1,0 +1,8 @@
+directories:
+  - /home/minhuang/proj/dotfiles
+ignores:
+  - .editorconfig
+  - .git
+  - .gitattributes
+  - LICENSE
+  - README.md

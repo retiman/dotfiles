@@ -1,6 +1,0 @@
-export GOPATH=$USER/.go
-export GOROOT=/usr/local/go
-
-addpath $GOROOT/bin
-
-prompt::setup $COLOR_YELLOW
