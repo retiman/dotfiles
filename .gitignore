@@ -1,2 +1,14 @@
-base/.i3/config
-.netrwhist
+# This is my global gitignore file.
+
+# IDEA
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+.tags
+*.swp
+*.swo
+*~
