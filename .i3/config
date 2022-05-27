@@ -28,7 +28,6 @@ workspace_auto_back_and_forth no
 # To find a window's class, run xprop then click on the window in question.
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
-assign [class="Avidemux2_gtk"] 8
 assign [class="Google-chrome"] 9
 assign [class="VirtualBox"] 10
 assign [class="thunar"] 8
@@ -39,14 +38,12 @@ assign [class="thunar"] 8
 # The WM_CLASS corresponds to the class in i3.  You can also assign by
 # title using the WM_NAME property.
 for_window [window_role="pop-up"] floating enable
-for_window [class="Avidemux2_gtk"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="Google-chrome"] layout stacking
 for_window [class="MPlayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
 for_window [class="chromium"] layout stacking
 for_window [class="emulator64-x86"] floating enable
-for_window [class="feh"] floating enable
 for_window [class="google-chrome"] layout stacking
 for_window [class="jetbrains-idea"] layout stacking
 for_window [class="mplayer2"] floating enable
