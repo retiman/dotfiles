@@ -80,17 +80,12 @@ set wildmode=list:longest
 set wrapmargin=0
 
 let mapleader=','
-let g:netrw_banner=1
-let g:netrw_browse_split=3
-let g:netrw_liststyle=3
 let s:color_column=0
 
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
-
-colorscheme mango
 
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
@@ -111,13 +106,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> gt<cr>
 nnoremap <c-p> gT<cr>
-nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>n :set number!<cr>
 nnoremap <leader>q :qa!<cr>
-nnoremap <silent> <leader>ws :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-nnoremap <leader>= <c-w>=<cr>
-nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
