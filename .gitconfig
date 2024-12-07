@@ -1,11 +1,13 @@
 [user]
 	name = Min Huang
-	email = min.huang@alumni.usc.edu
+	email = "min.huang@alumni.usc.edu"
 	signingkey = "7E15F641F79D7CBDD73759389857B189CF4E037F"
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+[gpg]
+	program = C:/Program Files (x86)/GnuPG/bin/gpg.exe
 [core]
 	editor = vi
 	excludesfile = "~/.gitignore"
@@ -18,6 +20,6 @@
 	pull = pull --stat
 	st = status
 [push]
-	default = matching
+	default = current
 [rerere]
 	enabled = true
