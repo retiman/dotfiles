@@ -1,0 +1,6 @@
+" Makes ctrl-c and yank share the same clipboard.
+set clipboard=unnamedplus
+
+" Turn off all the annoying bells
+set visualbell
+set noerrorbells
